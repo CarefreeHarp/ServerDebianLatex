@@ -1,0 +1,12 @@
+.aldine-out/
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.run.xml

@@ -1,0 +1,29 @@
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\usepackage{hyperref}
+\addbibresource{references.bib}
+
+\title{Your Report Title}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{Background}
+Prior work~\cite{knuth1984} suggests\ldots
+
+\chapter{Conclusion}
+Summarize the contribution.
+
+\printbibliography
+\end{document}
