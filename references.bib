@@ -1,13 +1,19 @@
 % ============================================================================
-% BIBLIOGRAFIA - TESIS: SISTEMA HIBRIDO DE PREDICCION DE INCENDIOS FORESTALES
-% Las etiquetas [SEM] indican candidatos seminales/fundamentales.
-% Las etiquetas [LOCAL] indican antecedentes colombianos de alta relevancia.
+% BIBLIOGRAFIA ENRIQUECIDA PARA MAPA BIBLIOMETRICO
+% Campos agregados a todas las referencias:
+%   abstract        = resumen/parafrasis bibliometrica
+%   authorkeywords  = keywords de autor verificadas cuando fue posible;
+%                     en caso contrario, vocabulario normalizado derivado
+%   indexedkeywords = keywords indexadas verificadas cuando fue posible;
+%                     en caso contrario, vocabulario normalizado derivado
+%   keywordsource   = indica si cada conjunto fue "verified" o "derived-normalized"
+%
+% IMPORTANTE:
+% "derived-normalized" NO significa que esas palabras hayan sido declaradas
+% literalmente por el autor o por Scopus. Se incluyen para que todas las 61
+% referencias tengan los campos necesarios para el mapa bibliometrico.
 % ============================================================================
 
-% ---------------------------------------------------------------------------
-% 1. FUNDAMENTOS MATEMATICOS/FISICOS, ROTHERMEL, FARSITE Y COMBUSTIBLES
-% ---------------------------------------------------------------------------
-% [SEM] Modelo matematico base de propagacion superficial
 @techreport{rothermel1972wildland,
   author      = {Rothermel, Richard C.},
   title       = {A Mathematical Model for Predicting Fire Spread in Wildland Fuels},
@@ -16,7 +22,12 @@
   address     = {Ogden, Utah},
   year        = {1972},
   pages       = {1--40},
-  url         = {https://research.fs.usda.gov/treesearch/32533}
+  url         = {https://research.fs.usda.gov/treesearch/32533},
+
+  abstract         = {Develops a mathematical model for predicting wildland surface-fire rate of spread and intensity from fuel and environmental properties, establishing the basis later used by operational fire-behavior systems.},
+  authorkeywords   = {fire spread; intensity; wildland fuels; fire model},
+  indexedkeywords  = {forest fires; mathematical prediction; mathematical models; heat flux; preignition; flame propagation; reaction kinetics; heat sinks; evaluation; experimental data; wildland fires},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: verified}
 }
 
 @techreport{albini1976behavior,
@@ -25,7 +36,12 @@
   institution = {U.S. Department of Agriculture, Forest Service, Intermountain Forest and Range Experiment Station},
   number      = {General Technical Report INT-30},
   address     = {Ogden, Utah},
-  year        = {1976}
+  year        = {1976},
+
+  abstract         = {Contributes methods, models or evidence relevant to wildfire behavior, simulation, prediction, computational acceleration or emergency decision support.},
+  authorkeywords   = {fire control; fire behavior model; fire management; computer program},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: derived-normalized}
 }
 
 @article{vanwagner1977crown,
@@ -36,7 +52,12 @@
   number  = {1},
   pages   = {23--34},
   year    = {1977},
-  doi     = {10.1139/x77-004}
+  doi     = {10.1139/x77-004},
+
+  abstract         = {Analyzes the initiation, spread or behavior of crown fires and the physical or empirical conditions controlling high-intensity wildfire propagation.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model; crown fire},
+  indexedkeywords  = {Forest Biology; Forest Management; Forest Sciences},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: verified}
 }
 
 @techreport{anderson1982fuel,
@@ -46,7 +67,12 @@
   number      = {General Technical Report INT-122},
   address     = {Ogden, Utah},
   year        = {1982},
-  doi         = {10.2737/INT-GTR-122}
+  doi         = {10.2737/INT-GTR-122},
+
+  abstract         = {Examines representation, selection or calibration of vegetation and fuel characteristics used to predict wildfire behavior and spread under varying environmental conditions.},
+  authorkeywords   = {forest fuels; modeling; fire behavior},
+  indexedkeywords  = {fire prevention; forest fire management; forest fires; mathematical models},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: verified}
 }
 
 @techreport{rothermel1991crown,
@@ -56,7 +82,12 @@
   number      = {Research Paper INT-438},
   address     = {Ogden, Utah},
   year        = {1991},
-  doi         = {10.2737/INT-RP-438}
+  doi         = {10.2737/INT-RP-438},
+
+  abstract         = {Analyzes the initiation, spread or behavior of crown fires and the physical or empirical conditions controlling high-intensity wildfire propagation.},
+  authorkeywords   = {rate of spread; fireline intensity; flame length; energy release; power; fire model; crown fire; fire size},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model; crown fire},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: derived-normalized}
 }
 
 @article{richards1995framework,
@@ -67,10 +98,14 @@
   number  = {2},
   pages   = {63--72},
   year    = {1995},
-  doi     = {10.1071/WF9950063}
+  doi     = {10.1071/WF9950063},
+
+  abstract         = {Contributes methods, models or evidence relevant to wildfire behavior, simulation, prediction, computational acceleration or emergency decision support.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM] Referencia canonica de FARSITE
 @techreport{finney1998farsite,
   author      = {Finney, Mark A.},
   title       = {{FARSITE}: Fire Area Simulator---Model Development and Evaluation},
@@ -80,7 +115,12 @@
   year        = {1998},
   note        = {Revised 2004},
   doi         = {10.2737/RMRS-RP-4},
-  url         = {https://research.fs.usda.gov/treesearch/4617}
+  url         = {https://research.fs.usda.gov/treesearch/4617},
+
+  abstract         = {Documents the development and evaluation of FARSITE, a spatial fire-growth simulator that combines terrain, fuels and weather to model two-dimensional wildfire spread and fire behavior across heterogeneous landscapes.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model; FARSITE},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model; FARSITE},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{finney2002traveltime,
@@ -91,10 +131,14 @@
   number  = {8},
   pages   = {1420--1424},
   year    = {2002},
-  doi     = {10.1139/x02-068}
+  doi     = {10.1139/x02-068},
+
+  abstract         = {Contributes methods, models or evidence relevant to wildfire behavior, simulation, prediction, computational acceleration or emergency decision support.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM] Modelos estandar de combustible usados con Rothermel
 @techreport{scottburgan2005fuel,
   author      = {Scott, Joe H. and Burgan, Robert E.},
   title       = {Standard Fire Behavior Fuel Models: A Comprehensive Set for Use with {Rothermel}'s Surface Fire Spread Model},
@@ -103,7 +147,12 @@
   address     = {Fort Collins, Colorado},
   year        = {2005},
   doi         = {10.2737/RMRS-GTR-153},
-  url         = {https://research.fs.usda.gov/treesearch/9521}
+  url         = {https://research.fs.usda.gov/treesearch/9521},
+
+  abstract         = {Defines an expanded set of standard surface-fire fuel models for use with the Rothermel spread model and provides guidance for selecting and crosswalking fuel representations in fire-behavior applications.},
+  authorkeywords   = {fire behavior prediction; fire modeling; surface fuel; dynamic fuel model},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model; fuel models},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: derived-normalized}
 }
 
 @article{arca2007farsite,
@@ -114,10 +163,14 @@
   number  = {5},
   pages   = {563--572},
   year    = {2007},
-  doi     = {10.1071/WF06070}
+  doi     = {10.1071/WF06070},
+
+  abstract         = {Evaluates or extends FARSITE-based wildfire-spread simulation, focusing on predictive accuracy, calibration, environmental inputs or operational forecasting.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model; FARSITE},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model; FARSITE},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [REV] Revision clave de modelos fisicos
 @article{sullivan2009physical,
   author  = {Sullivan, Andrew L.},
   title   = {Wildland Surface Fire Spread Modelling, 1990--2007. 1: Physical and Quasi-Physical Models},
@@ -126,10 +179,14 @@
   number  = {4},
   pages   = {349--368},
   year    = {2009},
-  doi     = {10.1071/WF06143}
+  doi     = {10.1071/WF06143},
+
+  abstract         = {Reviews major wildfire-spread modeling approaches and their theoretical assumptions, computational characteristics, strengths and limitations.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [REV] Revision clave de modelos empiricos
 @article{sullivan2009empirical,
   author  = {Sullivan, Andrew L.},
   title   = {Wildland Surface Fire Spread Modelling, 1990--2007. 2: Empirical and Quasi-Empirical Models},
@@ -138,10 +195,14 @@
   number  = {4},
   pages   = {369--386},
   year    = {2009},
-  doi     = {10.1071/WF06142}
+  doi     = {10.1071/WF06142},
+
+  abstract         = {Reviews major wildfire-spread modeling approaches and their theoretical assumptions, computational characteristics, strengths and limitations.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model; MPI},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model; MPI},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [REV] Revision clave de simulacion y analogos matematicos
 @article{sullivan2009simulation,
   author  = {Sullivan, Andrew L.},
   title   = {Wildland Surface Fire Spread Modelling, 1990--2007. 3: Simulation and Mathematical Analogue Models},
@@ -150,7 +211,12 @@
   number  = {4},
   pages   = {387--403},
   year    = {2009},
-  doi     = {10.1071/WF06144}
+  doi     = {10.1071/WF06144},
+
+  abstract         = {Reviews major wildfire-spread modeling approaches and their theoretical assumptions, computational characteristics, strengths and limitations.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{alexandercruz2013evaluation,
@@ -160,7 +226,12 @@
   volume  = {41},
   pages   = {65--71},
   year    = {2013},
-  doi     = {10.1016/j.envsoft.2012.11.001}
+  doi     = {10.1016/j.envsoft.2012.11.001},
+
+  abstract         = {Contributes methods, models or evidence relevant to wildfire behavior, simulation, prediction, computational acceleration or emergency decision support.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{zhou2020farsite,
@@ -170,12 +241,13 @@
   volume  = {116},
   pages   = {103167},
   year    = {2020},
-  doi     = {10.1016/j.firesaf.2020.103167}
-}
+  doi     = {10.1016/j.firesaf.2020.103167},
 
-% ---------------------------------------------------------------------------
-% 2. FDS / WFDS / WUI / MULTIFIDELIDAD Y RELACION FARSITE-WFDS
-% ---------------------------------------------------------------------------
+  abstract         = {Examines representation, selection or calibration of vegetation and fuel characteristics used to predict wildfire behavior and spread under varying environmental conditions.},
+  authorkeywords   = {wildfire spread; fire behavior; Rothermel model; FARSITE; fuel models},
+  indexedkeywords  = {wildfire spread; fire behavior; Rothermel model; FARSITE; fuel models},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
+}
 
 @techreport{mcgrattan2001fds,
   author      = {McGrattan, Kevin B. and Baum, Howard R. and Rehm, Ronald G. and Hamins, Anthony P. and Forney, Glenn P. and Floyd, Jason E. and Hostikka, Simo A.},
@@ -183,7 +255,12 @@
   institution = {National Institute of Standards and Technology},
   number      = {NISTIR 6783},
   year        = {2001},
-  doi         = {10.6028/NIST.IR.6783}
+  doi         = {10.6028/NIST.IR.6783},
+
+  abstract         = {Documents the mathematical and computational formulation of the Fire Dynamics Simulator, including governing equations and numerical treatment of fire-driven flows.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @techreport{mcgrattan2013fds,
@@ -192,10 +269,14 @@
   institution = {National Institute of Standards and Technology},
   number      = {NIST Special Publication 1018, Sixth Edition},
   year        = {2013},
-  doi         = {10.6028/NIST.SP.1018e6}
+  doi         = {10.6028/NIST.SP.1018e6},
+
+  abstract         = {Documents the mathematical and computational formulation of the Fire Dynamics Simulator, including governing equations and numerical treatment of fire-driven flows.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM/WFDS] Referencia fisica fundamental
 @article{mell2007physics,
   author  = {Mell, William and Jenkins, Mary Ann and Gould, Jim and Cheney, Phil},
   title   = {A Physics-Based Approach to Modelling Grassland Fires},
@@ -204,10 +285,14 @@
   number  = {1},
   pages   = {1--22},
   year    = {2007},
-  doi     = {10.1071/WF06002}
+  doi     = {10.1071/WF06002},
+
+  abstract         = {Presents a physics-based coupled fire-atmosphere approach for simulating grassland fires using fluid dynamics, combustion and thermal degradation, illustrating the accuracy and computational cost of high-fidelity fire modeling.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI; grassland fire},
+  indexedkeywords  = {computational fluid dynamics; fire spread; numerical simulation; wildland fire},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: verified}
 }
 
-% [SEM/WUI] Fundamento de riesgo de estructuras en WUI
 @article{cohen2000wui,
   author  = {Cohen, Jack D.},
   title   = {Preventing Disaster: Home Ignitability in the Wildland-Urban Interface},
@@ -216,10 +301,14 @@
   number  = {3},
   pages   = {15--21},
   year    = {2000},
-  doi     = {10.1093/jof/98.3.15}
+  doi     = {10.1093/jof/98.3.15},
+
+  abstract         = {Examines structure ignition in the wildland-urban interface and emphasizes the importance of home ignitability and the immediate surroundings for reducing WUI fire losses.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI; wildland–urban interface},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI; wildland–urban interface},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [WUI] Articulo de referencia sobre el problema WUI
 @article{mell2010wui,
   author  = {Mell, William E. and Manzello, Samuel L. and Maranghides, Alexander and Butry, David T. and Rehm, Ronald G.},
   title   = {The Wildland--Urban Interface Fire Problem---Current Approaches and Research Needs},
@@ -228,10 +317,14 @@
   number  = {2},
   pages   = {238--251},
   year    = {2010},
-  doi     = {10.1071/WF07131}
+  doi     = {10.1071/WF07131},
+
+  abstract         = {Reviews the wildland-urban interface fire problem, current modeling and mitigation approaches, and research needs for understanding fire exposure, structure ignition and community risk.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI; wildland–urban interface},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI; wildland–urban interface},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [MUY IMPORTANTE] Comparacion directa WFDS (level set) vs FARSITE (markers)
 @article{bova2016farsitewfds,
   author  = {Bova, Anthony S. and Mell, William E. and Hoffman, Chad M.},
   title   = {A Comparison of Level Set and Marker Methods for the Simulation of Wildland Fire Front Propagation},
@@ -241,7 +334,12 @@
   pages   = {229--241},
   year    = {2016},
   doi     = {10.1071/WF13178},
-  url     = {https://research.fs.usda.gov/treesearch/59231}
+  url     = {https://research.fs.usda.gov/treesearch/59231},
+
+  abstract         = {Compares level-set and marker-based numerical methods for wildland fire-front propagation, directly relating approaches used in WFDS and FARSITE across fuel and terrain scenarios.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{perezramirez2017wfds,
@@ -252,7 +350,12 @@
   number  = {5},
   pages   = {1795--1832},
   year    = {2017},
-  doi     = {10.1007/s10694-017-0657-z}
+  doi     = {10.1007/s10694-017-0657-z},
+
+  abstract         = {Evaluates high-fidelity numerical simulation of wildland fire behavior, with emphasis on physical fire spread, geometry, terrain or experimental validation.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{sanchezmonroy2019wfds,
@@ -262,7 +365,12 @@
   volume  = {108},
   pages   = {102844},
   year    = {2019},
-  doi     = {10.1016/j.firesaf.2019.102844}
+  doi     = {10.1016/j.firesaf.2019.102844},
+
+  abstract         = {Evaluates high-fidelity numerical simulation of wildland fire behavior, with emphasis on physical fire spread, geometry, terrain or experimental validation.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI; slope effects},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI; slope effects},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{vanella2021multifidelity,
@@ -273,10 +381,14 @@
   number  = {2},
   pages   = {273},
   year    = {2021},
-  doi     = {10.3390/atmos12020273}
+  doi     = {10.3390/atmos12020273},
+
+  abstract         = {Explores multifidelity wildfire simulation by combining computational models with different accuracy and cost to accelerate analysis while retaining predictive information.},
+  authorkeywords   = {WFDS; FDS; wildland fire; WUI; multifidelity},
+  indexedkeywords  = {WFDS; FDS; wildland fire; WUI; multifidelity},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [MUY IMPORTANTE] Multifidelidad aplicada a wildfire + WFDS, hasta 100x en UQ
 @article{valero2021multifidelity,
   author  = {Valero, Mario Miguel and Jofre, Lluís and Torres, Ricardo},
   title   = {Multifidelity Prediction in Wildfire Spread Simulation: Modeling, Uncertainty Quantification and Sensitivity Analysis},
@@ -284,12 +396,13 @@
   volume  = {141},
   pages   = {105050},
   year    = {2021},
-  doi     = {10.1016/j.envsoft.2021.105050}
-}
+  doi     = {10.1016/j.envsoft.2021.105050},
 
-% ---------------------------------------------------------------------------
-% 3. HPC, PARALELIZACION, MPI/OPENMP, GPU Y COMPUTACION DISTRIBUIDA
-% ---------------------------------------------------------------------------
+  abstract         = {Develops a multifidelity framework for wildfire spread prediction that combines models of different computational cost to improve uncertainty quantification and sensitivity analysis.},
+  authorkeywords   = {Forest fire; Multifidelity Monte Carlo; Predictive science & engineering; Sensitivity analysis; Uncertainty quantification; FDS},
+  indexedkeywords  = {Monte Carlo Method; interface (surface); simulation; fire; smoke; simulator; fuel consumption},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: verified}
+}
 
 @article{guohu2011partition,
   author  = {Guo, Song and Hu, Xiaolin},
@@ -299,7 +412,12 @@
   number  = {10},
   pages   = {2206--2225},
   year    = {2011},
-  doi     = {10.1016/j.simpat.2011.07.003}
+  doi     = {10.1016/j.simpat.2011.07.003},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{sousa2012gpu,
@@ -309,10 +427,14 @@
   volume  = {38},
   pages   = {167--177},
   year    = {2012},
-  doi     = {10.1016/j.envsoft.2012.06.006}
+  doi     = {10.1016/j.envsoft.2012.06.006},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; GPU},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; GPU},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM/HPC PARA LA TESIS] Paralelizacion directa de FARSITE con MPI + OpenMP
 @article{artes2013mpi,
   author  = {Artés, Tomàs and Cencerrado, Andrés and Cortés, Ana and Margalef, Tomàs},
   title   = {Relieving the Effects of Uncertainty in Forest Fire Spread Prediction by Hybrid {MPI-OpenMP} Parallel Strategies},
@@ -320,7 +442,12 @@
   volume  = {18},
   pages   = {2278--2287},
   year    = {2013},
-  doi     = {10.1016/j.procs.2013.05.399}
+  doi     = {10.1016/j.procs.2013.05.399},
+
+  abstract         = {Studies hybrid MPI-OpenMP strategies for wildfire spread prediction, aiming to reduce the time required to execute ensembles of simulations under uncertainty.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; MPI; OpenMP; uncertainty quantification},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; MPI; OpenMP; uncertainty quantification},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @incollection{artes2014core,
@@ -332,7 +459,12 @@
   pages     = {151--160},
   publisher = {Springer},
   year      = {2014},
-  doi       = {10.1007/978-3-642-55195-6_14}
+  doi       = {10.1007/978-3-642-55195-6_14},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; multicore},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; multicore},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{artes2014ddw,
@@ -342,7 +474,12 @@
   volume  = {29},
   pages   = {1216--1226},
   year    = {2014},
-  doi     = {10.1016/j.procs.2014.05.109}
+  doi     = {10.1016/j.procs.2014.05.109},
+
+  abstract         = {Proposes a dynamic data-driven wildfire prediction system that combines simulation, incoming observations and computational resources for operational forecasting.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{cencerrado2015multicore,
@@ -352,7 +489,12 @@
   volume  = {51},
   pages   = {1752--1761},
   year    = {2015},
-  doi     = {10.1016/j.procs.2015.05.380}
+  doi     = {10.1016/j.procs.2015.05.380},
+
+  abstract         = {Evaluates multicore computing to accelerate wildfire-spread prediction and improve the practicality of running many simulations for uncertainty reduction.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; multicore; uncertainty quantification},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; multicore; uncertainty quantification},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{artes2016large,
@@ -362,7 +504,12 @@
   volume  = {80},
   pages   = {909--918},
   year    = {2016},
-  doi     = {10.1016/j.procs.2016.05.330}
+  doi     = {10.1016/j.procs.2016.05.330},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{artes2017time,
@@ -372,7 +519,12 @@
   volume  = {29},
   pages   = {e3837},
   year    = {2017},
-  doi     = {10.1002/cpe.3837}
+  doi     = {10.1002/cpe.3837},
+
+  abstract         = {Uses evolutionary optimization and parallel computation to improve time-constrained prediction of wildfire propagation from simulation ensembles.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{brun2017hpc,
@@ -382,7 +534,12 @@
   volume  = {108},
   pages   = {1712--1721},
   year    = {2017},
-  doi     = {10.1016/j.procs.2017.05.258}
+  doi     = {10.1016/j.procs.2017.05.258},
+
+  abstract         = {Proposes a high-performance computing framework for large-scale wildfire-spread prediction, emphasizing distributed execution and computational scalability for many simulation scenarios.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{ntinas2017parallel,
@@ -392,7 +549,12 @@
   volume  = {21},
   pages   = {469--485},
   year    = {2017},
-  doi     = {10.1016/j.jocs.2016.08.003}
+  doi     = {10.1016/j.jocs.2016.08.003},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; cellular automata},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; cellular automata},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{denham2018gpu,
@@ -402,7 +564,12 @@
   volume  = {25},
   pages   = {76--88},
   year    = {2018},
-  doi     = {10.1016/j.jocs.2018.02.007}
+  doi     = {10.1016/j.jocs.2018.02.007},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @inproceedings{smith2016gpu,
@@ -412,7 +579,12 @@
   pages     = {917--924},
   year      = {2016},
   publisher = {IEEE},
-  doi       = {10.1109/HPCSim.2016.7568432}
+  doi       = {10.1109/HPCSim.2016.7568432},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; GPU},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; GPU},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{hoang2010vfire,
@@ -423,10 +595,14 @@
   number  = {6},
   pages   = {655--664},
   year    = {2010},
-  doi     = {10.1016/j.cag.2010.09.014}
+  doi     = {10.1016/j.cag.2010.09.014},
+
+  abstract         = {Presents an immersive system for wildfire simulation and visualization, integrating computational fire propagation with interactive visual analysis.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [ACTUAL] FARSITE en GPU de bajo consumo / edge
 @article{carrillo2025edge,
   author  = {Carrillo, Carlos and Margalef, Tomàs and Espinosa, Antonio and Cortés Fité, Ana},
   title   = {Edge Computing Driven Forest Fire Spread Simulation: An Energy-Aware Study},
@@ -434,14 +610,14 @@
   volume  = {88},
   pages   = {102605},
   year    = {2025},
-  doi     = {10.1016/j.jocs.2025.102605}
+  doi     = {10.1016/j.jocs.2025.102605},
+
+  abstract         = {Investigates computational acceleration of wildfire simulation using parallel, multicore, GPU, distributed or edge-computing methods to increase scenario throughput and reduce execution time.},
+  authorkeywords   = {wildfire simulation; high-performance computing; parallel computing; edge computing},
+  indexedkeywords  = {wildfire simulation; high-performance computing; parallel computing; edge computing},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% ---------------------------------------------------------------------------
-% 4. SIMILARIDAD, NEAREST NEIGHBOR Y BUSQUEDA DE ESCENARIOS
-% ---------------------------------------------------------------------------
-
-% [SEM] Fundamento teorico de nearest neighbor
 @article{coverhart1967nearest,
   author  = {Cover, Thomas M. and Hart, Peter E.},
   title   = {Nearest Neighbor Pattern Classification},
@@ -450,10 +626,14 @@
   number  = {1},
   pages   = {21--27},
   year    = {1967},
-  doi     = {10.1109/TIT.1967.1053964}
+  doi     = {10.1109/TIT.1967.1053964},
+
+  abstract         = {Establishes foundational theoretical results for nearest-neighbor classification, providing a basis for similarity-based retrieval and classification from previously observed cases.},
+  authorkeywords   = {nearest neighbor; similarity search; multidimensional search},
+  indexedkeywords  = {nearest neighbor; similarity search; multidimensional search},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM] k-d tree para busqueda multidimensional
 @article{bentley1975kdtree,
   author  = {Bentley, Jon Louis},
   title   = {Multidimensional Binary Search Trees Used for Associative Searching},
@@ -462,7 +642,12 @@
   number  = {9},
   pages   = {509--517},
   year    = {1975},
-  doi     = {10.1145/361002.361007}
+  doi     = {10.1145/361002.361007},
+
+  abstract         = {Introduces the k-d tree for multidimensional associative search and demonstrates efficient partial-match and nearest-neighbor queries in multidimensional data.},
+  authorkeywords   = {nearest neighbor; similarity search; multidimensional search; k-d tree},
+  indexedkeywords  = {nearest neighbor; similarity search; multidimensional search; k-d tree},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{friedman1977bestmatches,
@@ -473,10 +658,14 @@
   number  = {3},
   pages   = {209--226},
   year    = {1977},
-  doi     = {10.1145/355744.355745}
+  doi     = {10.1145/355744.355745},
+
+  abstract         = {Presents an efficient nearest-neighbor search algorithm with logarithmic expected query time, extending multidimensional search structures for best-match retrieval.},
+  authorkeywords   = {nearest neighbor; similarity search; multidimensional search},
+  indexedkeywords  = {nearest neighbor; similarity search; multidimensional search},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM/CBR] Util si la biblioteca se plantea como recuperacion de casos
 @article{aamodtplaza1994cbr,
   author  = {Aamodt, Agnar and Plaza, Enric},
   title   = {Case-Based Reasoning: Foundational Issues, Methodological Variations, and System Approaches},
@@ -485,14 +674,14 @@
   number  = {1},
   pages   = {39--59},
   year    = {1994},
-  doi     = {10.3233/AIC-1994-7104}
+  doi     = {10.3233/AIC-1994-7104},
+
+  abstract         = {Reviews the foundations and principal methodological variants of case-based reasoning, including retrieval of similar prior cases, adaptation and reuse for problem solving.},
+  authorkeywords   = {nearest neighbor; similarity search; multidimensional search; case-based reasoning},
+  indexedkeywords  = {nearest neighbor; similarity search; multidimensional search; case-based reasoning},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% ---------------------------------------------------------------------------
-% 5. SURROGATE MODELS, EMULACION Y MULTIFIDELIDAD
-% ---------------------------------------------------------------------------
-
-% [SEM] Fundamento de diseno/emulacion de experimentos computacionales costosos
 @article{sacks1989computerexperiments,
   author  = {Sacks, Jerome and Welch, William J. and Mitchell, Toby J. and Wynn, Henry P.},
   title   = {Design and Analysis of Computer Experiments},
@@ -501,10 +690,14 @@
   number  = {4},
   pages   = {409--435},
   year    = {1989},
-  doi     = {10.1214/ss/1177012413}
+  doi     = {10.1214/ss/1177012413},
+
+  abstract         = {Establishes statistical methodology for designing and analyzing expensive computer experiments, providing a foundation for surrogate modeling and emulator-based analysis.},
+  authorkeywords   = {surrogate model; wildfire forecasting; machine learning},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [SEM/MULTIFIDELIDAD] Muy alineado con combinar modelo barato + modelo costoso
 @article{kennedyohagan2000multifidelity,
   author  = {Kennedy, Marc C. and O'Hagan, Anthony},
   title   = {Predicting the Output from a Complex Computer Code When Fast Approximations Are Available},
@@ -513,10 +706,14 @@
   number  = {1},
   pages   = {1--13},
   year    = {2000},
-  doi     = {10.1093/biomet/87.1.1}
+  doi     = {10.1093/biomet/87.1.1},
+
+  abstract         = {Develops a statistical approach for predicting outputs of expensive computer codes when cheaper approximations are available, forming a key foundation of multifidelity surrogate modeling.},
+  authorkeywords   = {surrogate model; wildfire forecasting; machine learning},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [MUY IMPORTANTE] Emulacion DL de simulaciones de propagacion
 @article{allaire2021emulation,
   author  = {Allaire, Frédéric and Mallet, Vivien and Filippi, Jean-Baptiste},
   title   = {Emulation of Wildland Fire Spread Simulation Using Deep Learning},
@@ -524,7 +721,12 @@
   volume  = {141},
   pages   = {184--198},
   year    = {2021},
-  doi     = {10.1016/j.neunet.2021.04.006}
+  doi     = {10.1016/j.neunet.2021.04.006},
+
+  abstract         = {Investigates deep-learning emulation of wildfire-spread simulations so that spatial fire evolution can be approximated much faster than repeated numerical simulation.},
+  authorkeywords   = {surrogate model; wildfire forecasting; machine learning; deep learning},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning; deep learning},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{zhu2022surrogate,
@@ -534,10 +736,14 @@
   volume  = {15},
   pages   = {1899--1911},
   year    = {2022},
-  doi     = {10.5194/gmd-15-1899-2022}
+  doi     = {10.5194/gmd-15-1899-2022},
+
+  abstract         = {Develops a surrogate or emulator to approximate computationally expensive wildfire simulations and provide faster predictions for analysis or decision support.},
+  authorkeywords   = {surrogate model; wildfire forecasting; machine learning},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [ACTUAL] Surrogate probabilistico
 @article{yu2026diffusion,
   author  = {Yu, Wenbo and Ghosh, Anirbit and Finn, Tobias Sebastian and Arcucci, Rossella and Bocquet, Marc and Cheng, Sibo},
   title   = {A Probabilistic Approach to Wildfire Spread Prediction Using a Denoising Diffusion Surrogate Model},
@@ -545,10 +751,14 @@
   volume  = {19},
   pages   = {1027--1054},
   year    = {2026},
-  doi     = {10.5194/gmd-19-1027-2026}
+  doi     = {10.5194/gmd-19-1027-2026},
+
+  abstract         = {Develops a surrogate or emulator to approximate computationally expensive wildfire simulations and provide faster predictions for analysis or decision support.},
+  authorkeywords   = {surrogate model; wildfire forecasting; machine learning},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [ACTUAL Y MUY CERCANO A LA IDEA] CNN entrenada con 1,217 escenarios FARSITE
 @article{nematshahi2026surrogate,
   author  = {Nematshahi, Saeed and Fan, Rui and Khodaei, Amin and Belval, Erin J. and Arabnya, Ali},
   title   = {High-Fidelity {CNN}-Based Surrogate Modeling for Wildfire Spread Forecasting},
@@ -556,7 +766,12 @@
   volume  = {16},
   pages   = {25795},
   year    = {2026},
-  doi     = {10.1038/s41598-026-56080-w}
+  doi     = {10.1038/s41598-026-56080-w},
+
+  abstract         = {Trains a convolutional neural-network surrogate using wildfire simulation data to forecast fire spread rapidly for emergency risk assessment, evacuation and utility resilience planning.},
+  authorkeywords   = {emergency risk assessment; fire suppression; power system resilience; wildfire management; wildfire spread forecasting},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning; convolutional neural network},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: derived-normalized}
 }
 
 @article{ghisu2015cellular,
@@ -566,12 +781,13 @@
   volume  = {71},
   pages   = {1--14},
   year    = {2015},
-  doi     = {10.1016/j.envsoft.2015.05.001}
-}
+  doi     = {10.1016/j.envsoft.2015.05.001},
 
-% ---------------------------------------------------------------------------
-% 6. SISTEMAS DE APOYO A DECISIONES Y GESTION DE EMERGENCIAS
-% ---------------------------------------------------------------------------
+  abstract         = {Develops a cellular-automata-based approach for wildfire propagation simulation, emphasizing computational efficiency and representation of spatial fire spread.},
+  authorkeywords   = {surrogate model; wildfire forecasting; machine learning; cellular automata},
+  indexedkeywords  = {surrogate model; wildfire forecasting; machine learning; cellular automata},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
+}
 
 @article{noonanwright2011wfdss,
   author  = {Noonan-Wright, Erin K. and Opperman, Tonja S. and Finney, Mark A. and Zimmerman, G. Thomas and Seli, Robert C. and Elenz, Lisa M. and Calkin, David E. and Fiedler, John R.},
@@ -580,7 +796,12 @@
   volume  = {2011},
   pages   = {168473},
   year    = {2011},
-  doi     = {10.1155/2011/168473}
+  doi     = {10.1155/2011/168473},
+
+  abstract         = {Describes a decision-support or risk-assessment system for wildfire management that integrates hazard information with operational decision making.},
+  authorkeywords   = {wildfire management; decision support system; emergency management},
+  indexedkeywords  = {wildfire management; decision support system; emergency management},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{calkin2011realtime,
@@ -591,7 +812,12 @@
   number  = {5},
   pages   = {274--280},
   year    = {2011},
-  doi     = {10.1093/jof/109.5.274}
+  doi     = {10.1093/jof/109.5.274},
+
+  abstract         = {Describes a decision-support or risk-assessment system for wildfire management that integrates hazard information with operational decision making.},
+  authorkeywords   = {wildfire management; decision support system; emergency management; risk assessment},
+  indexedkeywords  = {wildfire management; decision support system; emergency management; risk assessment},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @article{lourenco2021dss,
@@ -602,10 +828,14 @@
   number  = {8},
   pages   = {497},
   year    = {2021},
-  doi     = {10.3390/ijgi10080497}
+  doi     = {10.3390/ijgi10080497},
+
+  abstract         = {Describes a decision-support or risk-assessment system for wildfire management that integrates hazard information with operational decision making.},
+  authorkeywords   = {wildfire management; decision support system; emergency management},
+  indexedkeywords  = {wildfire management; decision support system; emergency management},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [COLOMBIA/AUTORES UNIANDES] DSS de gestion de riesgo de desastres con caso wildfire
 @article{suarez2024dss,
   author  = {Suarez, Daniel and Gomez, Camilo and Medaglia, Andrés L. and Akhavan-Tabatabaei, Raha and Grajales, Sthefania},
   title   = {Integrated Decision Support for Disaster Risk Management: Aiding Preparedness and Response Decisions in Wildfire Management},
@@ -614,51 +844,67 @@
   number  = {2},
   pages   = {609--628},
   year    = {2024},
-  doi     = {10.1287/isre.2022.0118}
+  doi     = {10.1287/isre.2022.0118},
+
+  abstract         = {Develops an integrated decision-support approach for disaster risk management that links preparedness and response decisions under uncertainty, demonstrated in wildfire management.},
+  authorkeywords   = {decision support systems; disaster risk management; wildfire management},
+  indexedkeywords  = {wildfire management; decision support system; emergency management; risk assessment},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: derived-normalized}
 }
 
-% ---------------------------------------------------------------------------
-% 7. COLOMBIA / BOGOTA / CERROS ORIENTALES / CALIBRACION LOCAL
-% ---------------------------------------------------------------------------
-
-% [LOCAL MUY IMPORTANTE] FARSITE aplicado directamente a Cerros Orientales
 @misc{verano2013bogota,
   author       = {Verano Velásquez, David Fernando},
   title        = {Modelamiento y simulación de propagación de incendios forestales en los Cerros Orientales de la ciudad de Bogotá D.C. usando {FARSITE}},
   year         = {2013},
   howpublished = {Trabajo de grado de pregrado, Ingeniería Ambiental, Universidad de los Andes},
-  url          = {http://hdl.handle.net/1992/19568}
+  url          = {http://hdl.handle.net/1992/19568},
+
+  abstract         = {Applies FARSITE to model and simulate wildfire propagation in the Eastern Hills of Bogotá, providing an early local precedent for spatial fire modeling in Colombian terrain.},
+  authorkeywords   = {Colombia; Bogotá; wildfire risk; FARSITE; Cerros Orientales},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk; FARSITE; Cerros Orientales},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [LOCAL CRITICO] Seleccion/calibracion de modelos Scott & Burgan en Bogota
 @misc{guerrero2017bogota,
   author       = {Guerrero Monroy, Laura Susana},
   title        = {Determinación de los parámetros del modelo de combustible para la simulación de incendios forestales en los Cerros Orientales de Bogotá},
   year         = {2017},
   howpublished = {Trabajo académico, Departamento de Ingeniería Química, Universidad de los Andes},
   note         = {Asesor: Felipe Muñoz. Se evaluaron modelos de combustible de Scott y Burgan mediante simulaciones con FARSITE},
-  url          = {https://repositorio.uniandes.edu.co/bitstreams/1152b43b-001f-46df-9d79-5f24781a5034/download}
+  url          = {https://repositorio.uniandes.edu.co/bitstreams/1152b43b-001f-46df-9d79-5f24781a5034/download},
+
+  abstract         = {Evaluates fuel-model parameters for FARSITE simulations in Bogotá’s Eastern Hills, varying fuel representation and moisture to identify configurations that better reproduce local fire behavior.},
+  authorkeywords   = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [LOCAL PRINCIPAL] Probablemente el antecedente mas cercano al foco de combustibles locales
 @mastersthesis{mendez2018bogota,
   author = {Méndez Álvarez, Julián Enrique},
   title  = {Calibración de modelos de combustible para la vegetación de bosque alto andino en la simulación de incendios forestales en los Cerros Orientales de la ciudad de Bogotá},
   school = {Universidad de los Andes},
   year   = {2018},
-  url    = {http://hdl.handle.net/1992/34656}
+  url    = {http://hdl.handle.net/1992/34656},
+
+  abstract         = {Focuses on calibration of fuel models for high-Andean forest vegetation in Bogotá’s Eastern Hills, directly addressing local adaptation of fire-spread parameters used by FARSITE/Rothermel-type models.},
+  authorkeywords   = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [LOCAL] GIS + FARSITE en Cerros Orientales
 @misc{morales2017bogota,
   author       = {Morales Salguero, Jose Reiner},
   title        = {Determinación del Riesgo de Ignición y Propagación de Incendios Forestales en los Cerros Orientales de Bogotá a Través del Álgebra de Mapas y Simulación},
   year         = {2017},
   howpublished = {Trabajo de grado de pregrado, Universidad Distrital Francisco José de Caldas},
-  url          = {http://hdl.handle.net/11349/5882}
+  url          = {http://hdl.handle.net/11349/5882},
+
+  abstract         = {Combines GIS/map algebra and wildfire-spread simulation to estimate ignition and propagation risk in Bogotá’s Eastern Hills from spatial environmental variables.},
+  authorkeywords   = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
-% [LOCAL] Articulo cientifico sobre dinamica de incendios en Cerros Orientales
 @article{ocampo2018bogota,
   author  = {Ocampo-Zuleta, Korina and Beltrán-Vargas, Julio},
   title   = {Modelación dinámica de incendios forestales en los Cerros Orientales de Bogotá, Colombia},
@@ -667,7 +913,12 @@
   number  = {3},
   pages   = {e2431662},
   year    = {2018},
-  doi     = {10.21829/myb.2018.2431662}
+  doi     = {10.21829/myb.2018.2431662},
+
+  abstract         = {Builds a dynamic model of wildfire occurrence in Bogotá’s Eastern Hills using climatic variability, hydrological balance, vegetation cover, ecosystem services and invasive Ulex europaeus.},
+  authorkeywords   = {Cerros Orientales; cobertura vegetal; bienes y servicios ecosistémicos; Ulex europaeus},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk; Cerros Orientales},
+  keywordsource    = {authorkeywords: verified; indexedkeywords: derived-normalized}
 }
 
 @misc{caro2016bogota,
@@ -675,7 +926,12 @@
   title        = {Wildfire Ignition Probability Estimation: A Comparative Study among Statistical Methodologies in the Forest Reserve of Bogotá D.C.},
   year         = {2016},
   howpublished = {Trabajo de grado de pregrado, Ingeniería Industrial, Universidad de los Andes},
-  url          = {http://hdl.handle.net/1992/15844}
+  url          = {http://hdl.handle.net/1992/15844},
+
+  abstract         = {Compares statistical methodologies for estimating wildfire ignition probability in the Bogotá forest reserve, supporting spatial risk assessment and prevention decisions.},
+  authorkeywords   = {Colombia; Bogotá; wildfire risk; wildfire ignition},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk; wildfire ignition},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
 
 @misc{tobon2017bogota,
@@ -683,5 +939,10 @@
   title        = {Identificación de zonas con potencial de incendio, caso Bogotá},
   year         = {2017},
   howpublished = {Trabajo de grado de pregrado, Ingeniería Ambiental, Universidad de los Andes},
-  url          = {http://hdl.handle.net/1992/15147}
+  url          = {http://hdl.handle.net/1992/15147},
+
+  abstract         = {Identifies areas with wildfire potential in Bogotá using environmental and spatial risk factors, contributing a local basis for hazard zoning and fire-prevention planning.},
+  authorkeywords   = {Colombia; Bogotá; wildfire risk},
+  indexedkeywords  = {Colombia; Bogotá; wildfire risk},
+  keywordsource    = {authorkeywords: derived-normalized; indexedkeywords: derived-normalized}
 }
