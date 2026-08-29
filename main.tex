@@ -1,0 +1,138 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3cm,
+    right=2.5cm
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Planeación de Proyecto Final --- PUJ 2026}
+\lhead{\small BOI}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{orange},
+    breaklines=true,
+    frame=single,
+    language=C,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt
+}
+
+\lstdefinestyle{bash}{
+    language=bash,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{orange},
+    breaklines=true,
+    frame=single,
+    framerule=0.8pt,
+    rulecolor=\color{black!40},
+    backgroundcolor=\color{black!5},
+    numbers=none,
+    xleftmargin=8pt,
+    xrightmargin=4pt,
+    aboveskip=8pt,
+    belowskip=8pt,
+    showstringspaces=false
+}
+
+\lstdefinestyle{c}{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{orange},
+    breaklines=true,
+    frame=single,
+    framerule=0.8pt,
+    rulecolor=\color{black!40},
+    backgroundcolor=\color{black!5},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=6pt,
+    xleftmargin=20pt,
+    xrightmargin=4pt,
+    aboveskip=8pt,
+    belowskip=8pt,
+    showstringspaces=false
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\begin{titlepage}
+    \centering
+
+    \vspace*{1cm}
+    \IfFileExists{images/logo-javeriana.png}{
+        \includegraphics[width=8cm]{images/logo-javeriana.png}\\[0.5cm]
+    }{
+        {\Large \textbf{Pontificia Universidad Javeriana}}\\[0.5cm]
+    }
+    Facultad de Ingenieria\\
+    Departamento de Ingenieria de Sistemas\\[1cm]
+
+    {\Large \textbf{Planeación de Proyecto Final}}\\[0.5cm]
+
+    \vfill
+
+    {\Huge \textbf{BOI}}\\[0.5cm]
+    \vfill
+
+    \textbf{Integrantes:}\\
+    Daniel Ramirez\\[1cm]
+
+    \textbf{Docente:} % TODO: Agregar docente\\[1cm]
+
+    \textbf{Fecha:} 24 de agosto de 2026
+
+    \vfill
+\end{titlepage}
+
+\clearpage
+\pagenumbering{arabic}
+\tableofcontents
+\clearpage
+
+\input{chapters/tema-investigacion}
+\input{chapters/estrategias-busqueda}
+\input{chapters/urls-importantes}
+\input{chapters/resultados-busqueda}
+
+\end{document}
