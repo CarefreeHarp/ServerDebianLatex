@@ -995,6 +995,51 @@
   indexed_keywords = {Abies balsamea; Canada; conifer forest; crown fire; crown fuels; experimental areas; field experimental fires; fire ignition; fire spread; fire weather; fuel moisture; Ontario; pine forests; Pinus banksiana; Pinus resinosa; Pinus strobus; plantations; rate of spread; season of fire}
 }
 
+@techreport{rothermel1991crown,
+  author      = {Rothermel, Richard C.},
+  title       = {Predicting Behavior and Size of Crown Fires in the Northern Rocky Mountains},
+  institution = {U.S. Department of Agriculture, Forest Service, Intermountain Research Station},
+  number      = {Research Paper INT-438},
+  address     = {Ogden, Utah},
+  year        = {1991},
+  pages       = {1--46},
+  doi         = {10.2737/INT-RP-438},
+  url         = {https://www.frames.gov/catalog/6166},
+  abstract    = {Assessment of crown fire conditions calls for two important judgments: (1) identifying conditions for the onset of severe fires, and (2) predicting the spread rate, intensity, and size of expected crown fires. This paper addresses the second problem and provides methods for making a first approximation of the behavior of a running crown fire in fuels and weather conditions of the northern Rocky Mountains in the western United States. Rate of spread is developed from field data correlated to prediction of Rothermel's surface spread model. Energy release from surface fuels is obtained from Albini's burnout model. Fireline intensity is estimated from Byram's model. Flame lengths are estimated from Thomas' model. Energy rate, or power developed by the fire and ambient wind, is developed from Byram's equations and used to ascertain the possibility of a wind-driven or plume-dominated fire. The characteristics of these fires and dangers to fire fighters are discussed. The paper is oriented for use by well-trained fire behavior analysts to use in the field without the aid of computers to assess the characteristics of running crown fires.},
+  author_keywords  = {crown fire; fire behavior prediction; fire size; northern Rocky Mountains; wildfire},
+  indexed_keywords = {crown fire; energy release; fire size; fireline intensity; flame length; rate of spread; fire behavior; fuels; weather}
+}
+
+@article{finney2002mtt,
+  author  = {Finney, Mark A.},
+  title   = {Fire Growth Using Minimum Travel Time Methods},
+  journal = {Canadian Journal of Forest Research},
+  volume  = {32},
+  number  = {8},
+  pages   = {1420--1424},
+  year    = {2002},
+  doi     = {10.1139/x02-068},
+  url     = {https://www.frames.gov/catalog/9843},
+  abstract    = {Fire-growth modeling on complex landscapes can be approached as a search for the minimum time for fire to travel among nodes in a two-dimensional network. The paths producing minimum travel time between nodes are then interpolated to reveal the fire perimeter positions at an instant in time. These fire perimeters and their fire behavior characteristics (e.g., spread rate, fireline intensity) are essentially identical to the products of perimeter expansion techniques. Travel time methods offer potential advantages for some kinds of modeling applications, because they are more readily parallelized for computation than methods for expanding fire fronts and require no correction for crossed fronts or merging separate fires.},
+  author_keywords  = {minimum travel time; fire growth modelling; fire perimeter; parallel computation; landscape},
+  indexed_keywords = {computer program; fire danger rating; fire growth; fire growth model; fire perimeter; fireline intensity; fuel management; fuel moisture; fuel types; ignition; landscape ecology; rate of spread; spread rate; topography; wind}
+}
+
+@article{pastor2003mathematical,
+  author  = {Pastor, Elsa and Z{\'a}rate, Luis and Planas, Eul{\`a}lia and Arnaldos, Josep},
+  title   = {Mathematical Models and Calculation Systems for the Study of Wildland Fire Behaviour},
+  journal = {Progress in Energy and Combustion Science},
+  volume  = {29},
+  number  = {2},
+  pages   = {139--153},
+  year    = {2003},
+  doi     = {10.1016/S0360-1285(03)00017-0},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0360128503000170},
+  abstract    = {This is a review of the most important work in wildland fire mathematical modelling which has been carried out at different research centres around the world from the beginning of the 1940s to the present. A generic classification is proposed which allows wildland fire models to be sorted. Surface fire spread models, crown fire initiation and spread models, spotting and ground fire models are reviewed historically and the most significant ones are analysed in depth. The last two sections are dedicated to wildland fire behaviour calculation systems based on the reviewed models. The evolution and complexity of these systems is analysed in parallel with the development of new technologies. Special attention is given to the tools most commonly in current use by forestry agencies.},
+  author_keywords  = {Wildland fire; Surface fire; Crown fire; Ground fire; Spotting; Modelling; Simulation},
+  indexed_keywords = {fire behaviour calculation systems; empirical models; physical models; forest fire management tools; review}
+}
+
 @techreport{scott2005standard,
   author      = {Scott, Joe H. and Burgan, Robert E.},
   title       = {Standard Fire Behavior Fuel Models: A Comprehensive Set for Use with Rothermel's Surface Fire Spread Model},
@@ -1055,40 +1100,207 @@
   indexed_keywords = {fire spread modeling; mathematical analogue models; simulation model; fire behavior; models}
 }
 
-@article{finney2002mtt,
-  author  = {Finney, Mark A.},
-  title   = {Fire Growth Using Minimum Travel Time Methods},
-  journal = {Canadian Journal of Forest Research},
-  volume  = {32},
-  number  = {8},
-  pages   = {1420--1424},
-  year    = {2002},
-  doi     = {10.1139/x02-068},
-  url     = {https://www.frames.gov/catalog/9843},
-  abstract    = {Fire-growth modeling on complex landscapes can be approached as a search for the minimum time for fire to travel among nodes in a two-dimensional network. The paths producing minimum travel time between nodes are then interpolated to reveal the fire perimeter positions at an instant in time. These fire perimeters and their fire behavior characteristics (e.g., spread rate, fireline intensity) are essentially identical to the products of perimeter expansion techniques. Travel time methods offer potential advantages for some kinds of modeling applications, because they are more readily parallelized for computation than methods for expanding fire fronts and require no correction for crossed fronts or merging separate fires.},
-  author_keywords  = {minimum travel time; fire growth modelling; fire perimeter; parallel computation; landscape},
-  indexed_keywords = {computer program; fire danger rating; fire growth; fire growth model; fire perimeter; fireline intensity; fuel management; fuel moisture; fuel types; ignition; landscape ecology; rate of spread; spread rate; topography; wind}
-}
 
-@techreport{rothermel1991crown,
-  author      = {Rothermel, Richard C.},
-  title       = {Predicting Behavior and Size of Crown Fires in the Northern Rocky Mountains},
-  institution = {U.S. Department of Agriculture, Forest Service, Intermountain Research Station},
-  number      = {Research Paper INT-438},
+% ---------------------------------------------------------------------
+% EJE 2. FARSITE, SIMULADORES OPERATIVOS DE PROPAGACION Y SU VALIDACION
+% ---------------------------------------------------------------------
+
+@techreport{finney1998farsite,
+  author      = {Finney, Mark A.},
+  title       = {{FARSITE}: Fire Area Simulator -- Model Development and Evaluation},
+  institution = {U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station},
+  number      = {Research Paper RMRS-RP-4},
   address     = {Ogden, Utah},
-  year        = {1991},
-  pages       = {1--46},
-  doi         = {10.2737/INT-RP-438},
-  url         = {https://www.frames.gov/catalog/6166},
-  abstract    = {Assessment of crown fire conditions calls for two important judgments: (1) identifying conditions for the onset of severe fires, and (2) predicting the spread rate, intensity, and size of expected crown fires. This paper addresses the second problem and provides methods for making a first approximation of the behavior of a running crown fire in fuels and weather conditions of the northern Rocky Mountains in the western United States. Rate of spread is developed from field data correlated to prediction of Rothermel's surface spread model. Energy release from surface fuels is obtained from Albini's burnout model. Fireline intensity is estimated from Byram's model. Flame lengths are estimated from Thomas' model. Energy rate, or power developed by the fire and ambient wind, is developed from Byram's equations and used to ascertain the possibility of a wind-driven or plume-dominated fire. The characteristics of these fires and dangers to fire fighters are discussed. The paper is oriented for use by well-trained fire behavior analysts to use in the field without the aid of computers to assess the characteristics of running crown fires.},
-  author_keywords  = {crown fire; fire behavior prediction; fire size; northern Rocky Mountains; wildfire},
-  indexed_keywords = {crown fire; energy release; fire size; fireline intensity; flame length; rate of spread; fire behavior; fuels; weather}
+  year        = {1998},
+  pages       = {1--47},
+  doi         = {10.2737/RMRS-RP-4},
+  url         = {https://www.frames.gov/catalog/26065},
+  abstract    = {A computer simulation model, FARSITE, includes existing fire behavior models for surface, crown, spotting, point-source fire acceleration, and fuel moisture. The model's components and assumptions are documented. Simulations were run for simple conditions that illustrate the effect of individual fire behavior models on two-dimensional fire growth. This paper reports on the structure of a fire growth simulation model, FARSITE, and its performance under simplified test conditions. FARSITE incorporates existing models of surface fire, crown fire, point-source fire acceleration, spotting, and fuel moisture. This documentation of how the simulation was constructed, and how the individual fire behavior models perform, will be useful to researchers and managers who use FARSITE or are interested in fire growth simulation. The models were integrated using a vector propagation technique for fire perimeter expansion that controls for both space and time resolution of fire growth over the landscape. The model produces vector fire perimeters (polygons) at specified time intervals. The vertices of these polygons contain information on the fire's spread rate and intensity, which are interpolated to produce raster maps of fire behavior. Because fire behavior at each vertex is assumed independent of the others, the simulation outputs illustrate the strict spatial consequences to fire behavior of incorporating the models into a two-dimensional simulation. Simplified test conditions show that surface fire growth and intensity conform to idealized patterns. Similarities also exist between simulated crown fires and observed patterns of extreme wind-driven fires. Complex patterns of fire growth and behavior result from the spatial and temporal dependencies in the model. The limitations and assumptions of this approach are discussed.},
+  author_keywords  = {FARSITE; fire growth simulation; vector perimeter propagation; surface fire; crown fire; spotting; fuel moisture},
+  indexed_keywords = {crown fires; FARSITE - Fire Area Simulator; fire behavior models; fire danger rating; fire growth; fire growth modeling; fire management; fire management planning; fire simulation; fuel moisture; fuel types; rate of spread; spot fires; surface fires; topography; wind},
+  note        = {Publicado en 1998 y revisado en 2004.}
 }
 
+@article{alexandridis2008cellular,
+  author  = {Alexandridis, A. and Vakalis, D. and Siettos, C. I. and Bafas, G. V.},
+  title   = {A Cellular Automata Model for Forest Fire Spread Prediction: The Case of the Wildfire That Swept Through {S}petses {I}sland in 1990},
+  journal = {Applied Mathematics and Computation},
+  volume  = {204},
+  number  = {1},
+  pages   = {191--201},
+  year    = {2008},
+  doi     = {10.1016/j.amc.2008.06.046},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0096300308004943},
+  abstract    = {We present and illustrate the simulation results of a cellular automata model describing the dynamics of a forest fire spread on a mountainous landscape taking into account factors such as the type and density of vegetation, the wind speed and direction and the spotting phenomenon. The model is used to simulate the wildfire that broke up on Spetses in August of 1990 and destroyed a major part of the Island's forest. We used a black-box non-linear optimization approach to fine-tune some of the model's parameters based on a geographical information system incorporating available data from the real forest fire. The comparison between the simulation and the actual-observed results showed that the proposed model predicts in a quite adequate manner the evolution characteristics in space and time of the real incident and as such could be potentially used as a fire risk-management tool for heterogeneous landscapes.},
+  author_keywords  = {cellular automata; forest fire spread; wildfire simulation; parameter estimation; geographical information systems},
+  indexed_keywords = {discrete models; nonlinear optimization; landscape heterogeneity; wind effects; spotting; fire risk management}
+}
+
+@article{papadopoulos2011comparative,
+  author  = {Papadopoulos, George D. and Pavlidou, Fotini-Niovi},
+  title   = {A Comparative Review on Wildfire Simulators},
+  journal = {IEEE Systems Journal},
+  volume  = {5},
+  number  = {2},
+  pages   = {233--243},
+  year    = {2011},
+  doi     = {10.1109/JSYST.2011.2125230},
+  url     = {https://ieeexplore.ieee.org/document/5738359/},
+  abstract    = {Phenomena in ecosystems such as forest fires, oil spills, tornados, etc., are complex processes both in time and space. Understanding their dynamics in order to predict their future states is a challenging procedure involving the propagation of several events concerning, e.g., the transfer of energy or material. A common solution used to study such phenomena is the utilization of discrete event models and simulators. Among the phenomena studied by researchers so far, of particular interest and importance, is the forecasting of forest fire propagation since life on earth is greatly dependent on healthy forests. This paper is focused on the investigation of existing simulator models applicable in forecasting forest fire propagation. Twenty-three simulators were found in the literature and are presented here. The comparison discussion concludes with the FARSITE simulator model which is the one that stands out from the rest, and for this reason, it is investigated in depth and evaluated in a test environment.},
+  author_keywords  = {Event propagation; FARSITE; simulator models; wildfire},
+  indexed_keywords = {Mathematical model; Fuels; Biological system modeling; Computational modeling; Predictive models; Analytical models; Meteorology; simulation model; geographic information system; rate of spread; fire spread; fire behavior; discrete event systems; flame length; fuel type}
+}
+
+@article{finney2011fsim,
+  author  = {Finney, Mark A. and McHugh, Charles W. and Grenfell, Isaac C. and Riley, Karin L. and Short, Karen C.},
+  title   = {A Simulation of Probabilistic Wildfire Risk Components for the Continental {United} {States}},
+  journal = {Stochastic Environmental Research and Risk Assessment},
+  volume  = {25},
+  number  = {7},
+  pages   = {973--1000},
+  year    = {2011},
+  doi     = {10.1007/s00477-011-0462-z},
+  url     = {https://www.frames.gov/catalog/23994},
+  abstract    = {This simulation research was conducted in order to develop a large-fire risk assessment system for the contiguous land area of the United States. The modeling system was applied to each of 134 Fire Planning Units (FPUs) to estimate burn probabilities and fire size distributions. To obtain stable estimates of these quantities, fire ignition and growth was simulated for 10,000 to 50,000 years of artificial weather. The fire growth simulations, when run repeatedly with different weather and ignition locations, produce burn probabilities and fire behavior distributions at each landscape location (e.g., number of times a cell burns at a given intensity divided by the total years). The artificial weather was generated for each land unit using (1) a fire danger rating index known as the Energy Release Component (ERC) which is a proxy for fuel moisture contents, (2) a time-series analysis of ERC to represent daily and seasonal variability, and (3) distributions of wind speed and direction from weather records. Large fire occurrence was stochastically modeled based on historical relationships to ERC. The simulations also required spatial data on fuel structure and topography which were acquired from the LANDFIRE project. Fire suppression effects were represented by a statistical model that yields a probability of fire containment based on independent predictors of fire growth rates and fuel type. The simulated burn probabilities were comparable to observed patterns across the U.S. over the range of four orders of magnitude, generally falling within a factor of 3 or 4 of historical estimates. Close agreement between simulated and historical fire size distributions suggest that fire sizes are determined by the joint distributions of spatial opportunities for fire growth (dependent on fuels and ignition location) and the temporal opportunities produced by conducive weather sequences. The research demonstrates a practical approach to using fire simulations at very broad scales for purposes of operational planning and perhaps ecological research.},
+  author_keywords  = {FSim; burn probability; wildfire risk; stochastic simulation; fire size distribution; Monte Carlo},
+  indexed_keywords = {burn probability; ERC - Energy Release Component; fire management; fire models; fire simulation; fire size distribution; fire suppression; fuel moisture; ignition; LF - LANDFIRE}
+}
+
+@article{andrews2014behaveplus,
+  author  = {Andrews, Patricia L.},
+  title   = {Current Status and Future Needs of the {BehavePlus} Fire Modeling System},
+  journal = {International Journal of Wildland Fire},
+  volume  = {23},
+  number  = {1},
+  pages   = {21--33},
+  year    = {2014},
+  doi     = {10.1071/WF12167},
+  url     = {https://www.frames.gov/catalog/16531},
+  abstract    = {The BehavePlus Fire Modeling System is among the most widely used systems for wildland fire prediction. It is designed for use in a range of tasks including wildfire behaviour prediction, prescribed fire planning, fire investigation, fuel hazard assessment, fire model understanding, communication and research. BehavePlus is based on mathematical models for fire behaviour, fire effects and fire environment. It is a point system for which conditions are constant for each calculation, but is designed to encourage examination of the effect of a range of conditions through tables and graphs. BehavePlus is successor to BEHAVE, which was developed in 1977 and became available for field application in 1984. It was updated to BehavePlus in 2002. Updates through version 5 have added features and modelling capabilities. It is becoming increasingly difficult to expand the system. A redesign will address the need for consolidation with other systems and make it easier to incorporate new research results. This paper describes the development history and application of BehavePlus. The design, features and modelling foundation of the current system are described. Considerations for the next generation are presented.},
+  author_keywords  = {BehavePlus; BEHAVE; fire behaviour prediction; fire modelling system; software design},
+  indexed_keywords = {fire modeling system; crown fire; crown scorch; fire management; fire size; firebrands; flame length; fuel moisture; spotting distance; surface fire; wind}
+}
+
+@article{salis2016mediterranean,
+  author  = {Salis, Michele and Arca, Bachisio and Alcasena, Fermin and Arianoutsou, Margarita and Bacciu, Valentina and Duce, Pierpaolo and Duguy, Beatriz and Koutsias, Nikos and Mallinis, Giorgos and Mitsopoulos, Ioannis and Moreno, Jose M. and Perez, Juan R. and Urbieta, Itziar R. and Xystrakis, Fotios and Zavala, Gonzalo and Spano, Donatella},
+  title   = {Predicting Wildfire Spread and Behaviour in {M}editerranean Landscapes},
+  journal = {International Journal of Wildland Fire},
+  volume  = {25},
+  number  = {10},
+  pages   = {1015--1032},
+  year    = {2016},
+  doi     = {10.1071/WF15081},
+  url     = {https://www.frames.gov/catalog/22785},
+  abstract    = {The use of spatially explicit fire spread models to assess fire propagation and behaviour has several applications for fire management and research. We used the FARSITE simulator to predict the spread of a set of wildfires that occurred along an east-west gradient of the Euro-Mediterranean countries. The main purpose of this work was to evaluate the overall accuracy of the simulator and to quantify the effects of standard vs custom fuel models on fire simulation performance. We also analysed the effects of different fuel models and slope classes on the accuracy of FARSITE predictions. To run the simulations, several input layers describing each study area were acquired, and their effect on simulation outputs was analysed. Site-specific fuel models and canopy inputs were derived either from existing vegetation information and field sampling or through remote-sensing data. The custom fuel models produced an increase in simulation accuracy, and results were nearly unequivocal for all the case studies examined. We suggest that spatially explicit fire spread simulators and custom fuel models specifically developed for the heterogeneous landscapes of Mediterranean ecosystems can help improve fire hazard mapping and optimise fuel management practices across the Euro-Mediterranean region.},
+  author_keywords  = {FARSITE; custom fuel models; fire behaviour; Mediterranean ecosystems; simulation accuracy; fire hazard mapping},
+  indexed_keywords = {ecosystems; FARSITE - Fire Area Simulator; fire management; fire propagation; fire spread; fuel management; Greece; Italy; Spain; remote sensing}
+}
+
+@article{srivas2016enkf,
+  author  = {Srivas, Thayjes and Art{\'e}s, Tom{\`a}s and de Callafon, Raymond A. and Altintas, Ilkay},
+  title   = {Wildfire Spread Prediction and Assimilation for {FARSITE} Using Ensemble {Kalman} Filtering},
+  journal = {Procedia Computer Science},
+  volume  = {80},
+  pages   = {897--908},
+  year    = {2016},
+  doi     = {10.1016/j.procs.2016.05.328},
+  url     = {https://www.frames.gov/catalog/23877},
+  abstract    = {This paper extends FARSITE (a software used for wildfire modeling and simulation) to incorporate data assimilation techniques based on noisy and limited spatial resolution observations of the fire perimeter to improve the accuracy of wildfire spread predictions. To include data assimilation in FARSITE, uncertainty on both the simulated fire perimeter and the measured fire perimeter is used to formulate optimal updates for the prediction of the spread of the wildfire. For data assimilation, fire perimeter measurements with limited spatial resolution and a known uncertainty are used to formulate an optimal adjustment in the fire perimeter prediction. The adjustment is calculated from the Kalman filter gain in an Ensemble Kalman filter that exploits the uncertainty information on both the simulated fire perimeter and the measured fire perimeter. The approach is illustrated on a wildfire simulation representing the 2014 Cocos fire and presents comparison results for hourly data assimilation results.},
+  author_keywords  = {FARSITE; data assimilation; ensemble Kalman filter; fire perimeter; wildfire spread prediction},
+  indexed_keywords = {fire simulation; uncertainty quantification; state estimation; remote sensing observations; Cocos fire}
+}
+
+@article{zigner2020evaluating,
+  author  = {Zigner, Katelyn and Carvalho, Leila M. V. and Peterson, Seth and Fujioka, Francis and Duine, Gert-Jan and Jones, Charles and Roberts, Dar and Moritz, Max},
+  title   = {Evaluating the Ability of {FARSITE} to Simulate Wildfires Influenced by Extreme, Downslope Winds in {S}anta {B}arbara, {C}alifornia},
+  journal = {Fire},
+  volume  = {3},
+  number  = {3},
+  pages   = {29},
+  year    = {2020},
+  doi     = {10.3390/fire3030029},
+  url     = {https://www.mdpi.com/2571-6255/3/3/29},
+  abstract    = {Extreme, downslope mountain winds often generate dangerous wildfire conditions. We used the wildfire spread model Fire Area Simulator (FARSITE) to simulate two wildfires influenced by strong wind events in Santa Barbara, CA. High spatial-resolution imagery for fuel maps and hourly wind downscaled to 100 m were used as model inputs, and sensitivity tests were performed to evaluate the effects of ignition timing and location on fire spread. Additionally, burn area rasters from FARSITE simulations were compared to minimum travel time rasters from FlamMap simulations, a wildfire model similar to FARSITE that holds environmental variables constant. Utilization of two case studies during strong winds revealed that FARSITE was able to successfully reconstruct the spread rate and size of wildfires when spotting was minimal. However, in situations when spotting was an important factor in rapid downslope wildfire spread, both FARSITE and FlamMap were unable to simulate realistic fire perimeters. We show that this is due to inherent limitations in the models themselves, related to the slope-orientation relative to the simulated fire spread, and the dependence of ember launch and land locations. This finding has widespread implications, given the role of spotting in fire progression during extreme wind events.},
+  author_keywords  = {wildfire modeling; FARSITE; spotting; fire weather; Sundowner winds},
+  indexed_keywords = {fire spread simulation; FlamMap; minimum travel time; downscaled wind fields; fuel maps; model validation}
+}
+
+@article{price2022sagebrush,
+  author  = {Price, Samuel J. and Germino, Matthew J.},
+  title   = {Modeling of Fire Spread in Sagebrush Steppe Using {FARSITE}: An Approach to Improving Input Data and Simulation Accuracy},
+  journal = {Fire Ecology},
+  volume  = {18},
+  number  = {1},
+  pages   = {23},
+  year    = {2022},
+  doi     = {10.1186/s42408-022-00147-2},
+  url     = {https://link.springer.com/article/10.1186/s42408-022-00147-2},
+  abstract    = {Background: Model simulations of wildfire spread and assessments of their accuracy are needed for understanding and managing altered fire regimes in semiarid regions. The accuracy of wildfire spread simulations can be evaluated from post hoc comparisons of simulated and actual wildfire perimeters, but this requires information on pre-fire vegetation fuels that is typically not available. We assessed the accuracy of the Fire-Area Simulator (FARSITE) model parameterized with maps of fire behavior fuel models (FBFMs) obtained from the widely used LANDFIRE, as well as alternative means which utilized the classification of Rangeland Analysis Platform (RAP) satellite-derived vegetation cover maps to create FBFM maps. We focused on the 2015 Soda wildfire, which burned 113,000 ha of sagebrush steppe in the western USA, and then assessed the transferability of our RAP-to-FBFM selection process, which produced the most accurate reconstruction of the Soda wildfire, on the nearby 2016 Cherry Road wildfire. Results: Parameterizing FARSITE with maps of FBFMs from LANDFIRE resulted in low levels of agreement between simulated and observed area burned, with maximum Sorensen's coefficient (SC) and Cohen's kappa (K) values of 0.38 and 0.36, respectively. In contrast, maps of FBFMs derived from unsupervised classification of RAP vegetation cover maps led to much greater simulated-to-observed burned area agreement (SC = 0.70, K = 0.68). The FBFM map that generated the greatest simulated-to-observed burned area agreement for the Soda wildfire was then used to crosswalk FBFMs to another nearby wildfire (2016 Cherry Road), and this FBFM selection led to high FARSITE simulated-to-observed burned area agreement (SC = 0.80, K = 0.79). Conclusions: Using RAP to inform pre-fire FBFM selection increased the accuracy of FARSITE simulations compared to parameterization with the standard LANDFIRE FBFM maps, in sagebrush steppe. Additionally, the crosswalk method appeared to have regional generalizability. Flanking and backfires were the primary source of disagreements between simulated and observed fire spread in FARSITE, which are sources of error that may require modeling of lateral heterogeneity in fuels and fire processes at finer scales than used here.},
+  author_keywords  = {Annual grass; Fire model; Fire reconstruction; Fuel beds; FARSITE; LANDFIRE},
+  indexed_keywords = {Fire Ecology; fire behavior fuel models; Rangeland Analysis Platform; remote sensing; simulation accuracy; sagebrush steppe}
+}
+
+@article{sun2023facing,
+  author  = {Sun, Jingjing and Qi, Wenwen and Huang, Yuandong and Xu, Chong and Yang, Wentao},
+  title   = {Facing the Wildfire Spread Risk Challenge: Where Are We Now and Where Are We Going?},
+  journal = {Fire},
+  volume  = {6},
+  number  = {6},
+  pages   = {228},
+  year    = {2023},
+  doi     = {10.3390/fire6060228},
+  url     = {https://www.mdpi.com/2571-6255/6/6/228},
+  abstract    = {Wildfire is a sudden and highly destructive natural disaster that poses significant challenges in terms of response and rescue efforts. Influenced by factors such as climate, combustible materials, and ignition sources, wildfires have been increasingly occurring worldwide on an annual basis. In recent years, researchers have shown growing interest in studying wildfires, leading to a substantial body of related research. These studies encompass various topics, including wildfire prediction and forecasting, the analysis of spatial and temporal patterns, the assessment of ecological impacts, the simulation of wildfire behavior, the identification of influencing factors, the development of risk assessment models, techniques for managing combustible materials, decision-making technologies for firefighting, and fire-retardant methods. Understanding the factors that affect wildfire spread behavior, employing simulation methods, and conducting risk assessments are vital for effective wildfire prevention, disaster mitigation, and emergency response. Consequently, it is imperative to comprehensively review and explore further research in this field. This article primarily focuses on elucidating and discussing wildfire spread behavior as a key aspect. It summarizes the driving factors of wildfire spread behavior and introduces a wildfire spread behavior simulation software and its main applications based on these factors. Furthermore, it presents the research progress in wildfire risk assessment based on wildfire spread behavior factors and simulation, and provides an overview of various methods used for wildfire risk assessment. Finally, the article proposes several prospects for future research on wildfire spread: strengthening the dynamic monitoring of wildfires and utilizing comprehensive data from multiple sources, further exploring the differential effects of key factors on wildfire spread, investigating differences in driving factors, improving wildfire models in China, developing applicable software, and conducting accurate and scientific assessments of wildfire risks to protect ecological resources.},
+  author_keywords  = {wildfire; wildfire spread; driving factors; simulation; risk assessment},
+  indexed_keywords = {wildfire behavior; fire spread simulation software; risk assessment models; emergency response; review}
+}
+
+@article{martins2025analysing,
+  author  = {Martins, Leonardo and Almeida, Rui Valente de and Maia, Ant{\'o}nio and Vieira, Pedro},
+  title   = {Analysing Fire Propagation Models: A Case Study on {FARSITE} for Prolonged Wildfires},
+  journal = {Fire},
+  volume  = {8},
+  number  = {5},
+  pages   = {166},
+  year    = {2025},
+  doi     = {10.3390/fire8050166},
+  url     = {https://www.mdpi.com/2571-6255/8/5/166},
+  abstract    = {With increasing wildfire severity and duration driven by climate change, accurately predicting fire behavior over extended time frames is critical for effective management and mitigation of such wildfires. Fire propagation models play a pivotal role in these efforts, providing simulations that can be used to strategize and respond to active fires. This study examines the fire area simulator (FARSITE) model's performance in simulating recent wildfire events that persisted over 24 h with limited firefighting intervention in mostly remote access areas across diverse ecosystems. Our findings reveal key insights into a prolonged wildfire scenarios potentially informing improvements in operational fire management and long-term predictive accuracy, as the area comparisons indexes showed reasonable results between the detected fires from the fire information for resource management systems (FIRMSs) in the first 24 h of the fire and the following days. A case study of a recent wildfire in Madeira Island highlights the integration of real-time weather predictions and post-event weather data analysis. This analysis underscores the potential of combining accurate forecasts with retrospective validation to improve predictive capabilities in dynamic fire environments, which guided the development of a software platform designed to analyse ongoing wildfire events in real-time, leveraging image satellite data and weather predictions.},
+  author_keywords  = {real-time fire detection; wildfires; FARSITE},
+  indexed_keywords = {fire propagation models; satellite data; FIRMS; weather forecasting; operational fire management; model validation}
+}
+
+@article{goleiji2025integrating,
+  author  = {Goleiji, Elnaz and Aliani, Hamid and Hosseini, Seyed Mohsen},
+  title   = {Integrating {FARSITE} and {GIS} for Enhanced Forest Fire Spread Prediction and Simulation},
+  journal = {Natural Hazards},
+  year    = {2025},
+  doi     = {10.1007/s11069-025-07404-y},
+  url     = {https://link.springer.com/article/10.1007/s11069-025-07404-y},
+  abstract    = {Given the widespread fires in forests worldwide, which result in the destruction of ecosystems, effective management of these forests, particularly concerning fire behavior and its spread, is essential. Forest fire prediction is a worldwide problem. There are different models to predict the spread of fires, especially in forest areas. Still, these models are usually complex to apply to real forest fire cases, and the accuracy of prediction is lower than expected. This research aims to identify and predict fire spread behavior and the process of fire spread in natural areas using the FARSITE model. To conduct the research, data including topography, vegetation, and meteorological information were compiled for the study area. Using GIS tools and the FARSITE model, a simulation map of fire spread behavior in the studied forest was generated. The model was tested against the spread of fires under field conditions where a real fire had occurred in the forest area. To assess the accuracy of the simulation, the Kappa coefficient method was employed. The simulation results showed that 34.93 hectares of the observed fire area were accurately simulated as a burned area, demonstrating a high degree of consistency with the actual fire spread. The overestimated area was minimal (0.85 hectares), while 37.7 hectares of the fire spot were not simulated as burned. The findings of this study can inform fire spread behavior prediction models and guide the development of preventive and control measures for fire risk management in forests.},
+  author_keywords  = {Forest fire risk management; Fire spread simulation; FARSITE; Geographical information system},
+  indexed_keywords = {Natural Hazards; Kappa coefficient; topography; vegetation mapping; meteorological data; model accuracy}
+}
+
+
 % ---------------------------------------------------------------------
-% EJE 2. SIMULACION FISICA DEL FUEGO (FDS/WFDS, FIRETEC, ACOPLAMIENTO
-%        ATMOSFERA-FUEGO)
+% EJE 3. SIMULACION FISICA DEL FUEGO (FDS/WFDS, FIRETEC, ACOPLAMIENTO ATMOSFERA-FUEGO)
 % ---------------------------------------------------------------------
+
+@article{linn2002firetec,
+  author  = {Linn, Rodman R. and Reisner, Jon M. and Colman, Jonah J. and Winterkamp, Judith L.},
+  title   = {Studying Wildfire Behavior Using {FIRETEC}},
+  journal = {International Journal of Wildland Fire},
+  volume  = {11},
+  number  = {3-4},
+  pages   = {233--246},
+  year    = {2002},
+  doi     = {10.1071/WF02007},
+  url     = {https://www.frames.gov/catalog/4584},
+  abstract    = {Current wildfire models range in complexity from simple algebraic models that may be implemented in graphical form or on hand-held calculators to complex formulations that are implemented on large computers. The models of different complexities are appropriate for different applications based on environmental conditions of the modeled fires, the completeness of the available fuels and weather data, the computational resources available, and the time urgency of the results. Many of the more complex models are not currently suitable for faster than real time applications because of their very computationally intensive nature, but their more complete nature allows them to be used to examine some of the more complex wildfire behaviors. FIRETEC is a coupled atmosphere/wildfire behavior model being developed at Los Alamos National Laboratory, and is based on conservation of mass, momentum, species, and energy. FIRETEC is a transport formulation that uses a compressible-gas formulation to couple its physics based wildfire model with the motions of the local atmosphere. We are beginning to use the three-dimensional version of FIRETEC to study the interaction between nonhomogeneities in vegetation, topography, and atmospheric conditions. Examples of the types of physical phenomenon that are being studied are the effects of transient wind conditions, the effects of nonhomogeneous terrain, the effects of non uniform (patchy distributions), and the effects of different vertical structure on fire behavior. In addition we are performing a set of studies on real fires in order to validate or identify problems with the model and we are starting to run FIRETEC on postulated fires in critical areas for risk assessment. Until we reach the point where models such as FIRETEC can be used for operational purposes, we can begin to use them to learn more about the physical processes that current operational models do not adequately represent. By studying these physical processes we can better develop the simple models and determine situations where they should be used with caution.},
+  author_keywords  = {FIRETEC; coupled atmosphere-fire model; computational fluid dynamics; physics-based wildfire model; risk assessment},
+  indexed_keywords = {FIRETEC; Los Alamos; New Mexico; simulation; fire behavior; models}
+}
 
 @article{mell2007physics,
   author  = {Mell, William E. and Jenkins, Mary Ann and Gould, James S. and Cheney, N. Phillip},
@@ -1105,19 +1317,19 @@
   indexed_keywords = {CFD - Computational Fluid Dynamics; combustion; field experimental fires; fire hazard reduction; fire management; fire models; fire size; fire spread; flank fires; fuel management; fuel models; grasses; grasslands; headfires; ignition; numerical simulation; rate of spread; surface fuels; wildfires; wind}
 }
 
-@article{linn2002firetec,
-  author  = {Linn, Rodman R. and Reisner, Jon M. and Colman, Jonah J. and Winterkamp, Judith L.},
-  title   = {Studying Wildfire Behavior Using {FIRETEC}},
-  journal = {International Journal of Wildland Fire},
-  volume  = {11},
-  number  = {3-4},
-  pages   = {233--246},
-  year    = {2002},
-  doi     = {10.1071/WF02007},
-  url     = {https://www.frames.gov/catalog/4584},
-  abstract    = {Current wildfire models range in complexity from simple algebraic models that may be implemented in graphical form or on hand-held calculators to complex formulations that are implemented on large computers. The models of different complexities are appropriate for different applications based on environmental conditions of the modeled fires, the completeness of the available fuels and weather data, the computational resources available, and the time urgency of the results. Many of the more complex models are not currently suitable for faster than real time applications because of their very computationally intensive nature, but their more complete nature allows them to be used to examine some of the more complex wildfire behaviors. FIRETEC is a coupled atmosphere/wildfire behavior model being developed at Los Alamos National Laboratory, and is based on conservation of mass, momentum, species, and energy. FIRETEC is a transport formulation that uses a compressible-gas formulation to couple its physics based wildfire model with the motions of the local atmosphere. We are beginning to use the three-dimensional version of FIRETEC to study the interaction between nonhomogeneities in vegetation, topography, and atmospheric conditions. Examples of the types of physical phenomenon that are being studied are the effects of transient wind conditions, the effects of nonhomogeneous terrain, the effects of non uniform (patchy distributions), and the effects of different vertical structure on fire behavior. In addition we are performing a set of studies on real fires in order to validate or identify problems with the model and we are starting to run FIRETEC on postulated fires in critical areas for risk assessment. Until we reach the point where models such as FIRETEC can be used for operational purposes, we can begin to use them to learn more about the physical processes that current operational models do not adequately represent. By studying these physical processes we can better develop the simple models and determine situations where they should be used with caution.},
-  author_keywords  = {FIRETEC; coupled atmosphere-fire model; computational fluid dynamics; physics-based wildfire model; risk assessment},
-  indexed_keywords = {FIRETEC; Los Alamos; New Mexico; simulation; fire behavior; models}
+@article{mell2009douglasfir,
+  author  = {Mell, William E. and Maranghides, Alexander and McDermott, Randall and Manzello, Samuel L.},
+  title   = {Numerical Simulation and Experiments of Burning {D}ouglas Fir Trees},
+  journal = {Combustion and Flame},
+  volume  = {156},
+  number  = {10},
+  pages   = {2023--2041},
+  year    = {2009},
+  doi     = {10.1016/j.combustflame.2009.06.015},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0010218009001655},
+  abstract    = {Fires spreading in elevated vegetation, such as chaparral or pine forest canopies, are often more intense than fires spreading through surface vegetation such as grasslands. As a result, they are more difficult to suppress, produce higher heat fluxes, more firebrands and smoke, and can interact with, or create, local weather conditions that lead to dangerous fire behavior. Such wildland fires can pose a serious threat to wildland-urban interface communities. A basic building block of such fires is a single tree. In the work presented here, a number of individual trees, of various characteristics, were burned without an imposed wind in the Large Fire Laboratory of the National Institute of Standards of Technology. A numerical model capable of representing the spatial distribution of vegetation in a tree crown is presented and evaluated against tree burning experiments. For simplicity, the vegetation was assumed to be uniformly distributed in a tree crown represented by a well defined geometric shape (cone or cylinder). Predictions of the time histories of the radiant heat flux and mass loss rates for different fuel moisture contents and tree heights compared favorably to measured values and trends. This work is a first step toward the development and application of a physics-based computer model to spatially complex, elevated, vegetation present in forest stands and in the wildland-urban interface.},
+  author_keywords  = {WFDS; physics-based fire model; tree burning experiments; radiant heat flux; mass loss rate; wildland-urban interface},
+  indexed_keywords = {computational fluid dynamics; crown fuels; vegetation combustion; model validation; fuel moisture content}
 }
 
 @article{coen2013wrffire,
@@ -1135,24 +1347,25 @@
   indexed_keywords = {fire behavior; numerical weather prediction; boundary layer; large eddy simulations; fuel load; rate of spread; mesoscale models}
 }
 
-% ---------------------------------------------------------------------
-% EJE 3. INTERFAZ URBANO-FORESTAL (WUI)
-% ---------------------------------------------------------------------
-
-@article{mell2010wui,
-  author  = {Mell, William E. and Manzello, Samuel L. and Maranghides, Alexander and Butry, David T. and Rehm, Ronald G.},
-  title   = {The Wildland--Urban Interface Fire Problem -- Current Approaches and Research Needs},
-  journal = {International Journal of Wildland Fire},
-  volume  = {19},
-  number  = {2},
-  pages   = {238--251},
-  year    = {2010},
-  doi     = {10.1071/WF07131},
-  url     = {https://www.frames.gov/catalog/48544},
-  abstract    = {Wildfires that spread into wildland-urban interface (WUI) communities present significant challenges on several fronts. In the United States, the WUI accounts for a significant portion of wildland fire suppression and wildland fuel treatment costs. Methods to reduce structure losses are focused on fuel treatments in either wildland fuels or residential fuels. There is a need for a well-characterized, systematic testing of these approaches across a range of community and structure types and fire conditions. Laboratory experiments, field measurements and fire behavior models can be used to better determine the exposure conditions faced by communities and structures. The outcome of such an effort would be proven fuel treatment techniques for wildland and residential fuels, risk assessment strategies, economic cost analysis models, and test methods with representative exposure conditions for fire-resistant building designs and materials.},
-  author_keywords  = {wildland-urban interface; WUI fire; structure loss; fuel treatment; risk assessment; fire modelling},
-  indexed_keywords = {fire damage (property); fire management; fire suppression; fuel accumulation; fuel management; fuel models; fuel treatments; GIS - geographic information system; land management; remote sensing; suppression; wildfires; wildland fires; wildland fuels; wildland-urban interface (WUI)}
+@techreport{mcgrattan2013fds,
+  author      = {McGrattan, Kevin and McDermott, Randall and Weinschenk, Craig and Overholt, Kristopher and Hostikka, Simo and Floyd, Jason},
+  title       = {Fire Dynamics Simulator Technical Reference Guide Volume 1: Mathematical Model},
+  institution = {National Institute of Standards and Technology},
+  number      = {NIST Special Publication 1018-1},
+  address     = {Gaithersburg, Maryland},
+  year        = {2013},
+  doi         = {10.6028/NIST.SP.1018e6},
+  url         = {https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1018e6.pdf},
+  abstract    = {Documento tecnico de referencia del Fire Dynamics Simulator (FDS), el solucionador de dinamica de fluidos computacional sobre el que se construye WFDS. El volumen 1 describe el modelo matematico: las ecuaciones de conservacion de masa, especies, momento y energia en la forma de bajo numero de Mach; el modelo de turbulencia por simulacion de grandes remolinos (LES); los submodelos de combustion y de transferencia de calor por radiacion; y el tratamiento de la fase solida y la pirolisis. La fuente institucional no publica un resumen normalizado para este informe.},
+  author_keywords  = {Fire Dynamics Simulator; FDS; computational fluid dynamics; large eddy simulation; combustion; radiation},
+  indexed_keywords = {fire modeling; low Mach number equations; pyrolysis; heat transfer; numerical methods},
+  note        = {El editor no publica abstract para este informe; el campo abstract contiene una descripcion del alcance elaborada por los autores de esta bibliografia a partir del indice del documento.}
 }
+
+
+% ---------------------------------------------------------------------
+% EJE 4. INTERFAZ URBANO-FORESTAL (WUI)
+% ---------------------------------------------------------------------
 
 @article{cohen2000preventing,
   author  = {Cohen, Jack D.},
@@ -1184,19 +1397,34 @@
   indexed_keywords = {conservation; fire damage (property); fire management; forest management; fragmentation; GIS - geographic information system; housing growth; land use planning; population density; urban sprawl; urbanization; wildfire management; wildland fire; wildland-urban interface (WUI)}
 }
 
-@article{radeloff2018rapid,
-  author  = {Radeloff, Volker C. and Helmers, David P. and Kramer, H. Anu and Mockrin, Miranda H. and Alexandre, Patricia M. and Bar-Massada, Avi and Butsic, Van and Hawbaker, Todd J. and Martinuzzi, Sebasti{\'a}n and Syphard, Alexandra D. and Stewart, Susan I.},
-  title   = {Rapid Growth of the {US} Wildland--Urban Interface Raises Wildfire Risk},
+@article{mell2010wui,
+  author  = {Mell, William E. and Manzello, Samuel L. and Maranghides, Alexander and Butry, David T. and Rehm, Ronald G.},
+  title   = {The Wildland--Urban Interface Fire Problem -- Current Approaches and Research Needs},
+  journal = {International Journal of Wildland Fire},
+  volume  = {19},
+  number  = {2},
+  pages   = {238--251},
+  year    = {2010},
+  doi     = {10.1071/WF07131},
+  url     = {https://www.frames.gov/catalog/48544},
+  abstract    = {Wildfires that spread into wildland-urban interface (WUI) communities present significant challenges on several fronts. In the United States, the WUI accounts for a significant portion of wildland fire suppression and wildland fuel treatment costs. Methods to reduce structure losses are focused on fuel treatments in either wildland fuels or residential fuels. There is a need for a well-characterized, systematic testing of these approaches across a range of community and structure types and fire conditions. Laboratory experiments, field measurements and fire behavior models can be used to better determine the exposure conditions faced by communities and structures. The outcome of such an effort would be proven fuel treatment techniques for wildland and residential fuels, risk assessment strategies, economic cost analysis models, and test methods with representative exposure conditions for fire-resistant building designs and materials.},
+  author_keywords  = {wildland-urban interface; WUI fire; structure loss; fuel treatment; risk assessment; fire modelling},
+  indexed_keywords = {fire damage (property); fire management; fire suppression; fuel accumulation; fuel management; fuel models; fuel treatments; GIS - geographic information system; land management; remote sensing; suppression; wildfires; wildland fires; wildland fuels; wildland-urban interface (WUI)}
+}
+
+@article{calkin2014risk,
+  author  = {Calkin, David E. and Cohen, Jack D. and Finney, Mark A. and Thompson, Matthew P.},
+  title   = {How Risk Management Can Prevent Future Wildfire Disasters in the Wildland--Urban Interface},
   journal = {Proceedings of the National Academy of Sciences},
-  volume  = {115},
-  number  = {13},
-  pages   = {3314--3319},
-  year    = {2018},
-  doi     = {10.1073/pnas.1718850115},
-  url     = {https://www.pnas.org/doi/10.1073/pnas.1718850115},
-  abstract    = {The wildland-urban interface (WUI) is the area where houses and wildland vegetation meet or intermingle, and where wildfire problems are most pronounced. Here we report that the WUI in the United States grew rapidly from 1990 to 2010 in terms of both number of new houses (from 30.8 to 43.4 million; 41\% growth) and land area (from 581,000 to 770,000 km2; 33\% growth), making it the fastest-growing land use type in the conterminous United States. The vast majority of new WUI areas were the result of new housing (97\%), not related to an increase in wildland vegetation. Within the perimeter of recent wildfires (1990-2015), there were 286,000 houses in 2010, compared with 177,000 in 1990. Furthermore, WUI growth often results in more wildfire ignitions, putting more lives and houses at risk. Wildfire problems will not abate if recent housing growth trends continue.},
-  author_keywords  = {wildland-urban interface; wildfire risk; housing growth; land use change; fire policy},
-  indexed_keywords = {environmental sciences; land use; housing density; census data; National Land Cover Database; fire perimeters; wildfire ignitions}
+  volume  = {111},
+  number  = {2},
+  pages   = {746--751},
+  year    = {2014},
+  doi     = {10.1073/pnas.1315088111},
+  url     = {https://www.frames.gov/catalog/52438},
+  abstract    = {Recent fire seasons in the western United States are some of the most damaging and costly on record. Wildfires in the wildland-urban interface on the Colorado Front Range, resulting in thousands of homes burned and civilian fatalities, although devastating, are not without historical reference. These fires are consistent with the characteristics of large, damaging, interface fires that threaten communities across much of the western United States. Wildfires are inevitable, but the destruction of homes, ecosystems, and lives is not. We propose the principles of risk analysis to provide land management agencies, first responders, and affected communities who face the inevitability of wildfires the ability to reduce the potential for loss. Overcoming perceptions of wildland-urban interface fire disasters as a wildfire control problem rather than a home ignition problem, determined by home ignition conditions, will reduce home loss.},
+  author_keywords  = {risk assessment; fuel treatment; home ignition zone; wildland-urban interface; wildfire disaster},
+  indexed_keywords = {Colorado Front Range; fire control; fire damage (property); fire management; fuel management; fuel treatment; HIZ - home ignition zone; land management; risk assessment; wildfires}
 }
 
 @article{caton2017pathways,
@@ -1214,39 +1442,54 @@
   indexed_keywords = {Fire Science, Hazard Control, Building Safety; Building Types and Functions; Natural Hazards; Fire Ecology; Forestry}
 }
 
-@article{papadopoulos2011comparative,
-  author  = {Papadopoulos, George D. and Pavlidou, Fotini-Niovi},
-  title   = {A Comparative Review on Wildfire Simulators},
-  journal = {IEEE Systems Journal},
-  volume  = {5},
-  number  = {2},
-  pages   = {233--243},
-  year    = {2011},
-  doi     = {10.1109/JSYST.2011.2125230},
-  url     = {https://ieeexplore.ieee.org/document/5738359/},
-  abstract    = {Phenomena in ecosystems such as forest fires, oil spills, tornados, etc., are complex processes both in time and space. Understanding their dynamics in order to predict their future states is a challenging procedure involving the propagation of several events concerning, e.g., the transfer of energy or material. A common solution used to study such phenomena is the utilization of discrete event models and simulators. Among the phenomena studied by researchers so far, of particular interest and importance, is the forecasting of forest fire propagation since life on earth is greatly dependent on healthy forests. This paper is focused on the investigation of existing simulator models applicable in forecasting forest fire propagation. Twenty-three simulators were found in the literature and are presented here. The comparison discussion concludes with the FARSITE simulator model which is the one that stands out from the rest, and for this reason, it is investigated in depth and evaluated in a test environment.},
-  author_keywords  = {Event propagation; FARSITE; simulator models; wildfire},
-  indexed_keywords = {Mathematical model; Fuels; Biological system modeling; Computational modeling; Predictive models; Analytical models; Meteorology; simulation model; geographic information system; rate of spread; fire spread; fire behavior; discrete event systems; flame length; fuel type}
+@article{radeloff2018rapid,
+  author  = {Radeloff, Volker C. and Helmers, David P. and Kramer, H. Anu and Mockrin, Miranda H. and Alexandre, Patricia M. and Bar-Massada, Avi and Butsic, Van and Hawbaker, Todd J. and Martinuzzi, Sebasti{\'a}n and Syphard, Alexandra D. and Stewart, Susan I.},
+  title   = {Rapid Growth of the {US} Wildland--Urban Interface Raises Wildfire Risk},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume  = {115},
+  number  = {13},
+  pages   = {3314--3319},
+  year    = {2018},
+  doi     = {10.1073/pnas.1718850115},
+  url     = {https://www.pnas.org/doi/10.1073/pnas.1718850115},
+  abstract    = {The wildland-urban interface (WUI) is the area where houses and wildland vegetation meet or intermingle, and where wildfire problems are most pronounced. Here we report that the WUI in the United States grew rapidly from 1990 to 2010 in terms of both number of new houses (from 30.8 to 43.4 million; 41\% growth) and land area (from 581,000 to 770,000 km2; 33\% growth), making it the fastest-growing land use type in the conterminous United States. The vast majority of new WUI areas were the result of new housing (97\%), not related to an increase in wildland vegetation. Within the perimeter of recent wildfires (1990-2015), there were 286,000 houses in 2010, compared with 177,000 in 1990. Furthermore, WUI growth often results in more wildfire ignitions, putting more lives and houses at risk. Wildfire problems will not abate if recent housing growth trends continue.},
+  author_keywords  = {wildland-urban interface; wildfire risk; housing growth; land use change; fire policy},
+  indexed_keywords = {environmental sciences; land use; housing density; census data; National Land Cover Database; fire perimeters; wildfire ignitions}
 }
 
+
 % ---------------------------------------------------------------------
-% EJE 4. COMPUTACION DE ALTO RENDIMIENTO, PARALELIZACION Y ASIMILACION
-%        DE DATOS EN SIMULACION DE INCENDIOS
+% EJE 5. COMPUTACION DE ALTO RENDIMIENTO, PARALELIZACION Y ASIMILACION DE DATOS
 % ---------------------------------------------------------------------
 
-@article{xue2012data,
-  author  = {Xue, Haidong and Gu, Feng and Hu, Xiaolin},
-  title   = {Data Assimilation Using Sequential {Monte} {Carlo} Methods in Wildfire Spread Simulation},
-  journal = {ACM Transactions on Modeling and Computer Simulation},
-  volume  = {22},
-  number  = {4},
-  pages   = {23:1--23:25},
-  year    = {2012},
-  doi     = {10.1145/2379810.2379816},
-  url     = {https://dl.acm.org/doi/10.1145/2379810.2379816},
-  abstract    = {Assimilating real-time sensor data into large-scale spatial-temporal simulations, such as simulations of wildfires, is a promising technique for improving simulation results. This asks for advanced data assimilation methods that can work with the complex structures and nonlinear behaviors associated with the simulation models. This article presents a data assimilation framework using Sequential Monte Carlo (SMC) methods for wildfire spread simulations. The models and algorithms of the framework are described, and experimental results are provided. This work demonstrates the feasibility of applying SMC methods to data assimilation of wildfire spread simulations. The developed framework can potentially be generalized to other application areas where sophisticated simulation models are used.},
-  author_keywords  = {DEVS; data assimilation; Sequential Monte Carlo methods; wildfire},
-  indexed_keywords = {Computing methodologies -- Modeling and simulation; simulation types and techniques; discrete-event simulation; particle filter; sensor data}
+@article{fujimoto1990parallel,
+  author  = {Fujimoto, Richard M.},
+  title   = {Parallel Discrete Event Simulation},
+  journal = {Communications of the ACM},
+  volume  = {33},
+  number  = {10},
+  pages   = {30--53},
+  year    = {1990},
+  doi     = {10.1145/84537.84545},
+  url     = {https://dl.acm.org/doi/10.1145/84537.84545},
+  abstract    = {Parallel discrete event simulation (PDES), sometimes called distributed simulation, refers to the execution of a single discrete event simulation program on a parallel computer. PDES has attracted a considerable amount of interest in recent years. From a pragmatic standpoint, this interest arises from the fact that large simulations in engineering, computer science, economics, and military applications, to mention a few, consume enormous amounts of time on sequential machines. From an academic point of view, parallel simulation is interesting because it represents a problem domain that often contains substantial amounts of parallelism, yet paradoxically, is surprisingly difficult to parallelize in practice. A sufficiently general solution to the PDES problem may lead to new insights in parallel computation as a whole.},
+  author_keywords  = {parallel discrete event simulation; distributed simulation; synchronization; conservative and optimistic protocols; Time Warp},
+  indexed_keywords = {Computing methodologies -- Modeling and simulation; parallel computing methodologies; discrete-event simulation; simulation support systems},
+  note        = {El articulo original (CACM 1990) no incluye un resumen formal independiente; el campo abstract reproduce el parrafo introductorio que la ACM Digital Library publica como resumen del articulo.}
+}
+
+@inproceedings{rodriguez2008adaptive,
+  author    = {Rodr{\'i}guez, Roque and Cort{\'e}s, Ana and Margalef, Tom{\'a}s and Luque, Emilio},
+  title     = {An Adaptive System for Forest Fire Behavior Prediction},
+  booktitle = {Proceedings of the 2008 11th IEEE International Conference on Computational Science and Engineering (CSE)},
+  publisher = {IEEE},
+  pages     = {275--282},
+  year      = {2008},
+  doi       = {10.1109/CSE.2008.15},
+  url       = {https://ieeexplore.ieee.org/document/4578243/},
+  abstract    = {In this paper, we propose a combination of two Dynamic Data Driven Application System (DDDAS) methodologies to predict wildfires' propagation. Our goal is to build a system that dynamically adapts to constant changes in environmental conditions when a hazard occurs and under strict real-time deadlines. For this purpose, we are on the way of building a parallel wildfire prediction method, which is able to assimilate real-time data to be injected in the prediction process at execution time.},
+  author_keywords  = {Parallel computing; Forest fire prediction; Parallel simulation; High performance computing; Evolutionary computing; Dynamic Data Driven Application System},
+  indexed_keywords = {Real-time systems; Forestry; Computational modeling; Numerical models; Genetic algorithms; Wildfires; Calibration; Wind speed; prediction quality; geographic information system}
 }
 
 @article{hu2009integrated,
@@ -1264,6 +1507,35 @@
   indexed_keywords = {Computing methodologies -- Modeling and simulation; discrete-event simulation; mathematical optimization; decision support systems; emergency management}
 }
 
+@inproceedings{rodriguez2010datainjection,
+  author    = {Rodr{\'i}guez, Roque and Cort{\'e}s, Ana and Margalef, Tom{\'a}s},
+  title     = {Data Injection at Execution Time in Grid Environments Using Dynamic Data Driven Application System for Wildland Fire Spread Prediction},
+  booktitle = {Proceedings of the 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing (CCGrid)},
+  publisher = {IEEE},
+  pages     = {565--568},
+  year      = {2010},
+  doi       = {10.1109/CCGRID.2010.74},
+  url       = {https://ieeexplore.ieee.org/document/5493433/},
+  abstract    = {In our research work, we use two Dynamic Data Driven Application System (DDDAS) methodologies to predict wildfire propagation. Our goal is to build a system that dynamically adapts to constant changes in environmental conditions when a hazard occurs and under strict real-time deadlines. For this purpose, we are on the way of building a parallel wildfire prediction method, which is able to assimilate real-time data to be injected in the prediction process at execution time. In this paper, we propose a strategy for data injection in distributed environments.},
+  author_keywords  = {Dynamic Data Driven Application System; Parallel computing; Forest fire prediction; Parallel simulation; High performance computing; Evolutionary computing; Real-time data injection},
+  indexed_keywords = {Fires; Computational modeling; Predictive models; Application software; Real time systems; High performance computing; Grid computing; Hazards; Concurrent computing; Mathematical model}
+}
+
+@article{xue2012data,
+  author  = {Xue, Haidong and Gu, Feng and Hu, Xiaolin},
+  title   = {Data Assimilation Using Sequential {Monte} {Carlo} Methods in Wildfire Spread Simulation},
+  journal = {ACM Transactions on Modeling and Computer Simulation},
+  volume  = {22},
+  number  = {4},
+  pages   = {23:1--23:25},
+  year    = {2012},
+  doi     = {10.1145/2379810.2379816},
+  url     = {https://dl.acm.org/doi/10.1145/2379810.2379816},
+  abstract    = {Assimilating real-time sensor data into large-scale spatial-temporal simulations, such as simulations of wildfires, is a promising technique for improving simulation results. This asks for advanced data assimilation methods that can work with the complex structures and nonlinear behaviors associated with the simulation models. This article presents a data assimilation framework using Sequential Monte Carlo (SMC) methods for wildfire spread simulations. The models and algorithms of the framework are described, and experimental results are provided. This work demonstrates the feasibility of applying SMC methods to data assimilation of wildfire spread simulations. The developed framework can potentially be generalized to other application areas where sophisticated simulation models are used.},
+  author_keywords  = {DEVS; data assimilation; Sequential Monte Carlo methods; wildfire},
+  indexed_keywords = {Computing methodologies -- Modeling and simulation; simulation types and techniques; discrete-event simulation; particle filter; sensor data}
+}
+
 @article{fujimoto2016research,
   author  = {Fujimoto, Richard M.},
   title   = {Research Challenges in Parallel and Distributed Simulation},
@@ -1279,26 +1551,6 @@
   indexed_keywords = {Computing methodologies -- Modeling and simulation; parallel computing methodologies; distributed computing methodologies; simulation evaluation; GPU computing; cloud computing}
 }
 
-% ---------------------------------------------------------------------
-% EJE 5. MODELOS SUSTITUTOS (SURROGATE MODELS) Y APRENDIZAJE AUTOMATICO
-% ---------------------------------------------------------------------
-
-@article{hodges2019wildland,
-  author  = {Hodges, Jonathan L. and Lattimer, Brian Y.},
-  title   = {Wildland Fire Spread Modeling Using Convolutional Neural Networks},
-  journal = {Fire Technology},
-  volume  = {55},
-  number  = {6},
-  pages   = {2115--2142},
-  year    = {2019},
-  doi     = {10.1007/s10694-019-00846-4},
-  url     = {https://link.springer.com/article/10.1007/s10694-019-00846-4},
-  abstract    = {A wildland fire spread model was developed using a deep convolutional inverse graphics network (DCIGN) to reduce the computational cost associated with predicting wildland fire spread. The network was trained and tested on landscapes with homogeneous and complex terrain, generating more than 10,000 predictions of burn maps at 6-hour intervals up to 24 hours after ignition. Predictions showed strong agreement with the simulation outputs used as ground truth, with mean precision, sensitivity, F-measure, and Chan--Vese similarity of 0.97, 0.92, 0.93, and 0.93, respectively, and a computational cost three orders of magnitude lower than that of current models, while remaining accurate under noisy input parameters.},
-  author_keywords  = {Wildland fire; Machine learning; Neural network; Fire spread; Convolutional neural network; CNN; DCIGN},
-  indexed_keywords = {Fire Science, Hazard Control, Building Safety; deep learning; surrogate model; computational cost; burn map prediction},
-  note        = {Resumen reconstruido a partir de la ficha del editor; verificar contra el PDF original antes de citar textualmente.}
-}
-
 @inproceedings{smith2016gpu,
   author    = {Smith, Jessica and Barford, Lee and Dascalu, Sergiu M. and Harris, Frederick C.},
   title     = {Highly Parallel Implementation of Forest Fire Propagation Models on the {GPU}},
@@ -1312,34 +1564,6 @@
   abstract    = {Forest fire simulation is a challenging, complex problem which requires large amounts of data to be processed for an accurate simulation. This paper implements Rothermel's fire spread equations on three different spread methodologies. Both a sequential implementation of each spread methodology along with a parallel implementation are presented in this paper. The parallel version is implemented on the Graphics Processing Unit (GPU) using NVIDIA's CUDA programming language. The parallel spread methods achieved runtimes in those ranges realistic for fighting a real-time forest fire. The GPU implementation achieved faster running times in each of the spread methodologies, ranging from 64x to 229x faster than the sequential implementation.},
   author_keywords  = {GPU; CUDA; forest fire propagation; Rothermel model; parallel simulation},
   indexed_keywords = {Mathematical model; Fuels; Computational modeling; Graphics processing units; Load modeling; Data models; Moisture; parallel implementation; fire propagation; rate of spread; simulation accuracy}
-}
-
-@inproceedings{rodriguez2010datainjection,
-  author    = {Rodr{\'i}guez, Roque and Cort{\'e}s, Ana and Margalef, Tom{\'a}s},
-  title     = {Data Injection at Execution Time in Grid Environments Using Dynamic Data Driven Application System for Wildland Fire Spread Prediction},
-  booktitle = {Proceedings of the 2010 10th IEEE/ACM International Conference on Cluster, Cloud and Grid Computing (CCGrid)},
-  publisher = {IEEE},
-  pages     = {565--568},
-  year      = {2010},
-  doi       = {10.1109/CCGRID.2010.74},
-  url       = {https://ieeexplore.ieee.org/document/5493433/},
-  abstract    = {In our research work, we use two Dynamic Data Driven Application System (DDDAS) methodologies to predict wildfire propagation. Our goal is to build a system that dynamically adapts to constant changes in environmental conditions when a hazard occurs and under strict real-time deadlines. For this purpose, we are on the way of building a parallel wildfire prediction method, which is able to assimilate real-time data to be injected in the prediction process at execution time. In this paper, we propose a strategy for data injection in distributed environments.},
-  author_keywords  = {Dynamic Data Driven Application System; Parallel computing; Forest fire prediction; Parallel simulation; High performance computing; Evolutionary computing; Real-time data injection},
-  indexed_keywords = {Fires; Computational modeling; Predictive models; Application software; Real time systems; High performance computing; Grid computing; Hazards; Concurrent computing; Mathematical model}
-}
-
-@inproceedings{rodriguez2008adaptive,
-  author    = {Rodr{\'i}guez, Roque and Cort{\'e}s, Ana and Margalef, Tom{\'a}s and Luque, Emilio},
-  title     = {An Adaptive System for Forest Fire Behavior Prediction},
-  booktitle = {Proceedings of the 2008 11th IEEE International Conference on Computational Science and Engineering (CSE)},
-  publisher = {IEEE},
-  pages     = {275--282},
-  year      = {2008},
-  doi       = {10.1109/CSE.2008.15},
-  url       = {https://ieeexplore.ieee.org/document/4578243/},
-  abstract    = {In this paper, we propose a combination of two Dynamic Data Driven Application System (DDDAS) methodologies to predict wildfires' propagation. Our goal is to build a system that dynamically adapts to constant changes in environmental conditions when a hazard occurs and under strict real-time deadlines. For this purpose, we are on the way of building a parallel wildfire prediction method, which is able to assimilate real-time data to be injected in the prediction process at execution time.},
-  author_keywords  = {Parallel computing; Forest fire prediction; Parallel simulation; High performance computing; Evolutionary computing; Dynamic Data Driven Application System},
-  indexed_keywords = {Real-time systems; Forestry; Computational modeling; Numerical models; Genetic algorithms; Wildfires; Calibration; Wind speed; prediction quality; geographic information system}
 }
 
 @inproceedings{tardivo2016evolutionary,
@@ -1384,6 +1608,72 @@
   indexed_keywords = {Performance evaluation; Cloud computing; Wildfires; Accuracy; Computational modeling; Scalability; Graphics processing units; Forestry; Real-time systems; edge computing; energy consumption; parallelization}
 }
 
+
+% ---------------------------------------------------------------------
+% EJE 6. MODELOS SUSTITUTOS (SURROGATE MODELS) Y APRENDIZAJE AUTOMATICO
+% ---------------------------------------------------------------------
+
+@article{sacks1989design,
+  author  = {Sacks, Jerome and Welch, William J. and Mitchell, Toby J. and Wynn, Henry P.},
+  title   = {Design and Analysis of Computer Experiments},
+  journal = {Statistical Science},
+  volume  = {4},
+  number  = {4},
+  pages   = {409--423},
+  year    = {1989},
+  doi     = {10.1214/ss/1177012413},
+  url     = {https://projecteuclid.org/journals/statistical-science/volume-4/issue-4/Design-and-Analysis-of-Computer-Experiments/10.1214/ss/1177012413.full},
+  abstract    = {Many scientific phenomena are now investigated by complex computer models or codes. A computer experiment is a number of runs of the code with various inputs. A feature of many computer experiments is that the output is deterministic--rerunning the code with the same inputs gives identical observations. Often, the codes are computationally expensive to run, and a common objective of an experiment is to fit a cheaper predictor of the output to the data. Our approach is to model the deterministic output as the realization of a stochastic process, thereby providing a statistical basis for designing experiments (choosing the inputs) for efficient prediction. With this model, estimates of uncertainty of predictions are also available. Recent work in this area is reviewed, a number of applications are discussed, and we demonstrate our methodology with an example.},
+  author_keywords  = {computer experiments; design of experiments; kriging; Gaussian process; surrogate model; prediction},
+  indexed_keywords = {stochastic process models; deterministic simulation; experimental design; response surface; uncertainty quantification}
+}
+
+@article{queipo2005surrogate,
+  author  = {Queipo, Nestor V. and Haftka, Raphael T. and Shyy, Wei and Goel, Tushar and Vaidyanathan, Rajkumar and Tucker, P. Kevin},
+  title   = {Surrogate-Based Analysis and Optimization},
+  journal = {Progress in Aerospace Sciences},
+  volume  = {41},
+  number  = {1},
+  pages   = {1--28},
+  year    = {2005},
+  doi     = {10.1016/j.paerosci.2005.02.001},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0376042105000102},
+  abstract    = {A major challenge to the successful full-scale development of modern aerospace systems is to address competing objectives such as improved performance, reduced costs, and enhanced safety. Accurate, high-fidelity models are typically time consuming and computationally expensive. Furthermore, informed decisions should be made with an understanding of the impact (global sensitivity) of the design variables on the different objectives. In this context, the so-called surrogate-based approach for analysis and optimization can play a very valuable role. The surrogates are constructed using data drawn from high-fidelity models, and provide fast approximations of the objectives and constraints at new design points, thereby making sensitivity and optimization studies feasible. This paper provides a comprehensive discussion of the fundamental issues that arise in surrogate-based analysis and optimization (SBAO), highlighting concepts, methods, techniques, as well as practical implications. The issues addressed include the selection of the loss function and regularization criteria for constructing the surrogates, design of experiments, surrogate selection and construction, sensitivity analysis, convergence, and optimization. The multi-objective optimal design of a liquid rocket injector is presented to highlight the state of the art and to help guide future efforts.},
+  author_keywords  = {surrogate models; design of experiments; sensitivity analysis; optimization; high-fidelity simulation},
+  indexed_keywords = {response surface methodology; kriging; radial basis functions; metamodeling; aerospace design}
+}
+
+@article{forrester2009recent,
+  author  = {Forrester, Alexander I. J. and Keane, Andy J.},
+  title   = {Recent Advances in Surrogate-Based Optimization},
+  journal = {Progress in Aerospace Sciences},
+  volume  = {45},
+  number  = {1-3},
+  pages   = {50--79},
+  year    = {2009},
+  doi     = {10.1016/j.paerosci.2008.11.001},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0376042108000766},
+  abstract    = {The evaluation of aerospace designs is synonymous with the use of long running and computationally intensive simulations. This fuels the desire to harness the efficiency of surrogate-based methods in aerospace design optimization. Recent advances in surrogate-based design methodology bring the promise of efficient global optimization closer to reality. We review the present state of the art of constructing surrogate models and their use in optimization strategies. We make extensive use of pictorial examples and, since no method is truly universal, give guidance as to each method's strengths and weaknesses.},
+  author_keywords  = {surrogate-based optimization; efficient global optimization; metamodels; design of experiments; infill criteria},
+  indexed_keywords = {kriging; response surface; multi-fidelity models; expensive black-box functions; aerospace design optimization}
+}
+
+@article{hodges2019wildland,
+  author  = {Hodges, Jonathan L. and Lattimer, Brian Y.},
+  title   = {Wildland Fire Spread Modeling Using Convolutional Neural Networks},
+  journal = {Fire Technology},
+  volume  = {55},
+  number  = {6},
+  pages   = {2115--2142},
+  year    = {2019},
+  doi     = {10.1007/s10694-019-00846-4},
+  url     = {https://link.springer.com/article/10.1007/s10694-019-00846-4},
+  abstract    = {A wildland fire spread model was developed using a deep convolutional inverse graphics network (DCIGN) to reduce the computational cost associated with predicting wildland fire spread. The network was trained and tested on landscapes with homogeneous and complex terrain, generating more than 10,000 predictions of burn maps at 6-hour intervals up to 24 hours after ignition. Predictions showed strong agreement with the simulation outputs used as ground truth, with mean precision, sensitivity, F-measure, and Chan--Vese similarity of 0.97, 0.92, 0.93, and 0.93, respectively, and a computational cost three orders of magnitude lower than that of current models, while remaining accurate under noisy input parameters.},
+  author_keywords  = {Wildland fire; Machine learning; Neural network; Fire spread; Convolutional neural network; CNN; DCIGN},
+  indexed_keywords = {Fire Science, Hazard Control, Building Safety; deep learning; surrogate model; computational cost; burn map prediction},
+  note        = {Resumen reconstruido a partir de la ficha del editor; verificar contra el PDF original antes de citar textualmente.}
+}
+
 @article{cheng2023generative,
   author  = {Cheng, Sibo and Guo, Yike and Arcucci, Rossella},
   title   = {A Generative Model for Surrogates of Spatial-Temporal Wildfire Nowcasting},
@@ -1399,8 +1689,9 @@
   indexed_keywords = {Computational modeling; Data models; Predictive models; Training; MODIS; Variational Autoencoder; Cellular Automata; Burned area; Fire spread; Latent variables}
 }
 
+
 % ---------------------------------------------------------------------
-% EJE 6. SIMILARIDAD, VECINO MAS CERCANO Y RECUPERACION DE ESCENARIOS
+% EJE 7. SIMILARIDAD, VECINO MAS CERCANO Y RECUPERACION DE ESCENARIOS
 % ---------------------------------------------------------------------
 
 @article{cover1967nearest,
@@ -1448,9 +1739,9 @@
   indexed_keywords = {Routing; Complexity theory; Search problems; Data models; Approximation algorithms; approximate nearest neighbor search; small-world graphs; proximity graph; metric space indexing}
 }
 
+
 % ---------------------------------------------------------------------
-% EJE 7. SIG, DATOS GEOESPACIALES Y SISTEMAS DE APOYO A LA DECISION
-%        EN EMERGENCIAS
+% EJE 8. SIG, DATOS GEOESPACIALES Y SISTEMAS DE APOYO A LA DECISION EN EMERGENCIAS
 % ---------------------------------------------------------------------
 
 @article{rollins2009landfire,
@@ -1468,81 +1759,6 @@
   indexed_keywords = {fire regimes; LF - LANDFIRE; vegetation; wildland fuel; mapping; GIS - geographic information system}
 }
 
-@article{calkin2014risk,
-  author  = {Calkin, David E. and Cohen, Jack D. and Finney, Mark A. and Thompson, Matthew P.},
-  title   = {How Risk Management Can Prevent Future Wildfire Disasters in the Wildland--Urban Interface},
-  journal = {Proceedings of the National Academy of Sciences},
-  volume  = {111},
-  number  = {2},
-  pages   = {746--751},
-  year    = {2014},
-  doi     = {10.1073/pnas.1315088111},
-  url     = {https://www.frames.gov/catalog/52438},
-  abstract    = {Recent fire seasons in the western United States are some of the most damaging and costly on record. Wildfires in the wildland-urban interface on the Colorado Front Range, resulting in thousands of homes burned and civilian fatalities, although devastating, are not without historical reference. These fires are consistent with the characteristics of large, damaging, interface fires that threaten communities across much of the western United States. Wildfires are inevitable, but the destruction of homes, ecosystems, and lives is not. We propose the principles of risk analysis to provide land management agencies, first responders, and affected communities who face the inevitability of wildfires the ability to reduce the potential for loss. Overcoming perceptions of wildland-urban interface fire disasters as a wildfire control problem rather than a home ignition problem, determined by home ignition conditions, will reduce home loss.},
-  author_keywords  = {risk assessment; fuel treatment; home ignition zone; wildland-urban interface; wildfire disaster},
-  indexed_keywords = {Colorado Front Range; fire control; fire damage (property); fire management; fuel management; fuel treatment; HIZ - home ignition zone; land management; risk assessment; wildfires}
-}
-
-@article{salis2016mediterranean,
-  author  = {Salis, Michele and Arca, Bachisio and Alcasena, Fermin and Arianoutsou, Margarita and Bacciu, Valentina and Duce, Pierpaolo and Duguy, Beatriz and Koutsias, Nikos and Mallinis, Giorgos and Mitsopoulos, Ioannis and Moreno, Jose M. and Perez, Juan R. and Urbieta, Itziar R. and Xystrakis, Fotios and Zavala, Gonzalo and Spano, Donatella},
-  title   = {Predicting Wildfire Spread and Behaviour in {M}editerranean Landscapes},
-  journal = {International Journal of Wildland Fire},
-  volume  = {25},
-  number  = {10},
-  pages   = {1015--1032},
-  year    = {2016},
-  doi     = {10.1071/WF15081},
-  url     = {https://www.frames.gov/catalog/22785},
-  abstract    = {The use of spatially explicit fire spread models to assess fire propagation and behaviour has several applications for fire management and research. We used the FARSITE simulator to predict the spread of a set of wildfires that occurred along an east-west gradient of the Euro-Mediterranean countries. The main purpose of this work was to evaluate the overall accuracy of the simulator and to quantify the effects of standard vs custom fuel models on fire simulation performance. We also analysed the effects of different fuel models and slope classes on the accuracy of FARSITE predictions. To run the simulations, several input layers describing each study area were acquired, and their effect on simulation outputs was analysed. Site-specific fuel models and canopy inputs were derived either from existing vegetation information and field sampling or through remote-sensing data. The custom fuel models produced an increase in simulation accuracy, and results were nearly unequivocal for all the case studies examined. We suggest that spatially explicit fire spread simulators and custom fuel models specifically developed for the heterogeneous landscapes of Mediterranean ecosystems can help improve fire hazard mapping and optimise fuel management practices across the Euro-Mediterranean region.},
-  author_keywords  = {FARSITE; custom fuel models; fire behaviour; Mediterranean ecosystems; simulation accuracy; fire hazard mapping},
-  indexed_keywords = {ecosystems; FARSITE - Fire Area Simulator; fire management; fire propagation; fire spread; fuel management; Greece; Italy; Spain; remote sensing}
-}
-
-@article{finney2011fsim,
-  author  = {Finney, Mark A. and McHugh, Charles W. and Grenfell, Isaac C. and Riley, Karin L. and Short, Karen C.},
-  title   = {A Simulation of Probabilistic Wildfire Risk Components for the Continental {United} {States}},
-  journal = {Stochastic Environmental Research and Risk Assessment},
-  volume  = {25},
-  number  = {7},
-  pages   = {973--1000},
-  year    = {2011},
-  doi     = {10.1007/s00477-011-0462-z},
-  url     = {https://www.frames.gov/catalog/23994},
-  abstract    = {This simulation research was conducted in order to develop a large-fire risk assessment system for the contiguous land area of the United States. The modeling system was applied to each of 134 Fire Planning Units (FPUs) to estimate burn probabilities and fire size distributions. To obtain stable estimates of these quantities, fire ignition and growth was simulated for 10,000 to 50,000 years of artificial weather. The fire growth simulations, when run repeatedly with different weather and ignition locations, produce burn probabilities and fire behavior distributions at each landscape location (e.g., number of times a cell burns at a given intensity divided by the total years). The artificial weather was generated for each land unit using (1) a fire danger rating index known as the Energy Release Component (ERC) which is a proxy for fuel moisture contents, (2) a time-series analysis of ERC to represent daily and seasonal variability, and (3) distributions of wind speed and direction from weather records. Large fire occurrence was stochastically modeled based on historical relationships to ERC. The simulations also required spatial data on fuel structure and topography which were acquired from the LANDFIRE project. Fire suppression effects were represented by a statistical model that yields a probability of fire containment based on independent predictors of fire growth rates and fuel type. The simulated burn probabilities were comparable to observed patterns across the U.S. over the range of four orders of magnitude, generally falling within a factor of 3 or 4 of historical estimates. Close agreement between simulated and historical fire size distributions suggest that fire sizes are determined by the joint distributions of spatial opportunities for fire growth (dependent on fuels and ignition location) and the temporal opportunities produced by conducive weather sequences. The research demonstrates a practical approach to using fire simulations at very broad scales for purposes of operational planning and perhaps ecological research.},
-  author_keywords  = {FSim; burn probability; wildfire risk; stochastic simulation; fire size distribution; Monte Carlo},
-  indexed_keywords = {burn probability; ERC - Energy Release Component; fire management; fire models; fire simulation; fire size distribution; fire suppression; fuel moisture; ignition; LF - LANDFIRE}
-}
-
-@article{zigner2020evaluating,
-  author  = {Zigner, Katelyn and Carvalho, Leila M. V. and Peterson, Seth and Fujioka, Francis and Duine, Gert-Jan and Jones, Charles and Roberts, Dar and Moritz, Max},
-  title   = {Evaluating the Ability of {FARSITE} to Simulate Wildfires Influenced by Extreme, Downslope Winds in {S}anta {B}arbara, {C}alifornia},
-  journal = {Fire},
-  volume  = {3},
-  number  = {3},
-  pages   = {29},
-  year    = {2020},
-  doi     = {10.3390/fire3030029},
-  url     = {https://www.mdpi.com/2571-6255/3/3/29},
-  abstract    = {Extreme, downslope mountain winds often generate dangerous wildfire conditions. We used the wildfire spread model Fire Area Simulator (FARSITE) to simulate two wildfires influenced by strong wind events in Santa Barbara, CA. High spatial-resolution imagery for fuel maps and hourly wind downscaled to 100 m were used as model inputs, and sensitivity tests were performed to evaluate the effects of ignition timing and location on fire spread. Additionally, burn area rasters from FARSITE simulations were compared to minimum travel time rasters from FlamMap simulations, a wildfire model similar to FARSITE that holds environmental variables constant. Utilization of two case studies during strong winds revealed that FARSITE was able to successfully reconstruct the spread rate and size of wildfires when spotting was minimal. However, in situations when spotting was an important factor in rapid downslope wildfire spread, both FARSITE and FlamMap were unable to simulate realistic fire perimeters. We show that this is due to inherent limitations in the models themselves, related to the slope-orientation relative to the simulated fire spread, and the dependence of ember launch and land locations. This finding has widespread implications, given the role of spotting in fire progression during extreme wind events.},
-  author_keywords  = {wildfire modeling; FARSITE; spotting; fire weather; Sundowner winds},
-  indexed_keywords = {fire spread simulation; FlamMap; minimum travel time; downscaled wind fields; fuel maps; model validation}
-}
-
-@article{sun2023facing,
-  author  = {Sun, Jingjing and Qi, Wenwen and Huang, Yuandong and Xu, Chong and Yang, Wentao},
-  title   = {Facing the Wildfire Spread Risk Challenge: Where Are We Now and Where Are We Going?},
-  journal = {Fire},
-  volume  = {6},
-  number  = {6},
-  pages   = {228},
-  year    = {2023},
-  doi     = {10.3390/fire6060228},
-  url     = {https://www.mdpi.com/2571-6255/6/6/228},
-  abstract    = {Wildfire is a sudden and highly destructive natural disaster that poses significant challenges in terms of response and rescue efforts. Influenced by factors such as climate, combustible materials, and ignition sources, wildfires have been increasingly occurring worldwide on an annual basis. In recent years, researchers have shown growing interest in studying wildfires, leading to a substantial body of related research. These studies encompass various topics, including wildfire prediction and forecasting, the analysis of spatial and temporal patterns, the assessment of ecological impacts, the simulation of wildfire behavior, the identification of influencing factors, the development of risk assessment models, techniques for managing combustible materials, decision-making technologies for firefighting, and fire-retardant methods. Understanding the factors that affect wildfire spread behavior, employing simulation methods, and conducting risk assessments are vital for effective wildfire prevention, disaster mitigation, and emergency response. Consequently, it is imperative to comprehensively review and explore further research in this field. This article primarily focuses on elucidating and discussing wildfire spread behavior as a key aspect. It summarizes the driving factors of wildfire spread behavior and introduces a wildfire spread behavior simulation software and its main applications based on these factors. Furthermore, it presents the research progress in wildfire risk assessment based on wildfire spread behavior factors and simulation, and provides an overview of various methods used for wildfire risk assessment. Finally, the article proposes several prospects for future research on wildfire spread: strengthening the dynamic monitoring of wildfires and utilizing comprehensive data from multiple sources, further exploring the differential effects of key factors on wildfire spread, investigating differences in driving factors, improving wildfire models in China, developing applicable software, and conducting accurate and scientific assessments of wildfire risks to protect ecological resources.},
-  author_keywords  = {wildfire; wildfire spread; driving factors; simulation; risk assessment},
-  indexed_keywords = {wildfire behavior; fire spread simulation software; risk assessment models; emergency response; review}
-}
-
 @article{noonanwright2011wfdss,
   author  = {Noonan-Wright, Erin K. and Opperman, Tonja S. and Finney, Mark A. and Zimmerman, G. Thomas and Seli, Robert C. and Elenz, Lisa M. and Calkin, David E. and Fiedler, John R.},
   title   = {Developing the {US} Wildland Fire Decision Support System},
@@ -1555,196 +1771,4 @@
   abstract    = {A new decision support tool, the Wildland Fire Decision Support System (WFDSS) has been developed to support risk-informed decision-making for individual fires in the United States. WFDSS accesses national weather data and forecasts, fire behavior prediction, economic assessment, smoke management assessment, and landscape databases to efficiently formulate and apply information to the decision making process. Risk-informed decision-making is becoming increasingly important as a means of improving fire management and offers substantial opportunities to benefit natural and community resource protection, management response effectiveness, firefighter resource use and exposure, and, possibly, suppression costs. This paper reviews the development, structure, and function of WFDSS, and how it contributes to increased flexibility and agility in decision making, leading to improved fire management program effectiveness.},
   author_keywords  = {decision support system; wildland fire management; risk-informed decision making; fire behavior prediction},
   indexed_keywords = {emergency management; incident management; geospatial databases; fire economics; smoke management}
-}
-
-@article{pastor2003mathematical,
-  author  = {Pastor, Elsa and Z{\'a}rate, Luis and Planas, Eul{\`a}lia and Arnaldos, Josep},
-  title   = {Mathematical Models and Calculation Systems for the Study of Wildland Fire Behaviour},
-  journal = {Progress in Energy and Combustion Science},
-  volume  = {29},
-  number  = {2},
-  pages   = {139--153},
-  year    = {2003},
-  doi     = {10.1016/S0360-1285(03)00017-0},
-  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0360128503000170},
-  abstract    = {This is a review of the most important work in wildland fire mathematical modelling which has been carried out at different research centres around the world from the beginning of the 1940s to the present. A generic classification is proposed which allows wildland fire models to be sorted. Surface fire spread models, crown fire initiation and spread models, spotting and ground fire models are reviewed historically and the most significant ones are analysed in depth. The last two sections are dedicated to wildland fire behaviour calculation systems based on the reviewed models. The evolution and complexity of these systems is analysed in parallel with the development of new technologies. Special attention is given to the tools most commonly in current use by forestry agencies.},
-  author_keywords  = {Wildland fire; Surface fire; Crown fire; Ground fire; Spotting; Modelling; Simulation},
-  indexed_keywords = {fire behaviour calculation systems; empirical models; physical models; forest fire management tools; review}
-}
-
-@article{sacks1989design,
-  author  = {Sacks, Jerome and Welch, William J. and Mitchell, Toby J. and Wynn, Henry P.},
-  title   = {Design and Analysis of Computer Experiments},
-  journal = {Statistical Science},
-  volume  = {4},
-  number  = {4},
-  pages   = {409--423},
-  year    = {1989},
-  doi     = {10.1214/ss/1177012413},
-  url     = {https://projecteuclid.org/journals/statistical-science/volume-4/issue-4/Design-and-Analysis-of-Computer-Experiments/10.1214/ss/1177012413.full},
-  abstract    = {Many scientific phenomena are now investigated by complex computer models or codes. A computer experiment is a number of runs of the code with various inputs. A feature of many computer experiments is that the output is deterministic--rerunning the code with the same inputs gives identical observations. Often, the codes are computationally expensive to run, and a common objective of an experiment is to fit a cheaper predictor of the output to the data. Our approach is to model the deterministic output as the realization of a stochastic process, thereby providing a statistical basis for designing experiments (choosing the inputs) for efficient prediction. With this model, estimates of uncertainty of predictions are also available. Recent work in this area is reviewed, a number of applications are discussed, and we demonstrate our methodology with an example.},
-  author_keywords  = {computer experiments; design of experiments; kriging; Gaussian process; surrogate model; prediction},
-  indexed_keywords = {stochastic process models; deterministic simulation; experimental design; response surface; uncertainty quantification}
-}
-
-@article{queipo2005surrogate,
-  author  = {Queipo, Nestor V. and Haftka, Raphael T. and Shyy, Wei and Goel, Tushar and Vaidyanathan, Rajkumar and Tucker, P. Kevin},
-  title   = {Surrogate-Based Analysis and Optimization},
-  journal = {Progress in Aerospace Sciences},
-  volume  = {41},
-  number  = {1},
-  pages   = {1--28},
-  year    = {2005},
-  doi     = {10.1016/j.paerosci.2005.02.001},
-  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0376042105000102},
-  abstract    = {A major challenge to the successful full-scale development of modern aerospace systems is to address competing objectives such as improved performance, reduced costs, and enhanced safety. Accurate, high-fidelity models are typically time consuming and computationally expensive. Furthermore, informed decisions should be made with an understanding of the impact (global sensitivity) of the design variables on the different objectives. In this context, the so-called surrogate-based approach for analysis and optimization can play a very valuable role. The surrogates are constructed using data drawn from high-fidelity models, and provide fast approximations of the objectives and constraints at new design points, thereby making sensitivity and optimization studies feasible. This paper provides a comprehensive discussion of the fundamental issues that arise in surrogate-based analysis and optimization (SBAO), highlighting concepts, methods, techniques, as well as practical implications. The issues addressed include the selection of the loss function and regularization criteria for constructing the surrogates, design of experiments, surrogate selection and construction, sensitivity analysis, convergence, and optimization. The multi-objective optimal design of a liquid rocket injector is presented to highlight the state of the art and to help guide future efforts.},
-  author_keywords  = {surrogate models; design of experiments; sensitivity analysis; optimization; high-fidelity simulation},
-  indexed_keywords = {response surface methodology; kriging; radial basis functions; metamodeling; aerospace design}
-}
-
-@article{forrester2009recent,
-  author  = {Forrester, Alexander I. J. and Keane, Andy J.},
-  title   = {Recent Advances in Surrogate-Based Optimization},
-  journal = {Progress in Aerospace Sciences},
-  volume  = {45},
-  number  = {1-3},
-  pages   = {50--79},
-  year    = {2009},
-  doi     = {10.1016/j.paerosci.2008.11.001},
-  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0376042108000766},
-  abstract    = {The evaluation of aerospace designs is synonymous with the use of long running and computationally intensive simulations. This fuels the desire to harness the efficiency of surrogate-based methods in aerospace design optimization. Recent advances in surrogate-based design methodology bring the promise of efficient global optimization closer to reality. We review the present state of the art of constructing surrogate models and their use in optimization strategies. We make extensive use of pictorial examples and, since no method is truly universal, give guidance as to each method's strengths and weaknesses.},
-  author_keywords  = {surrogate-based optimization; efficient global optimization; metamodels; design of experiments; infill criteria},
-  indexed_keywords = {kriging; response surface; multi-fidelity models; expensive black-box functions; aerospace design optimization}
-}
-
-@article{andrews2014behaveplus,
-  author  = {Andrews, Patricia L.},
-  title   = {Current Status and Future Needs of the {BehavePlus} Fire Modeling System},
-  journal = {International Journal of Wildland Fire},
-  volume  = {23},
-  number  = {1},
-  pages   = {21--33},
-  year    = {2014},
-  doi     = {10.1071/WF12167},
-  url     = {https://www.frames.gov/catalog/16531},
-  abstract    = {The BehavePlus Fire Modeling System is among the most widely used systems for wildland fire prediction. It is designed for use in a range of tasks including wildfire behaviour prediction, prescribed fire planning, fire investigation, fuel hazard assessment, fire model understanding, communication and research. BehavePlus is based on mathematical models for fire behaviour, fire effects and fire environment. It is a point system for which conditions are constant for each calculation, but is designed to encourage examination of the effect of a range of conditions through tables and graphs. BehavePlus is successor to BEHAVE, which was developed in 1977 and became available for field application in 1984. It was updated to BehavePlus in 2002. Updates through version 5 have added features and modelling capabilities. It is becoming increasingly difficult to expand the system. A redesign will address the need for consolidation with other systems and make it easier to incorporate new research results. This paper describes the development history and application of BehavePlus. The design, features and modelling foundation of the current system are described. Considerations for the next generation are presented.},
-  author_keywords  = {BehavePlus; BEHAVE; fire behaviour prediction; fire modelling system; software design},
-  indexed_keywords = {fire modeling system; crown fire; crown scorch; fire management; fire size; firebrands; flame length; fuel moisture; spotting distance; surface fire; wind}
-}
-
-@article{alexandridis2008cellular,
-  author  = {Alexandridis, A. and Vakalis, D. and Siettos, C. I. and Bafas, G. V.},
-  title   = {A Cellular Automata Model for Forest Fire Spread Prediction: The Case of the Wildfire That Swept Through {S}petses {I}sland in 1990},
-  journal = {Applied Mathematics and Computation},
-  volume  = {204},
-  number  = {1},
-  pages   = {191--201},
-  year    = {2008},
-  doi     = {10.1016/j.amc.2008.06.046},
-  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0096300308004943},
-  abstract    = {We present and illustrate the simulation results of a cellular automata model describing the dynamics of a forest fire spread on a mountainous landscape taking into account factors such as the type and density of vegetation, the wind speed and direction and the spotting phenomenon. The model is used to simulate the wildfire that broke up on Spetses in August of 1990 and destroyed a major part of the Island's forest. We used a black-box non-linear optimization approach to fine-tune some of the model's parameters based on a geographical information system incorporating available data from the real forest fire. The comparison between the simulation and the actual-observed results showed that the proposed model predicts in a quite adequate manner the evolution characteristics in space and time of the real incident and as such could be potentially used as a fire risk-management tool for heterogeneous landscapes.},
-  author_keywords  = {cellular automata; forest fire spread; wildfire simulation; parameter estimation; geographical information systems},
-  indexed_keywords = {discrete models; nonlinear optimization; landscape heterogeneity; wind effects; spotting; fire risk management}
-}
-
-@article{martins2025analysing,
-  author  = {Martins, Leonardo and Almeida, Rui Valente de and Maia, Ant{\'o}nio and Vieira, Pedro},
-  title   = {Analysing Fire Propagation Models: A Case Study on {FARSITE} for Prolonged Wildfires},
-  journal = {Fire},
-  volume  = {8},
-  number  = {5},
-  pages   = {166},
-  year    = {2025},
-  doi     = {10.3390/fire8050166},
-  url     = {https://www.mdpi.com/2571-6255/8/5/166},
-  abstract    = {With increasing wildfire severity and duration driven by climate change, accurately predicting fire behavior over extended time frames is critical for effective management and mitigation of such wildfires. Fire propagation models play a pivotal role in these efforts, providing simulations that can be used to strategize and respond to active fires. This study examines the fire area simulator (FARSITE) model's performance in simulating recent wildfire events that persisted over 24 h with limited firefighting intervention in mostly remote access areas across diverse ecosystems. Our findings reveal key insights into a prolonged wildfire scenarios potentially informing improvements in operational fire management and long-term predictive accuracy, as the area comparisons indexes showed reasonable results between the detected fires from the fire information for resource management systems (FIRMSs) in the first 24 h of the fire and the following days. A case study of a recent wildfire in Madeira Island highlights the integration of real-time weather predictions and post-event weather data analysis. This analysis underscores the potential of combining accurate forecasts with retrospective validation to improve predictive capabilities in dynamic fire environments, which guided the development of a software platform designed to analyse ongoing wildfire events in real-time, leveraging image satellite data and weather predictions.},
-  author_keywords  = {real-time fire detection; wildfires; FARSITE},
-  indexed_keywords = {fire propagation models; satellite data; FIRMS; weather forecasting; operational fire management; model validation}
-}
-
-@article{mell2009douglasfir,
-  author  = {Mell, William E. and Maranghides, Alexander and McDermott, Randall and Manzello, Samuel L.},
-  title   = {Numerical Simulation and Experiments of Burning {D}ouglas Fir Trees},
-  journal = {Combustion and Flame},
-  volume  = {156},
-  number  = {10},
-  pages   = {2023--2041},
-  year    = {2009},
-  doi     = {10.1016/j.combustflame.2009.06.015},
-  url     = {https://www.sciencedirect.com/science/article/abs/pii/S0010218009001655},
-  abstract    = {Fires spreading in elevated vegetation, such as chaparral or pine forest canopies, are often more intense than fires spreading through surface vegetation such as grasslands. As a result, they are more difficult to suppress, produce higher heat fluxes, more firebrands and smoke, and can interact with, or create, local weather conditions that lead to dangerous fire behavior. Such wildland fires can pose a serious threat to wildland-urban interface communities. A basic building block of such fires is a single tree. In the work presented here, a number of individual trees, of various characteristics, were burned without an imposed wind in the Large Fire Laboratory of the National Institute of Standards of Technology. A numerical model capable of representing the spatial distribution of vegetation in a tree crown is presented and evaluated against tree burning experiments. For simplicity, the vegetation was assumed to be uniformly distributed in a tree crown represented by a well defined geometric shape (cone or cylinder). Predictions of the time histories of the radiant heat flux and mass loss rates for different fuel moisture contents and tree heights compared favorably to measured values and trends. This work is a first step toward the development and application of a physics-based computer model to spatially complex, elevated, vegetation present in forest stands and in the wildland-urban interface.},
-  author_keywords  = {WFDS; physics-based fire model; tree burning experiments; radiant heat flux; mass loss rate; wildland-urban interface},
-  indexed_keywords = {computational fluid dynamics; crown fuels; vegetation combustion; model validation; fuel moisture content}
-}
-
-@article{goleiji2025integrating,
-  author  = {Goleiji, Elnaz and Aliani, Hamid and Hosseini, Seyed Mohsen},
-  title   = {Integrating {FARSITE} and {GIS} for Enhanced Forest Fire Spread Prediction and Simulation},
-  journal = {Natural Hazards},
-  year    = {2025},
-  doi     = {10.1007/s11069-025-07404-y},
-  url     = {https://link.springer.com/article/10.1007/s11069-025-07404-y},
-  abstract    = {Given the widespread fires in forests worldwide, which result in the destruction of ecosystems, effective management of these forests, particularly concerning fire behavior and its spread, is essential. Forest fire prediction is a worldwide problem. There are different models to predict the spread of fires, especially in forest areas. Still, these models are usually complex to apply to real forest fire cases, and the accuracy of prediction is lower than expected. This research aims to identify and predict fire spread behavior and the process of fire spread in natural areas using the FARSITE model. To conduct the research, data including topography, vegetation, and meteorological information were compiled for the study area. Using GIS tools and the FARSITE model, a simulation map of fire spread behavior in the studied forest was generated. The model was tested against the spread of fires under field conditions where a real fire had occurred in the forest area. To assess the accuracy of the simulation, the Kappa coefficient method was employed. The simulation results showed that 34.93 hectares of the observed fire area were accurately simulated as a burned area, demonstrating a high degree of consistency with the actual fire spread. The overestimated area was minimal (0.85 hectares), while 37.7 hectares of the fire spot were not simulated as burned. The findings of this study can inform fire spread behavior prediction models and guide the development of preventive and control measures for fire risk management in forests.},
-  author_keywords  = {Forest fire risk management; Fire spread simulation; FARSITE; Geographical information system},
-  indexed_keywords = {Natural Hazards; Kappa coefficient; topography; vegetation mapping; meteorological data; model accuracy}
-}
-
-@article{srivas2016enkf,
-  author  = {Srivas, Thayjes and Art{\'e}s, Tom{\`a}s and de Callafon, Raymond A. and Altintas, Ilkay},
-  title   = {Wildfire Spread Prediction and Assimilation for {FARSITE} Using Ensemble {Kalman} Filtering},
-  journal = {Procedia Computer Science},
-  volume  = {80},
-  pages   = {897--908},
-  year    = {2016},
-  doi     = {10.1016/j.procs.2016.05.328},
-  url     = {https://www.frames.gov/catalog/23877},
-  abstract    = {This paper extends FARSITE (a software used for wildfire modeling and simulation) to incorporate data assimilation techniques based on noisy and limited spatial resolution observations of the fire perimeter to improve the accuracy of wildfire spread predictions. To include data assimilation in FARSITE, uncertainty on both the simulated fire perimeter and the measured fire perimeter is used to formulate optimal updates for the prediction of the spread of the wildfire. For data assimilation, fire perimeter measurements with limited spatial resolution and a known uncertainty are used to formulate an optimal adjustment in the fire perimeter prediction. The adjustment is calculated from the Kalman filter gain in an Ensemble Kalman filter that exploits the uncertainty information on both the simulated fire perimeter and the measured fire perimeter. The approach is illustrated on a wildfire simulation representing the 2014 Cocos fire and presents comparison results for hourly data assimilation results.},
-  author_keywords  = {FARSITE; data assimilation; ensemble Kalman filter; fire perimeter; wildfire spread prediction},
-  indexed_keywords = {fire simulation; uncertainty quantification; state estimation; remote sensing observations; Cocos fire}
-}
-
-@article{price2022sagebrush,
-  author  = {Price, Samuel J. and Germino, Matthew J.},
-  title   = {Modeling of Fire Spread in Sagebrush Steppe Using {FARSITE}: An Approach to Improving Input Data and Simulation Accuracy},
-  journal = {Fire Ecology},
-  volume  = {18},
-  number  = {1},
-  pages   = {23},
-  year    = {2022},
-  doi     = {10.1186/s42408-022-00147-2},
-  url     = {https://link.springer.com/article/10.1186/s42408-022-00147-2},
-  abstract    = {Background: Model simulations of wildfire spread and assessments of their accuracy are needed for understanding and managing altered fire regimes in semiarid regions. The accuracy of wildfire spread simulations can be evaluated from post hoc comparisons of simulated and actual wildfire perimeters, but this requires information on pre-fire vegetation fuels that is typically not available. We assessed the accuracy of the Fire-Area Simulator (FARSITE) model parameterized with maps of fire behavior fuel models (FBFMs) obtained from the widely used LANDFIRE, as well as alternative means which utilized the classification of Rangeland Analysis Platform (RAP) satellite-derived vegetation cover maps to create FBFM maps. We focused on the 2015 Soda wildfire, which burned 113,000 ha of sagebrush steppe in the western USA, and then assessed the transferability of our RAP-to-FBFM selection process, which produced the most accurate reconstruction of the Soda wildfire, on the nearby 2016 Cherry Road wildfire. Results: Parameterizing FARSITE with maps of FBFMs from LANDFIRE resulted in low levels of agreement between simulated and observed area burned, with maximum Sorensen's coefficient (SC) and Cohen's kappa (K) values of 0.38 and 0.36, respectively. In contrast, maps of FBFMs derived from unsupervised classification of RAP vegetation cover maps led to much greater simulated-to-observed burned area agreement (SC = 0.70, K = 0.68). The FBFM map that generated the greatest simulated-to-observed burned area agreement for the Soda wildfire was then used to crosswalk FBFMs to another nearby wildfire (2016 Cherry Road), and this FBFM selection led to high FARSITE simulated-to-observed burned area agreement (SC = 0.80, K = 0.79). Conclusions: Using RAP to inform pre-fire FBFM selection increased the accuracy of FARSITE simulations compared to parameterization with the standard LANDFIRE FBFM maps, in sagebrush steppe. Additionally, the crosswalk method appeared to have regional generalizability. Flanking and backfires were the primary source of disagreements between simulated and observed fire spread in FARSITE, which are sources of error that may require modeling of lateral heterogeneity in fuels and fire processes at finer scales than used here.},
-  author_keywords  = {Annual grass; Fire model; Fire reconstruction; Fuel beds; FARSITE; LANDFIRE},
-  indexed_keywords = {Fire Ecology; fire behavior fuel models; Rangeland Analysis Platform; remote sensing; simulation accuracy; sagebrush steppe}
-}
-
-@techreport{mcgrattan2013fds,
-  author      = {McGrattan, Kevin and McDermott, Randall and Weinschenk, Craig and Overholt, Kristopher and Hostikka, Simo and Floyd, Jason},
-  title       = {Fire Dynamics Simulator Technical Reference Guide Volume 1: Mathematical Model},
-  institution = {National Institute of Standards and Technology},
-  number      = {NIST Special Publication 1018-1},
-  address     = {Gaithersburg, Maryland},
-  year        = {2013},
-  doi         = {10.6028/NIST.SP.1018e6},
-  url         = {https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1018e6.pdf},
-  abstract    = {Documento tecnico de referencia del Fire Dynamics Simulator (FDS), el solucionador de dinamica de fluidos computacional sobre el que se construye WFDS. El volumen 1 describe el modelo matematico: las ecuaciones de conservacion de masa, especies, momento y energia en la forma de bajo numero de Mach; el modelo de turbulencia por simulacion de grandes remolinos (LES); los submodelos de combustion y de transferencia de calor por radiacion; y el tratamiento de la fase solida y la pirolisis. La fuente institucional no publica un resumen normalizado para este informe.},
-  author_keywords  = {Fire Dynamics Simulator; FDS; computational fluid dynamics; large eddy simulation; combustion; radiation},
-  indexed_keywords = {fire modeling; low Mach number equations; pyrolysis; heat transfer; numerical methods},
-  note        = {El editor no publica abstract para este informe; el campo abstract contiene una descripcion del alcance elaborada por los autores de esta bibliografia a partir del indice del documento.}
-}
-
-@article{fujimoto1990parallel,
-  author  = {Fujimoto, Richard M.},
-  title   = {Parallel Discrete Event Simulation},
-  journal = {Communications of the ACM},
-  volume  = {33},
-  number  = {10},
-  pages   = {30--53},
-  year    = {1990},
-  doi     = {10.1145/84537.84545},
-  url     = {https://dl.acm.org/doi/10.1145/84537.84545},
-  abstract    = {Parallel discrete event simulation (PDES), sometimes called distributed simulation, refers to the execution of a single discrete event simulation program on a parallel computer. PDES has attracted a considerable amount of interest in recent years. From a pragmatic standpoint, this interest arises from the fact that large simulations in engineering, computer science, economics, and military applications, to mention a few, consume enormous amounts of time on sequential machines. From an academic point of view, parallel simulation is interesting because it represents a problem domain that often contains substantial amounts of parallelism, yet paradoxically, is surprisingly difficult to parallelize in practice. A sufficiently general solution to the PDES problem may lead to new insights in parallel computation as a whole.},
-  author_keywords  = {parallel discrete event simulation; distributed simulation; synchronization; conservative and optimistic protocols; Time Warp},
-  indexed_keywords = {Computing methodologies -- Modeling and simulation; parallel computing methodologies; discrete-event simulation; simulation support systems},
-  note        = {El articulo original (CACM 1990) no incluye un resumen formal independiente; el campo abstract reproduce el parrafo introductorio que la ACM Digital Library publica como resumen del articulo.}
 }
