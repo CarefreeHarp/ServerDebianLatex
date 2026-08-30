@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.5)  30 AUG 2026 02:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.5)  30 AUG 2026 03:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -549,7 +549,7 @@ Package hyperref Info: Link coloring ON on input line 96.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package babel Info: Main language set to 'spanish'.
-<images/logo-javeriana.png, id=36, 360.1455pt x 439.04025pt>
+<images/logo-javeriana.png, id=28, 360.1455pt x 439.04025pt>
 File: images/logo-javeriana.png Graphic file (type png)
 <use images/logo-javeriana.png>
 Package pdftex.def Info: images/logo-javeriana.png  used on input line 107.
@@ -579,23 +579,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 8.
  [4
 
-])
-(./chapters/resultados-busqueda.tex [5]
-Underfull \hbox (badness 4739) in paragraph at lines 19--19
-[]|\T1/cmr/m/n/12 Sistemas de In-for-ma-ción Geo-grá-fi-ca
- []
-
-) (./chapters/mapa-bibliometrico.tex [6
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1 \clearpage
-              ]) [7
-
-] (.aldine-out/main.aux
+]) [5] (.aldine-out/main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -604,13 +588,13 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A8B21C31E4F98D0D2F1DE3A8A6684257;1585.
+(rerunfilecheck)             Checksum: D7AB01F2DC110E3D943FA38BB34E1504;1190.
  ) 
 Here is how much of TeX's memory you used:
- 14352 strings out of 468301
- 222539 string characters out of 5432142
- 853622 words of memory out of 5000000
- 43210 multiletter control sequences out of 15000+600000
+ 14322 strings out of 468301
+ 221768 string characters out of 5432142
+ 853613 words of memory out of 5000000
+ 43191 multiletter control sequences out of 15000+600000
  639071 words of font info for 63 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  74i,12n,79p,540b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -623,10 +607,10 @@ ocal/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local
 /texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/t
 exlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on .aldine-out/main.pdf (8 pages, 330049 bytes).
+Output written on .aldine-out/main.pdf (6 pages, 321646 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

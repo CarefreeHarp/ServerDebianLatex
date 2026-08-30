@@ -5,5 +5,3 @@
 \contentsline {subsection}{\numberline {2.2}Palabras clave}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Temas abarcados en la investigación}{3}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Fuentes informales relevantes}{4}{section.3}%
-\contentsline {section}{\numberline {4}Resultados de la búsqueda bibliográfica}{6}{section.4}%
-\contentsline {section}{\numberline {5}Mapa bibliométrico}{7}{section.5}%

@@ -215,16 +215,6 @@ INPUT ./chapters/urls-importantes.tex
 INPUT ./chapters/urls-importantes.tex
 INPUT chapters/urls-importantes.tex
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
-INPUT ./chapters/resultados-busqueda.tex
-INPUT ./chapters/resultados-busqueda.tex
-INPUT ./chapters/resultados-busqueda.tex
-INPUT ./chapters/resultados-busqueda.tex
-INPUT chapters/resultados-busqueda.tex
-INPUT ./chapters/mapa-bibliometrico.tex
-INPUT ./chapters/mapa-bibliometrico.tex
-INPUT ./chapters/mapa-bibliometrico.tex
-INPUT ./chapters/mapa-bibliometrico.tex
-INPUT chapters/mapa-bibliometrico.tex
 INPUT .aldine-out/main.aux
 INPUT .aldine-out/main.out
 INPUT .aldine-out/main.out
