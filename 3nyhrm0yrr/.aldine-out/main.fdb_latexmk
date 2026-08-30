@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1788051028.70138 "main.tex" ".aldine-out/main.pdf" "main" 1788051029.22948 0
-  ".aldine-out/main.aux" 1788051029.16326 2530 6f9f4f7016383acbd82e397f1bd6b693 "pdflatex"
-  ".aldine-out/main.out" 1788051029.16326 2887 09e6c3ca5d9405f953d1257c24d3ddb8 "pdflatex"
-  ".aldine-out/main.toc" 1788051029.16326 1312 96fbf7e856cb2efa6d64f18c80146ffd "pdflatex"
+["pdflatex"] 1788058425.75362 "main.tex" ".aldine-out/main.pdf" "main" 1788058426.26195 0
+  ".aldine-out/main.aux" 1788058426.19779 1552 54e1d4a4cef5e58d17705af457cd86ae "pdflatex"
+  ".aldine-out/main.out" 1788058426.19779 1585 a8b21c31e4f98d0d2f1de3a8a6684257 "pdflatex"
+  ".aldine-out/main.toc" 1788058426.19779 739 99e6a24e0f9b634d1e02760afa80687e "pdflatex"
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -108,14 +108,13 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1786225162 441690 1db7cc46ab240a5a4c5cfdc00ccca41a ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1783229921 3455856 57a4f4306efea95ed4ccc4d0f034bd8c ""
   "/usr/local/texlive/2026/texmf.cnf" 1786225172 472 7d12eaffae8513891b65d2e155f8548c ""
-  "chapters/analisis-articulo-seminal.tex" 1787993939.90329 4317 6b766d882b1e3f528ab53c51d0de997c ""
   "chapters/estrategias-busqueda.tex" 1787966998.01212 1075 35c8494de9ee9d4b0017ecf9471aef34 ""
   "chapters/mapa-bibliometrico.tex" 1787966693.69466 41 d66832d4e314c6f1fab4f3d925769c9a ""
-  "chapters/resultados-busqueda.tex" 1787966225.06254 980 4a28db9e4fcab167475bfcb44f3bd2d7 ""
+  "chapters/resultados-busqueda.tex" 1788057637.9692 881 64dc4ec6413ad20221207d1b37d89bde ""
   "chapters/tema-investigacion.tex" 1787967496.93068 1722 4fb840a2b11342fc32f31e4f1292b370 ""
   "chapters/urls-importantes.tex" 1787981955.96038 4081 892be3335191df8c1479b4f333164563 ""
   "images/logo-javeriana.png" 1787964747.86243 133590 f4a9ba5f33d012ce2ad3e9a0ca1b0988 ""
-  "main.tex" 1788051028.13927 3084 c70792fda4ca4647eb75c7ea68bd6e04 ""
+  "main.tex" 1788058424.50181 3041 971b8d211a8f409f091485e49cefad9f ""
   (generated)
   ".aldine-out/main.aux"
   ".aldine-out/main.log"

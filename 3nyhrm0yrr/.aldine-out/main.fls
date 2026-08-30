@@ -225,11 +225,6 @@ INPUT ./chapters/mapa-bibliometrico.tex
 INPUT ./chapters/mapa-bibliometrico.tex
 INPUT ./chapters/mapa-bibliometrico.tex
 INPUT chapters/mapa-bibliometrico.tex
-INPUT ./chapters/analisis-articulo-seminal.tex
-INPUT ./chapters/analisis-articulo-seminal.tex
-INPUT ./chapters/analisis-articulo-seminal.tex
-INPUT ./chapters/analisis-articulo-seminal.tex
-INPUT chapters/analisis-articulo-seminal.tex
 INPUT .aldine-out/main.aux
 INPUT .aldine-out/main.out
 INPUT .aldine-out/main.out

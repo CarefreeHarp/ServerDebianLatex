@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.5)  30 AUG 2026 00:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.5)  30 AUG 2026 02:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -549,7 +549,7 @@ Package hyperref Info: Link coloring ON on input line 96.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package babel Info: Main language set to 'spanish'.
-<images/logo-javeriana.png, id=60, 360.1455pt x 439.04025pt>
+<images/logo-javeriana.png, id=36, 360.1455pt x 439.04025pt>
 File: images/logo-javeriana.png Graphic file (type png)
 <use images/logo-javeriana.png>
 Package pdftex.def Info: images/logo-javeriana.png  used on input line 107.
@@ -593,37 +593,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.1 \clearpage
-              ]) (./chapters/analisis-articulo-seminal.tex [7
+              ]) [7
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-[]|\T1/cmr/m/n/12 Modelo de
- []
-
-
-Underfull \hbox (badness 3281) in paragraph at lines 38--38
-\T1/cmr/m/it/12 ma-ti-cal Mo-del for Pre-dic-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
-[]|\T1/cmr/m/n/12 Fujimoto (1990), \T1/cmr/m/it/12 Pa-ra-llel
- []
-
-
-Underfull \hbox (badness 1635) in paragraph at lines 40--40
-\T1/cmr/m/it/12 and Analy-sis of Com-pu-ter
- []
-
-[8
-
-]) [9
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.141 \end{document}
-                    ] (.aldine-out/main.aux
+] (.aldine-out/main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -632,16 +604,16 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 09E6C3CA5D9405F953D1257C24D3DDB8;2887.
+(rerunfilecheck)             Checksum: A8B21C31E4F98D0D2F1DE3A8A6684257;1585.
  ) 
 Here is how much of TeX's memory you used:
- 14380 strings out of 468301
- 223179 string characters out of 5432142
+ 14352 strings out of 468301
+ 222539 string characters out of 5432142
  853622 words of memory out of 5000000
- 43226 multiletter control sequences out of 15000+600000
+ 43210 multiletter control sequences out of 15000+600000
  639071 words of font info for 63 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 74i,12n,79p,712b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,12n,79p,540b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><
 /usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></u
@@ -651,10 +623,10 @@ ocal/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/loc
 al/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local
 /texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/t
 exlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on .aldine-out/main.pdf (10 pages, 345145 bytes).
+Output written on .aldine-out/main.pdf (8 pages, 330049 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
