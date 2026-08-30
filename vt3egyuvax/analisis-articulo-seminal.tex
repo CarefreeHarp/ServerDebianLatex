@@ -1,0 +1,47 @@
+\clearpage
+\section{Análisis de artículo seminal}
+
+\subsection{Artículo seminal principal}
+
+El artículo seminal principal seleccionado para el proyecto es el de Valero, Jofre y Torres,
+
+\begin{quote}
+Valero, M. M., Jofre, L. y Torres, R. (2021). \textit{Multifidelity Prediction in Wildfire Spread Simulation: Modeling, Uncertainty Quantification and Sensitivity Analysis}. \textit{Environmental Modelling \& Software}, 141, 105050.
+\end{quote}
+
+\subsubsection{Justificación}
+
+Este artículo representa de manera integral la idea técnica central del proyecto, combinar modelos de diferente fidelidad para obtener predicciones de incendios con un costo computacional razonable. Además, aborda la cuantificación de incertidumbre y el análisis de sensibilidad, aspectos necesarios para seleccionar, comparar y recuperar escenarios precalculados. También ayuda a pensar cómo diseñar los experimentos y las simulaciones para explorar alternativas y encontrar una solución eficiente. Por esta razón, se considera más representativo del proyecto completo que un trabajo dedicado exclusivamente a FARSITE o a WFDS.
+
+\subsection{Artículos clave para la realización del proyecto}
+
+Estos trabajos son antecedentes clave por su aplicación en los Cerros Orientales de Bogotá y su relación con las características geográficas de la zona,
+
+\begin{itemize}
+    \item \textbf{Verano Velásquez (2013)}, \textit{Modelamiento y simulación de propagación de incendios forestales en los Cerros Orientales de la ciudad de Bogotá D.C. usando FARSITE}. Trabajo de grado de pregrado, Universidad de los Andes. Se selecciona por su flujo de trabajo SIG aplicado al territorio y por comparar viento uniforme con viento espacialmente variable mediante WindNinja, una situación cercana a la que enfrentará el proyecto.
+    \item \textbf{Méndez Álvarez (2018)}, \textit{Calibración de modelos de combustible para la vegetación de bosque alto andino en la simulación de incendios forestales en los Cerros Orientales de la ciudad de Bogotá}. Tesis, Universidad de los Andes. Se incluye porque aborda la calibración de parámetros para la vegetación andina mediante análisis inverso, evitando asumir que los modelos de combustible de otras regiones representan correctamente el contexto colombiano.
+    \item \textbf{Morales Salguero (2017)}, \textit{Determinación del riesgo de ignición y propagación de incendios forestales en los Cerros Orientales de Bogotá a través del álgebra de mapas y simulación}. Trabajo de grado, Universidad Distrital Francisco José de Caldas. Se selecciona porque permite priorizar los puntos de ignición según su riesgo espacial, una base útil para distribuir el presupuesto computacional y generar más escenarios en las zonas de mayor relevancia.
+\end{itemize}
+
+
+\subsection{Artículos seminales por tema}
+
+Los artículos seminales seleccionados para cada tema son,
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.1}
+    \begin{tabular}{p{3.2cm}p{5.2cm}p{5.2cm}}
+        \toprule
+        \textbf{Tema} & \textbf{Artículo seminal} & \textbf{Justificación} \\
+        \midrule
+        Modelo de Rothermel & Rothermel (1972), \textit{A Mathematical Model for Predicting Fire Spread in Wildland Fuels} & Establece el modelo matemático fundamental para estimar la velocidad y la intensidad de propagación del fuego en combustibles forestales. \\
+        HPC y paralelización de simulaciones & Fujimoto (1990), \textit{Parallel Discrete Event Simulation} & Fundamenta la ejecución paralela de simulaciones y aporta conceptos aplicables a la generación eficiente de múltiples escenarios. \\
+        Modelos surrogate & Sacks et al. (1989), \textit{Design and Analysis of Computer Experiments} & Presenta métodos para construir aproximaciones de bajo costo a partir de simulaciones computacionalmente costosas. \\
+        Búsqueda y recuperación de escenarios & Cover y Hart (1967), \textit{Nearest Neighbor Pattern Classification} & Fundamenta la búsqueda por vecino más cercano, utilizada para identificar y recuperar escenarios similares dentro de una biblioteca precalculada. \\
+        \bottomrule
+    \end{tabular}
+    \caption{Artículos seminales seleccionados por temática.}
+\end{table}
+
+
