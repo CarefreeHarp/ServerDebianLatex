@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{multirow}
+% pgfplots y mdframed no están disponibles en Aldine
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\geometry{a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Planeación de Proyecto Final --- PUJ 2026}
+\lhead{\small Entrevistas}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+\lstset{basicstyle=\ttfamily\footnotesize,keywordstyle=\color{blue},commentstyle=\color{gray},stringstyle=\color{orange},breaklines=true,frame=single,language=C,numbers=left,numberstyle=\tiny\color{gray},numbersep=5pt}
+\lstdefinestyle{bash}{language=bash,basicstyle=\ttfamily\small,breaklines=true,frame=single,backgroundcolor=\color{black!5},numbers=none,showstringspaces=false}
+\lstdefinestyle{c}{language=C,basicstyle=\ttfamily\small,breaklines=true,frame=single,backgroundcolor=\color{black!5},numbers=left,showstringspaces=false}
+\newenvironment{notabox}{\begin{quote}\color{blue}}{\end{quote}}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+\IfFileExists{Imagenes/logo-javeriana.png}{\includegraphics[width=8cm]{Imagenes/logo-javeriana.png}\\[0.5cm]}{\Large \textbf{Pontificia Universidad Javeriana}\\[0.5cm]}
+Facultad de Ingeniería\\
+Departamento de Ingeniería de Sistemas\\[1cm]
+{\Large \textbf{Planeación de Proyecto Final}}\\[0.5cm]
+\vfill
+{\Huge \textbf{Entrevistas}}\\[0.5cm]
+\vfill
+\textbf{Integrantes:}\\
+% Agregar integrantes si es necesario.\\[1cm]
+\textbf{Fecha:} \today
+\vfill
+\end{titlepage}
+\clearpage
+\pagenumbering{arabic}
+\tableofcontents
+\clearpage
+
+\section{Entrevista a la directora nacional de bomberos}
+
+\section{Entrevista al coordinador regional de equipos de bomberos}
+
+\end{document}
