@@ -1,6 +1,3 @@
-.aldine-out/*
-!.aldine-out/
-!.aldine-out/main.pdf
 *.aux
 *.log
 *.out
@@ -12,3 +9,7 @@
 *.fls
 *.fdb_latexmk
 *.run.xml
+
+.aldine-out/*
+!.aldine-out/
+!.aldine-out/main.pdf
