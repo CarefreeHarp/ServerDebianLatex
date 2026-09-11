@@ -1,45 +1,64 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{fancyhdr}
-\usepackage{hyperref}
 
-\geometry{top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm}
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3cm,
+    right=2.5cm
+}
+
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\small Sistemas Distribuidos --- PUJ 2026}
-\lhead{\small Título del Documento}
+\lhead{\small Titulo del Documento}
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{14pt}
-\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
 
 \begin{document}
 \pagenumbering{gobble}
 
 \begin{titlepage}
     \centering
+
     \vspace*{1cm}
     \IfFileExists{images/logo-javeriana.png}{
         \includegraphics[width=8cm]{images/logo-javeriana.png}\\[0.5cm]
     }{
         {\Large \textbf{Pontificia Universidad Javeriana}}\\[0.5cm]
     }
-    Facultad de Ingeniería\\
-    Departamento de Ingeniería de Sistemas\\[1cm]
+    Facultad de Ingenieria\\
+    Departamento de Ingenieria de Sistemas\\[1cm]
 
-    {\Large \textbf{Título de la materia}}\\[0.5cm]
+    {\Large \textbf{Titulo de la materia}}\\[0.5cm]
+
     \vfill
-    {\Huge \textbf{Título del Documento}}\\[0.5cm]
+
+    {\Huge \textbf{Titulo del Documento}}\\[0.5cm]
     \vfill
 
     \textbf{Integrantes:}\\
     % TODO: Agregar integrantes.\\[1cm]
+
     \textbf{Docente:} % TODO: Agregar docente\\[1cm]
+
     \textbf{Fecha:} \today
+
     \vfill
 \end{titlepage}
 
@@ -50,27 +69,31 @@
 
 \begin{abstract}
 \noindent
-% TODO: Escriba aquí el resumen del documento.
+% TODO: Escriba aqui el resumen del documento.
 \end{abstract}
 
 \vspace{1cm}
 
-\section{Planteamiento del proyecto}
+\section{Seccion 1}
+% TODO: Completar seccion 1.
 
-\subsection{Antecedentes, problema y solución propuesta}
+\subsection{Subseccion 1.1}
+% TODO: Completar subseccion 1.1.
 
-\subsubsection{Descripción de la problemática u oportunidad}
+\subsection{Subseccion 1.2}
+% TODO: Completar subseccion 1.2.
 
-\subsubsection{Formulación del problema}
+\section{Seccion 2}
+% TODO: Completar seccion 2.
 
-\subsubsection{Propuesta de solución}
+\subsection{Subseccion 2.1}
+% TODO: Completar subseccion 2.1.
 
-\subsubsection{Justificación de la solución}
+\section{Seccion 3}
+% TODO: Completar seccion 3.
 
-\subsection{Descripción general del proyecto}
+\section{Conclusiones}
+% TODO: Completar conclusiones.
 
-\subsubsection{Objetivo general}
-
-\subsubsection{Objetivos Específicos}
 
 \end{document}
