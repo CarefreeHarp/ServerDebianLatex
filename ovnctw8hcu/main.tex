@@ -10,8 +10,8 @@
 \geometry{top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm}
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\small Sistemas Distribuidos --- PUJ 2026}
-\lhead{\small Título del Documento}
+\rhead{\small Planeación de Proyecto Final --- PUJ 2026}
+\lhead{\small VPP}
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{14pt}
@@ -31,15 +31,18 @@
     Facultad de Ingeniería\\
     Departamento de Ingeniería de Sistemas\\[1cm]
 
-    {\Large \textbf{Título de la materia}}\\[0.5cm]
+    {\Large \textbf{Planeación de Proyecto Final}}\\[0.5cm]
     \vfill
-    {\Huge \textbf{Título del Documento}}\\[0.5cm]
+    {\Huge \textbf{VPP}}\\[0.5cm]
     \vfill
 
     \textbf{Integrantes:}\\
-    % TODO: Agregar integrantes.\\[1cm]
-    \textbf{Docente:} % TODO: Agregar docente\\[1cm]
-    \textbf{Fecha:} \today
+    Andrés Pinzón\\
+    Daniel Ramirez\\
+    Guillermo Aponte\\
+    Miguel Sarmiento\\[1cm]
+
+    \textbf{Fecha:} 14 de septiembre de 2026
     \vfill
 \end{titlepage}
 
@@ -55,22 +58,46 @@
 
 \vspace{1cm}
 
-\section{Planteamiento del proyecto}
+\section{Antecedentes, problema y solución propuesta}
 
-\subsection{Antecedentes, problema y solución propuesta}
+\section{Descripción de la problemática u oportunidad}
 
-\subsubsection{Descripción de la problemática u oportunidad}
+\section{Formulación del problema}
 
-\subsubsection{Formulación del problema}
+\section{Propuesta de solución}
 
-\subsubsection{Propuesta de solución}
+\section{Justificación de la solución}
 
-\subsubsection{Justificación de la solución}
+\section{Descripción general del proyecto}
 
-\subsection{Descripción general del proyecto}
+El proyecto consistirá en desarrollar un sistema híbrido para apoyar la predicción y el análisis rápido de incendios forestales. Integrará simulación multiescala, procesamiento geoespacial, computación de alto rendimiento (HPC) y una biblioteca de escenarios precalculados, con el propósito de brindar información útil para la toma de decisiones durante una emergencia.
 
-\subsubsection{Objetivo general}
+En la escala forestal se utilizará FARSITE para estimar la propagación del fuego a partir del punto de ignición, la topografía, el combustible y las condiciones meteorológicas. Para sectores críticos de la interfaz urbano-forestal (WUI), se empleará WFDS, que permitirá representar con mayor detalle la combustión, el flujo y la transferencia de calor.
 
-\subsubsection{Objetivos Específicos}
+La propuesta combinará ambos niveles de simulación: FARSITE permitirá explorar de forma ágil áreas amplias y WFDS se reservará para zonas donde se requiera mayor precisión. Se evaluarán configuraciones de distinta fidelidad para equilibrar el costo computacional y la calidad de los resultados.
+
+También se construirá una biblioteca de escenarios que variará el punto de inicio, el viento, las condiciones ambientales, el terreno y los parámetros físicos del combustible. Estos escenarios se ejecutarán y almacenarán previamente usando infraestructura HPC para reducir el tiempo de respuesta cuando ocurra un evento real.
+
+Ante un incendio, el usuario podrá seleccionar una ubicación en un mapa e ingresar las condiciones disponibles. El sistema buscará escenarios similares y mostrará una estimación visual de la propagación del fuego y de su posible impacto sobre zonas urbanas o de interfaz.
+
+Desde Ingeniería de Sistemas, el trabajo contemplará la integración de FARSITE y WFDS, la transformación de coordenadas, geometrías y parámetros, el procesamiento de datos SIG, la paralelización de simulaciones en HPC y el desarrollo de mecanismos de almacenamiento, búsqueda y visualización. De esta forma, el proyecto buscará convertir resultados técnicos complejos en información accesible y oportuna para apoyar a los organismos de emergencia.
+
+\section{Objetivo general}
+
+Diseñar y validar una estrategia de simulación de incendios forestales para ejecución en HPC que combine modelos de alta y baja fidelidad, con el fin de estimar cantidades de interés relevantes con rigor científico y un costo computacional menor que el de usar exclusivamente simulaciones de alta fidelidad.
+
+\section{Objetivos Específicos}
+
+\begin{enumerate}
+    \item Definir una configuración de alta fidelidad (HF) que funcione como referencia computacional del experimento, considerando resolución espacial, radiación y física del modelo.
+    \item Diseñar configuraciones de baja fidelidad (LF), mediante resoluciones reducidas, simplificaciones justificadas o el uso de FARSITE como simulador alternativo.
+    \item Construir una biblioteca de entre 20 y 40 escenarios piloto representativos de las condiciones de propagación, empleando entradas idénticas en todos los niveles para permitir comparaciones válidas.
+    \item Representar los combustibles mediante parámetros físicos calibrables para ecosistemas colombianos.
+    \item Comparar viento uniforme (VU) y viento espacialmente variable (VEV), cuantificando su efecto sobre la propagación, la llegada a la interfaz urbano-forestal (WUI) y el costo total de preprocesamiento y simulación.
+    \item Medir para cada nivel el tiempo de ejecución, consumo de CPU o GPU, memoria y las cantidades de interés (QoI) definidas para el estudio.
+    \item Evaluar la utilidad de los niveles LF mediante reducción de costo, correlación con HF, error, sesgo y varianza de las correcciones entre niveles consecutivos.
+    \item Seleccionar una jerarquía de fidelidades que conserve una similitud suficiente con HF y presente un decaimiento favorable de la varianza de las correcciones para MLMC.
+    \item Aplicar MLMC o variables de control para estimar QoI como velocidad de propagación, área quemada y tiempo de llegada a la WUI con menor costo que un muestreo Monte Carlo basado solo en HF.
+\end{enumerate}
 
 \end{document}
