@@ -58,6 +58,39 @@
 
 \vspace{1cm}
 
+\begin{center}
+\begingroup
+\setlength{\fboxsep}{14pt}
+\fbox{%
+\begin{minipage}{0.92\textwidth}
+\vspace{0.2cm}
+\textbf{Glossary of acronyms}\par\vspace{0.2cm}
+\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{0.10\linewidth}@{\hspace{0.02\linewidth}}p{0.35\linewidth}@{\hspace{0.04\linewidth}}p{0.10\linewidth}@{\hspace{0.02\linewidth}}p{0.35\linewidth}@{}}
+API & Application Programming Interface & MLMC & Multilevel Monte Carlo \\
+FARSITE & Fire Area Simulator & WFDS & Wildland-Urban Interface Fire Dynamics Simulator \\
+HPC & High-Performance Computing & WUI & Wildland-Urban Interface \\
+\end{tabular}
+\vspace{0.2cm}
+\end{minipage}%
+}
+\endgroup
+\end{center}
+
+\vspace{0.3cm}
+\noindent\textbf{Glosario}\par\vspace{0.15cm}
+
+\begin{description}
+    \item[API:] Interfaz que permite la comunicación e intercambio de datos entre sistemas informáticos.
+    \item[FARSITE:] Modelo de simulación de la propagación de incendios forestales en áreas extensas.
+    \item[WFDS:] Modelo de simulación que representa el fuego, el humo y la transferencia de calor con alto detalle.
+    \item[WUI:] Zona de contacto o transición entre áreas urbanas y vegetación forestal.
+    \item[Biblioteca de escenarios:] Conjunto organizado de escenarios de simulación almacenados previamente.
+    \item[Simulación precalculada:] Simulación ejecutada y almacenada con anterioridad.
+    \item[Simulación multifidelidad:] Enfoque que combina simulaciones de diferentes niveles de detalle.
+\end{description}
+
 \section{Antecedentes, problema y solución propuesta}
 
 \section{Descripción de la problemática u oportunidad}
@@ -70,34 +103,21 @@
 
 \section{Descripción general del proyecto}
 
-El proyecto consistirá en desarrollar un sistema híbrido para apoyar la predicción y el análisis rápido de incendios forestales. Integrará simulación multiescala, procesamiento geoespacial, computación de alto rendimiento (HPC) y una biblioteca de escenarios precalculados, con el propósito de brindar información útil para la toma de decisiones durante una emergencia.
+El proyecto consiste en desarrollar una aplicación web o móvil orientada a los Cerros Orientales de Bogotá, que permita a los bomberos estimar y visualizar el comportamiento probable de un incendio forestal desde su inicio. La aplicación presentará una animación o un video construido a partir de resultados directos de simulaciones previamente ejecutadas, con el propósito de ofrecer una representación comprensible de la posible propagación del fuego y de su impacto sobre este territorio. En lugar de realizar una simulación completa durante la emergencia, proceso que puede requerir un tiempo incompatible con la necesidad operativa, la aplicación consultará una biblioteca de escenarios precalculados. De este modo, se busca disponer de información visual útil para apoyar la toma de decisiones de los organismos de respuesta.
 
-En la escala forestal se utilizará FARSITE para estimar la propagación del fuego a partir del punto de ignición, la topografía, el combustible y las condiciones meteorológicas. Para sectores críticos de la interfaz urbano-forestal (WUI), se empleará WFDS, que permitirá representar con mayor detalle la combustión, el flujo y la transferencia de calor.
-
-La propuesta combinará ambos niveles de simulación: FARSITE permitirá explorar de forma ágil áreas amplias y WFDS se reservará para zonas donde se requiera mayor precisión. Se evaluarán configuraciones de distinta fidelidad para equilibrar el costo computacional y la calidad de los resultados.
-
-También se construirá una biblioteca de escenarios que variará el punto de inicio, el viento, las condiciones ambientales, el terreno y los parámetros físicos del combustible. Estos escenarios se ejecutarán y almacenarán previamente usando infraestructura HPC para reducir el tiempo de respuesta cuando ocurra un evento real.
-
-Ante un incendio, el usuario podrá seleccionar una ubicación en un mapa e ingresar las condiciones disponibles. El sistema buscará escenarios similares y mostrará una estimación visual de la propagación del fuego y de su posible impacto sobre zonas urbanas o de interfaz.
-
-Desde Ingeniería de Sistemas, el trabajo contemplará la integración de FARSITE y WFDS, la transformación de coordenadas, geometrías y parámetros, el procesamiento de datos SIG, la paralelización de simulaciones en HPC y el desarrollo de mecanismos de almacenamiento, búsqueda y visualización. De esta forma, el proyecto buscará convertir resultados técnicos complejos en información accesible y oportuna para apoyar a los organismos de emergencia.
+La biblioteca tendrá una naturaleza híbrida y se construirá con escenarios propios de la zona montañosa oriental de Bogotá. Por una parte, incorporará resultados de FARSITE; por otra, incluirá resultados de WFDS para sectores críticos de WUI, donde se requiere una representación física más detallada. Los escenarios serán ejecutados y almacenados con antelación mediante infraestructura HPC, lo que permitirá preparar una base de información antes de que ocurra un evento. Además, la aplicación obtendrá las condiciones climáticas y de viento disponibles mediante una API climática. Así, el proyecto integrará simulaciones de distinta fidelidad como fundamento técnico para transformar resultados complejos en una visualización clara y oportuna para los bomberos.
 
 \section{Objetivo general}
 
-Diseñar y validar una estrategia de simulación de incendios forestales para ejecución en HPC que combine modelos de alta y baja fidelidad, con el fin de estimar cantidades de interés relevantes con rigor científico y un costo computacional menor que el de usar exclusivamente simulaciones de alta fidelidad.
+Desarrollar una aplicación web o móvil para la estimación y visualización del comportamiento probable de incendios forestales en los cerros orientales de Bogotá desde su inicio, a partir de escenarios de simulación precalculados, con el fin de apoyar la toma de decisiones de los bomberos.
 
 \section{Objetivos Específicos}
 
 \begin{enumerate}
-    \item Definir una configuración de alta fidelidad (HF) que funcione como referencia computacional del experimento, considerando resolución espacial, radiación y física del modelo.
-    \item Diseñar configuraciones de baja fidelidad (LF), mediante resoluciones reducidas, simplificaciones justificadas o el uso de FARSITE como simulador alternativo.
-    \item Construir una biblioteca de entre 20 y 40 escenarios piloto representativos de las condiciones de propagación, empleando entradas idénticas en todos los niveles para permitir comparaciones válidas.
-    \item Representar los combustibles mediante parámetros físicos calibrables para ecosistemas colombianos.
-    \item Comparar viento uniforme (VU) y viento espacialmente variable (VEV), cuantificando su efecto sobre la propagación, la llegada a la interfaz urbano-forestal (WUI) y el costo total de preprocesamiento y simulación.
-    \item Medir para cada nivel el tiempo de ejecución, consumo de CPU o GPU, memoria y las cantidades de interés (QoI) definidas para el estudio.
-    \item Evaluar la utilidad de los niveles LF mediante reducción de costo, correlación con HF, error, sesgo y varianza de las correcciones entre niveles consecutivos.
-    \item Seleccionar una jerarquía de fidelidades que conserve una similitud suficiente con HF y presente un decaimiento favorable de la varianza de las correcciones para MLMC.
-    \item Aplicar MLMC o variables de control para estimar QoI como velocidad de propagación, área quemada y tiempo de llegada a la WUI con menor costo que un muestreo Monte Carlo basado solo en HF.
+    \item Construir una biblioteca híbrida de escenarios de incendios forestales propios del territorio de estudio, a partir de simulaciones realizadas con FARSITE y WFDS.
+    \item Aprovechar infraestructura HPC e información climática y de viento obtenida mediante una API para la preparación de los escenarios.
+    \item Articular los resultados obtenidos con FARSITE y WFDS para representar de manera coherente la propagación y el posible impacto de los incendios forestales en el entorno urbano-forestal de la zona.
+    \item Desarrollar una visualización mediante animaciones o videos comprensibles que apoye la interpretación de los escenarios por parte de los bomberos.
 \end{enumerate}
 
 \end{document}
