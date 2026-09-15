@@ -1,0 +1,17 @@
+\section{Antecedentes, problema y solución propuesta}
+
+\subsection{Descripción de la problemática u oportunidad}
+
+\subsection{Formulación del problema}
+
+\subsection{Propuesta de solución}
+
+Se propone desarrollar una aplicación web o móvil de apoyo a la toma de decisiones frente a incendios forestales en los Cerros Orientales de Bogotá. Su propósito será ofrecer a los bomberos una visualización del comportamiento probable del fuego desde las primeras etapas del evento, mediante una animación o un video elaborado a partir de simulaciones realizadas previamente. La aplicación no ejecutará una simulación completa durante la emergencia; en cambio, pondrá a disposición información preparada con antelación para que pueda consultarse con mayor oportunidad.
+
+La solución se sustentará en una biblioteca híbrida de escenarios. FARSITE aportará simulaciones de propagación en áreas amplias, mientras que WFDS contribuirá con resultados de mayor detalle en sectores críticos de WUI. Estos escenarios se construirán previamente mediante infraestructura HPC y considerarán información climática y de viento obtenida a través de una API. A partir de los resultados almacenados, la aplicación presentará una representación visual que facilite interpretar la posible evolución del incendio y su relación con el territorio.
+
+\subsection{Justificación de la solución}
+
+La entrevista con la coronel Ana Milena Mejía permitió identificar que la oportunidad de la información es determinante en la atención de incendios forestales. Según su experiencia, la detección temprana y el reporte oportuno aumentan las posibilidades de controlar un evento antes de que alcance una mayor magnitud, especialmente en zonas rurales donde la reacción puede tardar más. También destacó el valor de los observadores comunitarios del riesgo y de la cartografía social para reconocer áreas vulnerables y alertar a las entidades responsables.
+
+Además, las comunicaciones convencionales pueden fallar durante una emergencia, como ocurrió durante el terremoto del 10 de agosto de 2026, cuando se perdió la comunicación con Quibdó. Esta limitación refuerza la decisión de ejecutar y almacenar las simulaciones con antelación, en lugar de depender de una simulación completa en el momento del evento, cuando la conectividad puede ser inestable o inexistente. De este modo, la visualización puede basarse en resultados previamente generados y no requiere iniciar un proceso de cálculo complejo y distribuído durante una situación crítica.

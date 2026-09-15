@@ -16,6 +16,7 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{14pt}
 \hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\newcommand{\glossarycell}[1]{\parbox[t]{\hsize}{\raggedright #1}}
 
 \begin{document}
 \pagenumbering{gobble}
@@ -51,79 +52,8 @@
 \tableofcontents
 \clearpage
 
-\begin{abstract}
-\noindent
-% TODO: Escriba aquí el resumen del documento.
-\end{abstract}
-
-\vspace{1cm}
-
-\begin{center}
-\begingroup
-\setlength{\fboxsep}{14pt}
-\fbox{%
-\begin{minipage}{0.92\textwidth}
-\vspace{0.2cm}
-\textbf{Glossary of acronyms}\par\vspace{0.2cm}
-\footnotesize
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}p{0.10\linewidth}@{\hspace{0.02\linewidth}}p{0.35\linewidth}@{\hspace{0.04\linewidth}}p{0.10\linewidth}@{\hspace{0.02\linewidth}}p{0.35\linewidth}@{}}
-API & Application Programming Interface & MLMC & Multilevel Monte Carlo \\
-FARSITE & Fire Area Simulator & WFDS & Wildland-Urban Interface Fire Dynamics Simulator \\
-HPC & High-Performance Computing & WUI & Wildland-Urban Interface \\
-\end{tabular}
-\vspace{0.2cm}
-\end{minipage}%
-}
-\endgroup
-\end{center}
-
-\vspace{0.3cm}
-\noindent\textbf{Glosario}\par\vspace{0.15cm}
-
-\begin{description}
-    \item[API:] Interfaz que permite la comunicación e intercambio de datos entre sistemas informáticos.
-    \item[WFDS:] Modelo de simulación que representa el fuego, el humo y la transferencia de calor con alto detalle.
-    \item[FARSITE:] Modelo de simulación de la propagación de incendios forestales en áreas extensas, con un nivel de detalle menor que WFDS.
-    \item[WUI:] Zona de contacto o transición entre áreas urbanas y vegetación forestal.
-    \item[Biblioteca de escenarios:] Conjunto organizado de escenarios de simulación almacenados previamente.
-    \item[Simulación precalculada:] Simulación ejecutada y almacenada con anterioridad.
-    \item[Simulación multifidelidad:] Enfoque que combina simulaciones de diferentes niveles de detalle.
-\end{description}
-
-\section{Antecedentes, problema y solución propuesta}
-
-\subsection{Descripción de la problemática u oportunidad}
-
-\subsection{Formulación del problema}
-
-\subsection{Propuesta de solución}
-
-Se propone desarrollar una aplicación web o móvil de apoyo a la toma de decisiones frente a incendios forestales en los Cerros Orientales de Bogotá. Su propósito será ofrecer a los bomberos una visualización del comportamiento probable del fuego desde las primeras etapas del evento, mediante una animación o un video elaborado a partir de simulaciones realizadas previamente. La aplicación no ejecutará una simulación completa durante la emergencia; en cambio, pondrá a disposición información preparada con antelación para que pueda consultarse con mayor oportunidad.
-
-La solución se sustentará en una biblioteca híbrida de escenarios. FARSITE aportará simulaciones de propagación en áreas amplias, mientras que WFDS contribuirá con resultados de mayor detalle en sectores críticos de WUI. Estos escenarios se construirán previamente mediante infraestructura HPC y considerarán información climática y de viento obtenida a través de una API. A partir de los resultados almacenados, la aplicación presentará una representación visual que facilite interpretar la posible evolución del incendio y su relación con el territorio.
-
-\subsection{Justificación de la solución}
-
-La entrevista con la coronel Ana Milena Mejía permitió identificar que la oportunidad de la información es determinante en la atención de incendios forestales. Según su experiencia, la detección temprana y el reporte oportuno aumentan las posibilidades de controlar un evento antes de que alcance una mayor magnitud, especialmente en zonas rurales donde la reacción puede tardar más. También destacó el valor de los observadores comunitarios del riesgo y de la cartografía social para reconocer áreas vulnerables y alertar a las entidades responsables.
-
-Además, que las comunicaciones convencionales pueden fallar durante una emergencia, como ocurrió en los eventos descritos en la entrevista. Por tanto, una herramienta que entregue una visualización comprensible y oportuna puede complementar los procesos existentes, favorecer la comprensión compartida de la situación y apoyar la priorización de la respuesta, sin sustituir las responsabilidades de Bomberos ni los canales oficiales de gestión del riesgo.
-
-\section{Descripción general del proyecto}
-
-El proyecto se desarrolla desde la Ingeniería de Sistemas como una iniciativa académica de apoyo a la gestión del riesgo de incendios forestales en los cerros orientales de Bogotá. Su alcance se concentra en la construcción de un recurso digital orientado a facilitar la interpretación de información sobre el comportamiento del fuego por parte de los organismos de respuesta.
-
-\subsection{Objetivo general}
-
-Desarrollar una aplicación web o móvil para la estimación y visualización del comportamiento probable de incendios forestales en los cerros orientales de Bogotá desde su inicio, a partir de escenarios de simulación precalculados, con el fin de apoyar la toma de decisiones de los bomberos.
-
-\subsection{Objetivos Específicos}
-
-\begin{enumerate}
-    \item Construir una biblioteca híbrida de escenarios de incendios forestales propios del territorio de estudio, a partir de simulaciones realizadas con FARSITE y WFDS.
-    \item Aprovechar infraestructura HPC e información climática y de viento obtenida mediante una API para la preparación de los escenarios.
-    \item Articular los resultados obtenidos con FARSITE y WFDS para representar de manera coherente la propagación y el posible impacto de los incendios forestales en el entorno urbano-forestal de la zona.
-    \item Desarrollar una visualización mediante animaciones o videos comprensibles que apoye la interpretación de los escenarios por parte de los bomberos.
-\end{enumerate}
+\input{chapters/glosarios}
+\input{chapters/antecedentes-problema-solucion}
+\input{chapters/descripcion-general}
 
 \end{document}
