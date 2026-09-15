@@ -83,8 +83,8 @@ HPC & High-Performance Computing & WUI & Wildland-Urban Interface \\
 
 \begin{description}
     \item[API:] Interfaz que permite la comunicación e intercambio de datos entre sistemas informáticos.
-    \item[FARSITE:] Modelo de simulación de la propagación de incendios forestales en áreas extensas.
     \item[WFDS:] Modelo de simulación que representa el fuego, el humo y la transferencia de calor con alto detalle.
+    \item[FARSITE:] Modelo de simulación de la propagación de incendios forestales en áreas extensas, con un nivel de detalle menor que WFDS.
     \item[WUI:] Zona de contacto o transición entre áreas urbanas y vegetación forestal.
     \item[Biblioteca de escenarios:] Conjunto organizado de escenarios de simulación almacenados previamente.
     \item[Simulación precalculada:] Simulación ejecutada y almacenada con anterioridad.
@@ -93,25 +93,31 @@ HPC & High-Performance Computing & WUI & Wildland-Urban Interface \\
 
 \section{Antecedentes, problema y solución propuesta}
 
-\section{Descripción de la problemática u oportunidad}
+\subsection{Descripción de la problemática u oportunidad}
 
-\section{Formulación del problema}
+\subsection{Formulación del problema}
 
-\section{Propuesta de solución}
+\subsection{Propuesta de solución}
 
-\section{Justificación de la solución}
+Se propone desarrollar una aplicación web o móvil de apoyo a la toma de decisiones frente a incendios forestales en los Cerros Orientales de Bogotá. Su propósito será ofrecer a los bomberos una visualización del comportamiento probable del fuego desde las primeras etapas del evento, mediante una animación o un video elaborado a partir de simulaciones realizadas previamente. La aplicación no ejecutará una simulación completa durante la emergencia; en cambio, pondrá a disposición información preparada con antelación para que pueda consultarse con mayor oportunidad.
+
+La solución se sustentará en una biblioteca híbrida de escenarios. FARSITE aportará simulaciones de propagación en áreas amplias, mientras que WFDS contribuirá con resultados de mayor detalle en sectores críticos de WUI. Estos escenarios se construirán previamente mediante infraestructura HPC y considerarán información climática y de viento obtenida a través de una API. A partir de los resultados almacenados, la aplicación presentará una representación visual que facilite interpretar la posible evolución del incendio y su relación con el territorio.
+
+\subsection{Justificación de la solución}
+
+La entrevista con la coronel Ana Milena Mejía permitió identificar que la oportunidad de la información es determinante en la atención de incendios forestales. Según su experiencia, la detección temprana y el reporte oportuno aumentan las posibilidades de controlar un evento antes de que alcance una mayor magnitud, especialmente en zonas rurales donde la reacción puede tardar más. También destacó el valor de los observadores comunitarios del riesgo y de la cartografía social para reconocer áreas vulnerables y alertar a las entidades responsables.
+
+Además, que las comunicaciones convencionales pueden fallar durante una emergencia, como ocurrió en los eventos descritos en la entrevista. Por tanto, una herramienta que entregue una visualización comprensible y oportuna puede complementar los procesos existentes, favorecer la comprensión compartida de la situación y apoyar la priorización de la respuesta, sin sustituir las responsabilidades de Bomberos ni los canales oficiales de gestión del riesgo.
 
 \section{Descripción general del proyecto}
 
-El proyecto consiste en desarrollar una aplicación web o móvil orientada a los Cerros Orientales de Bogotá, que permita a los bomberos estimar y visualizar el comportamiento probable de un incendio forestal desde su inicio. La aplicación presentará una animación o un video construido a partir de resultados directos de simulaciones previamente ejecutadas, con el propósito de ofrecer una representación comprensible de la posible propagación del fuego y de su impacto sobre este territorio. En lugar de realizar una simulación completa durante la emergencia, proceso que puede requerir un tiempo incompatible con la necesidad operativa, la aplicación consultará una biblioteca de escenarios precalculados. De este modo, se busca disponer de información visual útil para apoyar la toma de decisiones de los organismos de respuesta.
+El proyecto se desarrolla desde la Ingeniería de Sistemas como una iniciativa académica de apoyo a la gestión del riesgo de incendios forestales en los cerros orientales de Bogotá. Su alcance se concentra en la construcción de un recurso digital orientado a facilitar la interpretación de información sobre el comportamiento del fuego por parte de los organismos de respuesta.
 
-La biblioteca tendrá una naturaleza híbrida y se construirá con escenarios propios de la zona montañosa oriental de Bogotá. Por una parte, incorporará resultados de FARSITE; por otra, incluirá resultados de WFDS para sectores críticos de WUI, donde se requiere una representación física más detallada. Los escenarios serán ejecutados y almacenados con antelación mediante infraestructura HPC, lo que permitirá preparar una base de información antes de que ocurra un evento. Además, la aplicación obtendrá las condiciones climáticas y de viento disponibles mediante una API climática. Así, el proyecto integrará simulaciones de distinta fidelidad como fundamento técnico para transformar resultados complejos en una visualización clara y oportuna para los bomberos.
-
-\section{Objetivo general}
+\subsection{Objetivo general}
 
 Desarrollar una aplicación web o móvil para la estimación y visualización del comportamiento probable de incendios forestales en los cerros orientales de Bogotá desde su inicio, a partir de escenarios de simulación precalculados, con el fin de apoyar la toma de decisiones de los bomberos.
 
-\section{Objetivos Específicos}
+\subsection{Objetivos Específicos}
 
 \begin{enumerate}
     \item Construir una biblioteca híbrida de escenarios de incendios forestales propios del territorio de estudio, a partir de simulaciones realizadas con FARSITE y WFDS.
