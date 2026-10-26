@@ -7,9 +7,18 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{geometry}
+\usepackage{fancyhdr}
 \usepackage{cite}
-\usepackage[hidelinks]{hyperref}
-\geometry{top=2.3cm,bottom=2.3cm,left=2.5cm,right=2.2cm}
+\usepackage[hidelinks,linktoc=all]{hyperref}
+\geometry{top=2.3cm,bottom=2.3cm,left=2.5cm,right=2.2cm,headheight=14pt,headsep=16pt,footskip=30pt}
+\fancyhf{}
+\fancyhead[L]{\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}
+\fancyhead[R]{\fontsize{9}{11}\selectfont Propuesta para Trabajo de Grado}
+\fancyfoot[R]{\fontsize{9}{11}\selectfont Página \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}\fancyhead[R]{\fontsize{9}{11}\selectfont Propuesta para Trabajo de Grado}\fancyfoot[R]{\fontsize{9}{11}\selectfont Página \thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{7pt}
 \setlength{\emergencystretch}{2em}
@@ -22,14 +31,10 @@
 \hypersetup{pdftitle={Propuesta de proyecto de grado: apoyo a la decisión para incendios},pdfauthor={Andrés Pinzón, Daniel Ramírez, Guillermo Aponte, Miguel Sarmiento}}
 \newcommand{\datosEstudiante}[1]{\begin{minipage}{\linewidth}\textbf{#1}\enspace\hrulefill\par\vspace{1mm}{\fontsize{8.5}{10}\selectfont\begin{tabular}[t]{@{}p{0.17\linewidth}p{0.16\linewidth}p{0.23\linewidth}p{0.34\linewidth}@{}}\textbf{Documento}&\textbf{Celular}&\textbf{Teléfono fijo}&\textbf{Correo Javeriano}\\Por registrar&Por registrar&Por registrar&Por registrar\end{tabular}\par}\end{minipage}}
 \begin{document}
-\hypersetup{pageanchor=false}
 \input{frontmatter/portada}
 \input{frontmatter/historial}
-\pagenumbering{roman}
-\hypersetup{pageanchor=true}
 \tableofcontents
 \clearpage
-\pagenumbering{arabic}
 \input{chapters/seccion1/seccion1}
 \input{chapters/seccion2/seccion2}
 \input{chapters/seccion3/seccion3}
