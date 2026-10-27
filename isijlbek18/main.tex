@@ -46,11 +46,13 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \hypersetup{pdftitle={Propuesta de proyecto de grado: apoyo a la decisión para incendios},pdfauthor={Andrés Pinzón, Daniel Ramírez, Guillermo Aponte, Miguel Sarmiento}}
-\newcommand{\datosEstudiante}[1]{\begin{minipage}{\linewidth}\textbf{#1}\enspace\hrulefill\par\vspace{1mm}{\fontsize{8.5}{10}\selectfont\begin{tabular}[t]{@{}p{0.17\linewidth}p{0.16\linewidth}p{0.23\linewidth}p{0.34\linewidth}@{}}\textbf{Documento}&\textbf{Celular}&\textbf{Teléfono fijo}&\textbf{Correo Javeriano}\\Por registrar&Por registrar&Por registrar&Por registrar\end{tabular}\par}\end{minipage}}
+\newcommand{\datosEstudiante}[5]{\begin{minipage}{\linewidth}\textbf{#1}\enspace\hrulefill\par\vspace{1mm}{\fontsize{8.5}{10}\selectfont\begin{tabular}[t]{@{}p{0.17\linewidth}p{0.16\linewidth}p{0.23\linewidth}p{0.34\linewidth}@{}}\textbf{Documento}&\textbf{Celular}&\textbf{Teléfono fijo}&\textbf{Correo Javeriano}\\#2&#3&#4&#5\end{tabular}\par}\end{minipage}}
+\newcommand{\glossarycell}[1]{\parbox[t]{\hsize}{\raggedright #1}}
 \begin{document}
 \input{frontmatter/portada}
 \input{frontmatter/historial}
 \tableofcontents
+\input{frontmatter/glosarios}
 \clearpage
 \input{chapters/seccion1/seccion1}
 \input{chapters/seccion2/seccion2}
