@@ -1,8 +1,12 @@
+\RequirePackage{fix-cm}
 \documentclass[11pt,letterpaper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{Liberation Sans}
+\newfontfamily\fuenteTitulos{Liberation Sans}
+\usepackage{xcolor}
+\usepackage[explicit]{titlesec}
 \usepackage[spanish,es-tabla]{babel}
-\usepackage{mathptmx}
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{longtable}
@@ -10,7 +14,7 @@
 \usepackage{fancyhdr}
 \usepackage{cite}
 \usepackage[hidelinks,linktoc=all]{hyperref}
-\geometry{top=2.3cm,bottom=2.3cm,left=2.5cm,right=2.2cm,headheight=14pt,headsep=16pt,footskip=30pt}
+\geometry{top=90bp,bottom=108bp,left=108bp,right=90bp,headheight=12bp,headsep=34bp,footskip=64.8bp}
 \fancyhf{}
 \fancyhead[L]{\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}
 \fancyhead[R]{\fontsize{9}{11}\selectfont Propuesta para Trabajo de Grado}
@@ -20,12 +24,25 @@
 \pagestyle{fancy}
 \fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}\fancyhead[R]{\fontsize{9}{11}\selectfont Propuesta para Trabajo de Grado}\fancyfoot[R]{\fontsize{9}{11}\selectfont Página \thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{7pt}
+\setlength{\parskip}{6bp}
 \setlength{\emergencystretch}{2em}
 \clubpenalty=10000
 \widowpenalty=10000
 \brokenpenalty=10000
-\renewcommand{\baselinestretch}{1.08}
+\renewcommand{\baselinestretch}{1}
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{11bp}{12.65bp}\abovedisplayskip=11bp\belowdisplayskip=11bp}
+\makeatother
+\normalsize
+\newcommand{\bloqueTitulo}[1]{\begingroup\setlength{\fboxsep}{3bp}\setlength{\fboxrule}{0.75bp}\fcolorbox{black}{black!70}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\color{white}#1}}\endgroup}
+\titleformat{\section}[block]{\normalfont\fuenteTitulos\fontsize{14bp}{16.1bp}\selectfont\bfseries}{}{0pt}{\bloqueTitulo{\thesection\quad #1}}
+\titleformat{name=\section,numberless}[block]{\normalfont\fuenteTitulos\fontsize{14bp}{16.1bp}\selectfont\bfseries}{}{0pt}{\bloqueTitulo{#1}}
+\titleformat{\subsection}[block]{\normalfont\fuenteTitulos\fontsize{14bp}{16.1bp}\selectfont\bfseries}{\thesubsection}{0.6em}{#1}
+\titleformat{\subsubsection}[block]{\normalfont\fuenteTitulos\fontsize{12bp}{13.8bp}\selectfont\bfseries}{\thesubsubsection}{0.6em}{#1}
+\titlespacing*{\section}{0pt}{0pt}{12bp}
+\titlespacing*{\subsection}{0pt}{12bp}{6bp}
+\titlespacing*{\subsubsection}{0pt}{12bp}{6bp}
+\newcommand{\sectionbreak}{\clearpage}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \hypersetup{pdftitle={Propuesta de proyecto de grado: apoyo a la decisión para incendios},pdfauthor={Andrés Pinzón, Daniel Ramírez, Guillermo Aponte, Miguel Sarmiento}}

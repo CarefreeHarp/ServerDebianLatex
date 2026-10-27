@@ -1,1 +1,22 @@
-\subsection{Métricas y Proceso de Medición}\label{sec:spmp-12-4}
+\subsection{Métricas y Proceso de Medición [Pendientes: 1. acordar definiciones finales, metas y umbrales, 2. asignar recolección, consolidación, herramientas y frecuencia]}\label{sec:spmp-12-4}
+La medición distinguirá gestión del trabajo, comprobación del software y desempeño técnico de las simulaciones, porque sus unidades representan fenómenos diferentes. La trazabilidad de 29148 permitirá relacionar requisitos con comprobaciones, los procesos de 12207 vincularán actividades con responsables y evidencias, 29119 organizará los registros de pruebas e IEEE 730 utilizará sus resultados para revisar productos y procesos. La propuesta siguiente concreta esa adaptación y deberá ratificarse antes de adoptar metas, umbrales o ponderaciones, sin atribuir a las normas valores específicos que no se han acordado~\cite{std29148,std12207,std29119p2,std29119p3,ieee730}.
+\begin{longtable}{|p{0.25\dimexpr\linewidth-34pt\relax}|p{0.46\dimexpr\linewidth-34pt\relax}|p{0.29\dimexpr\linewidth-34pt\relax}|}
+\caption{Métricas candidatas y condiciones de interpretación. Fuente: elaboración propia sobre la adaptación de estándares.}\\
+\hline
+\textbf{Medición} & \textbf{Definición y unidad propuesta} & \textbf{Uso}\\\hline
+\endfirsthead
+\hline
+\textbf{Medición} & \textbf{Definición y unidad propuesta} & \textbf{Uso}\\\hline
+\endhead
+Requisitos verificados del incremento & Cantidad con comprobación satisfactoria sobre cantidad comprometida en una versión de referencia. Puede expresarse como proporción. & Seguimiento de 10.2, sin confundir implementación y verificación.\\\hline
+Evidencias de proceso & Actividades revisadas con evidencia suficiente sobre actividades comprometidas que requieren revisión. & Visibilidad de D02 y cumplimiento de procesos seleccionados.\\\hline
+Ejecución de pruebas & Casos ejecutados y su resultado respecto al conjunto planificado y a la versión evaluada. & Seguimiento de D04 y cobertura de requisitos.\\\hline
+Hallazgos y reevaluación & Número y estado de problemas, con fecha, criterio, versión y resultado de nueva comprobación. & Tratamiento en D05, sin usar solo cantidad como medida de calidad.\\\hline
+Esfuerzo y desviación & Dedicación registrada por actividad y diferencia frente a la estimación de referencia. & Revisar planificación y costos.\\\hline
+Costo computacional & Tiempo, recursos utilizados, memoria y almacenamiento de un caso con configuración identificada. & Sustentar estimaciones y límites de generación.\\\hline
+Contraste científico & Medidas y tolerancias que se definan para casos de comparación y agregación. & Evaluar la aproximación con evidencia específica, separada de las pruebas funcionales.\\\hline
+\end{longtable}
+
+El integrante que ejecute la actividad registrará los datos de origen y sus condiciones, mientras que el revisor comprobará su correspondencia con la evidencia y el coordinador consolidará el estado necesario para decisiones de proyecto. La frecuencia y la herramienta se acordarán por tipo de registro y por momento de revisión, manteniendo identificadores comunes entre D01, D02, D04 y D05. Si se calcula una proporción, se conservará su denominador y versión de referencia para evitar que un cambio de alcance parezca una mejora de cumplimiento. El costo computacional identificará si el tiempo medido incluye espera de cola o solo ejecución, y un resultado de prueba fallido se conservará como tal aunque posteriormente exista una corrección.
+
+La información consolidada permitirá revisar compromisos, priorizar hallazgos y analizar estimaciones, pero no se combinarán todas las medidas en un porcentaje global sin una regla justificada. Las tolerancias físicas y los criterios de utilidad del usuario deberán acordarse en sus ámbitos respectivos. El proceso de calidad utilizará las mismas mediciones mediante referencias, de modo que no se mantengan resultados contradictorios en informes separados.

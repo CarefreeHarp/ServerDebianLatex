@@ -1,31 +1,76 @@
 \documentclass[11pt,letterpaper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Carlito}
+\newfontfamily\fuenteTitulos{Caladea}
+\newfontfamily\fuenteEncabezado{TeX Gyre Termes}
+\newfontfamily\fuentePortada{Latin Modern Roman}
 \usepackage[spanish,es-tabla]{babel}
-\usepackage{mathptmx}
 \usepackage{graphicx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage{caption}
+\captionsetup{font=normalsize}
+\setlength{\tabcolsep}{5pt}
+\setlength{\LTcapwidth}{\textwidth}
+\renewcommand{\arraystretch}{1.15}
+\clubpenalty=10000
+\widowpenalty=10000
+\newcommand{\procesoPMP}[9]{%
+\begin{figure}[p]\centering
+\begin{tikzpicture}[x=1pt,y=1pt,font=\normalsize,
+tarea/.style={draw,rounded corners=3pt,text width=140pt,minimum width=154pt,minimum height=47pt,align=center,inner sep=5pt},
+evento/.style={draw,circle,minimum size=16pt,inner sep=0pt},
+compuerta/.style={draw,diamond,aspect=1.8,text width=67pt,align=center,inner sep=2pt},
+flujo/.style={-{Stealth[length=5pt]}}]
+\draw (0,23) rectangle (390,-400);
+\draw (0,0)--(390,0);\draw (190,23)--(190,-400);
+\node[text width=172pt,align=center]at(95,12){#1};
+\node[text width=182pt,align=center]at(290,12){#2};
+\node[evento](ini)at(95,-30){};
+\node[tarea](a)at(95,-88){#3};
+\node[tarea](b)at(290,-160){#4};
+\node[compuerta](g)at(290,-237){#5};
+\node[tarea](c)at(95,-315){#6};
+\node[evento,line width=1.5pt](fin)at(95,-378){};
+\draw[flujo](ini)--(a);
+\draw[flujo](a.east)-|(b.north);
+\draw[flujo](b)--(g);
+\draw[flujo](g.west)--node[above]{Sí}(95,-237)--(c.north);
+\draw[flujo](g.east)--(380,-237)--(380,-50)--node[above,fill=white,inner sep=1pt]{No, ajustar}(95,-50)--(a.north);
+\draw[flujo](c)--(fin);
+\node[text width=137pt,minimum height=44pt,align=center,inner sep=5pt](dato)at(290,-316){#7};
+\draw (212,-294)--(358,-294)--(368,-304)--(368,-338)--(212,-338)--cycle;
+\draw (358,-294)--(358,-304)--(368,-304);
+\draw[densely dotted,flujo](c.east)--(dato.west);
+\draw (214,-353)--(206,-353)--(206,-395)--(214,-395);
+\node[text width=160pt,align=center,anchor=center]at(293,-376){Herramientas:\\#8};
+\end{tikzpicture}
+\caption{#9}\end{figure}}
+
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{cite}
 \usepackage[hidelinks,linktoc=all]{hyperref}
 \geometry{top=2.8cm,bottom=2.8cm,left=3.75cm,right=3.75cm,headheight=14pt,headsep=16pt,footskip=30pt}
 \fancyhf{}
-\fancyhead[L]{\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}
-\fancyhead[R]{\fontsize{9}{11}\selectfont Plan de administración del proyecto}
-\fancyfoot[R]{\fontsize{9}{11}\selectfont Página \thepage}
+\fancyhead[L]{\fuenteEncabezado\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}
+\fancyhead[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Plan de administración del proyecto}
+\fancyfoot[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Página \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \pagestyle{fancy}
-\fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}\fancyhead[R]{\fontsize{9}{11}\selectfont Plan de administración del proyecto}\fancyfoot[R]{\fontsize{9}{11}\selectfont Página \thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\fuenteEncabezado\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}\fancyhead[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Plan de administración del proyecto}\fancyfoot[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Página \thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt}
 \setlength{\emergencystretch}{2em}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \makeatletter
-\renewcommand\section{\@startsection{section}{1}{\z@}{-3.5ex\@plus-1ex\@minus-.2ex}{2.3ex\@plus.2ex}{\normalfont\fontsize{13}{16}\selectfont\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex\@plus-1ex\@minus-.2ex}{1.5ex\@plus.2ex}{\normalfont\fontsize{12}{15}\selectfont\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex\@plus-1ex\@minus-.2ex}{1.5ex\@plus.2ex}{\normalfont\fontsize{11}{14}\selectfont\bfseries}}
+\renewcommand\section{\@startsection{section}{1}{\z@}{-3.5ex\@plus-1ex\@minus-.2ex}{2.3ex\@plus.2ex}{\normalfont\fuenteTitulos\fontsize{13}{16}\selectfont\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex\@plus-1ex\@minus-.2ex}{1.5ex\@plus.2ex}{\normalfont\fuenteTitulos\fontsize{12}{15}\selectfont\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex\@plus-1ex\@minus-.2ex}{1.5ex\@plus.2ex}{\normalfont\fuenteTitulos\fontsize{11}{14}\selectfont\bfseries}}
 \makeatother
 \hypersetup{pdftitle={Plan de administración del proyecto},pdfauthor={Andrés Pinzón, Daniel Ramírez, Guillermo Aponte, Miguel Sarmiento}}
 \begin{document}
@@ -45,4 +90,6 @@
 \input{chapters/seccion13}
 \input{chapters/seccion14}
 \end{document}
+
+
 

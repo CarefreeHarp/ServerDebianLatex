@@ -1,2 +1,17 @@
-\subsection{Modelo de Ciclo de Vida}\label{sec:spmp-8-1}
+\subsection{Modelo de Ciclo de Vida [Pendientes: 1. acordar duración y agenda de iteraciones, 2. ratificar flujo de revisión]}\label{sec:spmp-8-1}
+El proyecto utilizará DAD con Inicio, Construcción y Transición, manteniendo la adaptación ya discutida por el equipo. Inicio aporta la delimitación, los requisitos y las primeras decisiones sobre arquitectura, datos y viabilidad, mientras que Construcción integra desarrollo de software y trabajo técnico mediante incrementos y Transición reúne la evaluación, las correcciones y la entrega. Esta secuencia no impide revisar decisiones previas cuando aparezca evidencia relevante. Por el contrario, las pruebas, la trazabilidad y la gestión de riesgos acompañarán el desarrollo, de manera que las incertidumbres sobre ejecución, datos o agregación puedan tratarse antes de comprometer la versión final~\cite{adaptacion2026,adaptacion2026}.
+
+La figura \ref{fig:dad-pmp} resume la relación entre las fases sin asignarles duraciones proporcionales. Para el periodo de 2027-I, una iteración seleccionará un objetivo verificable, desarrollará el trabajo necesario, conservará sus comprobaciones y revisará el resultado para decidir la continuidad. Un incremento podrá producir una capacidad de la aplicación o evidencia que permita ajustar parámetros, datos o límites, por lo que el avance no se medirá únicamente por código escrito. Los productos y los criterios se identifican en las secciones \ref{sec:spmp-6-4} y \ref{sec:spmp-8-3}, mientras que los registros de ejecución seguirán las secciones \ref{sec:spmp-10-2} y \ref{sec:spmp-12-4}.
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}[node distance=16pt,font=\normalsize,phase/.style={draw,rounded corners,text width=.84\linewidth,align=center,inner sep=7pt}]
+\node[phase](a){\textbf{Inicio, 2026-II}\\Preparación y reducción de incertidumbres};
+\node[phase,below=of a](b){\textbf{Construcción, 2027-I}\\Incrementos de software y evidencia técnica};
+\node[phase,below=of b](c){\textbf{Transición, 2027-I}\\Evaluación, corrección y entrega};
+\draw[-{Stealth}] (a)--(b);\draw[-{Stealth}](b)--(c);
+\end{tikzpicture}
+\caption{Ciclo de vida adoptado, sin escala temporal. Fuente: elaboración propia a partir de la metodología del equipo~\cite{adaptacion2026}.}\label{fig:dad-pmp}
+\end{figure}
+
+El BPMN de la figura siguiente propone la secuencia de revisión de un incremento y la devolución del trabajo cuando su comprobación sea insuficiente. El coordinador facilita la selección y la revisión, mientras que el integrante responsable conserva la evidencia y solicita participación de otro miembro cuando sea pertinente. La revisión del director se incorporará de acuerdo con su acompañamiento académico, sin asignarle automáticamente la aprobación de cada cambio técnico. La duración de las iteraciones y la agenda formal del semestre siguen pendientes, por lo que los diagramas se presentan como una propuesta operativa para ratificación.
+\procesoPMP{Integrante responsable}{Coordinador y revisor}{Preparar el incremento}{Revisar evidencia}{¿Suficiente?}{Registrar resultado y siguiente trabajo}{Versión, pruebas y decisión}{Git y registro D02}{Proceso propuesto de producción y revisión de un incremento. Fuente: elaboración propia a partir de la metodología y la adaptación de 12207~\cite{adaptacion2026,std12207}.}\label{fig:iteracion}
 \input{chapters/seccion8/seccion8.1/seccion8.1.1}

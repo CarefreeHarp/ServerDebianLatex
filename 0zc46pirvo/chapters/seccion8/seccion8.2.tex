@@ -1,2 +1,23 @@
-\subsection{Lenguajes y Herramientas}\label{sec:spmp-8-2}
+\subsection{Lenguajes y Herramientas [Pendientes: 1. elegir tecnologías de aplicación y pruebas, 2. fijar versiones y acceso documental definitivo]}\label{sec:spmp-8-2}
+Las herramientas se organizarán por la función que cumplen dentro del proceso, para distinguir simulación, desarrollo de la aplicación, modelado, documentación y conservación de versiones. WFDS es la familia de simulador elegida y el repositorio \url{https://github.com/ruddymell/wfds6} permanece como candidato a evaluar, sin una revisión adoptada ni una compilación reproducible acreditadas. UML 2.5.1 se utilizará para comunicar el diseño y Git se empleará en el desarrollo de la aplicación de escritorio, de acuerdo con la decisión del equipo. La plataforma Aldine centralizará la elaboración colaborativa de documentos LaTeX y la bibliografía, mientras que la base de conocimiento existente conserva fuentes, resúmenes y decisiones de contexto~\cite{diseno2026,uml,servidor2026}.
+
+El servidor de documentación es un computador ubicado en casa de Daniel y su documentación describe una instalación de Aldine con contenedores de aplicación, compilador y gateway Nginx, acceso de usuarios mediante Tailscale y almacenamiento persistente. El punto de entrada documentado es el puerto 8081, aunque las pestañas utilizadas para redactar los documentos se han abierto por el puerto 8080. Esa diferencia requiere confirmar el acceso definitivo, sin cambiar aquí la configuración del equipo. La misma fuente describe repositorios Git por proyecto y un respaldo consolidado hacia GitHub, cuyos detalles de conservación se delimitan en la sección \ref{sec:spmp-12-3}. Esta infraestructura sirve a la documentación y no demuestra que el computador doméstico vaya a ejecutar las simulaciones o a alojar la aplicación final~\cite{servidor2026}.
+\begin{longtable}{|p{0.25\dimexpr\linewidth-34pt\relax}|p{0.43\dimexpr\linewidth-34pt\relax}|p{0.32\dimexpr\linewidth-34pt\relax}|}
+\caption{Herramientas identificadas y estado de selección. Fuente: decisiones del equipo y documentación del servidor~\cite{diseno2026,servidor2026}.}\\
+\hline
+\textbf{Ámbito} & \textbf{Herramienta o lenguaje} & \textbf{Estado}\\\hline
+\endfirsthead
+\hline
+\textbf{Ámbito} & \textbf{Herramienta o lenguaje} & \textbf{Estado}\\\hline
+\endhead
+Simulación & WFDS y repositorio candidato wfds6. & Familia elegida, revisión y ejecución por verificar.\\\hline
+Cómputo científico & HPC-ZINE. & Recurso previsto, acceso y condiciones por confirmar.\\\hline
+Modelado & UML 2.5.1. & Seleccionado para los modelos de E2.\\\hline
+Desarrollo y versiones & Git. & Uso decidido, repositorio y reglas por configurar.\\\hline
+Documentación & Aldine, LaTeX y bibliografía IEEE. & Disponibles para los documentos del equipo.\\\hline
+Compilación documental & LuaLaTeX, Carlito y Caladea para este PMP. & Utilizados en la versión actual.\\\hline
+Contexto del proyecto & Bóveda Markdown en Obsidian y grafo global Graphify. & Apoyo existente para consulta y trazabilidad del contexto.\\\hline
+Aplicación y pruebas & Lenguaje, interfaz gráfica, almacenamiento y herramientas de prueba. & Selección pendiente.\\\hline
+Meteorología & Servicio y API. & Proveedor y condiciones pendientes.\\\hline
+\end{longtable}
 \input{chapters/seccion8/seccion8.2/seccion8.2.1}
