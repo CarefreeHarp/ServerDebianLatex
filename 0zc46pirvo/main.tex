@@ -1,9 +1,9 @@
-\documentclass[11pt,letterpaper]{article}
+\documentclass[10pt,letterpaper]{article}
 \usepackage{fontspec}
 \setmainfont{Carlito}
 \newfontfamily\fuenteTitulos{Caladea}
-\newfontfamily\fuenteEncabezado{TeX Gyre Termes}
-\newfontfamily\fuentePortada{Latin Modern Roman}
+\newfontfamily\fuenteEncabezado{Carlito}
+\newfontfamily\fuentePortada{Caladea}
 \usepackage[spanish,es-tabla]{babel}
 \usepackage{graphicx}
 \usepackage{array}
@@ -53,24 +53,30 @@ flujo/.style={-{Stealth[length=5pt]}}]
 \usepackage{fancyhdr}
 \usepackage{cite}
 \usepackage[hidelinks,linktoc=all]{hyperref}
-\geometry{top=2.8cm,bottom=2.8cm,left=3.75cm,right=3.75cm,headheight=14pt,headsep=16pt,footskip=30pt}
+% Medidas efectivas reconstruidas del PDF de la plantilla (bp = punto PDF).
+\geometry{top=67.62bp,bottom=67.62bp,left=106.02bp,right=105.90bp,headheight=16bp,headsep=12bp,footskip=24bp}
 \fancyhf{}
-\fancyhead[L]{\fuenteEncabezado\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}
-\fancyhead[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Plan de administración del proyecto}
-\fancyfoot[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Página \thepage}
+\fancyhead[L]{\fuenteEncabezado\fontsize{10.3303bp}{14.52bp}\selectfont\textbf{Pontificia Universidad Javeriana}}
+\fancyhead[R]{\fuenteEncabezado\fontsize{10.3303bp}{14.52bp}\selectfont Plan de administración del proyecto}
+\fancyfoot[R]{\fuenteEncabezado\fontsize{10.3303bp}{14.52bp}\selectfont Página \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \pagestyle{fancy}
-\fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\fuenteEncabezado\fontsize{9}{11}\selectfont\textbf{Pontificia Universidad Javeriana}}\fancyhead[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Plan de administración del proyecto}\fancyfoot[R]{\fuenteEncabezado\fontsize{9}{11}\selectfont Página \thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\fuenteEncabezado\fontsize{10.3303bp}{14.52bp}\selectfont\textbf{Pontificia Universidad Javeriana}}\fancyhead[R]{\fuenteEncabezado\fontsize{10.3303bp}{14.52bp}\selectfont Plan de administración del proyecto}\fancyfoot[R]{\fuenteEncabezado\fontsize{10.3303bp}{14.52bp}\selectfont Página \thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{9.42bp}
 \setlength{\emergencystretch}{2em}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \makeatletter
-\renewcommand\section{\@startsection{section}{1}{\z@}{-3.5ex\@plus-1ex\@minus-.2ex}{2.3ex\@plus.2ex}{\normalfont\fuenteTitulos\fontsize{13}{16}\selectfont\bfseries}}
-\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex\@plus-1ex\@minus-.2ex}{1.5ex\@plus.2ex}{\normalfont\fuenteTitulos\fontsize{12}{15}\selectfont\bfseries}}
-\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex\@plus-1ex\@minus-.2ex}{1.5ex\@plus.2ex}{\normalfont\fuenteTitulos\fontsize{11}{14}\selectfont\bfseries}}
+\renewcommand\normalsize{\@setfontsize\normalsize{10.3303bp}{14.52bp}\abovedisplayskip=9.42bp\belowdisplayskip=9.42bp\abovedisplayshortskip=0bp\belowdisplayshortskip=9.42bp}
+\let\small\normalsize
+\let\footnotesize\normalsize
+\normalsize
+\setlength{\topskip}{8.88bp}
+\renewcommand\section{\@startsection{section}{1}{\z@}{-15.78bp}{0.6bp}{\normalfont\fuenteTitulos\fontsize{13.1527bp}{15.78bp}\selectfont\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-14.52bp}{0.6bp}{\normalfont\fuenteTitulos\fontsize{12.2496bp}{14.52bp}\selectfont\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-14.52bp}{0.6bp}{\normalfont\fuenteTitulos\fontsize{10.3303bp}{14.52bp}\selectfont\bfseries}}
 \makeatother
 \hypersetup{pdftitle={Plan de administración del proyecto},pdfauthor={Andrés Pinzón, Daniel Ramírez, Guillermo Aponte, Miguel Sarmiento}}
 \begin{document}

@@ -1,9 +1,9 @@
-\subsection{Administración de Configuración y Documentación [Pendientes: 1. definir política de versiones e integración, 2. definir almacenamiento pesado y comprobar restauración]}\label{sec:spmp-12-3}
-Los elementos de configuración comprenden código, dependencias, documentos, modelos, datos preparados, parámetros, entradas WFDS, escenarios, catálogo y registros de comprobación. Cada estado utilizado para una revisión o entrega deberá poder identificarse y relacionarse con los productos del catálogo, sin confundir la versión de la aplicación con la de sus datos o biblioteca. Git se utilizará para el desarrollo del software y para conservar los elementos textuales que corresponda, mientras que los resultados voluminosos podrán requerir almacenamiento separado con identificadores e inventarios que permitan rastrearlos. La herramienta y la política concreta para esos resultados deberán definirse con las necesidades y recursos disponibles~\cite{adaptacion2026,std12207}.
+\subsection{Administración de Configuración y Documentación [Pendientes: definir cambios, ramas, versiones, integración, nomenclatura y almacenamiento pesado; asignar administración, revisión, aprobación y restauración; comprobar servicio y recuperación y definir respaldo del repositorio de la aplicación]}\label{sec:spmp-12-3}
+Los elementos de configuración comprenden código, dependencias, documentos, modelos, datos preparados, parámetros, entradas FDS, escenarios, catálogo y registros de comprobación. La versión de la aplicación se distingue de la versión de sus datos y de la biblioteca. Git se utilizará para el desarrollo del software y los elementos textuales~\cite{adaptacion2026,std12207}.
 
-Para los documentos de Aldine, la documentación del servidor describe repositorios Git por proyecto y una sincronización unidireccional hacia un repositorio consolidado en GitHub. El respaldo conserva los archivos fuente y el PDF principal compilado, excluye repositorios internos y auxiliares de compilación en la copia consolidada y dispone de activación manual y de un temporizador aproximadamente cada cuatro horas. La identidad de los commits automáticos es Aldine, por lo que no deberá interpretarse como autoría individual de todos los contenidos. Esta descripción procede de la documentación aportada y requiere comprobar recuperación y ejecución del servicio, sin afirmar que se haya probado una restauración reciente ni que ese respaldo incluya automáticamente el futuro repositorio de la aplicación~\cite{servidor2026}.
+Para los documentos de Aldine, la documentación del servidor describe repositorios Git por proyecto y sincronización unidireccional hacia un repositorio consolidado en GitHub. El esquema conserva las fuentes y el PDF principal compilado y excluye repositorios internos y auxiliares de compilación. Dispone de activación manual y de un temporizador aproximadamente cada cuatro horas. La identidad de los commits automáticos es Aldine y se distingue de la autoría individual de los contenidos~\cite{servidor2026}.
 
-El procedimiento de cambios e integración, las reglas de ramas, la nomenclatura, la conservación de resultados voluminosos y la responsabilidad de restauración permanecen pendientes. La descripción del respaldo procede de la documentación técnica del servidor y no asigna a un integrante la administración del servicio. La tabla siguiente relaciona documentos ya previstos en la adaptación de estándares, sin establecer revisores ni autoridades de aprobación.
+La tabla relaciona los artefactos contemplados en la adaptación de estándares.
 
 \begin{longtable}{|p{0.23\dimexpr\linewidth-34pt\relax}|p{0.43\dimexpr\linewidth-34pt\relax}|p{0.34\dimexpr\linewidth-34pt\relax}|}
 \caption{Evolución de los artefactos de documentación y código. Fuente: adaptación de estándares del proyecto~\cite{adaptacion2026}.}\\
@@ -13,11 +13,11 @@ El procedimiento de cambios e integración, las reglas de ramas, la nomenclatura
 \hline
 \textbf{Elemento} & \textbf{Creación o refinamiento} & \textbf{Control relacionado}\\\hline
 \endhead
-D01 & Al precisar requisitos y al aprobar cambios durante el desarrollo. & Origen, versión y relaciones con diseño y prueba.\\\hline
-D02 & Al planificar actividades y al registrar su ejecución. & Responsable, producto y evidencia.\\\hline
-D03 & En decisiones de arquitectura y cambios de interfaces o implementación. & Revisión de coherencia entre vistas.\\\hline
-D04 & Al planificar pruebas y después de cada ejecución o corrección. & Caso, entradas, versión y resultado.\\\hline
-D05 & Al preparar revisiones y tratar hallazgos de cada versión. & Criterio, problema, acción y reevaluación.\\\hline
-Código y dependencias de E5 & En cada incremento que modifique el producto. & Git y comprobaciones asociadas.\\\hline
-Datos, entradas y resultados de E3--E4 & Al preparar, ejecutar, revisar o incorporar un escenario. & Procedencia, unidades, configuración e inventario.\\\hline
+Requisitos (ISO/IEC/IEEE 29148) & Al precisar requisitos y al aprobar cambios durante el desarrollo. & Origen, versión y relaciones con diseño y prueba.\\\hline
+Procesos del software (ISO/IEC/IEEE 12207) & Al planificar actividades y al registrar su ejecución. & Responsable, producto y evidencia.\\\hline
+Modelado UML & En decisiones de arquitectura y cambios de interfaces o implementación. & Revisión de coherencia entre vistas.\\\hline
+Pruebas (ISO/IEC/IEEE 29119) & Al planificar pruebas y después de cada ejecución o corrección. & Caso, entradas, versión y resultado.\\\hline
+Calidad del software (IEEE 730) & Al preparar revisiones y tratar hallazgos de cada versión. & Criterio, problema, acción y reevaluación.\\\hline
+Código y dependencias de S5 & En cada incremento que modifique el producto. & Git y comprobaciones asociadas.\\\hline
+Datos, entradas y resultados de S3--S4 & Al preparar, ejecutar, revisar o incorporar un escenario. & Procedencia, unidades, configuración e inventario.\\\hline
 \end{longtable}
