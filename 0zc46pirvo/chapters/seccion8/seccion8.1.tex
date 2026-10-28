@@ -1,15 +1,15 @@
-\subsection{Modelo de Ciclo de Vida [Pendientes: 1. acordar duración y agenda de iteraciones, 2. definir flujo de revisión]}\label{sec:spmp-8-1}
+\subsection{Modelo de Ciclo de Vida [Pendientes: 1. acordar duración y agenda de iteraciones, 2. definir flujo de revisión, 3. definir las prácticas que se utilizarán durante el desarrollo del proyecto, incluidas las técnicas de seguimiento, desarrollo y pruebas]}\label{sec:spmp-8-1}
 El proyecto utilizará DAD con las fases de Inicio, Construcción y Transición. Inicio aporta la delimitación, los requisitos y las primeras decisiones sobre arquitectura, datos y viabilidad, mientras que Construcción integra desarrollo de software y trabajo técnico mediante incrementos y Transición reúne la evaluación, las correcciones y la entrega. Esta secuencia no impide revisar decisiones previas cuando aparezca evidencia relevante. Por el contrario, las pruebas, la trazabilidad y la gestión de riesgos acompañarán el desarrollo, de manera que las incertidumbres sobre ejecución, datos o agregación puedan tratarse antes de comprometer la versión final~\cite{adaptacion2026}.
 
-La figura \ref{fig:dad-pmp} resume la relación entre las fases sin asignarles duraciones proporcionales. Para el periodo de 2027-1, una iteración seleccionará un objetivo verificable, desarrollará el trabajo necesario, conservará sus comprobaciones y revisará el resultado para decidir la continuidad. Un incremento podrá producir una capacidad de la aplicación o evidencia que permita ajustar parámetros, datos o límites, por lo que el avance no se medirá únicamente por código escrito. El catálogo de productos se presenta en la sección \ref{sec:spmp-6-4}, la base de aceptación en la sección \ref{sec:spmp-8-3} y los fundamentos de seguimiento y medición en las secciones \ref{sec:spmp-10-2} y \ref{sec:spmp-12-4}.
+La figura \ref{fig:dad-pmp} representa la relación entre las fases del ciclo de vida. Una iteración seleccionará un objetivo verificable, desarrollará el trabajo necesario, conservará sus comprobaciones y revisará el resultado para decidir la continuidad. Un incremento podrá producir una capacidad de la aplicación o evidencia que permita ajustar parámetros, datos o límites, por lo que el avance no se medirá únicamente por código escrito. El catálogo de entregables se presenta en la sección \ref{sec:spmp-6-4}, la base de aceptación en la sección \ref{sec:spmp-8-3} y los fundamentos de seguimiento y medición en las secciones \ref{sec:spmp-10-2} y \ref{sec:spmp-12-4}.
 \begin{figure}[htbp]\centering
 \begin{tikzpicture}[node distance=16pt,font=\normalsize,phase/.style={draw,rounded corners,text width=.84\linewidth,align=center,inner sep=7pt}]
-\node[phase](a){\textbf{Inicio, 2026-II}\\Preparación y reducción de incertidumbres};
+\node[phase](a){\textbf{Inicio, 2026-3}\\Preparación y reducción de incertidumbres};
 \node[phase,below=of a](b){\textbf{Construcción, 2027-1}\\Incrementos de software y evidencia técnica};
 \node[phase,below=of b](c){\textbf{Transición, 2027-1}\\Evaluación, corrección y entrega};
 \draw[-{Stealth}] (a)--(b);\draw[-{Stealth}](b)--(c);
 \end{tikzpicture}
-\caption{Ciclo de vida adoptado, sin escala temporal. Fuente: elaboración propia a partir de la metodología del equipo~\cite{adaptacion2026}.}\label{fig:dad-pmp}
+\caption{Ciclo de vida adoptado. Fuente: elaboración propia a partir de la metodología del equipo~\cite{adaptacion2026}.}\label{fig:dad-pmp}
 \end{figure}
 
 \input{chapters/seccion8/seccion8.1/seccion8.1.1}
