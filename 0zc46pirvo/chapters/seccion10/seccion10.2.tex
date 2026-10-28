@@ -1,2 +1,28 @@
-\subsection{Monitoreo y Control de Progreso [Pendientes: acordar responsables, frecuencia, instrumentos, umbrales, reglas de consolidación de avance y tratamiento y cierre de desviaciones]}\label{sec:spmp-10-2}
-El seguimiento cuenta como base con los documentos previstos para evaluar la aplicación de estándares: ISO/IEC/IEEE 29148 relaciona requisitos y comprobaciones, ISO/IEC/IEEE 12207 vincula procesos, integrantes y evidencias, ISO/IEC/IEEE 29119 organiza los registros de pruebas e IEEE 730 orienta el aseguramiento de calidad. Este material permite fundamentar el seguimiento del trabajo y distinguir una actividad realizada de una condición verificada~\cite{std29148,std12207,std29119p2,ieee730,adaptacion2026}.
+\subsection{Monitoreo y Control de Progreso [Pendientes: 1. Acordar los responsables del monitoreo y control del progreso. 2. Definir las métricas y unidades de seguimiento del proyecto y relacionarlas con los métodos de estimación de la sección \ref{sec:spmp-9-1} una vez completada. 3. Establecer las acciones correctivas ante desviaciones del progreso, sus responsables y los procedimientos para su aplicación y seguimiento, en relación con la sección \ref{sec:spmp-8-4-2}.]}\label{sec:spmp-10-2}
+El seguimiento cuenta como base con los documentos previstos para evaluar la aplicación de estándares. Estos permiten relacionar el trabajo planificado, los resultados obtenidos y las evidencias que los respaldan, distinguiendo una actividad realizada de una condición verificada. Los estándares orientan los procesos y la conservación de evidencias; la selección de indicadores y la asignación de funciones corresponden a su adaptación al proyecto~\cite{std29148,std12207,std29119p2,ieee730,adaptacion2026}.
+
+\begin{enumerate}
+\item \textbf{ISO/IEC/IEEE 29148.} La especificación, la matriz de trazabilidad y el registro de cambios permiten relacionar cada requisito con su implementación y comprobación. Su revisión ayuda a determinar qué necesidades se han atendido, qué resultados tienen evidencia y cómo los cambios afectan el trabajo previsto~\cite{std29148}.
+\item \textbf{ISO/IEC/IEEE 12207.} El proceso de evaluación y control del proyecto orienta la comparación de los resultados con lo planificado, el análisis de desviaciones, la comunicación del estado y las acciones de corrección o replanificación. La matriz de procesos, integrantes y evidencias aporta la relación entre actividades y resultados para efectuar esa revisión~\cite{std12207,adaptacion2026}.
+\item \textbf{ISO/IEC/IEEE 29119.} El monitoreo y control de pruebas contempla recopilar y registrar mediciones y comparar la ejecución con lo planificado, identificando obstáculos y comunicando resultados y medidas de control. En el proyecto se utilizarán el plan de pruebas, la matriz requisito--caso y los registros de ejecución y resultados de E6 para examinar el progreso de las comprobaciones del producto~\cite{std29119p2,adaptacion2026}.
+\item \textbf{IEEE 730.} El aseguramiento de calidad permite revisar si las actividades y mediciones se ejecutan conforme a lo planificado y conservar los hallazgos y su tratamiento. El informe de calidad relacionará los problemas con sus evidencias, las acciones aplicadas y la nueva comprobación, para evaluar la calidad de los resultados junto con el avance del trabajo~\cite{ieee730,adaptacion2026}.
+\end{enumerate}
+
+La base de medición considera la implementación de requisitos, la terminación de tareas y los resultados de pruebas. Sus indicadores de referencia se expresan en conteos y se relacionan con evidencias identificables:
+\begin{table}[htbp]
+\centering
+\caption{Indicadores de referencia para el seguimiento del progreso. Fuente: adaptación al proyecto de las dimensiones de seguimiento.}
+\begin{tabular}{|p{0.30\dimexpr\linewidth-4\tabcolsep-3\arrayrulewidth\relax}|p{0.70\dimexpr\linewidth-4\tabcolsep-3\arrayrulewidth\relax}|}
+\hline
+\textbf{Indicador} & \textbf{Unidad y evidencia}\\\hline
+Requisitos implementados & Número de requisitos con implementación identificable, vinculados a la especificación y a la matriz de trazabilidad. La implementación se distingue de su comprobación.\\\hline
+Tareas completadas & Número de tareas terminadas respecto de las planificadas para la iteración, con producto o evidencia de ejecución.\\\hline
+Resultados de pruebas & Número de casos ejecutados y sus resultados satisfactorios o no satisfactorios, vinculados a la versión evaluada y a los registros de ejecución.\\\hline
+\end{tabular}
+\end{table}
+
+La recopilación del progreso se apoyará en los resultados de las actividades, las versiones de sus productos, la matriz de trazabilidad y los registros de pruebas. Se registrará la relación entre actividad, resultado observado y evidencia. Los resultados del seguimiento y las decisiones de control se comunicarán al equipo, al director y a las personas afectadas por los ajustes~\cite{std12207,std29119p2,ieee730}.
+
+Ante una desviación, se identificará la diferencia entre lo previsto y lo observado, su causa y sus efectos sobre el trabajo. La evaluación permitirá decidir entre corregir el producto o sus comprobaciones, reorganizar actividades o revisar la planificación. Se registrarán la decisión, la acción y el resultado esperado; las responsabilidades de decisión, ejecución y comprobación se vincularán con los roles de la sección \ref{sec:spmp-8-4-2}. Si la respuesta modifica requisitos, se aplicará el proceso de la sección \ref{sec:spmp-10-1}; si modifica el PMP, se seguirá la evolución del plan descrita en la sección \ref{sec:spmp-6-6}.
+
+La resolución se comprobará mediante una nueva medición, revisión o ejecución de pruebas pertinente a la desviación y se conservará la evidencia del resultado. El seguimiento contrastará ese resultado con el efecto esperado de la acción y registrará su cierre o la necesidad de una nueva medida, manteniendo la relación entre el problema, la decisión y la comprobación~\cite{std12207,ieee730}.

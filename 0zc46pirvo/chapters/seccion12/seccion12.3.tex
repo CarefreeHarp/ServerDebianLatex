@@ -1,23 +1,20 @@
-\subsection{Administración de Configuración y Documentación [Pendientes: definir cambios, ramas, versiones, integración, nomenclatura y almacenamiento pesado; asignar administración, revisión, aprobación y restauración; comprobar servicio y recuperación y definir respaldo del repositorio de la aplicación]}\label{sec:spmp-12-3}
-Los elementos de configuración comprenden código, dependencias, documentos, modelos, datos preparados, parámetros, entradas FDS, escenarios, catálogo y registros de comprobación. La versión de la aplicación se distingue de la versión de sus datos y de la biblioteca, y Git se utilizará para el desarrollo del software y los elementos textuales~\cite{adaptacion2026,std12207}.
+\subsection{Administración de Configuración y Documentación [Pendientes: 1. Definir cambios, ramas, versiones, integración, nomenclatura y almacenamiento pesado. 2. Asignar administración, revisión, aprobación y restauración. 3. Comprobar servicio y recuperación y definir respaldo del repositorio de la aplicación.]}\label{sec:spmp-12-3}
+Los elementos de configuración comprenden código, documentos, modelos, datos preparados y catálogo~\cite{adaptacion2026,std12207}.
 
-Para los documentos de Aldine, la documentación del servidor describe repositorios Git por proyecto y sincronización unidireccional hacia un repositorio consolidado en GitHub. El esquema conserva las fuentes y el PDF principal compilado y excluye repositorios internos y auxiliares de compilación; dispone de activación manual y de un temporizador aproximadamente cada cuatro horas. La identidad de los commits automáticos es Aldine y se distingue de la autoría individual de los contenidos~\cite{servidor2026}.
-
-La tabla relaciona los artefactos contemplados en la adaptación de estándares.
-
+Para los documentos de Aldine, la documentación del servidor describe repositorios Git por proyecto y sincronización unidireccional hacia un repositorio consolidado en GitHub. El esquema conserva las fuentes y el PDF principal compilado y excluye repositorios internos y auxiliares de compilación; dispone de activación manual y de un temporizador aproximadamente cada cuatro horas. La identidad de los commits automáticos es Aldine y se distingue de la autoría individual de los contenidos.
 \begin{longtable}{|p{0.23\dimexpr\linewidth-34pt\relax}|p{0.43\dimexpr\linewidth-34pt\relax}|p{0.34\dimexpr\linewidth-34pt\relax}|}
 \caption{Evolución de los artefactos de documentación y código. Fuente: adaptación de estándares del proyecto~\cite{adaptacion2026}.}\\
 \hline
-\textbf{Elemento} & \textbf{Creación o refinamiento} & \textbf{Control relacionado}\\\hline
+\textbf{Artefacto} & \textbf{Creación o refinamiento} & \textbf{Información para mantener el artefacto actualizado y coherente}\\\hline
 \endfirsthead
 \hline
-\textbf{Elemento} & \textbf{Creación o refinamiento} & \textbf{Control relacionado}\\\hline
+\textbf{Artefacto} & \textbf{Creación o refinamiento} & \textbf{Información para mantener el artefacto actualizado y coherente}\\\hline
 \endhead
 Requisitos (ISO/IEC/IEEE 29148) & Al precisar requisitos y al aprobar cambios durante el desarrollo. & Origen, versión y relaciones con diseño y prueba.\\\hline
 Procesos del software (ISO/IEC/IEEE 12207) & Al planificar actividades y al registrar su ejecución. & Responsable, producto y evidencia.\\\hline
 Modelado UML & En decisiones de arquitectura y cambios de interfaces o implementación. & Revisión de coherencia entre vistas.\\\hline
 Pruebas (ISO/IEC/IEEE 29119) & Al planificar pruebas y después de cada ejecución o corrección. & Caso, entradas, versión y resultado.\\\hline
 Calidad del software (IEEE 730) & Al preparar revisiones y tratar hallazgos de cada versión. & Criterio, problema, acción y reevaluación.\\\hline
-Código y dependencias de S5 & En cada incremento que modifique el producto. & Git y comprobaciones asociadas.\\\hline
-Datos, entradas y resultados de S3--S4 & Al preparar, ejecutar, revisar o incorporar un escenario. & Procedencia, unidades, configuración e inventario.\\\hline
+Código de E5 & En cada incremento que modifique el producto. & Git y comprobaciones asociadas.\\\hline
+Datos, entradas y resultados de E3-E4 & Al preparar, ejecutar, revisar o incorporar un escenario. & Procedencia, unidades, configuración e inventario.\\\hline
 \end{longtable}

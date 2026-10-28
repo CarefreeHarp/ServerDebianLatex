@@ -1,2 +1,24 @@
-\subsubsection{Descomposición de Actividades [Pendientes: elaborar WBS de 2027-1, paquetes de trabajo, dependencias, nivel de detalle y organización por incrementos]}\label{sec:spmp-9-3-1}
-El trabajo comprende requisitos, arquitectura y modelado, preparación de datos y configuración FDS, piloto, generación de biblioteca, desarrollo e integración de la aplicación, pruebas y evaluación. Estos componentes proceden de la metodología y de los entregables de la sección \ref{sec:spmp-6-4}~\cite{vfp2026,adaptacion2026}.
+\subsubsection{Descomposición de Actividades [Pendientes: 1. Elaborar el WBS de 2027-1 para una iteración y establecer sus dependencias.]}\label{sec:spmp-9-3-1}
+Las doce actividades principales del proyecto permiten desarrollar y comprobar los entregables definidos en el catálogo de la sección \ref{sec:spmp-6-4}, en relación con la metodología del proyecto~\cite{vfp2026,adaptacion2026}. La tabla presenta una descripción general del trabajo.
+\begingroup
+\renewcommand{\arraystretch}{1.0}
+\begin{longtable}{|p{0.30\dimexpr\linewidth-4\tabcolsep-3\arrayrulewidth\relax}|p{0.70\dimexpr\linewidth-4\tabcolsep-3\arrayrulewidth\relax}|}
+\caption{Actividades principales del proyecto y su descripción. Fuente: elaboración propia.}\\\hline
+\textbf{Actividad} & \textbf{Descripción}\\\hline
+\endfirsthead\hline
+\textbf{Actividad} & \textbf{Descripción}\\\hline
+\endhead
+1. Definir el alcance & Revisar entrevistas, precisar el flujo principal de la aplicación, delimitar el sector de los Cerros Orientales y definir los requisitos.\\\hline
+2. Definir arquitectura y preparar datos & Describir los componentes de la solución y sus conexiones, e identificar, recolectar y preparar los datos necesarios.\\\hline
+3. Organizar el trabajo & Priorizar tareas, asignar responsables, organizar riesgos, iniciar el aprendizaje de FDS y coordinar los recursos HPC.\\\hline
+4. Planificar calidad y pruebas & Definir los aspectos que se evaluarán, los criterios, responsables y momentos de revisión, así como las pruebas y sus registros.\\\hline
+5. Ejecutar el piloto & Preparar las entradas de FDS, ejecutar el caso piloto, comprobar su funcionamiento y conservar los parámetros necesarios para reproducirlo.\\\hline
+6. Generar escenarios & Ejecutar las simulaciones seleccionadas utilizando HPC-Zine, clasificar los resultados y almacenarlos para construir la biblioteca.\\\hline
+7. Desarrollar la aplicación & Implementar la consulta de escenarios e integrar las condiciones meteorológicas, búsqueda, agregación, visualización y conexión con la biblioteca.\\\hline
+8. Comprobar y corregir & Probar los componentes individuales y sus integraciones, identificar problemas, aplicar correcciones y verificar los resultados.\\\hline
+9. Evaluar la versión final & Realizar pruebas con usuarios, incluidos bomberos, observar la interpretación de los resultados y recopilar observaciones.\\\hline
+10. Corregir problemas & Asignar los problemas identificados, implementar los ajustes correspondientes y comprobar la versión corregida.\\\hline
+11. Preparar la entrega & Reunir código, dependencias, datos e instrucciones, y preparar el manual, la guía técnica y una demostración reproducible.\\\hline
+12. Consolidar evidencias & Relacionar los requisitos con la implementación y sus comprobaciones, consolidando la matriz de trazabilidad y el informe de calidad.\\\hline
+\end{longtable}
+\endgroup

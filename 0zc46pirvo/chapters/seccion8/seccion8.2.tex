@@ -1,8 +1,16 @@
-\subsection{Lenguajes y Herramientas [Pendientes: elegir tecnologías de aplicación y pruebas y proveedor de API; fijar versiones y verificar compilación, ejecución e integración de FDS y Smokeview; configurar repositorio y reglas de Git; confirmar acceso documental definitivo y recursos HPC]}\label{sec:spmp-8-2}
-FDS es el software de simulación empleado para preparar los escenarios y Smokeview es el visualizador previsto para sus resultados. UML 2.5.1 comunica el diseño y Git conserva las versiones del código de la aplicación. Aldine centraliza la elaboración colaborativa de documentos LaTeX y la bibliografía~\cite{uml,servidor2026}.
+\subsection{Lenguajes y Herramientas [Pendientes: 1. Elegir tecnologías de aplicación y pruebas y proveedor de API. 2. Fijar versiones. 3. Configurar repositorio y reglas de Git. 4. Confirmar acceso documental definitivo y recursos HPC. 5. Buscar y recopilar referencias bibliográficas oficiales, manuales de usuario y documentación técnica de todas las herramientas y lenguajes utilizados, incluidos FDS, Smokeview, UML, Git, GitHub, Aldine, LaTeX, Docker Compose, Nginx, Tailscale, Linux y Slurm.]}\label{sec:spmp-8-2}
+\begin{enumerate}
+\item \textbf{Simulación.} FDS es el software utilizado para preparar los escenarios de incendio mediante simulaciones, según la convención FDS/WFDS de la sección \ref{sec:spmp-6-1}. La documentación oficial \textit{Installing and Running FDS on a Linux Cluster} describe su instalación y ejecución en clústeres Linux, incluye ejemplos con el gestor de trabajos Slurm y permite acceder al repositorio oficial del software~\cite{fdslinuxcluster}. Esta base tecnológica es acorde con el entorno Linux, Slurm y la arquitectura x86 de la infraestructura HPC-Zine prevista para el proyecto; la correspondencia general entre estas tecnologías se distingue de la comprobación de su instalación, configuración y ejecución efectiva en ese recurso.
 
-El servidor documental es un computador ubicado en casa de Daniel; su documentación describe contenedores de aplicación, compilador y gateway Nginx, acceso mediante Tailscale, almacenamiento persistente, repositorios Git por proyecto y respaldo consolidado hacia GitHub. El esquema documental de conservación se presenta en la sección \ref{sec:spmp-12-3}; los ámbitos de infraestructura se describen en la sección \ref{sec:spmp-9-2-2}~\cite{servidor2026}.
+\item \textbf{Visualización.} Smokeview es el visualizador previsto para presentar los resultados de FDS mediante las animaciones georreferenciadas de los escenarios.
 
-El repositorio \url{https://github.com/ruddymell/wfds6} se conserva como antecedente técnico consultado sobre WFDS. El software que se configura y ejecuta en el proyecto se denomina FDS según la convención de la sección \ref{sec:spmp-6-1}. La compilación documental del PMP utiliza LuaLaTeX con Carlito y Caladea.
+\item \textbf{Modelado.} UML 2.5.1 proporciona el lenguaje para representar y comunicar el diseño del software~\cite{uml}.
+
+\item \textbf{Control de versiones y conservación.} Git conserva las versiones del código de la aplicación y los repositorios documentales por proyecto.
+
+\item \textbf{Documentación.} Aldine centraliza la elaboración colaborativa de los documentos y la bibliografía del proyecto; LaTeX es el lenguaje empleado para estructurar esos documentos.
+
+\item \textbf{Infraestructura y administración.} Docker Compose organiza los contenedores de aplicación y compilador del servidor documental; Nginx actúa como gateway y Tailscale permite el acceso al servidor documental entre los miembros del equipo y el director del proyecto. Este computador está ubicado en casa de Daniel y dispone de almacenamiento persistente. Para la ejecución científica, HPC-Zine es la infraestructura prevista, Linux es el entorno de ejecución y Slurm gestiona los trabajos de simulación. Los ámbitos de infraestructura se describen en la sección \ref{sec:spmp-9-2-2}~\cite{fdslinuxcluster}.
+\end{enumerate}
 
 \input{chapters/seccion8/seccion8.2/seccion8.2.1}
