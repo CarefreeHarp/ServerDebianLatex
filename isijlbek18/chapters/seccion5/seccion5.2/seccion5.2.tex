@@ -2,174 +2,245 @@
 \subsection{Alternativas de solución}
 \label{sec:alternativas}
 
+El análisis de alternativas tiene como propósito identificar enfoques tecnológicos para atender el problema formulado en la sección 1.1.2: ofrecer al comandante o coordinador de una emergencia información comprensible sobre la posible propagación de un incendio forestal, considerando las restricciones de tiempo, disponibilidad de datos y capacidad computacional.
 
-La revisión de alternativas tiene como propósito identificar diferentes enfoques tecnológicos para atender el problema formulado en la sección 1.1.2: ofrecer al comandante o coordinador de una emergencia información comprensible sobre la posible propagación de un incendio forestal, considerando las restricciones de tiempo, disponibilidad de datos y capacidad computacional.
+Primero se examinan proyectos y sistemas existentes en Latinoamérica y otras regiones, identificando sus capacidades, beneficios para los usuarios y diferencias frente al proyecto. Posteriormente se plantean tres alternativas técnicas y se comparan con la solución seleccionada.
 
-
-Para ello, se examinan primero proyectos y sistemas existentes en Latinoamérica y otras regiones. Posteriormente, se consideran tres alternativas técnicas distintas de la propuesta del equipo y se contrastan mediante criterios comunes. Los antecedentes permiten conocer experiencias de aplicación, pero no constituyen por sí mismos evidencia de que alguna solución pueda utilizarse directamente en los Cerros Orientales de Bogotá.
+La comparación se realiza en función del alcance académico y territorial de este trabajo. Por tanto, no pretende demostrar que la propuesta sea superior a plataformas desarrolladas y utilizadas por organismos especializados.
 
 \subsubsection{Proyectos y soluciones existentes}
 
-\textbf{Cell2Fire+KITRAL y proyectos de simulación en Chile.}
+\textbf{Cell2Fire+KITRAL en Chile.}
 
-La Universidad de Chile ha desarrollado, mediante la colaboración de investigadores nacionales e internacionales, el simulador Cell2Fire, utilizado para representar la propagación de incendios forestales considerando variables como la topografía, la vegetación y las condiciones meteorológicas. Su adaptación Cell2Fire+KITRAL (C2F+K) incorpora modelos de comportamiento del fuego orientados a las condiciones forestales chilenas. Una característica relevante es su integración con modelos de optimización para estudiar estrategias de prevención y manejo territorial \cite{vfpCell2FireChile}.
+Cell2Fire es un entorno de simulación de propagación de incendios forestales desarrollado con participación de investigadores de la Universidad de Chile y colaboradores internacionales. Su adaptación Cell2Fire+KITRAL incorpora modelos de comportamiento del fuego orientados a condiciones forestales chilenas.
 
-En septiembre de 2026, el Instituto Sistemas Complejos de Ingeniería (ISCI) anunció la adjudicación de un proyecto FONDEF para desarrollar una plataforma basada en gemelos digitales multimodales. La propuesta contempla combinar simulaciones de propagación, procesamiento paralelo mediante GPU y observaciones de drones y cámaras para actualizar escenarios y apoyar decisiones operativas y preventivas \cite{vfpISCI2026}.
+El sistema permite representar la evolución espacial de incendios considerando información territorial, combustible y condiciones ambientales. Una de sus características destacadas es su integración con modelos de optimización para estudiar estrategias de prevención, tratamientos de vegetación y localización de intervenciones \cite{vfpCell2FireChile}.
 
-Ambas iniciativas resultan pertinentes por la integración de simulación, información territorial y apoyo a decisiones. Sin embargo, el proyecto FONDEF corresponde a una iniciativa de desarrollo anunciada en 2026 y no debe presentarse como una plataforma completamente implementada y validada. Asimismo, su estrategia de actualización de escenarios difiere de la biblioteca FDS precalculada propuesta para este trabajo.
+Para las entidades responsables de prevención, este enfoque permite comparar estrategias de manejo territorial antes de implementar medidas, contribuyendo a orientar recursos hacia sectores prioritarios.
+
+Frente a este antecedente, el proyecto propuesto se concentra en un problema funcional diferente: consultar escenarios físicos FDS previamente calculados a partir de una situación observada. Su principal aporte esperado no es optimizar tratamientos preventivos, sino facilitar el acceso y la interpretación de resultados en un territorio específico de Bogotá.
+
+\textbf{Proyecto de gemelos digitales multimodales del ISCI en Chile.}
+
+En septiembre de 2026, el Instituto Sistemas Complejos de Ingeniería anunció la adjudicación de un proyecto FONDEF para desarrollar una plataforma inteligente de gestión de incendios forestales basada en gemelos digitales multimodales.
+
+La iniciativa contempla integrar modelos de propagación, procesamiento paralelo mediante GPU y observaciones procedentes de drones y cámaras, con el propósito de actualizar escenarios predictivos y aportar información para la coordinación operativa y preventiva \cite{vfpISCI2026}.
+
+El beneficio previsto para los organismos de emergencia consiste en mejorar la actualización de la información disponible y facilitar el análisis de escenarios conforme se reciben nuevas observaciones.
+
+A diferencia de este proyecto, la propuesta del equipo no contempla construir un gemelo digital ni integrar directamente sensores, cámaras o drones. Se concentra en una biblioteca finita de resultados FDS y un mecanismo de consulta sobre condiciones representadas previamente.
+
+La arquitectura precalculada limita la actualización física de los escenarios, pero también permite estudiar un flujo de software más acotado sin depender de infraestructura de observación permanente. El proyecto chileno debe considerarse una iniciativa en desarrollo y no un sistema operativo cuya validación ya esté demostrada.
 
 \textbf{FIP Cerrado en Brasil.}
 
-El Centro de Sensoriamento Remoto de la Universidade Federal de Minas Gerais desarrolla, dentro del proyecto FIP Cerrado, herramientas de monitoreo y simulación de propagación del fuego para apoyar la prevención y el combate de incendios en el bioma Cerrado.
+El proyecto FIP Cerrado, desarrollado con participación del Centro de Sensoriamento Remoto de la Universidade Federal de Minas Gerais, integra herramientas de monitoreo y simulación para apoyar la prevención y gestión de incendios en el bioma Cerrado.
 
-Su modelo FISC considera información meteorológica, vegetación, focos de calor y factores territoriales. La documentación institucional describe el empleo de un autómata celular para estimar la propagación a partir de condiciones locales, como viento, pendiente, humedad y combustible disponible \cite{vfpFIPCerrado}.
+Entre sus componentes se encuentra la modelación de propagación del fuego mediante información meteorológica, características de la vegetación y condiciones territoriales. La documentación institucional describe aproximaciones basadas en autómatas celulares para representar la evolución espacial del incendio \cite{vfpFIPCerrado}.
 
-Este antecedente muestra la importancia de adaptar los modelos al territorio y utilizar información geográfica para orientar la gestión. No obstante, utiliza una representación diferente de la simulación física tridimensional prevista mediante FDS.
+Para los responsables de áreas protegidas, estas herramientas contribuyen a reconocer zonas susceptibles, estudiar posibles recorridos del fuego y preparar intervenciones preventivas.
+
+Su principal diferencia frente al proyecto es la metodología de propagación y la escala territorial de aplicación. La propuesta del equipo utilizará resultados FDS, con mayor énfasis en la preparación de escenarios físicos tridimensionales y su posterior consulta.
+
+El antecedente brasileño demuestra la utilidad de adaptar la modelación al territorio, mientras que la propuesta busca estudiar una integración específica entre simulación física, catálogo geográfico y aplicación de escritorio.
 
 \textbf{Sistema de Predicción de Peligro de Incendios Forestales de México.}
 
-La Comisión Nacional Forestal (CONAFOR), en colaboración con la Universidad Juárez del Estado de Durango y otras instituciones, ha desarrollado el Sistema de Predicción de Peligro de Incendios Forestales (SPPIF).
+La Comisión Nacional Forestal de México desarrolla el Sistema de Predicción de Peligro de Incendios Forestales (SPPIF), que integra información ambiental, meteorológica, geográfica y satelital para producir pronósticos de peligro y apoyar el monitoreo de incendios \cite{vfpCONAFOR2026}.
 
-Esta plataforma integra información meteorológica, ambiental, satelital y geoespacial para generar pronósticos de peligro, monitorear incendios activos y apoyar la preparación y asignación de recursos \cite{vfpCONAFOR2026}.
+El beneficio para los organismos de prevención y respuesta consiste en disponer de información territorial para identificar condiciones favorables a la ocurrencia de incendios, organizar vigilancia y orientar la preparación de recursos.
 
-Su aporte principal para este proyecto se relaciona con la integración de fuentes de información y la presentación de resultados útiles para la gestión del riesgo. Sin embargo, el pronóstico del peligro de incendio no equivale necesariamente a representar la evolución física de un frente específico a partir de una ignición observada.
+La plataforma aborda principalmente peligro y monitoreo, mientras que el proyecto del equipo pretende consultar resultados que representen la evolución temporal de un incendio bajo condiciones previamente simuladas.
 
-\textbf{Wildfire Analyst y WFDSS en Estados Unidos.}
+Por ello, ambas aproximaciones son complementarias. Los mapas de peligro pueden contribuir a la preparación del territorio y a la selección de igniciones de referencia, pero no sustituyen directamente una biblioteca de escenarios de propagación.
 
-Technosylva desarrolla herramientas de análisis y simulación de incendios forestales utilizadas por organismos de respuesta. Su plataforma Wildfire Analyst permite ejecutar simulaciones de propagación bajo demanda, configurar condiciones de entrada y consultar resultados sobre representaciones cartográficas. La empresa documenta su colaboración con CAL FIRE en herramientas orientadas al análisis de incendios y al apoyo de decisiones operativas \cite{vfpTechnosylva}.
+\textbf{Wildfire Analyst de Technosylva.}
 
-Por otra parte, el Wildland Fire Decision Support System (WFDSS), del sistema federal estadounidense, integra modelos de comportamiento del fuego, información territorial y herramientas de análisis para apoyar y documentar decisiones durante incendios forestales \cite{vfpWFDSS}.
+Technosylva desarrolla herramientas de modelación y análisis para incendios forestales. Entre sus capacidades se encuentran la ejecución de simulaciones de propagación, la representación cartográfica de resultados y el apoyo a la interpretación de escenarios durante emergencias.
 
-Estos sistemas constituyen referentes funcionales relevantes porque relacionan los resultados científicos con las necesidades de los responsables de emergencias. Sin embargo, su existencia no demuestra que sus capacidades, servicios o condiciones de acceso puedan trasladarse directamente al contexto territorial y académico de Bogotá.
+La empresa documenta su colaboración con CAL FIRE en el desarrollo de herramientas orientadas al análisis de incendios y a la disponibilidad de información para decisiones operativas \cite{vfpTechnosylva}.
+
+Para comandantes y organismos de respuesta, este tipo de plataforma ofrece la posibilidad de estudiar escenarios relacionados con condiciones específicas, interpretar posibles afectaciones y apoyar la coordinación de acciones.
+
+Constituye uno de los referentes funcionales más cercanos a la propuesta. Sin embargo, la existencia de una plataforma operativa no garantiza su disponibilidad, licenciamiento o adaptación al conjunto de datos y requisitos de un prototipo académico en Bogotá.
+
+El desarrollo propio permitirá controlar la estructura de la biblioteca FDS, los metadatos, las reglas de selección y la presentación de resultados para el sector elegido. Esta ventaja de control e investigación no implica que el prototipo ofrezca más funciones o mayor precisión que Wildfire Analyst.
+
+\textbf{Wildland Fire Decision Support System en Estados Unidos.}
+
+El Wildland Fire Decision Support System (WFDSS) integra información territorial, herramientas de análisis del comportamiento del fuego y documentación de decisiones para apoyar a responsables de la gestión de incendios en Estados Unidos \cite{vfpWFDSS}.
+
+Su principal valor para los interesados radica en relacionar información científica con procedimientos de análisis y justificación de decisiones. No se limita a presentar una simulación, sino que forma parte de un entorno institucional de gestión.
+
+Para el proyecto, WFDSS constituye un referente de diseño funcional y de comunicación de resultados. Sin embargo, adoptar directamente un sistema institucional de este tipo requeriría examinar sus condiciones de acceso, procesos y adecuación al contexto colombiano.
+
+La solución propuesta tiene un alcance menor y se centra en un mecanismo específico de consulta de escenarios FDS, lo que permite estudiar su funcionamiento sin asumir la construcción de un sistema integral de gestión de emergencias.
 
 \textbf{Spark Operational en Australia.}
 
-El Commonwealth Scientific and Industrial Research Organisation (CSIRO) desarrolló Spark como un entorno de modelación de propagación de incendios forestales. Su funcionamiento incorpora condiciones meteorológicas, características de la vegetación, topografía y ubicación inicial del fuego para producir estimaciones y visualizaciones de su evolución.
+El Commonwealth Scientific and Industrial Research Organisation (CSIRO) desarrolló Spark, un entorno de simulación de propagación de incendios que considera topografía, combustible y condiciones meteorológicas.
 
-Spark Operational fue desarrollado para facilitar predicciones de propagación mediante métodos computacionales orientados a obtener resultados con rapidez. La documentación institucional describe su aplicación a necesidades de planificación y respuesta de organismos de emergencia \cite{vfpCSIROSpark}.
+Spark Operational busca facilitar la generación de escenarios de propagación mediante métodos computacionales orientados a obtener resultados con rapidez, y se ha relacionado con necesidades de planificación y respuesta de organismos de emergencia \cite{vfpCSIROSpark}.
 
-Este sistema permite considerar una alternativa basada en modelos rápidos de propagación. Su enfoque se diferencia del empleo de FDS, cuyo mayor detalle físico potencial implica también exigencias particulares de datos y recursos computacionales.
+Para sus usuarios, la principal ventaja es la posibilidad de producir y examinar escenarios sin asumir necesariamente el mismo costo computacional de un modelo CFD tridimensional detallado.
+
+Frente a Spark, la propuesta del equipo conserva el uso de FDS por su capacidad de representar determinados procesos físicos de forma explícita. El costo asociado se aborda mediante la generación anticipada de escenarios.
+
+Esta decisión no demuestra que FDS sea más preciso o conveniente que Spark en cualquier situación. Su pertinencia depende de los fenómenos que se busquen representar, la disponibilidad de datos y la viabilidad de los cálculos para el sector seleccionado.
 
 \textbf{B-FIREPREP en Portugal.}
 
-El proyecto europeo B-FIREPREP, coordinado por la Autoridade Nacional de Emergencia e Protecao Civil de Portugal, se desarrolló durante el periodo 2024--2026 con el propósito de mejorar la anticipación y preparación frente a incendios forestales.
+El proyecto europeo B-FIREPREP se orientó al desarrollo de herramientas basadas en simulaciones estocásticas para anticipar situaciones peligrosas, identificar comunidades expuestas y apoyar la preparación frente a incendios forestales.
 
-La iniciativa planteó un sistema interactivo de simulaciones estocásticas para identificar zonas críticas, asentamientos rurales expuestos y situaciones que podrían superar la capacidad de supresión. Su planteamiento considera diferentes horizontes temporales, desde la planificación preventiva hasta el análisis de incendios emergentes \cite{vfpBFIREPREP}.
+Su planteamiento contempla el análisis de múltiples escenarios y distintos horizontes temporales de anticipación, con énfasis en las necesidades de protección civil \cite{vfpBFIREPREP}.
 
-Este antecedente resulta pertinente por el uso de múltiples escenarios para apoyar decisiones y por la necesidad de comunicar incertidumbres. No obstante, sus objetivos y alcance territorial son diferentes de los del prototipo académico propuesto.
+Para los organismos responsables, el beneficio esperado consiste en identificar condiciones de riesgo y orientar la planificación de medidas preventivas y de respuesta.
 
-En conjunto, estos proyectos muestran que la simulación de incendios y su incorporación a sistemas de apoyo a decisiones constituyen líneas de desarrollo existentes. Las diferencias se encuentran en los modelos empleados, las fuentes de información, los mecanismos de actualización, el alcance territorial y el tipo de decisiones que cada sistema busca apoyar.
+Su relación con la propuesta se encuentra en la utilización de múltiples escenarios para apoyar decisiones. Sin embargo, B-FIREPREP se enfoca en anticipación y preparación territorial, mientras que el proyecto del equipo estudia la recuperación contextual de simulaciones FDS previamente ejecutadas.
+
+La biblioteca propuesta permite controlar las condiciones de generación de cada resultado y su procedencia, aunque su cobertura estará limitada a las combinaciones preparadas y evaluadas.
+
+En conjunto, estos antecedentes evidencian la existencia de diferentes aproximaciones a la simulación y gestión de incendios forestales. Sus beneficios dependen del usuario, la escala territorial, los modelos disponibles y las condiciones de aplicación.
+
+La principal oportunidad del proyecto no consiste en reproducir íntegramente estas plataformas, sino en estudiar la viabilidad de una arquitectura concreta que transforme simulaciones físicas precalculadas en información consultable para un sector de los Cerros Orientales de Bogotá.
 
 \subsubsection{Alternativas técnicas consideradas}
 
-A partir de los antecedentes se identifican tres enfoques alternativos para atender el problema, además de la solución propuesta. La comparación considera su pertinencia para una aplicación destinada al comandante o coordinador, y no únicamente las capacidades aisladas de los simuladores.
+A partir de los antecedentes se identifican tres alternativas técnicas distintas de la propuesta seleccionada. Se consideran su costo de preparación, oportunidad de consulta, flexibilidad, dependencia de infraestructura y utilidad para los responsables de emergencias.
 
-\textbf{Alternativa 1. Ejecutar simulaciones físicas bajo demanda.}
+\textbf{Alternativa 1. Ejecución de simulaciones físicas bajo demanda.}
 
-Consiste en desarrollar una aplicación que reciba la ubicación y las condiciones observadas del incendio y ejecute una nueva simulación con FDS para cada consulta.
+Esta alternativa consiste en desarrollar una aplicación que reciba una ubicación o perímetro observado junto con condiciones meteorológicas y ejecute una nueva simulación FDS para cada consulta.
 
-Su principal ventaja es la posibilidad de configurar el cálculo de acuerdo con el estado observado, sin limitar la selección a un catálogo de escenarios existentes. También permitiría representar directamente un perímetro inicial cuando la configuración física y los datos disponibles lo hagan posible.
+Su principal ventaja sería permitir configurar el cálculo específicamente para la situación registrada, sin limitar la selección a escenarios previamente almacenados. Para el comandante o coordinador, esto podría ofrecer una representación ajustada a las condiciones de entrada disponibles.
 
-Sin embargo, esta alternativa trasladaría parte importante del costo computacional al momento de la emergencia. La ejecución dependería de la complejidad del dominio, la resolución de la malla, la duración simulada y los recursos disponibles. Además, implicaría configurar entradas y comprobar resultados dentro de una ventana de respuesta potencialmente limitada.
+Sin embargo, FDS resuelve numéricamente procesos físicos sobre una malla tridimensional. Su costo computacional depende del tamaño del dominio, la resolución espacial, la duración simulada y la complejidad de los modelos utilizados.
 
-Por tanto, su viabilidad operativa tendría que demostrarse mediante mediciones y garantías de disponibilidad que actualmente no forman parte del alcance del proyecto.
+Como se expuso en la sección 5.1, incluso un dominio relativamente limitado puede contener millones de celdas. En consecuencia, ejecutar una simulación física completa durante una emergencia podría exigir recursos elevados y tiempos incompatibles con las necesidades inmediatas del usuario.
 
-\textbf{Alternativa 2. Utilizar modelos de propagación de menor costo computacional.}
+La simulación bajo demanda presenta, por tanto, un riesgo importante de inviabilidad operativa para el nivel de detalle y los recursos contemplados en el proyecto. No sería riguroso declarar que resulta imposible en todos los casos sin mediciones, pero tampoco puede asumirse que produciría resultados oportunos.
 
-Esta alternativa consiste en desarrollar la aplicación alrededor de modelos de propagación más simplificados, como los empleados en FARSITE o en herramientas de propagación rápida.
+Frente a esta alternativa, la biblioteca precalculada desplaza la mayor parte del esfuerzo numérico a una etapa anterior a la consulta. Esta es su principal ventaja funcional: permite estudiar un mecanismo de respuesta basado en recuperación y procesamiento de resultados ya disponibles, aunque limitado por la cobertura de la biblioteca.
 
-Estos modelos permiten estudiar la evolución espacial del incendio utilizando variables como combustible, viento y topografía, con un enfoque computacional distinto al de un modelo CFD tridimensional. Sistemas como Cell2Fire y Spark demuestran la existencia de desarrollos basados en esta línea de modelación \cite{vfpCell2FireChile,vfpCSIROSpark}.
+\textbf{Alternativa 2. Uso de modelos de propagación de menor costo computacional.}
 
-Su ventaja potencial es reducir el esfuerzo requerido para consultar o producir escenarios sobre superficies extensas. No obstante, las simplificaciones utilizadas pueden limitar la representación explícita de determinadas interacciones entre el flujo de aire, la combustión, la vegetación y los elementos presentes en zonas de interfaz urbano-forestal.
+La segunda alternativa consiste en desarrollar la aplicación alrededor de modelos de propagación simplificados o rápidos, como los empleados en FARSITE, Cell2Fire o Spark.
 
-La elección de este enfoque exigiría comprobar sus propias necesidades de datos, calibración y validez territorial. Un menor costo de ejecución no implica automáticamente mayor precisión ni una respuesta operativa adecuada.
+Su principal ventaja es la posibilidad de estudiar el avance del fuego en extensiones territoriales relativamente amplias sin resolver explícitamente todos los procesos de un modelo CFD tridimensional.
 
-\textbf{Alternativa 3. Adoptar o adaptar una plataforma de apoyo a decisiones existente.}
+Para los organismos responsables, esta aproximación puede resultar útil cuando se requiere explorar grandes áreas, comparar escenarios de propagación o producir resultados mediante recursos computacionales más limitados.
 
-En lugar de desarrollar una aplicación propia, podría estudiarse el aprovechamiento de sistemas ya disponibles para presentar información sobre propagación de incendios y apoyar la interpretación de escenarios.
+Sin embargo, la representación física de estos modelos es diferente de FDS. Determinadas interacciones entre flujo de aire, combustión, geometría del entorno y combustible vegetal requieren aproximaciones que dependen del modelo seleccionado.
 
-Wildfire Analyst y WFDSS son antecedentes de este enfoque porque integran capacidades de modelación con herramientas orientadas a los responsables de la gestión de incendios \cite{vfpTechnosylva,vfpWFDSS}.
+La propuesta del equipo es preferible para el objetivo específico de investigar una biblioteca basada en FDS, ya que conserva el motor físico elegido y permite estudiar su integración con un sistema de consulta.
 
-Esta alternativa podría reducir parte del esfuerzo de construcción de software si existiera una plataforma accesible, técnicamente compatible y adaptable a los requisitos del proyecto.
+Esta preferencia corresponde al alcance científico y académico definido, no a una superioridad general frente a los modelos rápidos. Estos últimos podrían ser más adecuados para otras escalas o restricciones de tiempo.
 
-Sin embargo, sería necesario estudiar sus condiciones de uso, disponibilidad institucional, licencias, posibilidades de integración y compatibilidad con los datos del sector seleccionado. También podría limitar el control del equipo sobre el motor de simulación, el almacenamiento, la reproducción de experimentos y las funciones de consulta.
+\textbf{Alternativa 3. Adaptación de una plataforma existente.}
 
-No se dispone actualmente de evidencia suficiente para afirmar que alguna de estas plataformas permita implementar, sin modificaciones sustanciales, el mecanismo específico de biblioteca FDS y agregación espacial que se propone.
+Esta alternativa consiste en utilizar o adaptar una plataforma que ya integre simulaciones, información geográfica y herramientas de apoyo a decisiones, como Wildfire Analyst o WFDSS.
+
+Para las entidades interesadas, una ventaja sería disponer de funciones previamente desarrolladas y, según el sistema, respaldadas por experiencias institucionales de utilización.
+
+También podría reducir parte del esfuerzo de implementación si la plataforma permitiera incorporar los datos y requisitos del territorio.
+
+Sin embargo, su utilización exigiría examinar licencias, condiciones de acceso, posibilidades de modificación, disponibilidad de funciones y compatibilidad con los modelos y conjuntos de datos requeridos.
+
+Adicionalmente, adoptar una solución existente podría restringir el control del equipo sobre la generación de escenarios, la estructura de los resultados, la selección de casos y la experimentación con el procedimiento de agregación espacial.
+
+La propuesta propia permite definir y comprobar estos componentes de forma explícita. Esto resulta especialmente pertinente porque el trabajo busca evaluar la viabilidad de un mecanismo de consulta sobre simulaciones FDS, no solamente disponer de una interfaz de visualización.
+
+La principal ventaja frente a esta alternativa es, por tanto, la independencia de diseño y la trazabilidad del procedimiento experimental, aunque a cambio se asume un esfuerzo mayor de desarrollo e integración.
 
 \subsubsection{Análisis comparativo de las alternativas}
 
-La comparación se realiza mediante seis criterios: preparación computacional, tiempo de consulta, detalle de la representación física, dependencia de datos e infraestructura, posibilidades de adaptación territorial y capacidad para atender los objetivos funcionales del proyecto.
+La comparación se realiza mediante seis criterios: preparación computacional, tiempo de consulta, representación física, dependencia de infraestructura y datos, adaptación territorial y adecuación a los objetivos del proyecto.
 
-No se asignan puntuaciones cuantitativas porque todavía no se dispone de experimentos equivalentes que permitan medir el desempeño de las cuatro alternativas bajo las mismas condiciones. Las ventajas y limitaciones identificadas corresponden a una evaluación cualitativa de sus características.
+Se utiliza una evaluación cualitativa porque todavía no existen mediciones experimentales equivalentes que permitan establecer diferencias cuantitativas de tiempo, costo o precisión entre las alternativas.
 
 \begingroup
 \small
-\renewcommand{\arraystretch}{1.18}
+\renewcommand{\arraystretch}{1.16}
 
-\begin{longtable}{@{}p{0.20\linewidth}p{0.33\linewidth}p{0.37\linewidth}@{}}
-\caption{Comparación de alternativas para la solución propuesta.}
+\begin{longtable}{@{}p{0.18\linewidth}p{0.38\linewidth}p{0.35\linewidth}@{}}
+\caption{Comparación cualitativa de alternativas de solución.}
 \label{tab:comparacion-alternativas}\\
 \hline
-\textbf{Alternativa} &
-\textbf{Ventajas y alcance} &
-\textbf{Limitaciones e impactos} \\
+\textbf{Criterio} &
+\textbf{Otras alternativas} &
+\textbf{Biblioteca FDS precalculada} \\
 \hline
 \endfirsthead
 
 \hline
-\textbf{Alternativa} &
-\textbf{Ventajas y alcance} &
-\textbf{Limitaciones e impactos} \\
+\textbf{Criterio} &
+\textbf{Otras alternativas} &
+\textbf{Biblioteca FDS precalculada} \\
 \hline
 \endhead
 
-Simulación FDS bajo demanda &
-Permite configurar escenarios de acuerdo con condiciones observadas y utilizar un modelo físico tridimensional. &
-Depende de recursos de cómputo durante la consulta. El tiempo de ejecución y la disponibilidad de infraestructura pueden limitar su oportunidad operativa. \\
+Preparación computacional &
+La simulación bajo demanda desplaza el cálculo al momento de consulta. Los modelos rápidos pueden reducirlo; las plataformas existentes dependen de su arquitectura. &
+Requiere ejecutar y organizar previamente los escenarios, utilizando recursos HPC y almacenamiento. \\
 \hline
 
-Modelos de propagación rápida &
-Pueden reducir el costo computacional para estudiar el avance del fuego y facilitar la consulta de escenarios sobre extensiones territoriales mayores. &
-Su nivel de representación física es diferente del de FDS. Requieren seleccionar y comprobar modelos de combustible y parámetros adecuados al territorio. \\
+Tiempo de consulta &
+El cálculo FDS bajo demanda puede producir demoras elevadas. Los modelos rápidos y las plataformas existentes pueden ofrecer respuestas más oportunas, según su implementación. &
+Recupera resultados almacenados sin ejecutar una nueva simulación FDS completa. La latencia efectiva debe medirse. \\
 \hline
 
-Plataforma existente &
-Aprovecha funciones de consulta, análisis y presentación ya desarrolladas, lo que podría reducir tareas de implementación. &
-Su disponibilidad, licenciamiento y adaptabilidad no están garantizados. Puede limitar el control sobre los modelos, los datos y los mecanismos de consulta. \\
+Representación física &
+Los modelos rápidos utilizan simplificaciones diferentes de FDS. Las plataformas existentes pueden integrar diversos motores de simulación. &
+Conserva resultados generados mediante FDS, sujetos a la calidad de sus entradas y configuración. \\
 \hline
 
-Biblioteca FDS precalculada (propuesta) &
-Concentra el cálculo físico antes de la emergencia y permite consultar resultados organizados sin ejecutar nuevamente una simulación completa por cada solicitud. &
-Exige preparación computacional y almacenamiento previos. La cobertura es finita y la recuperación y agregación de escenarios requieren comprobación técnica y científica. \\
+Infraestructura y datos &
+FDS bajo demanda requiere recursos durante la emergencia. Los otros enfoques dependen de sus modelos, fuentes de información y condiciones de acceso. &
+Concentra el uso intensivo de HPC en la preparación. Requiere mantener una biblioteca y datos territoriales compatibles. \\
 \hline
 
+Adaptación territorial &
+Los modelos y plataformas deben parametrizarse para el sector. Una solución existente puede imponer restricciones técnicas o de acceso. &
+Permite diseñar el catálogo y las reglas de consulta para el territorio estudiado, dentro de una cobertura finita. \\
+\hline
+
+Adecuación a objetivos &
+Las alternativas ofrecen ventajas para simulación dinámica, análisis de grandes áreas o gestión institucional, pero no necesariamente permiten estudiar el mecanismo propuesto. &
+Se ajusta al objetivo de desarrollar y evaluar una aplicación propia de consulta de escenarios FDS precalculados. \\
+\hline
 \end{longtable}
 \endgroup
 
-Desde el punto de vista temporal, la alternativa de simulación bajo demanda concentra el cálculo durante la consulta, mientras que la propuesta lo desplaza a una etapa previa. Los modelos rápidos también podrían ofrecer tiempos de respuesta menores, pero esa ventaja dependería de la implementación y de las condiciones del caso.
+La comparación evidencia que no existe una solución universalmente superior. La conveniencia depende del propósito y las restricciones consideradas.
 
-En cuanto al detalle físico, FDS permite estudiar fenómenos que los modelos de propagación simplificados no representan de la misma forma. Esta capacidad, sin embargo, exige mayores cuidados en la preparación de datos y la configuración numérica, y no garantiza por sí sola una estimación más acertada del incendio real.
+La simulación bajo demanda ofrece flexibilidad, pero introduce un costo computacional durante la consulta que podría comprometer su oportunidad. Los modelos rápidos pueden ser más adecuados para escalas territoriales amplias, mientras que las plataformas existentes pueden aportar funciones institucionales y experiencia operativa.
 
-Desde la perspectiva de implementación, una plataforma existente puede disminuir el esfuerzo de desarrollo, pero introduce dependencias externas que deben examinarse. La construcción de una aplicación propia ofrece mayor control sobre la biblioteca, los metadatos y el mecanismo de consulta, a cambio de asumir el esfuerzo de integración, pruebas y mantenimiento.
+La biblioteca FDS precalculada ofrece una ventaja específica: separar la ejecución científica de la interacción del usuario. Esto permite desarrollar y evaluar un mecanismo de consulta sin exigir la repetición del cálculo físico completo durante cada solicitud.
 
-Finalmente, ninguna alternativa elimina la necesidad de evaluar la calidad de los datos, la representatividad de las condiciones simuladas y la comprensión de los resultados por parte del usuario.
+Para los interesados en la aplicación, esta separación busca facilitar el acceso a escenarios comprensibles, manteniendo identificadas sus condiciones y limitaciones. Para el equipo académico, permite estudiar de forma controlada la generación, almacenamiento, recuperación, tratamiento espacial y visualización de resultados.
+
+Sin embargo, su costo de preparación, cobertura territorial y validez de la aproximación deberán comprobarse experimentalmente antes de formular conclusiones de desempeño.
 
 \subsubsection{Justificación de la alternativa seleccionada}
 
 El equipo propone desarrollar una aplicación de escritorio basada en una biblioteca de escenarios FDS precalculados para un sector delimitado de los Cerros Orientales de Bogotá.
 
-Esta elección busca separar dos actividades con exigencias diferentes: la generación de resultados físicos, que requiere preparación científica y recursos computacionales, y su consulta por parte del comandante o coordinador durante una situación de emergencia.
+La aplicación permitirá que el comandante o coordinador ingrese una ubicación o un perímetro observado y utilice condiciones meteorológicas disponibles para recuperar simulaciones compatibles. Los resultados seleccionados serán procesados y presentados mediante una representación georreferenciada que facilite explorar posibles comportamientos del fuego.
 
-La preparación anticipada de escenarios permite organizar los resultados junto con sus condiciones de entrada, ubicación, tiempos y procedencia. Durante la consulta, la aplicación utilizará la información proporcionada por el usuario y las condiciones meteorológicas disponibles para recuperar escenarios compatibles, sin ejecutar nuevamente el cálculo físico completo.
+La viabilidad técnica de esta propuesta se apoya en la separación entre la preparación de escenarios y su consulta. El cálculo físico se realizará antes del momento de utilización, aprovechando recursos HPC para generar resultados identificables y reproducibles. Posteriormente, la aplicación trabajará sobre información almacenada, evitando que el usuario tenga que configurar o ejecutar una simulación FDS completa cada vez que necesite consultar un escenario.
 
-En comparación con las alternativas consideradas, esta solución conserva el empleo de FDS y permite diseñar un mecanismo de consulta específico para el problema territorial seleccionado. Asimismo, mantiene como producto central una aplicación de Ingeniería de Sistemas, integrando gestión de datos, búsqueda, procesamiento espacial y visualización.
+Esta arquitectura permite acotar el problema computacional y concentrar el desarrollo de software en funciones verificables: almacenamiento, catálogo, búsqueda, compatibilidad de condiciones, procesamiento espacial y visualización. Además, permite evaluar de manera independiente el costo de producción de la biblioteca y el tiempo de respuesta de la aplicación. Por estas razones, la solución presenta una ruta de implementación razonable dentro del alcance académico, aunque su viabilidad definitiva depende de los resultados de los pilotos.
 
-Su elección no supone que la biblioteca precalculada sea científicamente superior a los demás enfoques, ni que garantice mejores tiempos de respuesta sin mediciones. Tampoco demuestra que los escenarios puedan combinarse arbitrariamente para representar un incendio observado.
+En comparación con la simulación física bajo demanda, el principal beneficio esperado es disminuir la dependencia del procesamiento intensivo durante la consulta. Frente a modelos de propagación más simplificados, conserva el uso de FDS como motor físico seleccionado. Finalmente, frente a plataformas existentes, permite controlar el diseño y la evaluación del procedimiento específico de recuperación de escenarios.
 
-En particular, la recuperación de escenarios depende de la cobertura efectiva de la biblioteca y de las reglas de compatibilidad entre condiciones. La agregación de resultados desde un perímetro activo constituye una hipótesis técnica que deberá contrastarse mediante casos de referencia. Si no se obtiene evidencia suficiente para respaldarla, será necesario limitar su utilización y documentar las condiciones en las que no resulta defendible.
+Estas ventajas son pertinentes para los objetivos del proyecto, pero no implican que el prototipo alcance mayor precisión, oportunidad o madurez operativa que otras herramientas.
 
-La evaluación también deberá distinguir el funcionamiento de la aplicación de la validez científica de las estimaciones. Una consulta ejecutada correctamente y una visualización comprensible no demuestran por sí solas que el comportamiento del incendio haya sido estimado con precisión.
+La solución también presenta limitaciones. Una biblioteca precalculada no puede representar todas las combinaciones posibles de ignición, combustible y condiciones ambientales. Su utilidad dependerá de la selección de casos, la representatividad de las entradas y la disponibilidad de escenarios compatibles con cada consulta.
 
-Por estas razones, la alternativa seleccionada se considera pertinente para el alcance académico y los objetivos definidos, siempre que se comprueben la viabilidad computacional, la calidad de los datos, la correspondencia entre consultas y resultados y la interpretación adecuada de sus limitaciones.
+La agregación de resultados desde un perímetro activo constituye una hipótesis de aproximación que deberá contrastarse mediante casos de referencia. Si no se demuestra una correspondencia defendible, su utilización tendrá que limitarse a las condiciones verificadas.
 
-La solución se plantea como una herramienta de apoyo informativo y capacitación, sin reemplazar el juicio del comandante ni constituir, por sí misma, un sistema validado para uso operativo.
+Estas restricciones no invalidan la propuesta como proyecto de grado. Por el contrario, permiten delimitar una contribución evaluable y establecer criterios para reconocer sus capacidades y límites. El alcance territorial reducido facilita concentrar la preparación y las comprobaciones en un conjunto de casos identificables, evitando extender conclusiones a escenarios no estudiados.
+
+La aplicación será evaluada tanto por su funcionamiento como por la interpretación que los usuarios hagan de sus resultados. Una visualización comprensible y una consulta técnicamente correcta no equivalen, por sí mismas, a demostrar precisión científica ni autorización para su uso operativo.
+
+En consecuencia, la alternativa seleccionada se considera pertinente porque permite investigar y desarrollar una integración concreta entre simulación física precalculada y apoyo informativo para la gestión de incendios. Su utilidad principal será facilitar la consulta de escenarios para el comandante o coordinador, con posibilidades complementarias de demostración y capacitación, sin sustituir el juicio profesional ni prometer resultados que todavía no hayan sido validados.

@@ -2,23 +2,43 @@
 \subsection{Fundamentos y conceptos relevantes para el proyecto}
 \label{sec:fundamentos}
 
-\textbf{Propagación de incendios forestales y modelos de comportamiento del fuego.}
+\textbf{Factores que influyen en la propagación de incendios forestales.}
 
-El avance de un incendio forestal depende de la interacción entre las propiedades y la disposición del combustible, su contenido de humedad, la pendiente del terreno y las condiciones atmosféricas, particularmente el viento. Existen distintas familias de modelos para estudiar ese comportamiento. Rothermel formuló un modelo matemático para estimar la velocidad de propagación y la intensidad de un incendio en combustibles forestales a partir de parámetros representativos del combustible y del ambiente \cite{vfpRothermel1972}. Este enfoque constituye una base para la modelación del avance superficial del fuego, pero no pretende resolver de manera explícita el flujo tridimensional de gases y los mecanismos de transferencia de calor presentes en un modelo de dinámica de fluidos computacional (CFD).
+El comportamiento de un incendio forestal está condicionado principalmente por tres grupos de factores: combustible, meteorología y topografía. Estos elementos interactúan y determinan características como la velocidad de propagación, la dirección del avance y la intensidad del fuego. Esta relación se conoce como el triángulo del comportamiento del fuego y constituye una base para comprender los procesos de propagación en ambientes forestales \cite{vfpNPSFireBehavior}.
 
-Por su parte, Mell y colaboradores desarrollaron una aproximación física tridimensional de incendios de pastizal, que relaciona movimiento del aire, combustión y degradación térmica del combustible, y contrastaron sus resultados con experimentos de campo australianos \cite{mell2007}. Estos antecedentes muestran la diferencia entre estimar el movimiento de un frente mediante relaciones simplificadas y resolver numéricamente parte de los procesos físicos que lo producen.
+El combustible comprende la vegetación y otros materiales combustibles disponibles en el territorio. Su cantidad, continuidad, distribución espacial, estructura y contenido de humedad influyen en la facilidad de ignición y en el desarrollo del incendio. En general, los combustibles secos presentan mayor facilidad para encenderse que aquellos con un contenido elevado de humedad. Asimismo, las características físicas y químicas de la vegetación pueden modificar la intensidad y velocidad de propagación.
+
+Las condiciones meteorológicas incluyen el viento, la temperatura, la humedad relativa y las precipitaciones. El viento influye sobre la dirección y velocidad del avance, mientras que la temperatura y la humedad afectan el estado de los combustibles. Los cambios en estas variables pueden modificar considerablemente el comportamiento del incendio durante su evolución.
+
+Por su parte, la topografía incluye la pendiente, la orientación y la configuración del terreno. La propagación puede acelerarse en pendientes ascendentes debido al calentamiento de los combustibles situados delante del frente. Además, el relieve influye sobre la circulación local del viento y puede generar condiciones particulares en laderas, valles y otras formaciones geográficas \cite{vfpNPSFireBehavior}.
+
+En los Cerros Orientales de Bogotá, la combinación de relieve montañoso, vegetación y condiciones atmosféricas hace necesario considerar conjuntamente estos factores. Su representación computacional dependerá de la disponibilidad y calidad de información territorial y meteorológica adecuada para el sector seleccionado.
+
+\textbf{Modelos de comportamiento y propagación del fuego.}
+
+Existen diferentes aproximaciones para estudiar el comportamiento de los incendios forestales. Los modelos empíricos o semiempíricos relacionan variables del combustible y del entorno con características del avance del fuego. Por otra parte, los modelos físicos representan mediante ecuaciones procesos como el movimiento del aire, la combustión y la transferencia de calor.
+
+Rothermel (1972) formuló un modelo matemático para estimar la velocidad de propagación superficial del fuego en combustibles forestales, considerando parámetros representativos del combustible y de las condiciones ambientales. Este modelo constituye uno de los fundamentos del análisis de propagación superficial y de herramientas que utilizan relaciones simplificadas de comportamiento del fuego \cite{vfpRothermel1972}.
+
+Por su parte, Mell y colaboradores (2007) desarrollaron una aproximación física tridimensional de incendios de pastizal, que relaciona movimiento del aire, combustión y degradación térmica del combustible, y contrastaron sus resultados con experimentos de campo australianos \cite{mell2007}.
+
+Estos antecedentes muestran la diferencia entre estimar el movimiento de un frente mediante relaciones simplificadas y resolver numéricamente parte de los procesos físicos que lo producen.
+
+La diferencia entre estos enfoques no significa que uno garantice mayor precisión en cualquier situación. Los modelos físicos permiten representar procesos adicionales, pero requieren información más detallada y mayores recursos computacionales. Esta distinción fundamenta la selección de FDS como motor de simulación del proyecto, sin asumir que un mayor nivel de detalle garantice resultados más precisos para el territorio estudiado.
 
 \textbf{FDS, capacidades forestales de WFDS y visualización con Smokeview.}
 
-Fire Dynamics Simulator (FDS) es un programa de simulación CFD orientado al análisis de flujos de baja velocidad y al transporte de calor y humo asociado a incendios. Su formulación numérica utiliza ecuaciones de conservación, incluidas aproximaciones de Navier--Stokes adecuadas para flujos térmicamente impulsados. Smokeview es una herramienta de visualización de las salidas de FDS \cite{fdsnist}.
+Fire Dynamics Simulator (FDS) es un programa de simulación basado en dinámica de fluidos computacional (CFD), orientado al análisis de flujos de baja velocidad y al transporte de calor y humo asociado a incendios. Su formulación numérica utiliza ecuaciones de conservación, incluidas aproximaciones de Navier--Stokes adecuadas para flujos térmicamente impulsados. Smokeview es una herramienta de visualización de las salidas de FDS \cite{fdsnist}.
 
-Wildland-Urban Interface Fire Dynamics Simulator (WFDS) surgió como una línea de desarrollo orientada a incendios de vegetación y de interfaz urbano-forestal (WUI); parte de sus capacidades de representación de combustible vegetal fue incorporada a FDS \cite{wfdsusfs}. En el alcance vigente, \emph{FDS} designa el simulador que se utilizará, mientras que \emph{WFDS} se emplea para aludir a sus capacidades relacionadas con incendios forestales: no se propone acoplar dos simuladores independientes.
+Wildland-Urban Interface Fire Dynamics Simulator (WFDS) surgió como una línea de desarrollo orientada a incendios de vegetación y de interfaz urbano-forestal (WUI); parte de sus capacidades de representación de combustible vegetal fue incorporada a FDS \cite{wfdsusfs}.
+
+En el alcance vigente, \emph{FDS} designa el simulador que se utilizará, mientras que \emph{WFDS} se emplea para aludir a sus capacidades relacionadas con incendios forestales. No se propone acoplar dos simuladores independientes ni utilizar FARSITE como parte del motor de simulación del producto.
 
 La compatibilidad concreta de dichas capacidades con la versión instalada deberá comprobarse mediante casos de práctica y documentación técnica. Los resultados físicos producidos por el simulador tampoco equivalen directamente a una predicción geográfica lista para el comandante: requieren seleccionar variables relevantes, procesarlas y vincular su representación a la referencia espacial del territorio.
 
 \textbf{Discretización CFD y costo computacional.}
 
-Para aproximar la evolución del flujo, FDS divide el dominio físico de una simulación en celdas tridimensionales y calcula la evolución temporal de las variables representadas. En una malla rectangular uniforme, el número de celdas se expresa como
+Para aproximar la evolución del flujo, FDS divide el dominio físico de una simulación en celdas tridimensionales y calcula la evolución temporal de las variables representadas. En una malla rectangular uniforme, cuando las dimensiones del dominio son divisibles por los tamaños de celda, el número de celdas se expresa como
 
 \[
 N=\left(\frac{L_x}{\Delta x}\right)
@@ -28,9 +48,13 @@ N=\left(\frac{L_x}{\Delta x}\right)
 
 donde $L_x$, $L_y$ y $L_z$ son las dimensiones del dominio, y $\Delta x$, $\Delta y$ y $\Delta z$ son los tamaños de las celdas en cada dirección.
 
-Como ilustra la presentación del marco teórico a partir del caso de pastizal estudiado por Valero, Jofre y Torres, un dominio de $240\,\mathrm{m}\times240\,\mathrm{m}\times20\,\mathrm{m}$ con celdas de $0{,}5\,\mathrm{m}$ contiene $9\,216\,000$ celdas. Si se reduce a la mitad el tamaño de celda en las tres direcciones, el mismo dominio necesitaría $73\,728\,000$ celdas: ocho veces más.
+Como ejercicio ilustrativo basado en las dimensiones presentadas en el material del marco teórico, un dominio de $240\,\mathrm{m}\times240\,\mathrm{m}\times20\,\mathrm{m}$ con celdas de $0{,}5\,\mathrm{m}$ contiene $9\,216\,000$ celdas. Si se reduce a la mitad el tamaño de celda en las tres direcciones, el mismo dominio necesitaría $73\,728\,000$ celdas: ocho veces más.
 
-Este cálculo es geométrico e ilustrativo, no una medición del tiempo ni de la memoria requeridos por el proyecto. El costo real también depende de la duración simulada, la configuración física y numérica y los recursos de ejecución. Valero y colaboradores examinan precisamente el compromiso entre detalle, costo e incertidumbre en simulaciones de propagación \cite{valero2021}. Por ello, la resolución deberá justificarse mediante ensayos y no elegirse únicamente por el nivel de detalle visual esperado.
+Este cálculo es geométrico e ilustrativo, no una medición del tiempo ni de la memoria requeridos por el proyecto. El costo real también depende de la duración simulada, la configuración física y numérica y los recursos de ejecución.
+
+Valero, Jofre y Torres (2021) examinan el compromiso entre detalle, costo e incertidumbre en simulaciones de propagación de incendios mediante diferentes niveles de fidelidad \cite{valero2021}.
+
+Por ello, la resolución deberá justificarse mediante ensayos y no elegirse únicamente por el nivel de detalle visual esperado. La cantidad de celdas constituye un factor importante, pero no determina por sí sola el consumo computacional total.
 
 \textbf{Representación territorial y propiedades de los combustibles.}
 
@@ -38,15 +62,25 @@ Para estudiar un sector de los Cerros Orientales se requieren insumos de topogra
 
 Verano Velásquez (2013) estudió coberturas de vegetación del sector de Monserrate y su relación con modelos de combustible para realizar simulaciones con FARSITE \cite{verano2013}. Méndez Álvarez (2018) examinó la calibración de parámetros de combustible para vegetación altoandina, comparando propagación simulada y observada \cite{mendez2018}.
 
-Ambos trabajos son antecedentes territoriales relevantes, pero sus configuraciones no pueden trasladarse de manera automática a FDS, pues corresponden a un modelo diferente. La adaptación requiere comprobar las definiciones de cada parámetro, sus unidades, la resolución y vigencia de las fuentes, así como la forma de representar la vegetación dentro del dominio de simulación. La disponibilidad de los datos y su aptitud para el sector seleccionado siguen siendo condiciones por verificar.
+Ambos trabajos son antecedentes territoriales relevantes, pero sus configuraciones no pueden trasladarse de manera automática a FDS, pues corresponden a un modelo diferente. La adaptación requiere comprobar las definiciones de cada parámetro, sus unidades, la resolución y vigencia de las fuentes, así como la forma de representar la vegetación dentro del dominio de simulación.
+
+Para la preparación del territorio se contempla el uso de sistemas de información geográfica (SIG), que permiten organizar, transformar y analizar información espacial. Herramientas como QGIS facilitan el tratamiento de modelos digitales de elevación, coberturas y otros conjuntos de datos territoriales. El complemento qgis2fds permite exportar determinadas configuraciones de terreno y vegetación a entradas compatibles con FDS e importar resultados temporales georreferenciados \cite{vfpQGIS2FDS}.
+
+Entre las fuentes identificadas se encuentran modelos digitales de elevación, como GEDTM30 y Copernicus DEM, información meteorológica de ERA5 y ERA5-Land, así como datos nacionales y distritales de carácter territorial y ambiental. Estas fuentes constituyen opciones de preparación y no garantizan que todos los parámetros necesarios estén disponibles con la resolución y actualidad requeridas.
+
+La disponibilidad de los datos, sus condiciones de uso y su aptitud para el sector seleccionado siguen siendo condiciones por verificar. En particular, los productos derivados de observaciones o reanálisis no necesariamente proporcionan de forma directa todos los parámetros de combustible requeridos por FDS.
 
 \textbf{Amenaza de ignición y distribución de los puntos de referencia.}
 
 Morales Salguero (2017) estudió el riesgo de ignición y propagación en los Cerros Orientales mediante información territorial, álgebra de mapas y simulación \cite{morales2017}. La clasificación espacial resultante puede orientar dónde conviene concentrar el esfuerzo de preparación de escenarios, pero una categoría de amenaza no debe interpretarse como una probabilidad estadística calibrada de ocurrencia.
 
-Además, es necesario distinguir los mapas de cobertura utilizados como insumo de un mapa final de amenaza: no son productos equivalentes. A partir de este antecedente, el equipo propone distribuir los puntos de ignición de referencia con \emph{densidad territorial variable}: mayor concentración en las zonas de amenaza relativamente alta y menor concentración, sin eliminarla, en las restantes.
+Además, es necesario distinguir los mapas de cobertura utilizados como insumo de un mapa final de amenaza: no son productos equivalentes.
 
-Las distancias concretas entre puntos, los criterios de clasificación y la cobertura final no están determinados por la tesis de Morales y deberán definirse y comprobarse durante el proyecto. Estos puntos de ignición constituyen ubicaciones para generar \emph{escenarios distintos}; no deben confundirse con las celdas de la malla CFD que discretizan \emph{cada escenario}.
+A partir de este antecedente, el equipo propone distribuir los puntos de ignición de referencia con \emph{densidad territorial variable}: mayor concentración en las zonas de amenaza relativamente alta y menor concentración, sin eliminarla, en las restantes.
+
+Las distancias concretas entre puntos, los criterios de clasificación y la cobertura final no están determinados por la tesis de Morales y deberán definirse y comprobarse durante el proyecto.
+
+Estos puntos de ignición constituyen ubicaciones para generar \emph{escenarios distintos}; no deben confundirse con las celdas de la malla CFD que discretizan \emph{cada escenario}. La distribución espacial de igniciones determina dónde se preparan los casos, mientras que la discretización CFD determina cómo se representa numéricamente cada dominio físico.
 
 \textbf{Cómputo de alto desempeño y paralelización de simulaciones.}
 
@@ -54,11 +88,29 @@ El número de combinaciones de ubicaciones de ignición, combustible y meteorolo
 
 Deben diferenciarse dos modalidades: \emph{paralelismo entre escenarios}, en el que varios casos independientes se ejecutan de forma simultánea, y \emph{paralelismo dentro de un escenario}, en el que un mismo dominio de cálculo se divide entre procesos que requieren intercambiar información.
 
+La primera modalidad permite distribuir diferentes combinaciones de entrada entre recursos independientes. Por ejemplo, distintos nodos podrían ejecutar escenarios correspondientes a ubicaciones de ignición y condiciones meteorológicas diferentes.
+
+La segunda modalidad requiere mecanismos de comunicación entre procesos, dado que una misma simulación se divide en regiones cuyos resultados deben mantenerse numéricamente relacionados. Esta modalidad puede introducir costos adicionales de comunicación y sincronización.
+
 Aunque Fujimoto estudia principios y dificultades de la simulación paralela, su artículo aborda específicamente simulaciones de eventos discretos y no constituye una prueba de escalabilidad de FDS \cite{vfpFujimoto1990}.
 
-En este proyecto, la infraestructura HPC-ZINE es un recurso previsto, no una capacidad de procesamiento ya asignada o demostrada. Se deberá confirmar el acceso, la versión ejecutable de FDS, la memoria y el almacenamiento disponibles, así como la compatibilidad de los mecanismos de paralelización.
+Como recurso de apoyo se contempla HPC-ZINE, infraestructura de cómputo de alto desempeño de la Pontificia Universidad Javeriana. La documentación institucional describe recursos computacionales, capacidad de almacenamiento, capacitación y acompañamiento para proyectos académicos y de investigación \cite{vfpHPCZINE}.
 
-Los pilotos permitirán medir tiempo de ejecución, memoria consumida, tamaño de las salidas y cantidad de escenarios que pueden ejecutarse concurrentemente bajo condiciones verificadas.
+El inventario publicado por la Universidad para uno de sus clústeres HPC describe un sistema de 22 nodos de procesamiento, 880 núcleos Intel Xeon, aproximadamente 8,25 TB de memoria RAM agregada, 238 TB de almacenamiento compartido y una red InfiniBand EDR de 100 Gb/s \cite{vfpHPCInventario}.
+
+Por otra parte, la presentación técnica elaborada previamente por el equipo registra una configuración de 384 núcleos físicos, 792 GB de memoria RAM agregada y 110 TB de almacenamiento. También identifica como posible alternativa un equipo de aproximadamente 190--192 núcleos, sujeto a disponibilidad y a las condiciones de uso de otros investigadores.
+
+Estas cifras proceden de inventarios y antecedentes distintos y no deben interpretarse como recursos simultáneamente disponibles ni como una asignación confirmada para el proyecto. Será necesario identificar qué infraestructura, equipo o partición puede utilizarse efectivamente.
+
+En principio, la existencia de procesadores multinúcleo, memoria distribuida, almacenamiento de alta capacidad y redes de comunicación entre nodos permite considerar la ejecución de cargas computacionales intensivas. Estas características ofrecen una base técnica para estudiar tanto la ejecución concurrente de escenarios como la distribución de una simulación.
+
+No obstante, la disponibilidad de esos componentes no demuestra automáticamente que la versión de FDS prevista pueda utilizar todas las modalidades de paralelización sobre la infraestructura seleccionada.
+
+Se deberá confirmar el acceso, la versión ejecutable de FDS, su compatibilidad con el sistema operativo y las bibliotecas de ejecución paralela, la configuración del gestor de trabajos, la memoria y el almacenamiento disponibles, así como las restricciones de uso establecidas por los administradores.
+
+Los pilotos permitirán medir tiempo de ejecución, memoria consumida, tamaño de las salidas, cantidad de escenarios que pueden ejecutarse concurrentemente y, cuando resulte aplicable, las diferencias de desempeño al distribuir un caso entre varios procesos.
+
+Por tanto, las especificaciones publicadas constituyen evidencia de capacidades institucionales potenciales, mientras que la viabilidad práctica del proyecto deberá comprobarse mediante ejecuciones reproducibles sobre los recursos realmente asignados.
 
 \textbf{Diseño de experimentos y construcción de la biblioteca.}
 
@@ -70,6 +122,8 @@ Para la biblioteca propuesta será necesario definir qué parámetros pueden var
 
 Cada resultado deberá registrarse con metadatos sobre la ubicación, configuración, condiciones de entrada, unidades, tiempos simulados, versión del programa y archivos de salida. La selección de casos estará condicionada por el presupuesto computacional y deberá hacer explícitos los espacios que la biblioteca no cubre.
 
+La organización de estos experimentos debe permitir identificar qué variables permanecen constantes y cuáles cambian entre escenarios. Esto resulta necesario tanto para interpretar diferencias en los resultados como para evitar comparaciones entre casos que no compartan condiciones compatibles.
+
 \textbf{Consulta y recuperación de escenarios semejantes.}
 
 El producto permitirá que el usuario indique la ubicación inicial o el perímetro observado de un incendio y consulte casos precalculados compatibles con las condiciones disponibles.
@@ -78,7 +132,27 @@ Cover y Hart (1967) constituyen un antecedente conceptual para la recuperación 
 
 El mecanismo de consulta deberá estudiar la representación y normalización de las variables, la distancia territorial entre igniciones, la velocidad y dirección del viento y el tratamiento de situaciones no contempladas en el catálogo.
 
-En particular, la dirección del viento es una magnitud circular, por lo que su comparación no debería tratar los ángulos de $0^\circ$ y $360^\circ$ como orientaciones opuestas. La proximidad entre registros expresará \emph{compatibilidad de condiciones} bajo una regla definida, no garantía de precisión física.
+En particular, la dirección del viento es una magnitud circular, por lo que su comparación no debería tratar los ángulos de $0^\circ$ y $360^\circ$ como orientaciones opuestas.
+
+La proximidad entre registros expresará \emph{compatibilidad de condiciones} bajo una regla definida, no garantía de precisión física. Además, deberán contemplarse situaciones en las que no existan escenarios suficientemente compatibles con los datos proporcionados por el usuario.
+
+\textbf{Trazabilidad, interoperabilidad de datos y reproducibilidad.}
+
+La trazabilidad permite relacionar cada escenario precalculado con su ubicación, condiciones de entrada, configuración del simulador, archivos generados y resultados presentados al usuario.
+
+Para ello se requiere mantener identificadores y metadatos que permitan reconocer la procedencia de los datos y las transformaciones aplicadas durante la preparación y el procesamiento.
+
+La interoperabilidad geoespacial consiste en permitir el intercambio y uso coherente de información espacial entre herramientas y componentes. En este proyecto requiere mantener consistencia entre sistemas de referencia de coordenadas, unidades, orientación, geometrías y representaciones del territorio.
+
+Esto resulta relevante al integrar datos procesados mediante QGIS, entradas elaboradas con qgis2fds y resultados producidos por FDS. El complemento qgis2fds ofrece funciones para exportar casos forestales e importar determinados resultados temporales georreferenciados \cite{vfpQGIS2FDS}.
+
+Los modelos digitales de elevación y las representaciones ráster y vectoriales pueden cumplir funciones diferentes dentro de la preparación geográfica. Los primeros describen elevaciones del terreno, mientras que los datos ráster permiten representar variables en celdas espaciales y los datos vectoriales permiten representar elementos mediante puntos, líneas o polígonos.
+
+La reproducibilidad computacional implica conservar los archivos de entrada, versiones de software, configuraciones, parámetros y condiciones de ejecución necesarios para repetir o examinar una simulación.
+
+Estas prácticas permiten diferenciar problemas de transformación de datos, errores de consulta y limitaciones del modelo físico. También facilitan la comparación entre configuraciones y la revisión posterior de los resultados.
+
+La aplicación deberá integrar estos principios en la organización de la biblioteca para facilitar la verificación de resultados y evitar que escenarios con condiciones incompatibles se presenten como equivalentes.
 
 \textbf{Agregación espacial y tratamiento de un perímetro observado.}
 
@@ -88,7 +162,9 @@ Esta operación es una \emph{hipótesis de aproximación propia del proyecto}, n
 
 Los escenarios generados con puntos de ignición independientes no necesariamente reproducen las interacciones térmicas, el viento inducido ni el comportamiento de un incendio que ya posee un frente extendido.
 
-Por ello será necesario definir reglas de compatibilidad temporal y espacial, contrastar la agregación frente a casos de referencia y documentar dónde deja de resultar defendible. La combinación visual de frentes tampoco puede interpretarse directamente como un mapa de probabilidad de afectación.
+Por ello será necesario definir reglas de compatibilidad temporal y espacial, contrastar la agregación frente a casos de referencia y documentar dónde deja de resultar defendible.
+
+La combinación visual de frentes tampoco puede interpretarse directamente como un mapa de probabilidad de afectación. Para establecer probabilidades sería necesario definir y validar un procedimiento estadístico apropiado, lo que no se desprende automáticamente de superponer escenarios.
 
 \textbf{Incertidumbre, Monte Carlo y multifidelidad.}
 
@@ -102,13 +178,17 @@ Ese trabajo fundamenta la necesidad de estudiar sensibilidad y costo, pero \emph
 
 Los límites de la consulta deberán comunicarse como condiciones y supuestos explícitos, sin ofrecer probabilidades calibradas que no se hayan estimado y validado.
 
+La evaluación deberá distinguir la incertidumbre asociada a las condiciones de entrada de las diferencias introducidas por las configuraciones numéricas y por el procedimiento de recuperación de escenarios.
+
 \textbf{Representación geoespacial e interpretación por parte del usuario.}
 
 La utilidad de la biblioteca depende también de que sus resultados puedan leerse en el contexto del territorio. Para ello será necesario mantener consistencia entre sistemas de coordenadas, unidades, orientación del terreno y tiempos de simulación, y distinguir el perímetro observado del avance que se presenta como posible.
 
 Smokeview permite representar visualmente salidas científicas de FDS, pero la correspondencia con coordenadas geográficas y la integración en el flujo de consulta requieren preparación y comprobación propias \cite{fdsnist}.
 
-El usuario previsto es un comandante o coordinador, no necesariamente un especialista en simulación: la presentación debe facilitar la interpretación sin ocultar incertidumbres, restricciones de cobertura o diferencias entre escenarios.
+El procesamiento geoespacial de las salidas puede apoyarse en herramientas complementarias como QGIS y qgis2fds, según los formatos y variables de salida efectivamente disponibles \cite{vfpQGIS2FDS}.
+
+El usuario previsto es un comandante o coordinador, no necesariamente un especialista en simulación. Por ello, la presentación debe facilitar la interpretación de los resultados sin ocultar incertidumbres, restricciones de cobertura o diferencias entre escenarios.
 
 En consecuencia, la evaluación distinguirá al menos tres cuestiones: que la simulación se haya ejecutado correctamente, que la aplicación recupere y represente fielmente los datos almacenados y que el usuario comprenda lo que puede y no puede inferir de la visualización.
 

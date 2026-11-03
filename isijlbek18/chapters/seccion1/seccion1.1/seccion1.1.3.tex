@@ -1,8 +1,69 @@
 \subsubsection{Propuesta de solución [Pendientes: 1. concretar el sector y la cobertura de escenarios, 2. definir selección y agregación, 3. fijar horizonte de consulta y servicio meteorológico]}\label{sec:solucion}
-La herramienta de simulación empleada en el proyecto es \textit{Fire Dynamics Simulator} (FDS). Históricamente, \textit{Wildland-Urban Interface Fire Dynamics Simulator} (WFDS) surgió como una extensión de FDS para modelar incendios forestales y de interfaz urbano-forestal, cuyas capacidades fueron posteriormente integradas en FDS. En este documento, FDS designa el software utilizado, mientras que WFDS se emplea para hacer referencia específica a dichas capacidades de simulación en contextos forestales, sin implicar el uso de un simulador independiente~\cite{fdsnist,wfdsusfs}.
+La herramienta de simulación empleada en el proyecto es \textit{Fire Dynamics Simulator} (FDS). Históricamente, \textit{Wildland-Urban Interface Fire Dynamics Simulator} (WFDS) surgió como una extensión de FDS para modelar incendios forestales y de interfaz urbano-forestal, cuyas capacidades fueron posteriormente integradas en FDS. En este documento, FDS designa el software utilizado, mientras que WFDS se emplea para hacer referencia específica a dichas capacidades de simulación en contextos forestales, sin implicar el uso de un simulador independiente~\cite{fdsnist,wfdsusfs}. Smokeview permite visualizar los resultados producidos por estas simulaciones, por ejemplo mediante animaciones; dichas visualizaciones no constituyen simulaciones independientes.
 
-Se propone desarrollar una aplicación de escritorio sustentada en una biblioteca de escenarios precalculados con FDS. Su preparación comprenderá la configuración del simulador, la elaboración de entradas territoriales compatibles y la ejecución anticipada de casos mediante recursos de cómputo de alto desempeño, de acuerdo con las capacidades que se comprueben. Las igniciones de referencia se distribuirán con densidad variable guiada por amenaza de ignición, de manera que las zonas de mayor propensión tengan más puntos y las de menor propensión conserven cobertura con puntos más separados. Esta distribución corresponde a una decisión del proyecto, cuyo antecedente territorial es el trabajo de Morales Salguero~\cite{morales2017}, y debe distinguirse de la discretización tridimensional utilizada para resolver cada simulación. Los resultados se almacenarán con su ubicación, condiciones de entrada, tiempos y procedencia, de modo que la aplicación pueda recuperar escenarios sin ejecutar de nuevo el cálculo físico completo durante una consulta.
+Se propone desarrollar una aplicación de escritorio sustentada en una biblioteca de escenarios precalculados con FDS. Nuestra contribución de Ingeniería de Sistemas consiste en integrar los datos geoespaciales, meteorológicos y de vegetación procedentes de distintas fuentes con el simulador, que funciona independientemente de la aplicación, y con sus resultados. Para ello se prepararán y transformarán los datos, se configurará FDS y se ejecutarán anticipadamente los casos mediante recursos de cómputo de alto desempeño. Se establecerán múltiples puntos de ignición de referencia, distribuidos con densidad variable según la amenaza de ignición, de manera que las zonas de mayor propensión tengan más puntos y las de menor propensión conserven cobertura con puntos más separados. Para cada punto se ejecutarán varias simulaciones con diferentes condiciones ambientales y parámetros correspondientes, de modo que sus resultados representen posibles comportamientos del incendio bajo distintas condiciones. Esta distribución corresponde a una decisión del proyecto, cuyo antecedente territorial es el trabajo de Morales Salguero~\cite{morales2017}. Los resultados se almacenarán con su ubicación y condiciones de entrada, de modo que la aplicación pueda recuperar escenarios sin ejecutar de nuevo el cálculo físico completo durante una consulta.
 
-En el uso previsto, el usuario proporcionará una ubicación inicial o un perímetro observado y la aplicación incorporará condiciones meteorológicas actuales obtenidas mediante una API. A partir de esos datos se seleccionarán escenarios próximos espacialmente y compatibles con las condiciones representadas en la biblioteca. Cuando exista un perímetro, la consulta considerará igniciones cercanas al borde activo y agregará sus resultados espaciales, excluyendo el interior que ya se identifica como quemado. La salida se mostrará como una animación georreferenciada para un horizonte limitado, denominado $\Delta t$, y podrá actualizarse ante nuevas observaciones o cambios relevantes del viento. La forma de obtener y verificar el perímetro, las reglas de semejanza, las ponderaciones y la estabilidad temporal que determine $\Delta t$ deberán precisarse y comprobarse durante el desarrollo. En particular, combinar resultados de igniciones independientes constituye una hipótesis de aproximación que requiere contraste, por lo que la coincidencia espacial entre escenarios no se presentará como una probabilidad calibrada de afectación.
+En el uso previsto, los usuarios principales serán los comandantes y coordinadores responsables de dirigir la atención a la emergencia. El usuario proporcionará una ubicación inicial o un perímetro observado y la aplicación incorporará condiciones meteorológicas existentes en el momento de la consulta, obtenidas mediante una API o introducidas manualmente ante su fallo. La información en tiempo real sobre la emergencia es distinta de estos escenarios precalculados, ya que la aplicación no ejecutará una nueva simulación del incendio en tiempo real. A partir de la información real disponible sobre el incendio y las condiciones ambientales existentes en el momento de la consulta, se seleccionarán escenarios próximos espacialmente y compatibles con las condiciones representadas en la biblioteca. Cuando una curva o perímetro represente la posición actual del incendio, se identificarán los puntos de ignición de referencia más cercanos a diferentes puntos del borde activo. Después se recuperarán los resultados correspondientes y se combinarán espacialmente para construir una representación aproximada de la posible propagación, excluyendo el interior que ya se identifica como quemado. La salida se mostrará como una animación georreferenciada para un horizonte limitado, denominado $\Delta t$, y podrá actualizarse ante nuevas observaciones o cambios relevantes del viento. Combinar resultados de igniciones independientes constituye una hipótesis de aproximación.\begin{figure}[htbp]
+\centering
+\setlength{\unitlength}{1pt}
+\begin{picture}(360,190)
+% Tres momentos de la consulta
+\put(0,168){\makebox(110,16){\small\textbf{1. Incendio observado}}}
+\put(124,168){\makebox(110,16){\small\textbf{2. Buscar escenarios}}}
+\put(248,168){\makebox(110,16){\small\textbf{3. Combinar resultados}}}
+\put(4,56){\framebox(102,108){}}
+\put(128,56){\framebox(102,108){}}
+\put(252,56){\framebox(102,108){}}
+% 1. Perímetro e igniciones disponibles
+\put(55,113){\circle{40}}
+\put(55,113){\makebox(0,0){\scriptsize quemado}}
+\put(55,146){\color{blue}\circle*{5}}
+\put(22,113){\color{blue}\circle*{5}}
+\put(88,113){\color{blue}\circle*{5}}
+\put(24,145){\color{gray}\circle*{4}}
+\put(86,145){\color{gray}\circle*{4}}
+\put(24,78){\color{gray}\circle*{4}}
+\put(86,78){\color{gray}\circle*{4}}
+\put(109,110){\vector(1,0){16}}
+% 2. Correspondencias desde el borde hasta igniciones
+\put(179,113){\circle{40}}
+\put(179,113){\makebox(0,0){\scriptsize quemado}}
+\put(179,133){\circle*{3}}
+\put(159,113){\circle*{3}}
+\put(199,113){\circle*{3}}
+\put(179,133){\color{blue}\vector(0,1){11}}
+\put(159,113){\color{blue}\vector(-1,0){11}}
+\put(199,113){\color{blue}\vector(1,0){11}}
+\put(179,146){\color{blue}\circle*{5}}
+\put(146,113){\color{blue}\circle*{5}}
+\put(212,113){\color{blue}\circle*{5}}
+\put(183,145){\scriptsize A}
+\put(135,119){\scriptsize B}
+\put(216,119){\scriptsize C}
+\put(179,73){\makebox(0,0){\scriptsize Recuperar A, B y C}}
+\put(233,110){\vector(1,0){16}}
+% 3. Resultados de A, B y C superpuestos; se cubre el interior quemado
+\put(303,139){\color{orange}\circle{40}}
+\put(278,112){\color{orange}\circle{40}}
+\put(328,112){\color{orange}\circle{40}}
+\put(303,113){\color{white}\circle*{38}}
+\put(303,113){\circle{40}}
+\put(303,113){\makebox(0,0){\scriptsize quemado}}
+\put(303,146){\color{blue}\circle*{5}}
+\put(270,113){\color{blue}\circle*{5}}
+\put(336,113){\color{blue}\circle*{5}}
+\put(307,145){\scriptsize A}
+\put(259,119){\scriptsize B}
+\put(340,119){\scriptsize C}
+\put(303,73){\makebox(0,0){\scriptsize Fuera del perímetro}}
+% Leyenda y lectura secuencial
+\put(5,34){\circle{9}}\put(14,30){\makebox(0,10)[l]{\scriptsize Límite observado}}
+\put(115,34){\color{blue}\circle*{5}}\put(122,30){\makebox(0,10)[l]{\scriptsize Ignición seleccionada}}
+\put(255,34){\color{orange}\line(1,0){12}}\put(271,30){\makebox(0,10)[l]{\scriptsize Resultado}}
+\put(180,10){\makebox(0,12){\scriptsize Cada ignición aporta un escenario compatible con las condiciones de consulta.}}
+\end{picture}
+\caption{Selección de igniciones cercanas al perímetro y combinación aproximada de sus resultados. Esquema ilustrativo, sin escala.}
+\label{fig:agregacion-escenarios}
+\end{figure}
 
-La aplicación apoyará la interpretación del comandante o coordinador y permitirá explorar los escenarios como material de capacitación, sin asumir decisiones operativas automáticas ni incorporar un simulador táctico de colocación de recursos. El alcance tampoco incluye por ahora recepción de reportes comunitarios, gestión de recursos, integración de sensores o interoperabilidad institucional, aunque estas necesidades se conservarán como hallazgos de las entrevistas. La preparación anticipada reduce la necesidad de simulación durante el incidente, pero no acredita funcionamiento completo sin conexión, pues la consulta meteorológica y las condiciones de contingencia todavía requieren definición. El diseño anterior del póster~\cite{poster2026} sirve como antecedente documental, mientras que esta propuesta recoge las decisiones posteriores de escritorio, uso exclusivo de FDS como software de simulación y densidad espacial variable.
+La aplicación apoyará la interpretación del comandante o coordinador y permitirá explorar los escenarios como material de capacitación, sin asumir decisiones operativas automáticas. La integración presentará los resultados de manera clara y concisa para apoyar las decisiones, sin exigir al usuario ejecutar el simulador ni interpretar sus archivos técnicos. Exploraremos alternativas de almacenamiento local de escenarios y datos para reducir en lo posible la dependencia de internet. Si no es posible obtener las condiciones meteorológicas mediante la API, el usuario podrá introducirlas manualmente.
