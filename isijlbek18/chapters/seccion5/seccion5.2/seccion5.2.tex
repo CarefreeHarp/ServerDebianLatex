@@ -132,9 +132,9 @@ Para los organismos responsables, esta aproximación puede resultar útil cuando
 
 Sin embargo, la representación física de estos modelos es diferente de FDS. Determinadas interacciones entre flujo de aire, combustión, geometría del entorno y combustible vegetal requieren aproximaciones que dependen del modelo seleccionado.
 
-La propuesta del equipo es preferible para el objetivo específico de investigar una biblioteca basada en FDS, ya que conserva el motor físico elegido y permite estudiar su integración con un sistema de consulta.
+La propuesta del equipo resulta pertinente para el objetivo específico de investigar una biblioteca basada en FDS, ya que conserva el motor físico elegido y permite estudiar su integración con un sistema de consulta.
 
-Esta preferencia corresponde al alcance científico y académico definido, no a una superioridad general frente a los modelos rápidos. Estos últimos podrían ser más adecuados para otras escalas o restricciones de tiempo.
+Esta pertinencia corresponde al alcance científico y académico definido, no a una superioridad general frente a los modelos rápidos. Estos últimos podrían ser más adecuados para otras escalas o restricciones de tiempo.
 
 \textbf{Alternativa 3. Adaptación de una plataforma existente.}
 
@@ -153,75 +153,172 @@ La propuesta propia permite definir y comprobar estos componentes de forma expl�
 La principal ventaja frente a esta alternativa es, por tanto, la independencia de diseño y la trazabilidad del procedimiento experimental, aunque a cambio se asume un esfuerzo mayor de desarrollo e integración.
 
 \subsubsection{Análisis comparativo de las alternativas}
+\label{sec:comparacion-alternativas}
 
 La comparación se realiza mediante seis criterios: preparación computacional, tiempo de consulta, representación física, dependencia de infraestructura y datos, adaptación territorial y adecuación a los objetivos del proyecto.
 
 Se utiliza una evaluación cualitativa porque todavía no existen mediciones experimentales equivalentes que permitan establecer diferencias cuantitativas de tiempo, costo o precisión entre las alternativas.
 
+La tabla~\ref{tab:comparacion-alternativas} presenta cada alternativa de forma individual, identificando sus ventajas y limitaciones respecto de los criterios seleccionados.
+
 \begingroup
 \small
-\renewcommand{\arraystretch}{1.16}
+\renewcommand{\arraystretch}{1.15}
 
-\begin{longtable}{@{}p{0.18\linewidth}p{0.38\linewidth}p{0.35\linewidth}@{}}
+\begin{longtable}{@{}p{0.20\linewidth}p{0.27\linewidth}p{0.43\linewidth}@{}}
 \caption{Comparación cualitativa de alternativas de solución.}
 \label{tab:comparacion-alternativas}\\
 \hline
 \textbf{Criterio} &
-\textbf{Otras alternativas} &
-\textbf{Biblioteca FDS precalculada} \\
+\textbf{Alternativa} &
+\textbf{Evaluación} \\
 \hline
 \endfirsthead
 
 \hline
 \textbf{Criterio} &
-\textbf{Otras alternativas} &
-\textbf{Biblioteca FDS precalculada} \\
+\textbf{Alternativa} &
+\textbf{Evaluación} \\
 \hline
 \endhead
 
 Preparación computacional &
-La simulación bajo demanda desplaza el cálculo al momento de consulta. Los modelos rápidos pueden reducirlo; las plataformas existentes dependen de su arquitectura. &
-Requiere ejecutar y organizar previamente los escenarios, utilizando recursos HPC y almacenamiento. \\
+FDS bajo demanda &
+El procesamiento intensivo se realiza durante cada consulta, dependiendo del dominio, la resolución y los recursos disponibles. \\
+\cline{2-3}
+
+&
+Modelos rápidos &
+Pueden reducir el costo de cálculo al utilizar representaciones simplificadas del comportamiento del fuego. \\
+\cline{2-3}
+
+&
+Plataforma existente &
+El costo depende de la arquitectura, servicios e infraestructura de la solución seleccionada. \\
+\cline{2-3}
+
+&
+Biblioteca FDS precalculada &
+Concentra la ejecución física en una etapa previa. Exige preparar escenarios y almacenamiento, pero no repetir el cálculo FDS completo por consulta. \\
 \hline
 
 Tiempo de consulta &
-El cálculo FDS bajo demanda puede producir demoras elevadas. Los modelos rápidos y las plataformas existentes pueden ofrecer respuestas más oportunas, según su implementación. &
-Recupera resultados almacenados sin ejecutar una nueva simulación FDS completa. La latencia efectiva debe medirse. \\
+FDS bajo demanda &
+Puede requerir tiempos elevados para producir un nuevo resultado físico, lo que representa un riesgo para su uso oportuno. \\
+\cline{2-3}
+
+&
+Modelos rápidos &
+Pueden ofrecer resultados con menor tiempo computacional, dependiendo del modelo y su configuración. \\
+\cline{2-3}
+
+&
+Plataforma existente &
+Puede disponer de mecanismos de respuesta ya implementados, aunque su desempeño y disponibilidad deben comprobarse. \\
+\cline{2-3}
+
+&
+Biblioteca FDS precalculada &
+Permite recuperar resultados almacenados y procesarlos espacialmente. Su latencia real deberá medirse. \\
 \hline
 
 Representación física &
-Los modelos rápidos utilizan simplificaciones diferentes de FDS. Las plataformas existentes pueden integrar diversos motores de simulación. &
-Conserva resultados generados mediante FDS, sujetos a la calidad de sus entradas y configuración. \\
+FDS bajo demanda &
+Conserva el detalle físico del simulador y permite configurar un caso específico, sujeto a la calidad de los datos. \\
+\cline{2-3}
+
+&
+Modelos rápidos &
+Utilizan aproximaciones distintas de CFD y no representan de manera explícita todos los mismos procesos físicos. \\
+\cline{2-3}
+
+&
+Plataforma existente &
+Depende del motor o conjunto de modelos utilizados por la plataforma. \\
+\cline{2-3}
+
+&
+Biblioteca FDS precalculada &
+Utiliza salidas físicas de FDS. Sin embargo, la agregación de escenarios independientes requiere comprobar su consistencia frente a casos de referencia. \\
 \hline
 
 Infraestructura y datos &
-FDS bajo demanda requiere recursos durante la emergencia. Los otros enfoques dependen de sus modelos, fuentes de información y condiciones de acceso. &
-Concentra el uso intensivo de HPC en la preparación. Requiere mantener una biblioteca y datos territoriales compatibles. \\
+FDS bajo demanda &
+Requiere recursos de procesamiento y datos de entrada disponibles durante la solicitud. \\
+\cline{2-3}
+
+&
+Modelos rápidos &
+Requiere caracterización territorial y meteorológica, aunque puede tener necesidades computacionales menores. \\
+\cline{2-3}
+
+&
+Plataforma existente &
+Depende de licencias, condiciones de acceso, servicios externos y compatibilidad de datos. \\
+\cline{2-3}
+
+&
+Biblioteca FDS precalculada &
+Requiere HPC y almacenamiento principalmente durante la preparación, además de mantener un catálogo compatible con las consultas. \\
 \hline
 
 Adaptación territorial &
-Los modelos y plataformas deben parametrizarse para el sector. Una solución existente puede imponer restricciones técnicas o de acceso. &
-Permite diseñar el catálogo y las reglas de consulta para el territorio estudiado, dentro de una cobertura finita. \\
+FDS bajo demanda &
+Permite configurar nuevas condiciones del sector si existen entradas adecuadas y recursos de ejecución. \\
+\cline{2-3}
+
+&
+Modelos rápidos &
+Permite estudiar áreas amplias, pero requiere seleccionar y calibrar parámetros apropiados al territorio. \\
+\cline{2-3}
+
+&
+Plataforma existente &
+Puede presentar restricciones de personalización, integración, licenciamiento o acceso a sus componentes. \\
+\cline{2-3}
+
+&
+Biblioteca FDS precalculada &
+Permite diseñar el catálogo para un sector específico de Bogotá, aunque su cobertura queda limitada a los escenarios preparados. \\
 \hline
 
-Adecuación a objetivos &
-Las alternativas ofrecen ventajas para simulación dinámica, análisis de grandes áreas o gestión institucional, pero no necesariamente permiten estudiar el mecanismo propuesto. &
-Se ajusta al objetivo de desarrollar y evaluar una aplicación propia de consulta de escenarios FDS precalculados. \\
+Adecuación a los objetivos &
+FDS bajo demanda &
+Ofrece flexibilidad de simulación, pero desplaza la carga computacional al momento de utilización. \\
+\cline{2-3}
+
+&
+Modelos rápidos &
+Resulta útil para propagación territorial, pero no permite estudiar directamente la arquitectura FDS seleccionada sin modificar el enfoque. \\
+\cline{2-3}
+
+&
+Plataforma existente &
+Puede facilitar funciones operativas, pero limita potencialmente el control experimental sobre la biblioteca y el procedimiento propio. \\
+\cline{2-3}
+
+&
+Biblioteca FDS precalculada &
+Se ajusta al objetivo de construir una aplicación propia y evaluar la recuperación, agregación y visualización de simulaciones FDS. \\
 \hline
+
 \end{longtable}
 \endgroup
 
-La comparación evidencia que no existe una solución universalmente superior. La conveniencia depende del propósito y las restricciones consideradas.
+La comparación evidencia que no existe una alternativa universalmente superior. Su conveniencia depende del territorio, las condiciones disponibles y las necesidades del usuario.
 
-La simulación bajo demanda ofrece flexibilidad, pero introduce un costo computacional durante la consulta que podría comprometer su oportunidad. Los modelos rápidos pueden ser más adecuados para escalas territoriales amplias, mientras que las plataformas existentes pueden aportar funciones institucionales y experiencia operativa.
+La simulación FDS bajo demanda ofrece flexibilidad para definir nuevas condiciones, pero introduce una carga computacional durante la consulta que puede comprometer la oportunidad de sus resultados.
 
-La biblioteca FDS precalculada ofrece una ventaja específica: separar la ejecución científica de la interacción del usuario. Esto permite desarrollar y evaluar un mecanismo de consulta sin exigir la repetición del cálculo físico completo durante cada solicitud.
+Los modelos de propagación rápida pueden resultar más adecuados para grandes áreas o restricciones estrictas de tiempo. Las plataformas existentes pueden aprovechar infraestructura, funciones y experiencias institucionales previamente desarrolladas.
 
-Para los interesados en la aplicación, esta separación busca facilitar el acceso a escenarios comprensibles, manteniendo identificadas sus condiciones y limitaciones. Para el equipo académico, permite estudiar de forma controlada la generación, almacenamiento, recuperación, tratamiento espacial y visualización de resultados.
+La biblioteca FDS precalculada ofrece una ventaja particular para el objetivo académico: separar la generación de resultados físicos de su recuperación y visualización. También permite definir y controlar el catálogo, los metadatos y el procedimiento experimental de agregación.
 
-Sin embargo, su costo de preparación, cobertura territorial y validez de la aproximación deberán comprobarse experimentalmente antes de formular conclusiones de desempeño.
+Esta última característica constituye simultáneamente uno de sus principales riesgos. La combinación espacial de simulaciones independientes deberá contrastarse con casos FDS de ignición extendida y de igniciones puntuales simultáneas, para determinar si la aproximación conserva una correspondencia aceptable bajo condiciones definidas.
+
+Por tanto, la selección de esta alternativa se fundamenta en su pertinencia respecto del alcance y la arquitectura propuesta, y no en una superioridad científica u operativa demostrada.
 
 \subsubsection{Justificación de la alternativa seleccionada}
+\label{sec:justificacion-alternativa}
 
 El equipo propone desarrollar una aplicación de escritorio basada en una biblioteca de escenarios FDS precalculados para un sector delimitado de los Cerros Orientales de Bogotá.
 
@@ -229,7 +326,9 @@ La aplicación permitirá que el comandante o coordinador ingrese una ubicación
 
 La viabilidad técnica de esta propuesta se apoya en la separación entre la preparación de escenarios y su consulta. El cálculo físico se realizará antes del momento de utilización, aprovechando recursos HPC para generar resultados identificables y reproducibles. Posteriormente, la aplicación trabajará sobre información almacenada, evitando que el usuario tenga que configurar o ejecutar una simulación FDS completa cada vez que necesite consultar un escenario.
 
-Esta arquitectura permite acotar el problema computacional y concentrar el desarrollo de software en funciones verificables: almacenamiento, catálogo, búsqueda, compatibilidad de condiciones, procesamiento espacial y visualización. Además, permite evaluar de manera independiente el costo de producción de la biblioteca y el tiempo de respuesta de la aplicación. Por estas razones, la solución presenta una ruta de implementación razonable dentro del alcance académico, aunque su viabilidad definitiva depende de los resultados de los pilotos.
+Esta arquitectura permite acotar el problema computacional y concentrar el desarrollo de software en funciones verificables: almacenamiento, catálogo, búsqueda, compatibilidad de condiciones, procesamiento espacial y visualización.
+
+Además, permite evaluar de manera independiente el costo de producción de la biblioteca, el tiempo de respuesta de la aplicación y la calidad de la aproximación utilizada para combinar escenarios.
 
 En comparación con la simulación física bajo demanda, el principal beneficio esperado es disminuir la dependencia del procesamiento intensivo durante la consulta. Frente a modelos de propagación más simplificados, conserva el uso de FDS como motor físico seleccionado. Finalmente, frente a plataformas existentes, permite controlar el diseño y la evaluación del procedimiento específico de recuperación de escenarios.
 
@@ -237,10 +336,36 @@ Estas ventajas son pertinentes para los objetivos del proyecto, pero no implican
 
 La solución también presenta limitaciones. Una biblioteca precalculada no puede representar todas las combinaciones posibles de ignición, combustible y condiciones ambientales. Su utilidad dependerá de la selección de casos, la representatividad de las entradas y la disponibilidad de escenarios compatibles con cada consulta.
 
-La agregación de resultados desde un perímetro activo constituye una hipótesis de aproximación que deberá contrastarse mediante casos de referencia. Si no se demuestra una correspondencia defendible, su utilización tendrá que limitarse a las condiciones verificadas.
+Una de las principales incertidumbres científicas se encuentra en el procedimiento de agregación espacial. La propuesta contempla recuperar resultados de diferentes simulaciones FDS independientes y combinarlos para representar la evolución posible desde un perímetro observado.
 
-Estas restricciones no invalidan la propuesta como proyecto de grado. Por el contrario, permiten delimitar una contribución evaluable y establecer criterios para reconocer sus capacidades y límites. El alcance territorial reducido facilita concentrar la preparación y las comprobaciones en un conjunto de casos identificables, evitando extender conclusiones a escenarios no estudiados.
+Los antecedentes sobre interacción y fusión de frentes muestran que dichos procesos pueden modificar el comportamiento del fuego. Por tanto, la superposición de escenarios independientes no puede considerarse físicamente válida únicamente porque sus resultados sean compatibles espacialmente \cite{vfpRibeiro2022,vfpWadhwani2023}.
+
+Para estudiar esta limitación se propone un procedimiento de evaluación experimental basado en simulaciones FDS de referencia.
+
+La evaluación comparará el resultado de una simulación iniciada desde una curva de ignición extendida con el resultado obtenido al agregar simulaciones independientes iniciadas desde puntos cercanos a esa curva.
+
+Adicionalmente, se estudiará un caso con múltiples igniciones puntuales simultáneas dentro de una misma simulación FDS, con el fin de diferenciar los efectos de aproximar una curva mediante puntos de aquellos asociados a la ausencia de interacciones físicas entre ejecuciones independientes.
+
+Los tres casos compartirán, dentro de lo técnicamente posible, condiciones de combustible, topografía, meteorología, configuración numérica y tiempo de evolución.
+
+La comparación utilizará indicadores espaciales y temporales, como la coincidencia entre áreas afectadas, la distancia entre perímetros, la dirección de propagación y los tiempos de llegada del fuego.
+
+Los criterios de aceptación y los umbrales de error deberán definirse antes de evaluar los resultados. Asimismo, será necesario especificar las reglas de selección de igniciones, la alineación temporal de las salidas y el procedimiento exacto de agregación espacial.
+
+Los resultados permitirán determinar en qué condiciones la agregación presenta una correspondencia aceptable respecto de las simulaciones de referencia y cuándo sus diferencias resultan demasiado elevadas para justificar su utilización.
+
+Este procedimiento se alinea con los objetivos de investigación y desarrollo del proyecto, porque convierte la incertidumbre asociada a la agregación en una condición explícita de evaluación.
+
+Una correspondencia favorable bajo los casos estudiados permitiría justificar el empleo de la aproximación dentro de esos límites, sin extender automáticamente sus conclusiones a otras configuraciones o incendios reales.
+
+Si no se obtiene una correspondencia suficiente, será necesario restringir el mecanismo de agregación a las condiciones verificadas, presentar los escenarios individuales por separado o documentar las limitaciones que impiden utilizar el resultado conjunto como una estimación defendible.
+
+Estas restricciones no invalidan la propuesta como proyecto de grado. Por el contrario, permiten delimitar una contribución evaluable y establecer criterios para reconocer sus capacidades y límites.
+
+El alcance territorial reducido facilita concentrar la preparación y las comprobaciones en un conjunto de casos identificables, evitando extender conclusiones a escenarios no estudiados.
 
 La aplicación será evaluada tanto por su funcionamiento como por la interpretación que los usuarios hagan de sus resultados. Una visualización comprensible y una consulta técnicamente correcta no equivalen, por sí mismas, a demostrar precisión científica ni autorización para su uso operativo.
 
-En consecuencia, la alternativa seleccionada se considera pertinente porque permite investigar y desarrollar una integración concreta entre simulación física precalculada y apoyo informativo para la gestión de incendios. Su utilidad principal será facilitar la consulta de escenarios para el comandante o coordinador, con posibilidades complementarias de demostración y capacitación, sin sustituir el juicio profesional ni prometer resultados que todavía no hayan sido validados.
+En consecuencia, la alternativa seleccionada se considera pertinente porque permite investigar y desarrollar una integración concreta entre simulación física precalculada y apoyo informativo para la gestión de incendios.
+
+Su utilidad principal será facilitar la consulta de escenarios para el comandante o coordinador, con posibilidades complementarias de demostración y capacitación, sin sustituir el juicio profesional ni prometer resultados que todavía no hayan sido validados.

@@ -66,7 +66,9 @@ Ambos trabajos son antecedentes territoriales relevantes, pero sus configuracion
 
 Para la preparación del territorio se contempla el uso de sistemas de información geográfica (SIG), que permiten organizar, transformar y analizar información espacial. Herramientas como QGIS facilitan el tratamiento de modelos digitales de elevación, coberturas y otros conjuntos de datos territoriales. El complemento qgis2fds permite exportar determinadas configuraciones de terreno y vegetación a entradas compatibles con FDS e importar resultados temporales georreferenciados \cite{vfpQGIS2FDS}.
 
-Entre las fuentes identificadas se encuentran modelos digitales de elevación, como GEDTM30 y Copernicus DEM, información meteorológica de ERA5 y ERA5-Land, así como datos nacionales y distritales de carácter territorial y ambiental. Estas fuentes constituyen opciones de preparación y no garantizan que todos los parámetros necesarios estén disponibles con la resolución y actualidad requeridas.
+Entre las fuentes identificadas se encuentran modelos digitales de elevación, como GEDTM30 y Copernicus DEM \cite{vfpGEDTM30,vfpCopernicusDEM}, información meteorológica de ERA5 y ERA5-Land \cite{vfpCopernicusERA5}, así como datos nacionales y distritales de carácter territorial y ambiental.
+
+Estas fuentes constituyen opciones de preparación y no garantizan que todos los parámetros necesarios estén disponibles con la resolución y actualidad requeridas.
 
 La disponibilidad de los datos, sus condiciones de uso y su aptitud para el sector seleccionado siguen siendo condiciones por verificar. En particular, los productos derivados de observaciones o reanálisis no necesariamente proporcionan de forma directa todos los parámetros de combustible requeridos por FDS.
 
@@ -156,15 +158,47 @@ La aplicación deberá integrar estos principios en la organización de la bibli
 
 \textbf{Agregación espacial y tratamiento de un perímetro observado.}
 
-La propuesta contempla que, cuando exista un perímetro del incendio, la aplicación identifique el borde activo, recupere escenarios de igniciones próximas y explore una agregación espacial de sus resultados, excluyendo el interior ya identificado como quemado.
+La propuesta contempla que, cuando exista un perímetro observado del incendio, la aplicación identifique el borde activo, recupere escenarios de igniciones próximas y explore una agregación espacial de sus resultados, excluyendo el interior ya identificado como quemado.
 
-Esta operación es una \emph{hipótesis de aproximación propia del proyecto}, no una capacidad demostrada por los artículos citados.
+La interacción y unión de frentes de incendio ha sido estudiada mediante experimentos físicos, simulaciones numéricas y algoritmos de propagación. Estos antecedentes permiten fundamentar el análisis de frentes múltiples, aunque no demuestran directamente la validez del procedimiento propuesto.
 
-Los escenarios generados con puntos de ignición independientes no necesariamente reproducen las interacciones térmicas, el viento inducido ni el comportamiento de un incendio que ya posee un frente extendido.
+Ribeiro y colaboradores (2022) realizaron experimentos de laboratorio con dos frentes de fuego paralelos bajo diferentes condiciones de viento. Sus resultados mostraron que la interacción entre ambos frentes y el flujo de aire modifica las velocidades y otras características de propagación \cite{vfpRibeiro2022}.
 
-Por ello será necesario definir reglas de compatibilidad temporal y espacial, contrastar la agregación frente a casos de referencia y documentar dónde deja de resultar defendible.
+Wadhwani y colaboradores (2023) utilizaron FDS para estudiar numéricamente la interacción y fusión de dos frentes de incendio paralelos. Contrastaron el modelo con observaciones experimentales y reportaron errores relativos entre el 5\% y el 35\% en la estimación de la velocidad de propagación para la mayoría de los casos evaluados \cite{vfpWadhwani2023}.
 
-La combinación visual de frentes tampoco puede interpretarse directamente como un mapa de probabilidad de afectación. Para establecer probabilidades sería necesario definir y validar un procedimiento estadístico apropiado, lo que no se desprende automáticamente de superponer escenarios.
+El estudio constituye un antecedente importante porque muestra que FDS permite representar la interacción de frentes bajo determinadas condiciones. Sin embargo, ambos frentes fueron modelados conjuntamente dentro de una misma simulación, y no mediante la superposición posterior de resultados procedentes de ejecuciones independientes.
+
+Por otra parte, la documentación técnica de FARSITE describe algoritmos para detectar intersecciones y fusionar perímetros de incendios que inicialmente se propagan de forma separada. Estos procedimientos permiten mantener una representación geométrica coherente de los frentes durante la evolución de una simulación \cite{vfpFARSITEMergers}.
+
+La existencia de estos mecanismos no demuestra que una unión geométrica posterior de simulaciones físicas independientes reproduzca los fenómenos que ocurrirían si todos los frentes se modelaran conjuntamente.
+
+En consecuencia, el procedimiento de agregación espacial constituye una \emph{hipótesis de aproximación propia del proyecto, cuya validez deberá evaluarse experimentalmente}. Las simulaciones generadas desde igniciones independientes no necesariamente reproducen las interacciones térmicas, el viento inducido ni los cambios en la velocidad de propagación de un incendio con un frente extendido.
+
+\textbf{Comparación con una ignición lineal de referencia.}
+
+Para evaluar la hipótesis se propone un experimento controlado basado en una geometría inicial común y condiciones equivalentes de combustible, topografía, meteorología y configuración numérica.
+
+En el caso de referencia se definirá una línea o curva de ignición extendida, representativa del borde activo de un incendio observado, y se ejecutará una simulación FDS en la que todos los segmentos de esa curva se activen dentro de un mismo caso.
+
+En el caso aproximado se seleccionarán varios puntos de ignición situados sobre la curva o próximos a ella. Cada punto corresponderá a un escenario FDS ejecutado de manera independiente, con condiciones compatibles con el caso de referencia. Posteriormente, se aplicará el mecanismo de agregación espacial propuesto para reconstruir una evolución conjunta a partir de esas salidas.
+
+El experimento permitirá comparar el resultado de una simulación física con una ignición extendida frente a la agregación de simulaciones precalculadas desde igniciones puntuales, como se ilustra conceptualmente en el procedimiento planteado por el equipo.
+
+Sin embargo, la ignición lineal y las igniciones puntuales no representan exactamente la misma condición inicial. Por ello, se considera conveniente incluir un caso de control adicional con múltiples igniciones puntuales simultáneas dentro de una sola simulación FDS.
+
+Este caso intermedio permitiría distinguir, por una parte, las diferencias derivadas de representar una curva continua mediante puntos discretos y, por otra, las diferencias relacionadas con omitir las interacciones físicas entre igniciones cuando se ejecutan de manera independiente.
+
+Las salidas serán comparadas sobre una referencia espacial común y en tiempos equivalentes, utilizando definiciones consistentes de frente activo y superficie afectada. Se considerarán indicadores como la posición y geometría del perímetro, el área quemada, la dirección de propagación y, cuando las salidas permitan calcularlos, los tiempos de llegada del fuego a ubicaciones seleccionadas.
+
+También podrán utilizarse medidas de coincidencia espacial entre áreas afectadas y de distancia entre perímetros. Los criterios de aceptación, las tolerancias espaciales y temporales y los umbrales de error deberán definirse antes de ejecutar la evaluación.
+
+La comparación deberá realizarse para distintas configuraciones de separación entre igniciones, condiciones meteorológicas y características del combustible, dentro de las posibilidades del piloto. El propósito será identificar cuándo la aproximación presenta resultados suficientemente próximos al caso de referencia y cuándo aparecen discrepancias relevantes.
+
+Una diferencia pequeña respecto de una simulación FDS de referencia constituiría evidencia de consistencia numérica bajo las condiciones ensayadas, pero no demostraría por sí sola que la aproximación predice correctamente un incendio real. Para evaluar esto último serían necesarias observaciones independientes de incendios o experimentos físicos apropiados.
+
+Por tanto, la aplicación deberá comunicar las restricciones identificadas y evitar presentar la agregación como una representación físicamente validada fuera de las condiciones en las que se haya obtenido evidencia suficiente.
+
+La combinación visual de frentes tampoco puede interpretarse directamente como un mapa de probabilidad de afectación, ya que dicha interpretación requeriría un procedimiento estadístico específico y su correspondiente validación.
 
 \textbf{Incertidumbre, Monte Carlo y multifidelidad.}
 
@@ -193,3 +227,20 @@ El usuario previsto es un comandante o coordinador, no necesariamente un especia
 En consecuencia, la evaluación distinguirá al menos tres cuestiones: que la simulación se haya ejecutado correctamente, que la aplicación recupere y represente fielmente los datos almacenados y que el usuario comprenda lo que puede y no puede inferir de la visualización.
 
 Cumplir las dos últimas condiciones no equivale por sí solo a validar científicamente la predicción del incendio ni a autorizar su empleo operativo.
+
+
+\textbf{Metodología de desarrollo: Disciplined Agile Delivery (DAD).}
+
+Disciplined Agile Delivery (DAD) es un marco de desarrollo y entrega de soluciones de software que integra prácticas ágiles, Lean y estrategias de ingeniería de software para adaptar el proceso de trabajo a las necesidades y restricciones de cada proyecto. Ambler y Lines (2012) presentan este enfoque como una alternativa para organizar el ciclo de vida del desarrollo, considerando no solamente la implementación, sino también la arquitectura, la calidad, la gestión de riesgos y la entrega de resultados \cite{amblerLines2012}.
+
+El Project Management Institute (PMI) describe un ciclo de entrega de DAD organizado en tres fases principales: Inicio (Inception), Construcción (Construction) y Transición (Transition). Estas fases permiten organizar las actividades desde la definición inicial de la solución hasta su preparación para la entrega, manteniendo prácticas de coordinación, evaluación y mejora durante el proceso \cite{pmiDADLifecycle}.
+
+Durante la fase de Inicio se busca establecer una visión compartida, identificar necesidades, explorar el alcance y definir una estrategia inicial de arquitectura. La fase de Construcción se orienta a desarrollar incrementos funcionales, atender cambios en los requisitos y mejorar progresivamente la calidad de la solución. Finalmente, la fase de Transición comprende las actividades necesarias para preparar la entrega y comprobar que el producto pueda ser utilizado por sus destinatarios \cite{pmiDADLifecycle}.
+
+En el presente proyecto se propone una adaptación académica de DAD, considerando que el desarrollo de la aplicación depende de actividades adicionales de preparación de información geográfica, configuración de simulaciones FDS y ejecución de escenarios mediante infraestructura de cómputo de alto desempeño.
+
+La fase de Inicio permitirá establecer requisitos, arquitectura, fuentes de información y condiciones de viabilidad técnica. Durante Construcción se implementarán e integrarán los componentes de generación, almacenamiento, recuperación, agregación y visualización de escenarios, acompañados de pruebas y comprobaciones técnicas.
+
+En Transición se evaluará la aplicación mediante tareas representativas con usuarios, se documentarán sus restricciones y se prepararán los entregables académicos. Esta adaptación no supone el despliegue de una herramienta operativa definitiva para emergencias reales.
+
+La metodología DAD proporciona, por tanto, una estructura para organizar el desarrollo del producto y sus evidencias de calidad. No constituye por sí misma una validación científica de las simulaciones ni del procedimiento de agregación espacial, cuya evaluación requiere las comprobaciones experimentales descritas anteriormente.

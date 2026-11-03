@@ -1,4 +1,20 @@
-\subsubsection{Resultados esperados [Pendientes: 1. cerrar restricciones de datos y ejecución, 2. aprobar criterios de prueba]}\label{sec:inicio-resultados}
-Inicio deberá producir una versión revisada de E1 con requisitos y trazabilidad, una arquitectura inicial E2 y un paquete E3 que documente los datos necesarios recolectados y preparados para el sector acordado, junto con las brechas que limiten su uso. La evidencia de cierre incluirá la reproducción del caso de práctica, la identificación de entradas y salidas, la revisión concreta de FDS y las condiciones verificadas de acceso y ejecución, además de los criterios iniciales de E6. El equipo y el director deberán poder comprobar que el alcance corresponde a la información disponible y que existe una ruta técnica ejecutable hacia la construcción, por lo que una lista de fuentes sin preparación ni comprobación no bastará para acreditar ese resultado.
+\subsubsection{Resultados esperados}\label{sec:inicio-resultados}
+La fase se considerará terminada cuando el director apruebe el hito de visión compartida con base en los siguientes resultados~\cite{amblerLines2012}. Los resultados que hacen parte de los entregables de la sección 1.3 son:
+
+\begin{itemize}
+  \item E1, versión inicial: especificación con necesidades de interesados, requisitos de software y de datos, exclusiones y matriz de trazabilidad hacia OE1 a OE4~\cite{iso29148}.
+  \item E2, versión inicial: arquitectura con componentes, contratos de intercambio y metadatos de escenario~\cite{uml251, iso12207}.
+  \item E3, versión inicial: datos obtenidos del sector piloto, con fuente, licencia, versión, unidades y procedencia por parámetro, y el caso de práctica de FDS reproducible a partir de ellos.
+  \item E6, versión inicial: estrategia de pruebas y criterios aprobados, con sus métricas y el procedimiento para fijar umbrales~\cite{iso291192, iso291193, iso291194}.
+\end{itemize}
+
+Los resultados internos, que no son entregables oficiales pero miden el avance, son:
+
+\begin{itemize}
+  \item Registro de recursos confirmados: cuentas y límites del HPC, revisión de FDS con su identificador Git y costo medido por segundo simulado.
+  \item Registro de restricciones de datos y ejecución: combustibles bibliográficos o supuestos, observaciones disponibles para el contraste, dominio y duración simulables con el presupuesto de cómputo, y casos que quedan fuera.
+  \item Plan de entrega y registro de riesgos para Construcción y Transición.
+  \item Matriz de adaptación de ISO/IEC/IEEE 12207:2026 con responsables y evidencias~\cite{iso12207}.
+\end{itemize}
 
 La contribución a OE1 será la definición del contrato de consulta y de las condiciones para seleccionar resultados, mientras que OE2 se apoyará en el catálogo previsto y en la viabilidad de ejecución. OE3 recibirá las configuraciones y entradas de práctica reproducibles, y OE4 contará con la arquitectura y las tareas de uso que orientarán su implementación. Estas relaciones no significan que los objetivos queden terminados en Inicio, pues sus productos se completarán mediante los incrementos posteriores. Cualquier restricción que impida sostener un resultado previsto deberá quedar documentada antes de considerar cerrada la fase.

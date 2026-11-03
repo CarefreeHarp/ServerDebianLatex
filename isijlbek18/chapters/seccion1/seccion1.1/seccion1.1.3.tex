@@ -1,69 +1,73 @@
-\subsubsection{Propuesta de solución [Pendientes: 1. concretar el sector y la cobertura de escenarios, 2. definir selección y agregación, 3. fijar horizonte de consulta y servicio meteorológico]}\label{sec:solucion}
-La herramienta de simulación empleada en el proyecto es \textit{Fire Dynamics Simulator} (FDS). Históricamente, \textit{Wildland-Urban Interface Fire Dynamics Simulator} (WFDS) surgió como una extensión de FDS para modelar incendios forestales y de interfaz urbano-forestal, cuyas capacidades fueron posteriormente integradas en FDS. En este documento, FDS designa el software utilizado, mientras que WFDS se emplea para hacer referencia específica a dichas capacidades de simulación en contextos forestales, sin implicar el uso de un simulador independiente~\cite{fdsnist,wfdsusfs}. Smokeview permite visualizar los resultados producidos por estas simulaciones, por ejemplo mediante animaciones; dichas visualizaciones no constituyen simulaciones independientes.
+\subsubsection{Propuesta de solución}\label{sec:solucion}
+La herramienta de simulación empleada en el proyecto es \textit{Fire Dynamics Simulator} (FDS). Históricamente, \textit{Wildland-Urban Interface Fire Dynamics Simulator} (WFDS) surgió como una extensión de FDS para modelar incendios forestales y de interfaz urbano-forestal, cuyas capacidades fueron posteriormente integradas en FDS. En este documento, FDS designa el software utilizado, mientras que WFDS se emplea para hacer referencia específica a dichas capacidades de simulación en contextos forestales, sin implicar el uso de un simulador independiente~\cite{fdsnist,wfdsusfs}. Cada simulación ejecutada en FDS produce resultados que pueden visualizarse en Smokeview mediante representaciones como animaciones de la evolución del incendio. Así, cada visualización corresponde a los resultados de una simulación determinada.
 
-Se propone desarrollar una aplicación de escritorio sustentada en una biblioteca de escenarios precalculados con FDS. Nuestra contribución de Ingeniería de Sistemas consiste en integrar los datos geoespaciales, meteorológicos y de vegetación procedentes de distintas fuentes con el simulador, que funciona independientemente de la aplicación, y con sus resultados. Para ello se prepararán y transformarán los datos, se configurará FDS y se ejecutarán anticipadamente los casos mediante recursos de cómputo de alto desempeño. Se establecerán múltiples puntos de ignición de referencia, distribuidos con densidad variable según la amenaza de ignición, de manera que las zonas de mayor propensión tengan más puntos y las de menor propensión conserven cobertura con puntos más separados. Para cada punto se ejecutarán varias simulaciones con diferentes condiciones ambientales y parámetros correspondientes, de modo que sus resultados representen posibles comportamientos del incendio bajo distintas condiciones. Esta distribución corresponde a una decisión del proyecto, cuyo antecedente territorial es el trabajo de Morales Salguero~\cite{morales2017}. Los resultados se almacenarán con su ubicación y condiciones de entrada, de modo que la aplicación pueda recuperar escenarios sin ejecutar de nuevo el cálculo físico completo durante una consulta.
+Se propone desarrollar una primera versión funcional de una aplicación de escritorio sustentada en una biblioteca de escenarios precalculados con FDS. Su implementación se limitará al sector de Aguas Claras, seleccionado para el proyecto y cuya delimitación y preparación se abordarán durante la fase de Inicio, descrita en la sección~\ref{sec:inicio}. El alcance dependerá de la información geoespacial, meteorológica y de vegetación disponible durante el proyecto. Esta primera aproximación podría extenderse a otros sectores de los Cerros Orientales o adaptarse a otros territorios si se dispone de información de mayor cobertura y calidad; para ello sería necesario obtener, preparar y comprobar datos adecuados para las nuevas zonas.
 
-En el uso previsto, los usuarios principales serán los comandantes y coordinadores responsables de dirigir la atención a la emergencia. El usuario proporcionará una ubicación inicial o un perímetro observado y la aplicación incorporará condiciones meteorológicas existentes en el momento de la consulta, obtenidas mediante una API o introducidas manualmente ante su fallo. La información en tiempo real sobre la emergencia es distinta de estos escenarios precalculados, ya que la aplicación no ejecutará una nueva simulación del incendio en tiempo real. A partir de la información real disponible sobre el incendio y las condiciones ambientales existentes en el momento de la consulta, se seleccionarán escenarios próximos espacialmente y compatibles con las condiciones representadas en la biblioteca. Cuando una curva o perímetro represente la posición actual del incendio, se identificarán los puntos de ignición de referencia más cercanos a diferentes puntos del borde activo. Después se recuperarán los resultados correspondientes y se combinarán espacialmente para construir una representación aproximada de la posible propagación, excluyendo el interior que ya se identifica como quemado. La salida se mostrará como una animación georreferenciada para un horizonte limitado, denominado $\Delta t$, y podrá actualizarse ante nuevas observaciones o cambios relevantes del viento. Combinar resultados de igniciones independientes constituye una hipótesis de aproximación.\begin{figure}[htbp]
+Nuestra contribución de Ingeniería de Sistemas se enmarca en el desarrollo de software, la integración y el procesamiento de datos, los sistemas de información geográficos y la visualización de información geoespacial. Consiste en integrar los datos geoespaciales, meteorológicos y de vegetación procedentes de distintas fuentes con el simulador, que funciona independientemente de la aplicación, y sus resultados. Para ello se prepararán y transformarán los datos, se configurará FDS y se ejecutarán anticipadamente los casos mediante recursos de cómputo de alto desempeño. Para preparar las condiciones meteorológicas de las simulaciones se contemplan las fuentes descritas en la sección~\ref{sec:fundamentos}. Se establecerán múltiples puntos de ignición de referencia cuya densidad espacial se determinará a partir de la capa georreferenciada «Amenaza por incendios forestales en suelo rural» de la Secretaría Distrital de Planeación de Bogotá, que clasifica el territorio según niveles de amenaza alta, media y baja~\cite{sdppotamenaza40}. Las zonas de mayor amenaza tendrán una mayor densidad de puntos, mientras que en las de menor amenaza los puntos estarán más separados. Para cada punto se ejecutarán varias simulaciones con diferentes condiciones ambientales y parámetros correspondientes, de modo que sus resultados representen posibles comportamientos del incendio bajo distintas condiciones.  Los resultados se almacenarán con su ubicación y condiciones de entrada, de modo que la aplicación pueda recuperar escenarios sin ejecutar de nuevo el cálculo físico completo durante una consulta.
+
+En el uso previsto, los usuarios principales serán los comandantes y coordinadores responsables de dirigir la atención a la emergencia. El usuario proporcionará una ubicación inicial o un perímetro observado del frente del fuego y la aplicación incorporará condiciones meteorológicas existentes en el momento de la consulta, consultadas mediante la API de Open-Meteo, que proporciona estimaciones basadas en modelos meteorológicos, o introducidas manualmente cuando falle el servicio o no exista conexión a internet. La información en tiempo real sobre la emergencia es distinta de estos escenarios precalculados, ya que la aplicación no ejecutará una nueva simulación del incendio en tiempo real. A partir de la información real disponible sobre el incendio y las condiciones ambientales existentes en el momento de la consulta, se seleccionarán escenarios próximos espacialmente y compatibles con las condiciones representadas en la biblioteca. La figura~\ref{fig:agregacion-escenarios} ilustra la selección y combinación de escenarios. La salida se mostrará como una animación georreferenciada para un horizonte $\Delta t$, que representa cuánto tiempo hacia el futuro se pretende estimar la propagación del incendio. Su valor se establecerá durante la ejecución del piloto en la fase de Construcción, considerando la frecuencia aproximada con la que cambian las condiciones ambientales relevantes en Bogotá. Esto busca evitar simulaciones excesivamente largas cuyos resultados posteriores podrían dejar de ser útiles ante cambios meteorológicos. La consulta podrá actualizarse ante nuevas observaciones o cambios relevantes del viento.\begin{figure}[H]
 \centering
-\setlength{\unitlength}{1pt}
-\begin{picture}(360,190)
-% Tres momentos de la consulta
-\put(0,168){\makebox(110,16){\small\textbf{1. Incendio observado}}}
-\put(124,168){\makebox(110,16){\small\textbf{2. Buscar escenarios}}}
-\put(248,168){\makebox(110,16){\small\textbf{3. Combinar resultados}}}
-\put(4,56){\framebox(102,108){}}
-\put(128,56){\framebox(102,108){}}
-\put(252,56){\framebox(102,108){}}
-% 1. Perímetro e igniciones disponibles
-\put(55,113){\circle{40}}
-\put(55,113){\makebox(0,0){\scriptsize quemado}}
-\put(55,146){\color{blue}\circle*{5}}
-\put(22,113){\color{blue}\circle*{5}}
-\put(88,113){\color{blue}\circle*{5}}
-\put(24,145){\color{gray}\circle*{4}}
-\put(86,145){\color{gray}\circle*{4}}
-\put(24,78){\color{gray}\circle*{4}}
-\put(86,78){\color{gray}\circle*{4}}
-\put(109,110){\vector(1,0){16}}
-% 2. Correspondencias desde el borde hasta igniciones
-\put(179,113){\circle{40}}
-\put(179,113){\makebox(0,0){\scriptsize quemado}}
-\put(179,133){\circle*{3}}
-\put(159,113){\circle*{3}}
-\put(199,113){\circle*{3}}
-\put(179,133){\color{blue}\vector(0,1){11}}
-\put(159,113){\color{blue}\vector(-1,0){11}}
-\put(199,113){\color{blue}\vector(1,0){11}}
-\put(179,146){\color{blue}\circle*{5}}
-\put(146,113){\color{blue}\circle*{5}}
-\put(212,113){\color{blue}\circle*{5}}
-\put(183,145){\scriptsize A}
-\put(135,119){\scriptsize B}
-\put(216,119){\scriptsize C}
-\put(179,73){\makebox(0,0){\scriptsize Recuperar A, B y C}}
-\put(233,110){\vector(1,0){16}}
-% 3. Resultados de A, B y C superpuestos; se cubre el interior quemado
-\put(303,139){\color{orange}\circle{40}}
-\put(278,112){\color{orange}\circle{40}}
-\put(328,112){\color{orange}\circle{40}}
-\put(303,113){\color{white}\circle*{38}}
-\put(303,113){\circle{40}}
-\put(303,113){\makebox(0,0){\scriptsize quemado}}
-\put(303,146){\color{blue}\circle*{5}}
-\put(270,113){\color{blue}\circle*{5}}
-\put(336,113){\color{blue}\circle*{5}}
-\put(307,145){\scriptsize A}
-\put(259,119){\scriptsize B}
-\put(340,119){\scriptsize C}
-\put(303,73){\makebox(0,0){\scriptsize Fuera del perímetro}}
-% Leyenda y lectura secuencial
-\put(5,34){\circle{9}}\put(14,30){\makebox(0,10)[l]{\scriptsize Límite observado}}
-\put(115,34){\color{blue}\circle*{5}}\put(122,30){\makebox(0,10)[l]{\scriptsize Ignición seleccionada}}
-\put(255,34){\color{orange}\line(1,0){12}}\put(271,30){\makebox(0,10)[l]{\scriptsize Resultado}}
-\put(180,10){\makebox(0,12){\scriptsize Cada ignición aporta un escenario compatible con las condiciones de consulta.}}
-\end{picture}
-\caption{Selección de igniciones cercanas al perímetro y combinación aproximada de sus resultados. Esquema ilustrativo, sin escala.}
-\label{fig:agregacion-escenarios}
-\end{figure}
+\setlength{\unitlength}{1pt}\resizebox{\linewidth}{!}{\begin{picture}(360,190)
+\put(0,170){\makebox(110,14){\small\textbf{1. Borde observado}}}
+\put(125,170){\makebox(110,14){\small\textbf{2. Elegir igniciones}}}
+\put(250,170){\makebox(110,14){\small\textbf{3. Combinar frentes}}}\put(4,60){\color{yellow!15}\rule{102pt}{102pt}}{\color{orange!45}\put(4,60){\rule{98.00pt}{1.04pt}}\put(4,61){\rule{97.26pt}{1.04pt}}\put(4,62){\rule{96.52pt}{1.04pt}}\put(4,63){\rule{95.78pt}{1.04pt}}\put(4,64){\rule{95.04pt}{1.04pt}}\put(4,65){\rule{94.30pt}{1.04pt}}\put(4,66){\rule{93.56pt}{1.04pt}}\put(4,67){\rule{92.81pt}{1.04pt}}\put(4,68){\rule{92.07pt}{1.04pt}}\put(4,69){\rule{91.33pt}{1.04pt}}\put(4,70){\rule{90.59pt}{1.04pt}}\put(4,71){\rule{89.85pt}{1.04pt}}\put(4,72){\rule{89.11pt}{1.04pt}}\put(4,73){\rule{88.37pt}{1.04pt}}\put(4,74){\rule{87.63pt}{1.04pt}}\put(4,75){\rule{86.89pt}{1.04pt}}\put(4,76){\rule{86.15pt}{1.04pt}}\put(4,77){\rule{85.41pt}{1.04pt}}\put(4,78){\rule{84.67pt}{1.04pt}}\put(4,79){\rule{83.93pt}{1.04pt}}\put(4,80){\rule{83.19pt}{1.04pt}}\put(4,81){\rule{82.44pt}{1.04pt}}\put(4,82){\rule{81.70pt}{1.04pt}}\put(4,83){\rule{80.96pt}{1.04pt}}\put(4,84){\rule{80.22pt}{1.04pt}}\put(4,85){\rule{79.48pt}{1.04pt}}\put(4,86){\rule{78.74pt}{1.04pt}}\put(4,87){\rule{78.00pt}{1.04pt}}\put(4,88){\rule{77.43pt}{1.04pt}}\put(4,89){\rule{76.86pt}{1.04pt}}\put(4,90){\rule{76.29pt}{1.04pt}}\put(4,91){\rule{75.71pt}{1.04pt}}\put(4,92){\rule{75.14pt}{1.04pt}}\put(4,93){\rule{74.57pt}{1.04pt}}\put(4,94){\rule{74.00pt}{1.04pt}}\put(4,95){\rule{73.43pt}{1.04pt}}\put(4,96){\rule{72.86pt}{1.04pt}}\put(4,97){\rule{72.29pt}{1.04pt}}\put(4,98){\rule{71.71pt}{1.04pt}}\put(4,99){\rule{71.14pt}{1.04pt}}\put(4,100){\rule{70.57pt}{1.04pt}}\put(4,101){\rule{70.00pt}{1.04pt}}\put(4,102){\rule{68.92pt}{1.04pt}}\put(4,103){\rule{67.83pt}{1.04pt}}\put(4,104){\rule{66.75pt}{1.04pt}}\put(4,105){\rule{65.67pt}{1.04pt}}\put(4,106){\rule{64.58pt}{1.04pt}}\put(4,107){\rule{63.50pt}{1.04pt}}\put(4,108){\rule{62.42pt}{1.04pt}}\put(4,109){\rule{61.33pt}{1.04pt}}\put(4,110){\rule{60.25pt}{1.04pt}}\put(4,111){\rule{59.17pt}{1.04pt}}\put(4,112){\rule{58.08pt}{1.04pt}}\put(4,113){\rule{57.00pt}{1.04pt}}\put(4,114){\rule{56.08pt}{1.04pt}}\put(4,115){\rule{55.17pt}{1.04pt}}\put(4,116){\rule{54.25pt}{1.04pt}}\put(4,117){\rule{53.33pt}{1.04pt}}\put(4,118){\rule{52.42pt}{1.04pt}}\put(4,119){\rule{51.50pt}{1.04pt}}\put(4,120){\rule{50.58pt}{1.04pt}}\put(4,121){\rule{49.67pt}{1.04pt}}\put(4,122){\rule{48.75pt}{1.04pt}}\put(4,123){\rule{47.83pt}{1.04pt}}\put(4,124){\rule{46.92pt}{1.04pt}}\put(4,125){\rule{46.00pt}{1.04pt}}\put(4,126){\rule{45.14pt}{1.04pt}}\put(4,127){\rule{44.29pt}{1.04pt}}\put(4,128){\rule{43.43pt}{1.04pt}}\put(4,129){\rule{42.57pt}{1.04pt}}\put(4,130){\rule{41.71pt}{1.04pt}}\put(4,131){\rule{40.86pt}{1.04pt}}\put(4,132){\rule{40.00pt}{1.04pt}}\put(4,133){\rule{39.14pt}{1.04pt}}\put(4,134){\rule{38.29pt}{1.04pt}}\put(4,135){\rule{37.43pt}{1.04pt}}\put(4,136){\rule{36.57pt}{1.04pt}}\put(4,137){\rule{35.71pt}{1.04pt}}\put(4,138){\rule{34.86pt}{1.04pt}}\put(4,139){\rule{34.00pt}{1.04pt}}\put(4,140){\rule{32.52pt}{1.04pt}}\put(4,141){\rule{31.04pt}{1.04pt}}\put(4,142){\rule{29.57pt}{1.04pt}}\put(4,143){\rule{28.09pt}{1.04pt}}\put(4,144){\rule{26.61pt}{1.04pt}}\put(4,145){\rule{25.13pt}{1.04pt}}\put(4,146){\rule{23.65pt}{1.04pt}}\put(4,147){\rule{22.17pt}{1.04pt}}\put(4,148){\rule{20.70pt}{1.04pt}}\put(4,149){\rule{19.22pt}{1.04pt}}\put(4,150){\rule{17.74pt}{1.04pt}}\put(4,151){\rule{16.26pt}{1.04pt}}\put(4,152){\rule{14.78pt}{1.04pt}}\put(4,153){\rule{13.30pt}{1.04pt}}\put(4,154){\rule{11.83pt}{1.04pt}}\put(4,155){\rule{10.35pt}{1.04pt}}\put(4,156){\rule{8.87pt}{1.04pt}}\put(4,157){\rule{7.39pt}{1.04pt}}\put(4,158){\rule{5.91pt}{1.04pt}}\put(4,159){\rule{4.43pt}{1.04pt}}\put(4,160){\rule{2.96pt}{1.04pt}}\put(4,161){\rule{1.48pt}{1.04pt}}}
+\put(4,60){\framebox(102,102){}}
+\multiput(15,73)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(15,93)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(15,113)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(15,133)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(15,153)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\linethickness{1.2pt}
+\qbezier(38,139)(51,143)(50,125)
+\qbezier(50,125)(48,117)(61,113)
+\qbezier(61,113)(72,110)(74,101)
+\qbezier(74,101)(71,94)(82,87)
+\linethickness{0.4pt}\put(129,60){\color{yellow!15}\rule{102pt}{102pt}}{\color{orange!45}\put(129,60){\rule{98.00pt}{2.04pt}}\put(129,62){\rule{96.52pt}{2.04pt}}\put(129,64){\rule{95.04pt}{2.04pt}}\put(129,66){\rule{93.56pt}{2.04pt}}\put(129,68){\rule{92.07pt}{2.04pt}}\put(129,70){\rule{90.59pt}{2.04pt}}\put(129,72){\rule{89.11pt}{2.04pt}}\put(129,74){\rule{87.63pt}{2.04pt}}\put(129,76){\rule{86.15pt}{2.04pt}}\put(129,78){\rule{84.67pt}{2.04pt}}\put(129,80){\rule{83.19pt}{2.04pt}}\put(129,82){\rule{81.70pt}{2.04pt}}\put(129,84){\rule{80.22pt}{2.04pt}}\put(129,86){\rule{78.74pt}{2.04pt}}\put(129,88){\rule{77.43pt}{2.04pt}}\put(129,90){\rule{76.29pt}{2.04pt}}\put(129,92){\rule{75.14pt}{2.04pt}}\put(129,94){\rule{74.00pt}{2.04pt}}\put(129,96){\rule{72.86pt}{2.04pt}}\put(129,98){\rule{71.71pt}{2.04pt}}\put(129,100){\rule{70.57pt}{2.04pt}}\put(129,102){\rule{68.92pt}{2.04pt}}\put(129,104){\rule{66.75pt}{2.04pt}}\put(129,106){\rule{64.58pt}{2.04pt}}\put(129,108){\rule{62.42pt}{2.04pt}}\put(129,110){\rule{60.25pt}{2.04pt}}\put(129,112){\rule{58.08pt}{2.04pt}}\put(129,114){\rule{56.08pt}{2.04pt}}\put(129,116){\rule{54.25pt}{2.04pt}}\put(129,118){\rule{52.42pt}{2.04pt}}\put(129,120){\rule{50.58pt}{2.04pt}}\put(129,122){\rule{48.75pt}{2.04pt}}\put(129,124){\rule{46.92pt}{2.04pt}}\put(129,126){\rule{45.14pt}{2.04pt}}\put(129,128){\rule{43.43pt}{2.04pt}}\put(129,130){\rule{41.71pt}{2.04pt}}\put(129,132){\rule{40.00pt}{2.04pt}}\put(129,134){\rule{38.29pt}{2.04pt}}\put(129,136){\rule{36.57pt}{2.04pt}}\put(129,138){\rule{34.86pt}{2.04pt}}\put(129,140){\rule{32.52pt}{2.04pt}}\put(129,142){\rule{29.57pt}{2.04pt}}\put(129,144){\rule{26.61pt}{2.04pt}}\put(129,146){\rule{23.65pt}{2.04pt}}\put(129,148){\rule{20.70pt}{2.04pt}}\put(129,150){\rule{17.74pt}{2.04pt}}\put(129,152){\rule{14.78pt}{2.04pt}}\put(129,154){\rule{11.83pt}{2.04pt}}\put(129,156){\rule{8.87pt}{2.04pt}}\put(129,158){\rule{5.91pt}{2.04pt}}\put(129,160){\rule{2.96pt}{2.04pt}}}
+\put(129,60){\framebox(102,102){}}
+\multiput(140,73)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(140,93)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(140,113)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(140,133)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(140,153)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\linethickness{1.2pt}
+\qbezier(163,139)(176,143)(175,125)
+\qbezier(175,125)(173,117)(186,113)
+\qbezier(186,113)(197,110)(199,101)
+\qbezier(199,101)(196,94)(207,87)
+\linethickness{0.4pt}
+\put(254,60){\color{yellow!15}\rule{102pt}{102pt}}
+\put(254,60){\framebox(102,102){}}
+\multiput(265,73)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(265,93)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(265,113)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(265,133)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\multiput(265,153)(19,0){5}{\color{red!65!black}\circle*{2.5}}
+\linethickness{1.2pt}
+\qbezier(288,139)(301,143)(300,125)
+\qbezier(300,125)(298,117)(311,113)
+\qbezier(311,113)(322,110)(324,101)
+\qbezier(324,101)(321,94)(332,87)
+\linethickness{0.4pt}
+\put(113,110){\vector(1,0){9}}
+\put(238,110){\vector(1,0){9}}
+% Las mismas posiciones de la malla se destacan en los paneles 2 y 3
+\put(159,133){\color{blue}\circle*{5}}
+\put(178,133){\color{blue}\circle*{5}}
+\put(178,113){\color{blue}\circle*{5}}
+\put(197,113){\color{blue}\circle*{5}}
+\put(197,93){\color{blue}\circle*{5}}
+\put(216,93){\color{blue}\circle*{5}}
+\put(284,133){\color{blue}\circle*{5}}
+\put(303,133){\color{blue}\circle*{5}}
+\put(303,113){\color{blue}\circle*{5}}
+\put(322,113){\color{blue}\circle*{5}}
+\put(322,93){\color{blue}\circle*{5}}
+\put(341,93){\color{blue}\circle*{5}}{\color{violet}\qbezier(303,133)(303,157)(284,157)\qbezier(284,157)(265,157)(265,133)\qbezier(265,133)(265,109)(284,109)\qbezier(284,109)(303,109)(303,133)}{\color{violet}\qbezier(325,133)(325,158)(303,158)\qbezier(303,158)(281,158)(281,133)\qbezier(281,133)(281,108)(303,108)\qbezier(303,108)(325,108)(325,133)}{\color{violet}\qbezier(327,113)(327,138)(303,138)\qbezier(303,138)(279,138)(279,113)\qbezier(279,113)(279,88)(303,88)\qbezier(303,88)(327,88)(327,113)}{\color{violet}\qbezier(346,113)(346,138)(322,138)\qbezier(322,138)(298,138)(298,113)\qbezier(298,113)(298,88)(322,88)\qbezier(322,88)(346,88)(346,113)}{\color{violet}\qbezier(346,93)(346,118)(322,118)\qbezier(322,118)(298,118)(298,93)\qbezier(298,93)(298,68)(322,68)\qbezier(322,68)(346,68)(346,93)}{\color{violet}\qbezier(355,93)(355,116)(341,116)\qbezier(341,116)(327,116)(327,93)\qbezier(327,93)(327,70)(341,70)\qbezier(341,70)(355,70)(355,93)}{\color{orange!45}\put(254,60){\rule{98.00pt}{2.04pt}}\put(254,62){\rule{96.52pt}{2.04pt}}\put(254,64){\rule{95.04pt}{2.04pt}}\put(254,66){\rule{93.56pt}{2.04pt}}\put(254,68){\rule{92.07pt}{2.04pt}}\put(254,70){\rule{90.59pt}{2.04pt}}\put(254,72){\rule{89.11pt}{2.04pt}}\put(254,74){\rule{87.63pt}{2.04pt}}\put(254,76){\rule{86.15pt}{2.04pt}}\put(254,78){\rule{84.67pt}{2.04pt}}\put(254,80){\rule{83.19pt}{2.04pt}}\put(254,82){\rule{81.70pt}{2.04pt}}\put(254,84){\rule{80.22pt}{2.04pt}}\put(254,86){\rule{78.74pt}{2.04pt}}\put(254,88){\rule{77.43pt}{2.04pt}}\put(254,90){\rule{76.29pt}{2.04pt}}\put(254,92){\rule{75.14pt}{2.04pt}}\put(254,94){\rule{74.00pt}{2.04pt}}\put(254,96){\rule{72.86pt}{2.04pt}}\put(254,98){\rule{71.71pt}{2.04pt}}\put(254,100){\rule{70.57pt}{2.04pt}}\put(254,102){\rule{68.92pt}{2.04pt}}\put(254,104){\rule{66.75pt}{2.04pt}}\put(254,106){\rule{64.58pt}{2.04pt}}\put(254,108){\rule{62.42pt}{2.04pt}}\put(254,110){\rule{60.25pt}{2.04pt}}\put(254,112){\rule{58.08pt}{2.04pt}}\put(254,114){\rule{56.08pt}{2.04pt}}\put(254,116){\rule{54.25pt}{2.04pt}}\put(254,118){\rule{52.42pt}{2.04pt}}\put(254,120){\rule{50.58pt}{2.04pt}}\put(254,122){\rule{48.75pt}{2.04pt}}\put(254,124){\rule{46.92pt}{2.04pt}}\put(254,126){\rule{45.14pt}{2.04pt}}\put(254,128){\rule{43.43pt}{2.04pt}}\put(254,130){\rule{41.71pt}{2.04pt}}\put(254,132){\rule{40.00pt}{2.04pt}}\put(254,134){\rule{38.29pt}{2.04pt}}\put(254,136){\rule{36.57pt}{2.04pt}}\put(254,138){\rule{34.86pt}{2.04pt}}\put(254,140){\rule{32.52pt}{2.04pt}}\put(254,142){\rule{29.57pt}{2.04pt}}\put(254,144){\rule{26.61pt}{2.04pt}}\put(254,146){\rule{23.65pt}{2.04pt}}\put(254,148){\rule{20.70pt}{2.04pt}}\put(254,150){\rule{17.74pt}{2.04pt}}\put(254,152){\rule{14.78pt}{2.04pt}}\put(254,154){\rule{11.83pt}{2.04pt}}\put(254,156){\rule{8.87pt}{2.04pt}}\put(254,158){\rule{5.91pt}{2.04pt}}\put(254,160){\rule{2.96pt}{2.04pt}}}\put(254,60){\framebox(102,102){}}\multiput(265,73)(19,0){5}{\color{red!65!black}\circle*{2.5}}\multiput(265,93)(19,0){5}{\color{red!65!black}\circle*{2.5}}\multiput(265,113)(19,0){5}{\color{red!65!black}\circle*{2.5}}\multiput(265,133)(19,0){5}{\color{red!65!black}\circle*{2.5}}\multiput(265,153)(19,0){5}{\color{red!65!black}\circle*{2.5}}\linethickness{1.2pt}\qbezier(288,139)(301,143)(300,125)\qbezier(300,125)(298,117)(311,113)\qbezier(311,113)(322,110)(324,101)\qbezier(324,101)(321,94)(332,87)\linethickness{0.4pt}\put(284,133){\color{blue}\circle*{5}}\put(303,133){\color{blue}\circle*{5}}\put(303,113){\color{blue}\circle*{5}}\put(322,113){\color{blue}\circle*{5}}\put(322,93){\color{blue}\circle*{5}}\put(341,93){\color{blue}\circle*{5}}\put(10,40){\color{red!65!black}\circle*{3}}\put(16,36){\makebox(0,8)[l]{\scriptsize Puntos con simulaciones previas}}
+\put(138,40){\color{blue}\circle*{5}}\put(145,36){\makebox(0,8)[l]{\scriptsize Puntos de ignición seleccionados}}
+\put(270,40){\color{violet}\line(1,0){12}}\put(285,36){\makebox(0,8)[l]{\scriptsize Frentes en $t+\Delta t$}}\put(35,16){\linethickness{1.2pt}\line(1,0){18}}\put(58,12){\makebox(0,8)[l]{\scriptsize Frente del incendio dibujado por el usuario}}\put(225,13){\color{orange!45}\rule{9pt}{9pt}}\put(239,12){\makebox(0,8)[l]{\scriptsize Territorio ya quemado}}\end{picture}}
+\caption{Selección de igniciones cercanas al borde observado y superposición conceptual de resultados compatibles. Los frentes violetas muestran el avance estimado al cabo de $\Delta t$ desde el instante de consulta $t$. Esquema ilustrativo sin escala.}
+\label{fig:agregacion-escenarios}\end{figure}Para seleccionar los puntos de ignición, la aplicación identifica los más cercanos a diferentes posiciones del frente dibujado por el usuario, incluso si están dentro del territorio ya quemado. Luego recupera los resultados compatibles con las condiciones de la consulta y los combina espacialmente para aproximar la propagación. A esta unión de resultados de simulaciones independientes la denominamos agregación. El resultado excluye el territorio ya quemado, pues no se necesita estimar que el fuego vuelva a afectarlo. La agregación constituye una hipótesis de aproximación que se evaluará durante el piloto de la fase de Construcción.
 
-La aplicación apoyará la interpretación del comandante o coordinador y permitirá explorar los escenarios como material de capacitación, sin asumir decisiones operativas automáticas. La integración presentará los resultados de manera clara y concisa para apoyar las decisiones, sin exigir al usuario ejecutar el simulador ni interpretar sus archivos técnicos. Exploraremos alternativas de almacenamiento local de escenarios y datos para reducir en lo posible la dependencia de internet. Si no es posible obtener las condiciones meteorológicas mediante la API, el usuario podrá introducirlas manualmente.
+La aplicación apoyará la interpretación del comandante o coordinador y permitirá explorar los escenarios como material de capacitación, sin asumir decisiones operativas automáticas. La integración presentará los resultados de manera clara y concisa para apoyar las decisiones de los comandantes y coordinadores, sin exigirles ejecutar directamente FDS ni interpretar sus archivos técnicos. Exploraremos alternativas de almacenamiento local de escenarios y datos para reducir en lo posible la dependencia de internet. Si no es posible obtener las condiciones meteorológicas mediante la API, el usuario podrá introducirlas manualmente.
+
+El proyecto busca construir y evaluar esta primera versión funcional, sin desplegar una herramienta definitiva para su uso institucional durante emergencias reales. La fase de Transición de DAD se orientará a evaluar la aplicación con usuarios, recopilar sus observaciones y elaborar manuales de instalación y uso, como se detalla en la sección~\ref{sec:transicion}.
