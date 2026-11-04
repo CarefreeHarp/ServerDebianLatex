@@ -1,0 +1,64 @@
+
+
+
+
+% Formato de la plantilla SRSINGESOFT V2.0 (línea base).
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}\typeout{SRS-FONT: Times New Roman no disponible; se usa TeX Gyre Termes.}}
+\IfFontExistsTF{Cambria}{\newfontfamily\fuentePortada{Cambria}}{\newfontfamily\fuentePortada{TeX Gyre Termes}}
+\IfFontExistsTF{Calibri}{\newfontfamily\fuenteTabla{Calibri}}{\newfontfamily\fuenteTabla{Liberation Sans}}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{geometry}
+\geometry{letterpaper,left=72bp,right=72bp,top=72bp,bottom=72bp,headheight=23bp,headsep=12bp,footskip=25bp}
+\usepackage{graphicx,xcolor,array,longtable,fancyhdr,titlesec}
+\usepackage[hidelinks,linktoc=all]{hyperref}
+\definecolor{grisTitulo}{RGB}{76,76,76}
+\definecolor{azulTabla}{RGB}{79,129,189}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6bp}
+\setlength{\emergencystretch}{2em}
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{10bp}{12bp}}
+\makeatother
+\normalsize
+\newcommand{\nombreProyecto}{[Nombre del proyecto]}
+\newcommand{\nombreEmpresa}{[Nombre de la empresa]}
+\newcommand{\fechaDocumento}{[Fecha]}
+\newcommand{\versionDocumento}{[Versión del documento]}
+\newcommand{\autoresDocumento}{[Autores]}
+\fancyhf{}
+\fancyhead[L]{\IfFileExists{srs-logo-000.png}{\includegraphics[height=23bp]{srs-logo-000.png}}{\makebox[23bp]{}}\hspace{7bp}\fontsize{9.3bp}{11bp}\selectfont SRS: \nombreProyecto}
+\fancyhead[R]{\fontsize{9.3bp}{11bp}\selectfont [Logo de la empresa]}
+\fancyfoot[L]{\raisebox{-2bp}{\IfFileExists{srs-ironworks.png}{\includegraphics[width=79bp]{srs-ironworks.png}}{\makebox[79bp]{}}}\hspace{5bp}{\fontsize{7.2bp}{9bp}\selectfont\itshape Creado por IronWorks -- Ingeniería de Sistemas PUJ}}
+\fancyfoot[R]{\fontsize{7.2bp}{9bp}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\newcommand{\franjaTitulo}[1]{\begingroup\setlength{\fboxsep}{2.5bp}\setlength{\fboxrule}{0.5bp}\fcolorbox{black}{grisTitulo}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\color{white}#1}}\endgroup}
+\titleformat{\section}[block]{\normalfont\bfseries\fontsize{10bp}{12bp}\selectfont}{}{0pt}{\centering\franjaTitulo}
+\titleformat{\subsection}[block]{\normalfont\bfseries\fontsize{10bp}{12bp}\selectfont}{\thesubsection}{16bp}{}
+\titleformat{\subsubsection}[block]{\normalfont\bfseries\fontsize{10bp}{12bp}\selectfont}{\thesubsubsection}{10bp}{}
+\titlespacing*{\section}{0pt}{0pt}{10bp}
+\titlespacing*{\subsection}{0pt}{10bp}{8bp}
+\titlespacing*{\subsubsection}{0pt}{10bp}{8bp}
+\newcommand{\capitulo}[1]{\clearpage\refstepcounter{section}\addcontentsline{toc}{section}{\protect\numberline{\thesection.}\MakeUppercase{#1}}\section*{\thesection.\quad #1}}
+\newcommand{\tituloPreliminar}[2]{\clearpage\phantomsection\addcontentsline{toc}{section}{#2}\section*{#1}}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\renewcommand{\contentsname}{Contenido}
+\renewcommand{\listtablename}{Lista de Tablas}
+\renewcommand{\listfigurename}{Lista de Ilustraciones}
+\renewcommand{\figurename}{Ilustración}
+\makeatletter
+\renewcommand{\tableofcontents}{\section*{Contenido}\@starttoc{toc}}
+\renewcommand{\listoftables}{\section*{Lista de Tablas}\@starttoc{lot}}
+\renewcommand{\listoffigures}{\section*{Lista de Ilustraciones}\@starttoc{lof}}
+\renewcommand*{\l@section}[2]{\vspace{4bp}\begingroup\bfseries\@dottedtocline{1}{0pt}{19bp}{#1}{#2}\endgroup}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{9bp}{28bp}}
+\renewcommand*{\l@subsubsection}{\@dottedtocline{3}{20bp}{34bp}}
+\AtBeginDocument{\renewcommand{\numberline}[1]{\hb@xt@\@tempdima{#1\hfil}}}
+\makeatother
+\hypersetup{pdftitle={Especificación de requerimientos de software},pdfauthor={}}
+
+
+
