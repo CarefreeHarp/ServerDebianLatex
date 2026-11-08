@@ -1,4 +1,332 @@
+
 \subsection{Control de Calidad - Revisar y comprobar lo que vamos construyendo [Pendientes: 1. Identificar, describir y explicar los procesos de control y aseguramiento de calidad que se aplicarán al proyecto, incluyendo verificación, validación, revisiones, auditorías, revisiones de calidad de documentos, pruebas unitarias, pruebas de sistema y evaluaciones externas, entre otros. 2. Elaborar una tabla que presente cada proceso de calidad, su nombre, una breve descripción y el momento del proyecto en que se realizará. 3. Describir detalladamente el procedimiento de cada proceso de calidad mediante diagramas BPMN. 4. Establecer los responsables de ejecutar, supervisar y comprobar cada proceso de calidad.]}\label{sec:spmp-12-5}
+
 El control de calidad tiene como base la adaptación de estándares ya trabajada por el equipo: IEEE 730 orienta el aseguramiento de calidad de productos y procesos, ISO/IEC/IEEE 29148 aporta criterios de requisitos y trazabilidad, UML permite revisar los modelos y ISO/IEC/IEEE 29119 organiza procesos, documentación y técnicas de prueba. Los documentos de evaluación previstos en la sección \ref{sec:spmp-6-4} son evidencias para comprobar esa aplicación y no una certificación de conformidad~\cite{ieee730,std29148,uml,std29119p2,std29119p3,std29119p4,adaptacion2026}.
 
 La metodología incluye pruebas continuas, revisión de documentos y datos, casos reproducibles y evaluación con usuarios. La adaptación de ISO/IEC/IEEE 29119 recoge técnicas como particiones de equivalencia, valores límite y tablas de decisión, mientras que la de IEEE 730 contempla criterios, hallazgos y su tratamiento. La ejecución correcta del software no demuestra por sí sola validez territorial ni valida la agregación, y la coincidencia de resultados no se interpreta como probabilidad calibrada~\cite{adaptacion2026}.
+
+Para este proyecto, el control de calidad deberá considerar dos dimensiones relacionadas, pero diferentes. La primera corresponde a la calidad del software, incluyendo el cumplimiento de requisitos, la integración de componentes y el funcionamiento de la aplicación. La segunda corresponde a la calidad de las entradas y resultados de simulación, considerando su procedencia, reproducibilidad, coherencia espacial y limitaciones técnicas.
+
+Se propone organizar el control de calidad mediante siete procesos complementarios. Estos acompañarán las fases de Inicio, Construcción y Semi-transición, de acuerdo con los productos y actividades previstos.
+
+\textbf{Procesos de control y aseguramiento de calidad.}
+
+\begin{longtable}{|p{0.08\linewidth}|p{0.25\linewidth}|p{0.30\linewidth}|p{0.20\linewidth}|}
+\caption{Procesos de calidad propuestos y momentos de aplicación. Fuente: elaboración propia a partir de la adaptación de estándares del proyecto~\cite{adaptacion2026}.}\\
+\hline
+\textbf{ID} & \textbf{Proceso} & \textbf{Descripción} & \textbf{Momento}\\\hline
+\endfirsthead
+\hline
+\textbf{ID} & \textbf{Proceso} & \textbf{Descripción} & \textbf{Momento}\\\hline
+\endhead
+PC01 & Revisión de requisitos, arquitectura y documentación. & Comprobar claridad, coherencia, trazabilidad y correspondencia entre documentos y modelos. & Inicio y durante Construcción.\\\hline
+PC02 & Verificación de datos y reproducibilidad FDS. & Revisar las fuentes, las entradas, las configuraciones y la posibilidad de repetir los casos de simulación. & Preparación de datos, piloto y Construcción.\\\hline
+PC03 & Pruebas unitarias. & Comprobar el comportamiento de componentes individuales frente a condiciones previstas. & Cada incremento de Construcción.\\\hline
+PC04 & Pruebas de integración y sistema. & Evaluar el funcionamiento conjunto de los componentes y los flujos principales de la aplicación. & Construcción y correcciones de Semi-transición.\\\hline
+PC05 & Comprobación de agregación y coherencia espacial. & Evaluar el procedimiento de selección y agregación de escenarios, además de su correspondencia geográfica. & Construcción y antes de la evaluación final.\\\hline
+PC06 & Auditoría interna de artefactos y evidencias. & Revisar la existencia, integridad, versiones y trazabilidad de los entregables. & Revisiones de fase y preparación del cierre.\\\hline
+PC07 & Evaluación externa con usuarios. & Observar el uso, la comprensión y la utilidad percibida de la aplicación mediante actividades con usuarios previstos. & Semi-transición.\\\hline
+\end{longtable}
+
+\textbf{Procedimientos de calidad.}
+
+\begin{enumerate}
+    \item \textbf{PC01. Revisión de requisitos, arquitectura y documentación.}
+
+    Este proceso comprobará la consistencia de los documentos de requisitos, los modelos UML y sus relaciones con las funcionalidades previstas.
+
+    Se revisará que los requisitos tengan una identificación clara, que sus descripciones sean comprensibles y que puedan relacionarse con los elementos de diseño y las pruebas correspondientes. También se comprobará la coherencia entre versiones documentales y se identificarán contradicciones, omisiones o referencias incorrectas.
+
+    Los resultados se registrarán mediante listas de comprobación, observaciones y registros de revisión. Cuando se identifiquen inconsistencias, se realizarán las correcciones y se verificará nuevamente el documento afectado.
+
+    \item \textbf{PC02. Verificación de datos y reproducibilidad FDS.}
+
+    Este proceso se aplicará a los datos geográficos, meteorológicos y de vegetación utilizados para preparar las simulaciones.
+
+    Se comprobará la procedencia de los datos, su sistema de referencia espacial, las unidades utilizadas y la correspondencia con el sector de Aguas Claras. Para las simulaciones FDS se conservarán las configuraciones, los archivos de entrada, los parámetros relevantes y la versión del simulador.
+
+    Se realizarán ejecuciones de comprobación para determinar si los casos pueden repetirse bajo condiciones documentadas. Los problemas de configuración, las diferencias identificadas y las limitaciones conocidas deberán registrarse antes de incorporar los escenarios a la biblioteca.
+
+    La reproducibilidad de una ejecución se distinguirá de la validación científica del comportamiento simulado.
+
+    \item \textbf{PC03. Pruebas unitarias.}
+
+    Las pruebas unitarias buscarán comprobar que los componentes individuales de la aplicación cumplan las condiciones previstas.
+
+    Se prepararán casos de prueba con entradas conocidas y resultados esperados, considerando valores válidos, inválidos y situaciones límite. Cuando corresponda, se utilizarán particiones de equivalencia, análisis de valores límite y tablas de decisión, de acuerdo con las técnicas consideradas en la adaptación de ISO/IEC/IEEE 29119~\cite{std29119p4,adaptacion2026}.
+
+    Los resultados se registrarán junto con la versión del componente evaluado. Los casos no satisfactorios darán lugar a correcciones y nuevas ejecuciones.
+
+    \item \textbf{PC04. Pruebas de integración y sistema.}
+
+    Este proceso comprobará el funcionamiento conjunto de los componentes que conforman la aplicación de escritorio.
+
+    Se evaluarán los flujos principales, incluyendo la introducción de información del incendio, la consulta de condiciones meteorológicas, la búsqueda de escenarios, la interacción con el catálogo y la presentación de resultados mediante Smokeview.
+
+    También se revisarán situaciones excepcionales, como la indisponibilidad de la API meteorológica, la introducción manual de condiciones, los datos incompletos y la ausencia de escenarios compatibles.
+
+    Las pruebas se realizarán sobre versiones integradas de la aplicación. Los problemas identificados se registrarán y se comprobarán nuevamente después de las correcciones correspondientes.
+
+    \item \textbf{PC05. Comprobación de agregación y coherencia espacial.}
+
+    Este proceso se concentrará en las funciones que permiten seleccionar y combinar resultados de escenarios precalculados.
+
+    Se utilizarán casos controlados para comprobar la correspondencia entre la ubicación o perímetro introducido, los escenarios seleccionados y los resultados presentados.
+
+    Se revisará especialmente la exclusión de las zonas identificadas como quemadas, el tratamiento del borde activo y la conservación de la correspondencia geográfica entre los resultados.
+
+    La comprobación deberá documentar los supuestos y límites del procedimiento. Cuando no exista evidencia suficiente para respaldar una operación de agregación, su resultado no se presentará como científicamente validado.
+
+    \item \textbf{PC06. Auditoría interna de artefactos y evidencias.}
+
+    Este proceso consistirá en revisar la integridad y consistencia de los productos desarrollados y sus registros asociados.
+
+    Se comprobará que los documentos, el código, los modelos, las configuraciones y los resultados correspondan con versiones identificables. También se revisará la existencia de registros de pruebas, decisiones y correcciones relacionadas con los entregables.
+
+    Las auditorías internas permitirán identificar evidencias faltantes, discrepancias entre versiones y actividades que requieren nuevas comprobaciones.
+
+    Los hallazgos se registrarán y se verificará su tratamiento antes de establecer una versión de referencia para revisión o entrega.
+
+    \item \textbf{PC07. Evaluación externa con usuarios.}
+
+    Este proceso permitirá obtener retroalimentación sobre el funcionamiento y la comprensión del producto desde la perspectiva de los usuarios previstos.
+
+    La evaluación se realizará mediante tareas representativas del uso de la aplicación, tales como introducir información de un incendio, consultar escenarios disponibles e interpretar los resultados visualizados.
+
+    Se recopilarán observaciones relacionadas con la claridad de la información, la facilidad de uso y la utilidad percibida. Los criterios, instrumentos y participantes específicos deberán coordinarse con el plan de aceptación descrito en la sección 8.3.
+
+    Los resultados se analizarán para identificar problemas y determinar las correcciones necesarias. Después de implementar los ajustes se efectuarán las comprobaciones correspondientes.
+
+    La evaluación con usuarios no se interpretará como una validación científica automática de los resultados FDS.
+\end{enumerate}
+
+\textbf{Representación de los procedimientos mediante BPMN.}
+
+Los siguientes diagramas representan de forma simplificada los procedimientos PC01 a PC07. Se utilizan eventos de inicio y fin, tareas y compuertas exclusivas; las rutas de corrección regresan a la comprobación correspondiente. Cada proceso distingue las actividades necesarias para generar evidencia de su ejecución. La asignación de los participantes y responsables individuales se completará con los acuerdos de la sección 8.4.2.
+
+% Estilos comunes de los siete diagramas; no se utilizan macros que
+% almacenen tokens activos de babel en español.
+\shorthandoff{<>}
+\tikzset{
+    pmpEvento/.style={circle,draw,minimum size=7mm},
+    pmpTarea/.style={rectangle,draw,rounded corners=2pt,
+        align=center,text width=4.0cm,minimum height=9mm},
+    pmpCorreccion/.style={rectangle,draw,rounded corners=2pt,
+        align=center,text width=2.9cm,minimum height=10mm},
+    pmpCompuerta/.style={diamond,draw,aspect=2.0,
+        align=center,inner sep=1pt,text width=2.5cm},
+    pmpFlujo/.style={-{Stealth[length=2mm]},semithick}
+}
+
+% PC01
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (a) at (0,-1.20) {Seleccionar versiones de requisitos y modelos};
+\node[pmpTarea] (b) at (0,-2.70) {Revisar claridad, coherencia y trazabilidad};
+\node[pmpCompuerta] (g) at (0,-4.65) {¿Documentos conformes?};
+\node[pmpCorreccion] (c) at (4.6,-4.65) {Registrar hallazgos y corregir documentos};
+\node[pmpTarea] (guardar) at (0,-6.85) {Guardar lista de revisión y evidencias};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-8.25) {};
+\draw[pmpFlujo] (inicio) -- (a);
+\draw[pmpFlujo] (a) -- (b);
+\draw[pmpFlujo] (b) -- (g);
+\draw[pmpFlujo] (g) -- node[left]{Sí} (guardar);
+\draw[pmpFlujo] (guardar) -- (fin);
+\draw[pmpFlujo] (g) -- node[above]{No} (c);
+\draw[pmpFlujo] (c.north) |- (b.east);
+\end{tikzpicture}
+\caption{BPMN simplificado de revisión documental y de requisitos. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc01}
+\end{figure}
+
+% PC02: dos decisiones técnicas independientes
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (datos) at (0,-1.20) {Comprobar procedencia, unidades y referencia espacial};
+\node[pmpCompuerta] (g1) at (0,-3.30) {¿Entradas verificadas?};
+\node[pmpCorreccion] (c1) at (4.6,-3.30) {Completar datos o documentar limitaciones};
+\node[pmpTarea] (prueba) at (0,-5.70) {Ejecutar caso FDS con configuración conservada};
+\node[pmpCompuerta] (g2) at (0,-8.10) {¿Caso reproducible?};
+\node[pmpCorreccion] (c2) at (4.6,-8.10) {Revisar parámetros y repetir ejecución};
+\node[pmpTarea] (registro) at (0,-10.35) {Registrar entradas, versión y resultados};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-11.90) {};
+\draw[pmpFlujo] (inicio) -- (datos);
+\draw[pmpFlujo] (datos) -- (g1);
+\draw[pmpFlujo] (g1) -- node[left]{Sí} (prueba);
+\draw[pmpFlujo] (g1) -- node[above]{No} (c1);
+\draw[pmpFlujo] (c1.north) |- (datos.east);
+\draw[pmpFlujo] (prueba) -- (g2);
+\draw[pmpFlujo] (g2) -- node[left]{Sí} (registro);
+\draw[pmpFlujo] (g2) -- node[above]{No} (c2);
+\draw[pmpFlujo] (c2.north) |- (prueba.east);
+\draw[pmpFlujo] (registro) -- (fin);
+\end{tikzpicture}
+\caption{BPMN simplificado de verificación de datos y reproducibilidad FDS. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc02}
+\end{figure}
+
+% PC03
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (a) at (0,-1.20) {Definir caso, entradas y resultado esperado};
+\node[pmpTarea] (b) at (0,-2.70) {Ejecutar prueba sobre componente identificado};
+\node[pmpCompuerta] (g) at (0,-4.65) {¿Resultado esperado?};
+\node[pmpCorreccion] (c) at (4.6,-4.65) {Registrar defecto, corregir y repetir};
+\node[pmpTarea] (guardar) at (0,-6.85) {Registrar versión y evidencia de prueba};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-8.25) {};
+\draw[pmpFlujo] (inicio) -- (a);
+\draw[pmpFlujo] (a) -- (b);
+\draw[pmpFlujo] (b) -- (g);
+\draw[pmpFlujo] (g) -- node[left]{Sí} (guardar);
+\draw[pmpFlujo] (guardar) -- (fin);
+\draw[pmpFlujo] (g) -- node[above]{No} (c);
+\draw[pmpFlujo] (c.north) |- (b.east);
+\end{tikzpicture}
+\caption{BPMN simplificado de pruebas unitarias. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc03}
+\end{figure}
+
+% PC04
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (a) at (0,-1.20) {Preparar versión integrada y casos de sistema};
+\node[pmpTarea] (b) at (0,-2.70) {Ejecutar flujos normales y alternativos};
+\node[pmpCompuerta] (g) at (0,-4.65) {¿Pruebas satisfactorias?};
+\node[pmpCorreccion] (c) at (4.6,-4.65) {Corregir integración y repetir casos};
+\node[pmpTarea] (guardar) at (0,-6.85) {Guardar resultados y versión evaluada};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-8.25) {};
+\draw[pmpFlujo] (inicio) -- (a);
+\draw[pmpFlujo] (a) -- (b);
+\draw[pmpFlujo] (b) -- (g);
+\draw[pmpFlujo] (g) -- node[left]{Sí} (guardar);
+\draw[pmpFlujo] (guardar) -- (fin);
+\draw[pmpFlujo] (g) -- node[above]{No} (c);
+\draw[pmpFlujo] (c.north) |- (b.east);
+\end{tikzpicture}
+\caption{BPMN simplificado de pruebas de integración y sistema. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc04}
+\end{figure}
+
+% PC05: dos decisiones técnicas independientes
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (datos) at (0,-1.20) {Preparar casos georreferenciados controlados};
+\node[pmpCompuerta] (g1) at (0,-3.30) {¿Coordenadas y perímetro coherentes?};
+\node[pmpCorreccion] (c1) at (4.6,-3.30) {Corregir transformación o selección espacial};
+\node[pmpTarea] (prueba) at (0,-5.70) {Comprobar borde activo, exclusión y agregación};
+\node[pmpCompuerta] (g2) at (0,-8.10) {¿Resultados respaldados?};
+\node[pmpCorreccion] (c2) at (4.6,-8.10) {Ajustar operación y documentar límites};
+\node[pmpTarea] (registro) at (0,-10.35) {Guardar evidencia y limitaciones de validez};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-11.90) {};
+\draw[pmpFlujo] (inicio) -- (datos);
+\draw[pmpFlujo] (datos) -- (g1);
+\draw[pmpFlujo] (g1) -- node[left]{Sí} (prueba);
+\draw[pmpFlujo] (g1) -- node[above]{No} (c1);
+\draw[pmpFlujo] (c1.north) |- (datos.east);
+\draw[pmpFlujo] (prueba) -- (g2);
+\draw[pmpFlujo] (g2) -- node[left]{Sí} (registro);
+\draw[pmpFlujo] (g2) -- node[above]{No} (c2);
+\draw[pmpFlujo] (c2.north) |- (prueba.east);
+\draw[pmpFlujo] (registro) -- (fin);
+\end{tikzpicture}
+\caption{BPMN simplificado de comprobación de agregación y coherencia espacial. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc05}
+\end{figure}
+
+% PC06
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (a) at (0,-1.20) {Definir artefactos E1 a E7 y versiones a auditar};
+\node[pmpTarea] (b) at (0,-2.70) {Contrastar integridad, trazabilidad y registros};
+\node[pmpCompuerta] (g) at (0,-4.65) {¿Sin hallazgos pendientes?};
+\node[pmpCorreccion] (c) at (4.6,-4.65) {Registrar hallazgos y resolverlos};
+\node[pmpTarea] (guardar) at (0,-6.85) {Emitir registro de auditoría interna};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-8.25) {};
+\draw[pmpFlujo] (inicio) -- (a);
+\draw[pmpFlujo] (a) -- (b);
+\draw[pmpFlujo] (b) -- (g);
+\draw[pmpFlujo] (g) -- node[left]{Sí} (guardar);
+\draw[pmpFlujo] (guardar) -- (fin);
+\draw[pmpFlujo] (g) -- node[above]{No} (c);
+\draw[pmpFlujo] (c.north) |- (b.east);
+\end{tikzpicture}
+\caption{BPMN simplificado de auditoría interna de artefactos y evidencias. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc06}
+\end{figure}
+
+% PC07
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[pmpEvento] (inicio) at (0,0) {};
+\node[pmpTarea] (a) at (0,-1.20) {Acordar participantes, tareas y criterios};
+\node[pmpTarea] (b) at (0,-2.70) {Realizar sesión y registrar observaciones};
+\node[pmpCompuerta] (g) at (0,-4.65) {¿Resultados aceptables?};
+\node[pmpCorreccion] (c) at (4.6,-4.65) {Priorizar problemas, corregir y reevaluar};
+\node[pmpTarea] (guardar) at (0,-6.85) {Consolidar resultados y limitaciones};
+\node[pmpEvento,double,double distance=1.5pt] (fin) at (0,-8.25) {};
+\draw[pmpFlujo] (inicio) -- (a);
+\draw[pmpFlujo] (a) -- (b);
+\draw[pmpFlujo] (b) -- (g);
+\draw[pmpFlujo] (g) -- node[left]{Sí} (guardar);
+\draw[pmpFlujo] (guardar) -- (fin);
+\draw[pmpFlujo] (g) -- node[above]{No} (c);
+\draw[pmpFlujo] (c.north) |- (b.east);
+\end{tikzpicture}
+\caption{BPMN simplificado de evaluación externa con usuarios. Fuente: elaboración propia.}
+\label{fig:spmp-calidad-pc07}
+\end{figure}
+
+% Evita que la sección de responsabilidades aparezca entre figuras
+% pendientes de colocación.
+\clearpage
+\shorthandon{<>}
+
+\textbf{Responsabilidades de ejecución y comprobación.}
+
+La ejecución de los procesos de calidad será distribuida entre los integrantes de acuerdo con las actividades que desarrollen. Para evitar que la comprobación dependa únicamente de quien realizó el trabajo, se propone que las revisiones sean efectuadas por un integrante diferente cuando resulte posible.
+
+La siguiente tabla presenta una distribución de responsabilidades por función, pendiente de asignación individual en la sección 8.4.2.
+
+\begin{longtable}{|p{0.10\linewidth}|p{0.27\linewidth}|p{0.27\linewidth}|p{0.23\linewidth}|}
+\caption{Responsabilidades funcionales propuestas para los procesos de calidad. Fuente: elaboración propia.}\\
+\hline
+\textbf{ID} & \textbf{Ejecución} & \textbf{Comprobación} & \textbf{Supervisión}\\\hline
+\endfirsthead
+\hline
+\textbf{ID} & \textbf{Ejecución} & \textbf{Comprobación} & \textbf{Supervisión}\\\hline
+\endhead
+PC01 & Integrante que elabora los documentos o modelos. & Otro integrante mediante revisión de coherencia y trazabilidad. & Coordinación del proyecto.\\\hline
+PC02 & Integrante que prepara los datos y simulaciones. & Integrante que revisa entradas, configuraciones y resultados. & Equipo de trabajo.\\\hline
+PC03 & Integrante que desarrolla el componente. & Integrante que revisa los resultados de las pruebas. & Coordinación del proyecto.\\\hline
+PC04 & Integrantes que desarrollan e integran la aplicación. & Integrante que revisa los casos de sistema ejecutados. & Equipo de trabajo.\\\hline
+PC05 & Integrantes que desarrollan la selección y agregación. & Revisión técnica de casos controlados y evidencias. & Equipo y acompañamiento académico cuando corresponda.\\\hline
+PC06 & Integrante encargado de preparar los artefactos. & Integrante diferente que verifica versiones y evidencias. & Coordinación del proyecto.\\\hline
+PC07 & Equipo responsable de organizar la evaluación. & Usuarios participantes y revisión de los registros obtenidos. & Equipo y director, según los acuerdos de participación.\\\hline
+\end{longtable}
+
+La designación definitiva de las personas encargadas de ejecutar, revisar y supervisar cada proceso deberá realizarse de acuerdo con la organización del proyecto. En los casos en que el equipo no disponga de un revisor diferente, esta condición deberá quedar identificada en el registro correspondiente.
+
+\textbf{Registro y seguimiento de resultados de calidad.}
+
+Los resultados de los procesos anteriores se conservarán en los documentos de E6, incluyendo el plan de pruebas, los registros de ejecución, las revisiones, los hallazgos y las evidencias de corrección.
+
+Cada registro deberá permitir identificar el proceso aplicado, la fecha, el producto y su versión, el criterio utilizado, los resultados y los problemas encontrados. Cuando corresponda, también se identificará el requisito o la actividad relacionada.
+
+Los problemas detectados se clasificarán según su efecto sobre el funcionamiento, la documentación o la confiabilidad de los resultados. Las correcciones serán verificadas mediante una nueva revisión o prueba, conservando la relación con el hallazgo original.
+
+El seguimiento de estos resultados se relacionará con las métricas descritas en la sección \ref{sec:spmp-12-4} y con el monitoreo del proyecto de la sección \ref{sec:spmp-10-2}.
+
+Finalmente, la preparación de la versión de entrega deberá comprobar que los procedimientos de calidad previstos hayan sido ejecutados y que las observaciones relevantes se encuentren resueltas o documentadas. Las limitaciones que permanezcan deberán comunicarse en la documentación y la demostración del producto, de acuerdo con la sección \ref{sec:spmp-11}.

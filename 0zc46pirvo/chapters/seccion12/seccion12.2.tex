@@ -1,2 +1,154 @@
+
 \subsection{Análisis y Administración de Riesgos - Anticipar lo que puede poner en riesgo la entrega [Pendientes: 1. Elaborar la descripción del plan de administración de riesgos, indicando el responsable y las actividades necesarias para ejecutarlo. 2. Elaborar un diagrama BPMN del proceso de administración de riesgos y su correspondiente explicación. 3. Elaborar una tabla con los riesgos identificados, indicando su probabilidad de ocurrencia e impacto, y ordenándolos por prioridad a partir de ambos factores. 4. Elaborar una segunda tabla con los riesgos más importantes y las acciones de prevención correspondientes a cada uno. 5. Considerar en la identificación de riesgos las incertidumbres relacionadas con los datos de entrada, la ejecución de FDS, el acceso y capacidad de HPC-Zine y la comprobación de la agregación de escenarios.]}\label{sec:spmp-12-2}
-La adaptación de ISO/IEC/IEEE 12207 incluye gestión de riesgos y conservación de decisiones y evidencias~\cite{std12207,adaptacion2026}.
+
+La administración de riesgos tiene como propósito identificar las situaciones que podrían afectar el alcance, el desarrollo y la entrega del producto, así como establecer mecanismos para prevenirlas, darles seguimiento y responder cuando se materialicen. La adaptación de ISO/IEC/IEEE 12207 incluye la gestión de riesgos y la conservación de decisiones y evidencias como parte de los procesos del ciclo de vida del software~\cite{std12207,adaptacion2026}.
+
+En este proyecto, los riesgos no se limitan al desarrollo de la aplicación de escritorio, debido a que su funcionamiento depende de la preparación de datos, la ejecución de simulaciones FDS, la construcción de una biblioteca de escenarios y la integración de sus resultados. También deben considerarse las restricciones de tiempo, infraestructura y disponibilidad de los participantes.
+
+La administración de riesgos se realizará durante las fases de Inicio, Construcción y Semi-transición. Su seguimiento formará parte de las revisiones periódicas del proyecto, de manera que las dificultades puedan identificarse antes de comprometer los entregables definidos en la sección \ref{sec:spmp-6-4}.
+
+\textbf{Procedimiento de administración de riesgos.}
+
+Se propone desarrollar la gestión de riesgos mediante las siguientes actividades:
+
+\begin{enumerate}
+    \item \textbf{Identificación.} Reconocer los riesgos técnicos, operativos y organizacionales a partir de los requisitos, las actividades planificadas, las restricciones del proyecto y los resultados obtenidos. Cada riesgo se registrará con un identificador, una descripción y sus posibles consecuencias.
+
+    \item \textbf{Análisis.} Estimar la probabilidad de ocurrencia y el impacto de cada riesgo sobre el proyecto. Esta estimación será cualitativa y se apoyará en la información disponible, las pruebas preliminares y el criterio del equipo.
+
+    \item \textbf{Priorización.} Ordenar los riesgos mediante un índice calculado a partir de su probabilidad e impacto, con el fin de identificar aquellos que requieren mayor atención.
+
+    \item \textbf{Planificación de respuestas.} Definir acciones preventivas para reducir la probabilidad o las consecuencias de los riesgos prioritarios. También se establecerán respuestas de contingencia cuando las medidas preventivas no sean suficientes.
+
+    \item \textbf{Seguimiento.} Revisar periódicamente el estado de los riesgos, identificar cambios en sus condiciones y comprobar el resultado de las medidas aplicadas. Esta actividad estará relacionada con el monitoreo del progreso descrito en la sección \ref{sec:spmp-10-2}.
+
+    \item \textbf{Actualización y comunicación.} Registrar los riesgos nuevos, los cambios en las estimaciones y las decisiones tomadas. Cuando una respuesta afecte el alcance, los requisitos, el presupuesto o la calendarización, se aplicarán los procedimientos de control de cambios correspondientes.
+\end{enumerate}
+
+La supervisión de los riesgos será una responsabilidad del equipo de trabajo, con acompañamiento del director cuando las decisiones afecten compromisos del proyecto. Se propone designar un responsable de seguimiento para cada riesgo prioritario. La asignación individual deberá acordarse posteriormente y reflejarse en la organización descrita en la sección 8.4.2.
+
+\textbf{Criterios de evaluación y priorización.}
+
+Para establecer un orden inicial se propone utilizar dos escalas cualitativas independientes, cada una con valores de 1 a 3:
+
+\begin{itemize}
+    \item \textbf{Probabilidad de ocurrencia (P).}
+    \begin{itemize}
+        \item \textbf{Baja (1):} es poco probable que el riesgo se materialice durante el proyecto.
+        \item \textbf{Media (2):} el riesgo podría materializarse dadas las condiciones actuales del proyecto.
+        \item \textbf{Alta (3):} existen condiciones que hacen especialmente probable su ocurrencia.
+    \end{itemize}
+
+    \item \textbf{Impacto (I).}
+    \begin{itemize}
+        \item \textbf{Bajo (1):} las consecuencias pueden atenderse sin afectar significativamente los entregables.
+        \item \textbf{Medio (2):} las consecuencias requieren ajustes en actividades, recursos o tiempos.
+        \item \textbf{Alto (3):} las consecuencias podrían comprometer entregables, resultados técnicos o fechas relevantes.
+    \end{itemize}
+\end{itemize}
+
+El índice de prioridad se calculará mediante la expresión:
+
+\[
+    PR = P \times I
+\]
+
+donde \(P\) representa la probabilidad estimada e \(I\) el impacto estimado. Para esta escala se propone considerar prioritarios los riesgos con valores de 6 a 9, mantener seguimiento regular sobre los valores de 3 y 4, y realizar un seguimiento básico para los valores de 1 y 2. El índice se utilizará únicamente para ordenar la atención del equipo y no representa una probabilidad estadística.
+
+La siguiente tabla presenta una identificación preliminar de los riesgos. Sus calificaciones deberán revisarse y acordarse con el equipo, debido a que todavía no se cuenta con evidencia suficiente para asignarles valores definitivos.
+
+\begin{longtable}{|p{0.08\linewidth}|p{0.48\linewidth}|c|c|c|}
+\caption{Identificación y priorización preliminar de riesgos del proyecto. Fuente: elaboración propia a partir del alcance y las restricciones del PMP.}\\
+\hline
+\textbf{ID} & \textbf{Riesgo identificado} & \textbf{P} & \textbf{I} & \textbf{PR}\\\hline
+\endfirsthead
+\hline
+\textbf{ID} & \textbf{Riesgo identificado} & \textbf{P} & \textbf{I} & \textbf{PR}\\\hline
+\endhead
+R01 & Retrasos o limitaciones en el acceso y uso de HPC-Zine, incluyendo cuotas, recursos y almacenamiento disponibles. & 3 & 3 & 9\\\hline
+R02 & Dificultades para implementar o comprobar la agregación de escenarios precalculados, especialmente desde el borde activo del incendio. & 3 & 3 & 9\\\hline
+R03 & Datos de entrada incompletos, desactualizados o insuficientemente representativos del sector de Aguas Claras. & 3 & 3 & 9\\\hline
+R04 & Tiempos de ejecución y consumo de recursos FDS superiores a los previstos para generar la biblioteca. & 3 & 3 & 9\\\hline
+R05 & Errores de coordenadas, proyecciones o correspondencia espacial entre datos, simulaciones y visualización. & 2 & 3 & 6\\\hline
+R06 & Dificultades para reproducir simulaciones debido a archivos de entrada, versiones o parámetros incompletos. & 2 & 3 & 6\\\hline
+R07 & Problemas de integración entre la aplicación, el catálogo, la selección de escenarios y Smokeview. & 2 & 3 & 6\\\hline
+R08 & Disponibilidad insuficiente de usuarios evaluadores durante la fase de Semi-transición. & 2 & 3 & 6\\\hline
+R09 & Pérdida, corrupción o desorganización de código, documentos o resultados de simulación. & 2 & 3 & 6\\\hline
+R10 & Fallas o indisponibilidad del servicio meteorológico utilizado para consultar las condiciones actuales. & 2 & 2 & 4\\\hline
+R11 & Cambios en requisitos o alcance que generen trabajo adicional durante la Construcción. & 2 & 2 & 4\\\hline
+R12 & Crecimiento de la biblioteca que dificulte su almacenamiento, catalogación o distribución. & 2 & 2 & 4\\\hline
+\end{longtable}
+
+\textbf{Acciones preventivas para los riesgos prioritarios.}
+
+La prevención se concentrará inicialmente en los riesgos con mayor índice de prioridad. La siguiente tabla presenta las medidas propuestas y las posibles respuestas cuando se identifique que un riesgo está afectando el desarrollo del proyecto.
+
+\begin{longtable}{|p{0.09\linewidth}|p{0.42\linewidth}|p{0.37\linewidth}|}
+\caption{Acciones preventivas y respuestas propuestas para los riesgos prioritarios. Fuente: elaboración propia.}\\
+\hline
+\textbf{ID} & \textbf{Acción preventiva} & \textbf{Respuesta ante el riesgo}\\\hline
+\endfirsthead
+\hline
+\textbf{ID} & \textbf{Acción preventiva} & \textbf{Respuesta ante el riesgo}\\\hline
+\endhead
+R01 & Confirmar oportunamente el acceso, las condiciones de uso, las cuotas y los recursos disponibles en HPC-Zine. & Reorganizar las ejecuciones y ajustar el volumen de simulaciones, previa evaluación de su impacto sobre el alcance.\\\hline
+R02 & Definir casos controlados y criterios de comprobación para la selección y agregación de escenarios, conservando evidencia de los resultados. & Revisar el procedimiento o limitar las funciones presentadas como comprobadas, sin atribuir validez a resultados que no hayan sido evaluados.\\\hline
+R03 & Documentar procedencia, fecha, resolución, unidades y limitaciones de los datos. Contrastar fuentes cuando existan mediciones disponibles. & Sustituir o complementar los datos, documentar las limitaciones y revisar las simulaciones afectadas.\\\hline
+R04 & Ejecutar un piloto para estimar tiempos, memoria, almacenamiento y comportamiento de FDS antes de planificar ejecuciones masivas. & Optimizar las configuraciones y replanificar las ejecuciones según los recursos disponibles.\\\hline
+R05 & Comprobar el sistema de referencia espacial y la correspondencia entre capas, entradas FDS y resultados visualizados. & Corregir las transformaciones espaciales y repetir las comprobaciones afectadas.\\\hline
+R06 & Conservar configuraciones, versiones de FDS, archivos de entrada, parámetros y registros de ejecución. & Reconstruir el paquete de simulación y repetir los casos que no cuenten con evidencia suficiente.\\\hline
+R07 & Desarrollar pruebas de integración progresivas utilizando escenarios de ejemplo y datos controlados. & Aislar el componente que presenta el problema y realizar una nueva comprobación después de corregirlo.\\\hline
+R08 & Gestionar anticipadamente la participación de usuarios y preparar actividades de evaluación concretas. & Reprogramar las evaluaciones y registrar las limitaciones de participación sin sustituirlas por una aceptación no realizada.\\\hline
+R09 & Mantener control de versiones, respaldos y procedimientos de recuperación para los artefactos del proyecto. & Recuperar la última versión íntegra disponible y verificar las posibles pérdidas antes de continuar.\\\hline
+\end{longtable}
+
+\textbf{Representación del proceso mediante BPMN.}
+
+La figura siguiente representa el flujo propuesto para administrar los riesgos. El proceso inicia con la identificación de una situación que pueda afectar el proyecto y continúa con su evaluación y priorización. Posteriormente se definen las respuestas y se realiza seguimiento. Cuando las condiciones cambian, se actualiza el registro y se repite el análisis; de lo contrario, se conserva la información para la siguiente revisión.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+    >=Stealth,
+    font=\footnotesize,
+    evento/.style={circle,draw,minimum size=7mm},
+    tarea/.style={rectangle,draw,rounded corners=3pt,
+        align=center,text width=4.5cm,minimum height=9mm},
+    decision/.style={diamond,draw,aspect=2,
+        align=center,inner sep=1pt,text width=1.9cm},
+    flujo/.style={->,semithick}
+]
+
+\node[evento] (inicio) at (0,0) {};
+\node[tarea] (identificar) at (0,-1.1)
+    {Identificar y registrar riesgos};
+\node[tarea] (analizar) at (0,-2.4)
+    {Evaluar probabilidad e impacto};
+\node[tarea] (respuesta) at (0,-3.7)
+    {Priorizar y planificar respuestas};
+\node[tarea] (seguimiento) at (0,-5.0)
+    {Monitorear riesgos y acciones};
+\node[decision] (cambio) at (0,-6.5)
+    {¿Cambió el riesgo?};
+\node[tarea] (actualizar) at (5,-6.5)
+    {Actualizar registro y medidas};
+\node[evento,double,double distance=1.5pt]
+    (fin) at (0,-8.1) {};
+
+\draw[flujo] (inicio) -- (identificar);
+\draw[flujo] (identificar) -- (analizar);
+\draw[flujo] (analizar) -- (respuesta);
+\draw[flujo] (respuesta) -- (seguimiento);
+\draw[flujo] (seguimiento) -- (cambio);
+\draw[flujo] (cambio) -- node[left]{No} (fin);
+\draw[flujo] (cambio) -- node[above]{Sí} (actualizar);
+\draw[flujo] (actualizar.north) |- (analizar.east);
+
+\end{tikzpicture}
+\caption{Proceso propuesto de administración de riesgos mediante BPMN simplificado. Fuente: elaboración propia.}
+\label{fig:spmp-riesgos}
+\end{figure}
+
+El registro de riesgos deberá conservar al menos el identificador, la descripción, la probabilidad, el impacto, la prioridad, las acciones previstas, el estado y las evidencias de seguimiento. Las decisiones que afecten la planificación se relacionarán con el control de cambios descrito en la sección \ref{sec:spmp-6-6}.
+
+Los responsables individuales de ejecutar y supervisar las respuestas se definirán conjuntamente con la organización del proyecto. Hasta entonces, las tablas anteriores constituyen una propuesta inicial para discusión y no una evaluación definitiva aprobada por el equipo.
