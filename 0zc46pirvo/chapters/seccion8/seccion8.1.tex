@@ -1,15 +1,93 @@
 \subsection{Modelo de Ciclo de Vida - Preparar, construir y entregar con DAD [Pendientes: 1. Acordar duración y agenda de iteraciones. 2. Definir flujo de revisión. 3. Definir las prácticas que se utilizarán durante el desarrollo del proyecto, incluidas las técnicas de seguimiento, desarrollo y pruebas.]}\label{sec:spmp-8-1}
 El proyecto utilizará DAD con las fases de Inicio, Construcción y Semi-transición. Esta última adapta la fase de Transición de DAD a la evaluación y entrega académica de una primera versión funcional, sin su despliegue definitivo en una institución de emergencias. Inicio aporta la delimitación, los requisitos y las primeras decisiones sobre arquitectura, datos y viabilidad, mientras que Construcción integra desarrollo de software y trabajo técnico mediante incrementos y Semi-transición reúne la evaluación, las correcciones y la entrega. Esta secuencia no impide revisar decisiones previas cuando aparezca evidencia relevante. Por el contrario, las pruebas, la trazabilidad y la gestión de riesgos acompañarán el desarrollo, de manera que las incertidumbres sobre ejecución, datos o agregación puedan tratarse antes de comprometer la versión final~\cite{adaptacion2026}.
 
-La figura \ref{fig:dad-pmp} representa la relación entre las fases del ciclo de vida. Una iteración seleccionará un objetivo verificable, desarrollará el trabajo necesario, conservará sus comprobaciones y revisará el resultado para decidir la continuidad. Un incremento podrá producir una capacidad de la aplicación o evidencia que permita ajustar parámetros, datos o límites, por lo que el avance no se medirá únicamente por código escrito. El catálogo de entregables se presenta en la sección \ref{sec:spmp-6-4}, la base de aceptación en la sección \ref{sec:spmp-8-3} y los fundamentos de seguimiento y medición en las secciones \ref{sec:spmp-10-2} y \ref{sec:spmp-12-4}.
-\begin{figure}[htbp]\centering
-\begin{tikzpicture}[node distance=16pt,font=\normalsize,phase/.style={draw,rounded corners,text width=.84\linewidth,align=center,inner sep=7pt}]
-\node[phase](a){\textbf{Inicio, 2026-3}\\Preparación y reducción de incertidumbres};
-\node[phase,below=of a](b){\textbf{Construcción, 2027-1}\\Incrementos de software y evidencia técnica};
-\node[phase,below=of b](c){\textbf{Semi-transición, 2027-1}\\Evaluación, corrección y entrega};
-\draw[-{Stealth}] (a)--(b);\draw[-{Stealth}](b)--(c);
-\end{tikzpicture}
-\caption{Ciclo de vida adoptado. Fuente: elaboración propia a partir de la metodología del equipo~\cite{adaptacion2026}.}\label{fig:dad-pmp}
+La tabla~\ref{tab:fases-hitos} relaciona cada fase con su periodo, sus iteraciones, los hitos de la tabla~4 y los entregables de la sección~6.4. Cada fase se asocia además con los hitos que DAD propone para decidir, de manera explícita, si el proyecto puede avanzar~\cite{ambler2012dad}.
+
+\begin{longtable}{|p{0.13\textwidth}|p{0.17\textwidth}|p{0.17\textwidth}|p{0.17\textwidth}|p{0.18\textwidth}|}
+\caption{Fases, hitos y entregables del ciclo de vida. Fuente: elaboración propia a partir de la metodología del equipo~\cite{adaptacion2026} y de Ambler y Lines~\cite{ambler2012dad}.}\label{tab:fases-hitos}\\
+\hline
+\textbf{Fase} & \textbf{Periodo e iteraciones} & \textbf{Hitos del proyecto} & \textbf{Hito DAD relacionado} & \textbf{Entregables principales}\\\hline
+\endfirsthead
+\hline
+\textbf{Fase} & \textbf{Periodo e iteraciones} & \textbf{Hitos del proyecto} & \textbf{Hito DAD relacionado} & \textbf{Entregables principales}\\\hline
+\endhead
+Inicio & 2026-3, sin iteraciones formales. & H1 (28/10/2026) y H2 (11/11/2026). & Visión acordada por los interesados. & Versiones iniciales de E1 y E2 y caso de práctica de FDS previo al piloto.\\\hline
+Construcción & 25/01/2027 a 25/04/2027; iteraciones I1 a I6. & H3 (cierre de I5, 09/04/2027) y H4 (cierre de I6, 23/04/2027). & Arquitectura probada, con el piloto ejecutado en HPC-ZINE al cierre de I2, y funcionalidad suficiente, que corresponde a H4. & E2 actualizado, E3, E4, incrementos de E5 y registros de E6.\\\hline
+Semi-\allowbreak{}transición & 26/04/2027 a 29/05/2027; iteraciones I7 e I8 y semana~17. & H5 (cierre de I7, 07/05/2027) y H6 (semana~17). & Listo para producción, adaptado a la entrega académica de una primera versión funcional. & E5 corregido, E6 consolidado y E7.\\\hline
+\end{longtable}
+
+La figura \ref{fig:ciclo-vida} representa la relación entre las fases del ciclo de vida. Una iteración seleccionará un objetivo verificable, desarrollará el trabajo necesario, conservará sus comprobaciones y revisará el resultado para decidir la continuidad. Un incremento podrá producir una capacidad de la aplicación o evidencia que permita ajustar parámetros, datos o límites, por lo que el avance no se medirá únicamente por código escrito. El catálogo de entregables se presenta en la sección \ref{sec:spmp-6-4}, la base de aceptación en la sección \ref{sec:spmp-8-3} y los fundamentos de seguimiento y medición en las secciones \ref{sec:spmp-10-2} y \ref{sec:spmp-12-4}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{ciclo_vida_dad.pdf}
+    \caption{Ciclo de vida adoptado. Fuente: elaboración propia a partir de Ambler y Lines~\cite{ambler2012dad} y de la metodología del equipo~\cite{adaptacion2026}.}
+    \label{fig:ciclo-vida}
 \end{figure}
 
+\paragraph{Flujo de revisión.}
+El trabajo de cada iteración se revisa en tres niveles. En el código de la aplicación, cada cambio se desarrolla en una rama de trabajo creada a partir de la rama principal, siguiendo la convención propuesta en la sección~12.3 (\texttt{feature/}, \texttt{fix/} y \texttt{docs/}). Antes de integrarse, el cambio se presenta con una descripción de su finalidad, de los archivos afectados y de las verificaciones realizadas, y un integrante distinto de su autor revisa su correspondencia con los requisitos y comprueba que las pruebas unitarias del proceso PC03 se ejecuten sin errores; la designación de este revisor se establece en la sección~8.4.2. En la reunión presencial de sincronización se integran los cambios aprobados y se identifica la versión de referencia que se presenta al director, de acuerdo con la sección~12.3. Los documentos y modelos se revisan mediante el proceso PC01, y los datos y las simulaciones mediante el proceso PC02, de modo que ningún escenario se incorpora a la biblioteca sin haber superado la verificación de reproducibilidad de la sección~12.5. Finalmente, la revisión con el director contrasta el resultado de la iteración con su objetivo; las observaciones que modifiquen requisitos se tramitan mediante el proceso de la sección~10.1, y las que modifiquen el PMP, mediante la evolución del plan descrita en la sección~6.6.
+
+\paragraph{Representación del proceso mediante BPMN.}
+La figura~\ref{fig:bpmn-ciclo} describe el proceso de alto nivel del proyecto mediante BPMN~\cite{omg2013bpmn}. Los carriles distinguen las responsabilidades del equipo, del director y de los usuarios, mientras que HPC-ZINE se representa como un participante externo con el que el equipo intercambia trabajos y resultados de simulación. Las tareas que se detallan en otras secciones se representan como subprocesos: la ejecución de la iteración, en la sección~9.3.2; la gestión de cambios, en la sección~10.1, y la evaluación con usuarios, en la sección~12.5.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{bpmn_ciclo_vida.png}
+    \caption{Proceso de alto nivel del ciclo de vida. Fuente: elaboración propia.}
+    \label{fig:bpmn-ciclo}
+\end{figure}
+
+\paragraph{Prácticas.}
+DAD no prescribe un conjunto fijo de prácticas, sino que permite seleccionarlas según el contexto del equipo y del proyecto~\cite{ambler2012dad}. La tabla~\ref{tab:practicas} presenta las prácticas adoptadas para los aspectos principales del proyecto y la sección del documento en la que se detalla cada una.
+
+\begin{longtable}{|p{0.18\textwidth}|p{0.55\textwidth}|p{0.14\textwidth}|}
+\caption{Prácticas adoptadas en el ciclo de vida. Fuente: elaboración propia.}\label{tab:practicas}\\
+\hline
+\textbf{Aspecto} & \textbf{Práctica} & \textbf{Detalle}\\\hline
+\endfirsthead
+\hline
+\textbf{Aspecto} & \textbf{Práctica} & \textbf{Detalle}\\\hline
+\endhead
+Requisitos & Especificación mediante casos de uso, coherentes con los diagramas de E2, y priorización de los requisitos pendientes al planificar cada iteración. & Sección 10.1.\\\hline
+Planificación y estimación & Objetivo verificable por iteración y estimación de sus tareas con los métodos definidos en la sección~9.1. & Secciones 9.1 y 9.3.2.\\\hline
+Seguimiento del progreso & Tablero del proyecto en GitHub Projects, con los estados por hacer, en curso, en revisión y terminado, y gráfica \textit{burndown} de las tareas planificadas para cada iteración, construida con los conteos de la tabla~9. & Secciones 10.2 y 12.4.\\\hline
+Coordinación & Planificación, reportes de avance, sincronización presencial, revisión con el director y retrospectiva, según la agenda de cada iteración. & Secciones 8.1 y 12.1.\\\hline
+Desarrollo & Ramas de trabajo con revisión por un integrante distinto del autor antes de integrarse a la rama principal, y programación en parejas para la selección y agregación de escenarios. & Secciones 12.3 y 12.5 (PC05).\\\hline
+Pruebas & Pruebas unitarias en cada incremento, ejecutadas antes de cada integración; pruebas de integración y sistema sobre las versiones de referencia, y evaluación con usuarios en Semi-transición. & Sección 12.5 (PC03, PC04 y PC07).\\\hline
+Simulación y datos & Conservación de las configuraciones, las entradas y la versión de FDS, y verificación de reproducibilidad antes de incorporar un escenario a la biblioteca. & Secciones 12.3 y 12.5 (PC02).\\\hline
+Riesgos & Revisión del estado de los riesgos en cada retrospectiva. & Sección 12.2.\\\hline
+Documentación y evidencias & Actualización de los artefactos en la misma iteración en que cambia el producto, según la tabla~12, y auditoría interna de artefactos y evidencias al cierre de cada fase. & Secciones 12.3 y 12.5 (PC06).\\\hline
+\end{longtable}
+
+\paragraph{Estructura de las iteraciones.}
+Construcción y Semi-transición se organizan en iteraciones de dos semanas durante el periodo académico 2027-1, comprendido entre el 25 de enero y el 29 de mayo de 2027~\cite{javerianaCalendario2027}. Construcción comprende seis iteraciones (I1 a I6) y Semi-transición dos (I7 e I8), seguidas de la semana~17, destinada a la entrega final. La tabla~\ref{tab:iteraciones} presenta las fechas, el foco previsto y los hitos de cada iteración, con referencia a las actividades de la tabla~8. El foco constituye una orientación inicial que se precisará en la planificación de cada iteración; la calendarización detallada de las actividades se presenta en la sección~9.3.2.
+
+\begin{longtable}{|p{0.08\textwidth}|p{0.16\textwidth}|p{0.15\textwidth}|p{0.38\textwidth}|p{0.07\textwidth}|}
+\caption{Iteraciones del periodo 2027-1. Fuente: elaboración propia a partir del calendario general 2027 de la universidad~\cite{javerianaCalendario2027}.}\label{tab:iteraciones}\\
+\hline
+\textbf{ID} & \textbf{Fechas} & \textbf{Fase} & \textbf{Foco previsto} & \textbf{Hito}\\\hline
+\endfirsthead
+\hline
+\textbf{ID} & \textbf{Fechas} & \textbf{Fase} & \textbf{Foco previsto} & \textbf{Hito}\\\hline
+\endhead
+I1 & 25/01/2027 a 07/02/2027 & Construcción & Gestión del acceso a HPC-ZINE e instalación de FDS~6.11.1; estructura inicial de la aplicación (A2, A3, A7). & --\\\hline
+I2 & 08/02/2027 a 21/02/2027 & Construcción & Ejecución del piloto de Aguas Claras en HPC-ZINE (A5) y consulta básica de escenarios (A7). & --\\\hline
+I3 & 22/02/2027 a 07/03/2027 & Construcción & Generación de escenarios de Aguas Claras (A6) y búsqueda de escenarios (A7). & --\\\hline
+I4 & 08/03/2027 a 21/03/2027 & Construcción & Generación de escenarios (A6), integración de condiciones meteorológicas y agregación (A7). & --\\\hline
+Receso & 22/03/2027 a 28/03/2027 & Semana Santa & Trabajo individual de baja carga, descrito a continuación de esta tabla. & --\\\hline
+I5 & 29/03/2027 a 11/04/2027 & Construcción & Cierre de la biblioteca de Aguas Claras (A6) y visualización de resultados (A7). & H3\\\hline
+I6 & 12/04/2027 a 25/04/2027 & Construcción & Integración, pruebas y correcciones (A7, A8); congelamiento de la biblioteca. & H4\\\hline
+I7 & 26/04/2027 a 09/05/2027 & Semi-transición & Evaluación de la versión final con usuarios (A9). & H5\\\hline
+I8 & 10/05/2027 a 23/05/2027 & Semi-transición & Corrección de problemas y preparación de la entrega (A10, A11). & --\\\hline
+Semana 17 & 24/05/2027 a 29/05/2027 & Semi-transición & Consolidación de evidencias y entrega final (A12). & H6\\\hline
+\end{longtable}
+
+\begin{enumerate}
+    \item \textbf{Agenda de cada iteración.} El lunes de la primera semana, el equipo realiza una reunión virtual de planificación de aproximadamente una hora, en la que define el objetivo verificable de la iteración y registra sus tareas en el tablero del proyecto. Durante la iteración, los lunes y jueves cada integrante reporta su avance y sus dificultades por WhatsApp. El jueves de la segunda semana se realiza una reunión de sincronización (preferiblemente precencial), de entre una y una hora y media, en la que se integran los cambios pendientes, se establece la versión de referencia de la iteración, se registran las mediciones de la sección~12.4 y se prepara la demostración. El viernes de la segunda semana se realiza la revisión con el director, de 30 a 45~minutos, seguida de una retrospectiva del equipo de 30~minutos, en la que también se revisa el estado de los riesgos de la sección~12.2. Si la agenda del director requiere otro día, la reunión presencial se trasladará al día hábil anterior a la revisión. En I8, la planificación se realizará el martes 11 de mayo, debido al festivo del lunes 10.
+    \item \textbf{Semana Santa.} La semana del 22 al 28 de marzo de 2027 solo cuenta con dos días hábiles, el 23 y el 24 de marzo. En ella no se programan reuniones y se prevé trabajo individual de baja carga: actualizar la trazabilidad de E1 y los modelos de E2, documentar el piloto en E3 y revisar los resultados de las simulaciones que se estén ejecutando en HPC-ZINE. Si se prevé abrir la ventana de sectores adicionales, también podrán prepararse los datos geográficos del sector de Monserrate--Las Aguas.
+    \item \textbf{Ventana opcional para sectores adicionales.} El alcance comprometido corresponde a la biblioteca del sector de Aguas Claras, cuya terminación constituye el hito H3. Si H3 se alcanza antes de la fecha prevista, durante el tiempo restante de I5 y durante I6 podrán ejecutarse en HPC-ZINE simulaciones del sector de Monserrate--Las Aguas y, si existe tiempo adicional, de los sectores de Guadalupe--El Zuque y de la ladera de Usaquén. Estas ejecuciones avanzan en paralelo al desarrollo de la aplicación, por lo que su costo principal en horas corresponde a la preparación de las entradas. La biblioteca se congelará al cierre de I6 e incluirá únicamente los escenarios que hayan superado la verificación del proceso PC02 de la sección~12.5, de modo que la evaluación con usuarios utilice una versión estable. Si H3 se retrasa, la ventana no se abrirá.
+\end{enumerate}
+
+  La estructura de fases, iteraciones y prácticas descrita en esta sección constituye la base para la descomposición de actividades de la sección~9.3.1 y para la calendarización de la sección~9.3.2. En particular, el subproceso de ejecución de la iteración de la figura~\ref{fig:bpmn-ciclo} se detalla en el flujo recurrente de trabajo de la sección~9.3.2, y la recopilación de mediciones prevista en la sección~12.4 se realiza al cierre de cada iteración, durante la reunión presencial de sincronización.
 \input{chapters/seccion8/seccion8.1/seccion8.1.1}
