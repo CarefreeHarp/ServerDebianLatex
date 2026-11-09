@@ -1,1 +1,30 @@
 \subsubsection{Asignación de Presupuesto y Justificación - ¿Cuánto cuesta realizar el proyecto? [Pendientes: 1. Consultar y confirmar las tarifas de HPC-Zine. 2. Valorar esfuerzos y aportes financieros y en especie por actividad. 3. Elaborar y justificar el presupuesto. 4. Elaborar una tabla de flujo de caja que detalle las entradas y salidas de dinero para las principales actividades identificadas en la WBS.]}\label{sec:spmp-9-3-4}
+El proyecto no recibe financiación externa: el dinero que se gasta lo aportan los integrantes, y el principal recurso es su trabajo, que se valora como aporte en especie. La hora del equipo se valora por analogía con el ingreso de un ingeniero de sistemas recién graduado (sección~9.1): el punto medio del rango del Observatorio Laboral, 3,25 SMMLV~\cite{ole2022}, con el SMMLV de 2026 (\$1.750.905), dividido entre las 210 horas mensuales con que se liquida la jornada de 42 horas semanales vigente desde el 15 de julio de 2026~\cite{portafolio2026hora}. La tarifa resultante es de \$27.097 por hora-persona, a precios de 2026, porque el salario mínimo de 2027 aún no se ha fijado, y sin cargas prestacionales, porque no se trata de un pago real. Las horas de Inicio (2026-3) no se estimaron por tareas, por lo que se valora su capacidad formal: cuatro integrantes, los dos créditos de la asignatura de planeación y 48 horas por crédito, es decir, 384 horas-persona. Las de 2027-1 son las 662 horas-persona de la tabla~\ref{tab:recursos} (sección~9.3.3), repartidas en proporción a las semanas de trabajo de cada mes.
+ 
+El costo de HPC-ZINE no puede presupuestarse todavía, porque su tarifa depende de la cotización solicitada en noviembre de 2026 (sección~9.2.2). Cuando se conozca, el costo se calculará multiplicando las núcleo-horas $C$ de la sección~9.1 por la tarifa cotizada, se incorporará en los meses de A5 y A6 y se tramitará según la sección~6.6; si la Universidad lo asume, se registrará como aporte en especie. Hasta entonces, el total de la tabla~\ref{tab:flujo-caja} no incluye este rubro.
+ 
+\begin{longtable}{|p{0.27\textwidth}|r|r|r|r|r|r|r|}
+\caption{Flujo de caja y aportes en especie del proyecto, en miles de pesos colombianos de 2026. Fuente: elaboración propia.}\label{tab:flujo-caja}\\
+\hline
+\textbf{Concepto (actividad)} & \textbf{2026-3} & \textbf{Ene.} & \textbf{Feb.} & \textbf{Mar.} & \textbf{Abr.} & \textbf{May.} & \textbf{Total}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{Concepto (actividad)} & \textbf{2026-3} & \textbf{Ene.} & \textbf{Feb.} & \textbf{Mar.} & \textbf{Abr.} & \textbf{May.} & \textbf{Total}\tabularnewline\hline
+\endhead
+\multicolumn{8}{|l|}{\textbf{Entradas de dinero}}\tabularnewline\hline
+\raggedright Aportes de los integrantes & 100 & -- & 1.060 & -- & -- & 300 & 1.460\tabularnewline\hline
+\multicolumn{8}{|l|}{\textbf{Salidas de dinero}}\tabularnewline\hline
+\raggedright Dos discos externos de 2~TB (A6)~\cite{falabella2026disco} & -- & -- & 1.060 & -- & -- & -- & 1.060\tabularnewline\hline
+\raggedright Transporte a la UAECOB (A1 y A9) & 100 & -- & -- & -- & -- & 300 & 400\tabularnewline\hline
+\raggedright HPC-ZINE (A5 y A6) & -- & -- & \multicolumn{3}{c|}{Por cotizar} & -- & --\tabularnewline\hline
+\raggedright Software y licencias (sección~8.2) & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline\hline
+\raggedright \textbf{Saldo} & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline\hline
+\multicolumn{8}{|l|}{\textbf{Aportes en especie valorados}}\tabularnewline\hline
+\raggedright Horas del equipo (horas-persona) & 384,0 & 39,3 & 157,1 & 134,6 & 168,3 & 162,7 & 1.046,0\tabularnewline\hline
+\raggedright Valor de las horas del equipo (A1 a A12) & 10.405 & 1.065 & 4.257 & 3.647 & 4.560 & 4.409 & 28.343\tabularnewline\hline
+\raggedright \textbf{Costo del proyecto sin HPC-ZINE} & \textbf{10.505} & \textbf{1.065} & \textbf{5.317} & \textbf{3.647} & \textbf{4.560} & \textbf{4.709} & \textbf{29.803}\tabularnewline\hline
+\end{longtable}
+ 
+Los discos se compran en febrero, una vez el piloto confirme el almacenamiento $S$ de la sección~9.1; su capacidad de 2~TB es provisional. El transporte corresponde a la sesión de dominio con la UAECOB (sección~9.2.1) y a tres presentaciones a usuarios durante la evaluación (A9). Todo el software de la sección~8.2 es gratuito o se usa en su versión de evaluación.
+ 
+El costo estimado del software, que la tabla incluye dentro de las horas del equipo de 2027-1, corresponde a las 382,0 horas-persona de la tabla~\ref{tab:esfuerzo-software}, es decir, \$10.351.054. Otros aportes en especie no se valoran en dinero: el tiempo del director, cerca de 10 horas en 2027-1 entre revisiones de iteración y aceptaciones de fase; el del asesor, cerca de 6 horas entre la sesión de QGIS y las consultas, y los portátiles de los integrantes y el servidor documental de Daniel Ramírez. En total, el costo del proyecto sin HPC-ZINE se estima en \$29.803.262, de los cuales \$1.459.800 son salidas de dinero y \$28.343.462 corresponden a la valoración del trabajo del equipo.

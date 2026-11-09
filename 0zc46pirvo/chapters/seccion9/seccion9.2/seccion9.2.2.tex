@@ -1,6 +1,39 @@
 \subsubsection{Infraestructura - El entorno para ejecutar nuestras simulaciones [Pendientes: 1. Confirmar acceso, cuotas, almacenamiento y tarifas HPC-ZINE. 2. Verificar versión, instalación, configuración y ejecución efectiva de FDS en HPC-Zine. 3. Elegir sistema operativo y entornos de desarrollo de la aplicación. 4. Investigar y precisar los procedimientos, requisitos y actividades necesarios para obtener acceso individual a HPC-Zine.]}\label{sec:spmp-9-2-2}
-Para desarrollar y ejecutar las simulaciones del proyecto, se prevé utilizar HPC-Zine como infraestructura universitaria de cómputo científico.
-
-Juan Guillermo Torres Hurtado es la persona de contacto para la coordinación de HPC-ZINE. La infraestructura científica comprende entornos de ejecución de FDS, cómputo y almacenamiento.
-
-El equipo ha completado la capacitación de HPC-Zine. Para obtener el acceso oficial a la infraestructura queda pendiente elaborar la cotización correspondiente. Cada integrante será responsable de su acceso independiente y de su utilización.
+El proyecto utiliza cinco entornos. Los portátiles de los integrantes se usan para desarrollar la aplicación, preparar los datos y ejecutar casos pequeños de FDS. HPC-ZINE ejecuta las simulaciones de la biblioteca. Dos discos externos conservan la biblioteca y su respaldo, fuera de HPC-ZINE. El servidor documental, ubicado en casa de Daniel Ramírez, aloja Aldine y se sincroniza automáticamente con GitHub. Por último, los servicios en la nube (GitHub y Google) alojan el repositorio, el tablero y las hojas del proyecto. Las pruebas de instalación en Windows se realizan en máquinas virtuales. Las herramientas y versiones de cada entorno son las de la sección~8.2.
+ 
+La tabla~\ref{tab:infraestructura} presenta las tareas para obtener, poner en marcha y mantener esta infraestructura. Los responsables se indican por rol, según la sección~8.4.2: \textit{Team Lead} (TL, Guillermo Aponte), \textit{Product Owner} (PO, Andrés Pinzón), \textit{Architecture Owner} (AO, Daniel Ramírez) y \textit{Team Member} (TM, Miguel Sarmiento), este último como enlace con HPC-ZINE.
+ 
+\begin{longtable}{|p{0.45\textwidth}|p{0.15\textwidth}|p{0.14\textwidth}|p{0.14\textwidth}|}
+\caption{Tareas de infraestructura. Fuente: elaboración propia.}\label{tab:infraestructura}\\
+\hline
+\textbf{Tarea} & \textbf{Responsable} & \textbf{Cuándo} & \textbf{Frecuencia}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{Tarea} & \textbf{Responsable} & \textbf{Cuándo} & \textbf{Frecuencia}\tabularnewline\hline
+\endhead
+\multicolumn{4}{|l|}{\textbf{Obtener}}\tabularnewline\hline
+\raggedright Solicitar a HPC-ZINE la cotización de núcleo-horas y almacenamiento, con la estimación de la sección~9.1. & \raggedright Todo el equipo & \raggedright Noviembre de 2026 & \raggedright Una vez\tabularnewline\hline
+\raggedright Solicitar a HPC-ZINE la instalación de FDS 6.11.1 y Smokeview como módulo del clúster. & \raggedright Todo el equipo & \raggedright Noviembre de 2026, con la cotización & \raggedright Una vez\tabularnewline\hline
+\raggedright Instalar el módulo de FDS 6.11.1 y Smokeview en el clúster. & \raggedright Administrador de HPC-ZINE & \raggedright Tras la solicitud & \raggedright Una vez y en cada actualización\tabularnewline\hline
+\raggedright Tramitar el acceso individual a HPC-ZINE. & \raggedright Cada integrante & \raggedright Inicio de 2027-1 & \raggedright Una vez\tabularnewline\hline
+\raggedright Crear el repositorio de la aplicación y sus permisos, y el tablero y las hojas compartidas del proyecto. & \raggedright AO (repositorio); TL (tablero y hojas) & \raggedright Inicio & \raggedright Una vez\tabularnewline\hline
+\raggedright Adquirir dos discos externos con capacidad de al menos $S$, el almacenamiento estimado en la sección~9.1. & \raggedright TL & \raggedright Tras el piloto (A5) & \raggedright Una vez\tabularnewline\hline
+\raggedright Obtener VirtualBox y las imágenes de Windows 10 y 11 (de evaluación o con licencia académica). & \raggedright PO & \raggedright I2 & \raggedright Una vez\tabularnewline\hline
+\multicolumn{4}{|l|}{\textbf{Poner en marcha}}\tabularnewline\hline
+\raggedright Instalar en cada portátil las herramientas de la sección~8.2 con sus versiones fijadas, y el entorno virtual de Python a partir del archivo de dependencias. & \raggedright Cada integrante; guía el AO & \raggedright Inicio & \raggedright Una vez y ante cada cambio de versión\tabularnewline\hline
+\raggedright Crear el archivo de dependencias de Python con versiones fijas, la plantilla de solicitud de integración y la protección de la rama principal. & \raggedright AO & \raggedright Inicio & \raggedright Una vez\tabularnewline\hline
+\raggedright Comprobar el módulo de FDS en HPC-ZINE con un caso de verificación de la distribución oficial y comparar su resultado con el de un portátil. & \raggedright TM & \raggedright I1, al disponer del módulo & \raggedright Una vez y tras cada actualización del módulo\tabularnewline\hline
+\raggedright Preparar la plantilla de trabajo de Slurm para FDS en paralelo, con el registro de tiempo, memoria y núcleo-horas. & \raggedright AO & \raggedright I1 & \raggedright Una vez; se ajusta tras el piloto\tabularnewline\hline
+\raggedright Organizar los discos en datos originales, datos procesados, entradas de FDS y resultados, con un inventario y sus sumas SHA-256 (sección~12.3). & \raggedright TM (disco principal); AO (respaldo) & \raggedright Al recibir los discos & \raggedright Una vez\tabularnewline\hline
+\raggedright Configurar las máquinas virtuales de Windows y guardar una instantánea del sistema limpio. & \raggedright PO & \raggedright I2 & \raggedright Una vez\tabularnewline\hline
+\multicolumn{4}{|l|}{\textbf{Mantener}}\tabularnewline\hline
+\raggedright Transferir los resultados de HPC-ZINE al disco principal, verificar sus sumas y liberar el espacio del clúster. & \raggedright TM & \raggedright Construcción & \raggedright Tras cada lote de simulaciones\tabularnewline\hline
+\raggedright Revisar el consumo de núcleo-horas y de almacenamiento en HPC-ZINE frente a lo cotizado. & \raggedright TM & \raggedright Construcción & \raggedright En cada retrospectiva\tabularnewline\hline
+\raggedright Copiar el disco principal y una réplica del repositorio de la aplicación en el disco de respaldo, guardado en un lugar distinto del principal. & \raggedright AO & \raggedright Construcción y Semi-transición & \raggedright Semanal\tabularnewline\hline
+\raggedright Restaurar una muestra del disco de respaldo, del repositorio y de los documentos de Aldine desde GitHub, y comprobarla contra el inventario y el catálogo. & \raggedright AO & \raggedright Cierre de cada fase (PC06) & \raggedright Por fase\tabularnewline\hline
+\raggedright Mantener el servidor documental en funcionamiento y comprobar que su sincronización automática con GitHub, cada cuatro horas aproximadamente, se ejecuta (sección~12.3). & \raggedright AO & \raggedright Todo el proyecto & \raggedright Semanal y ante fallas\tabularnewline\hline
+\raggedright Restaurar la máquina virtual a su instantánea limpia antes de cada prueba de instalación (secciones~8.3 y 11). & \raggedright PO & \raggedright Construcción y Semi-transición & \raggedright Antes de cada prueba\tabularnewline\hline
+\raggedright Cambiar la versión de una herramienta o dependencia solo como cambio de configuración aprobado. & \raggedright AO & \raggedright Todo el proyecto & \raggedright Cuando se requiera\tabularnewline\hline
+\end{longtable}
+ 
+Se prevén tres contingencias. Si el módulo de FDS no está disponible al iniciar I1, el TL lo escala a la coordinación de HPC-ZINE y, con autorización del administrador, el AO instala el paquete oficial de FDS para Linux en el espacio de usuario del proyecto, que se comprueba de la misma forma. Si las núcleo-horas o el almacenamiento cotizados no alcanzan, el número de escenarios se recalcula con la sección~9.1 y el cambio se tramita según la sección~6.6. Si un disco falla, la biblioteca se restaura desde el otro y se adquiere un reemplazo. Las tareas de esta tabla se registran en el tablero, y su ejecución se comprueba con los procesos PC02 y PC06 de la sección~12.5.

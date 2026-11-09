@@ -1,1 +1,31 @@
 \subsubsection{Asignación de Recursos - Vincular cada actividad con los recursos que necesita [Pendientes: 1. Una vez elaborada la WBS, identificar los recursos necesarios y los roles requeridos para ejecutar cada actividad principal.]}\label{sec:spmp-9-3-3}
+
+
+Los roles que ejecutan cada actividad principal se presentan en la matriz RACI de la tabla~\ref{tab:raci} (sección~8.4.2). La tabla~\ref{tab:recursos} complementa esa matriz con los recursos que necesita cada actividad, su responsable (A en la RACI) y el esfuerzo previsto en 2027-1, en horas-persona. Las actividades A1 a A4 se realizan principalmente en Inicio (2026-3); en 2027-1 solo se cuenta su refinamiento.
+ 
+\begin{longtable}{|p{0.17\textwidth}|p{0.53\textwidth}|p{0.07\textwidth}|p{0.08\textwidth}|}
+\caption{Recursos y esfuerzo de las actividades principales en 2027-1. Fuente: elaboración propia.}\label{tab:recursos}\\
+\hline
+\textbf{Actividad} & \textbf{Recursos} & \textbf{Resp.} & \textbf{h-p}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{Actividad} & \textbf{Recursos} & \textbf{Resp.} & \textbf{h-p}\tabularnewline\hline
+\endhead
+\raggedright A1 Definir el alcance & \raggedright Especificación E1 en Aldine; matriz de trazabilidad en Google Sheets; sesión con representantes de la UAECOB; director. & PO & 16,7\tabularnewline\hline
+\raggedright A2 Arquitectura y datos & \raggedright PlantUML; QGIS, GDAL y qgis2fds; GEDTM30, Copernicus DEM GLO-30, cobertura del Jardín Botánico y series de Open-Meteo; asesor Calderón. & AO & 25,3\tabularnewline\hline
+\raggedright A3 Organizar el trabajo & \raggedright GitHub Projects, GanttProject, WhatsApp y Google Meet; agenda de la sección~8.1; entrenamiento (sección~9.2.1) e infraestructura (sección~9.2.2). & TL & 130,4\tabularnewline\hline
+\raggedright A4 Calidad y pruebas & \raggedright Plan de pruebas en Aldine; Camunda Modeler. Su actualización en 2027-1 se incluye en A8. & TL & --\tabularnewline\hline
+\raggedright A5 Ejecutar el piloto & \raggedright Módulo de FDS 6.11.1 y Slurm en HPC-ZINE; núcleo-horas del piloto; qgis2fds, fdsreader y Smokeview; disco principal. & TM & 34,0\tabularnewline\hline
+\raggedright A6 Generar escenarios & \raggedright Núcleo-horas cotizadas de HPC-ZINE; \textit{scripts} de Python para generar y verificar escenarios; dos discos externos con sumas SHA-256. & TM & 52,0\tabularnewline\hline
+\raggedright A7 Desarrollar la aplicación & \raggedright Portátiles; Python, PySide6, fdsreader, Shapely y pyproj; API de Open-Meteo; Smokeview; Git y GitHub; biblioteca E4. & AO & 240,1\tabularnewline\hline
+\raggedright A8 Comprobar y corregir & \raggedright pytest; casos controlados de agregación; máquinas virtuales de Windows en VirtualBox. & AO & 41,3\tabularnewline\hline
+\raggedright A9 Evaluar la versión final & \raggedright Ejecutable en un equipo con Windows; al menos tres evaluadores de la UAECOB; cuestionario SUS en Google Forms; lugar y transporte para la sesión. & PO & 21,3\tabularnewline\hline
+\raggedright A10 Corregir los problemas & \raggedright Los recursos de A7 y A8, y los registros de la evaluación. & AO & 33,3\tabularnewline\hline
+\raggedright A11 Preparar la entrega & \raggedright PyInstaller; máquina virtual limpia; Aldine; disco con la biblioteca entregada. & TL & 53,1\tabularnewline\hline
+\raggedright A12 Consolidar las evidencias & \raggedright Matriz de trazabilidad, registros de E6 y Aldine. & TL & 14,5\tabularnewline\hline
+\multicolumn{3}{|r|}{\textbf{Total 2027-1}} & \textbf{662,0}\tabularnewline\hline
+\end{longtable}
+ 
+El esfuerzo de A1, A2, A7, A8, A10 y una parte de A11 corresponde a la estimación del software de la tabla~\ref{tab:esfuerzo-software} (382,0 horas-persona). El de A3 suma la coordinación (planificación, revisión con el director y retrospectiva de la agenda de la sección~8.1: 2,125 horas por integrante en cada una de las ocho iteraciones, 68 horas-persona), el entrenamiento de la sección~9.2.1 (41,7) y las tareas de infraestructura de la sección~9.2.2 (20,7). Cada hora se cuenta una sola vez, en la actividad que produce el trabajo: la integración de cambios en la sincronización presencial forma parte del software, y el entrenamiento incluye el estudio, las sesiones y el tiempo adicional de realizar sus evidencias mientras se aprende, pero no el trabajo productivo de esas evidencias, que se cuenta en A5, A6 y A7. Los valores de A3, A5, A6, A9, A11 y A12 que no provienen del software son una valoración preliminar del equipo, estimada con el mismo método de tres puntos de la sección~9.1.
+ 
+El total, cerca de 662 horas-persona, supera en unas 86 la capacidad formal de 576 horas-persona (sección~9.1). En consecuencia, el plan requiere una dedicación cercana a 9,7 horas semanales por integrante durante las 17 semanas de 2027-1, superior a las 8,5 que cubren los créditos, y el equipo la asume como condición del plan. Las horas reales se registran en el tablero y se comparan con las planificadas en cada retrospectiva. Las funcionalidades deseables (CU07 y CU08) y los sectores adicionales no forman parte de este total y solo se emprenden si el registro muestra margen. Si aun sin ellos las horas reales no alcanzan, se reduce el número de escenarios de Aguas Claras, y cualquier otro ajuste del alcance comprometido se tramita según las secciones~10.1 y~6.6.

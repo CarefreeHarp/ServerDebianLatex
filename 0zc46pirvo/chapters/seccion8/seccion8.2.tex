@@ -1,4 +1,4 @@
-\subsection{Lenguajes y Herramientas - Las herramientas que conectan simulación y software [Pendientes: 1. Elegir tecnologías de aplicación y pruebas y proveedor de API. 2. Fijar versiones. 3. Configurar repositorio y reglas de Git. 4. Confirmar acceso documental definitivo y recursos HPC. 5. Buscar y recopilar referencias bibliográficas oficiales, manuales de usuario y documentación técnica de todas las herramientas y lenguajes utilizados, incluidos FDS, Smokeview, UML, Git, GitHub, Aldine, LaTeX, Docker Compose, Nginx, Tailscale, Linux y Slurm.]}\label{sec:spmp-8-2}
+\subsection{Lenguajes y Herramientas - Las herramientas que conectan simulación y software}\label{sec:spmp-8-2}
 
 
 La tabla~\ref{tab:herramientas} presenta los lenguajes y herramientas del proyecto, agrupados en siete categorías, con la versión adoptada, su uso y las secciones del plan en las que intervienen. Las versiones son las vigentes en noviembre de 2026; se congelan al iniciar la fase de Construcción y se registran en el repositorio, de modo que cualquier cambio posterior se trata como un cambio de configuración (sección~12.3). La aplicación se desarrolla para Windows 10 y 11, sistema que se supone en los equipos de la UAECOB y que se confirmará con sus representantes (sección~8.4.1). La sección~8.2.1 justifica las elecciones principales.
@@ -43,6 +43,7 @@ La tabla~\ref{tab:herramientas} presenta los lenguajes y herramientas del proyec
 \multicolumn{3}{|l|}{\textbf{Infraestructura}}\tabularnewline\hline
 \raggedright Linux y Slurm en HPC-ZINE~\cite{yoo2003slurm,fdslinuxcluster} & \raggedright Ejecutar las simulaciones como trabajos por lotes y medir su consumo con \texttt{sacct}. & \raggedright 9.1 y 9.2.2\tabularnewline\hline
 \raggedright Docker Compose, Nginx y Tailscale~\cite{dockercompose,nginx,tailscale} & \raggedright Contenedores del servidor documental, ubicado en casa de Daniel Ramírez, su puerta de enlace y la red privada que da acceso al equipo y al director. & \raggedright 9.2.2 y 12.3\tabularnewline\hline
+\raggedright VirtualBox 7.2~\cite{virtualbox} & \raggedright Máquinas virtuales con Windows 10 y 11 para probar la instalación del ejecutable en un sistema limpio. & \raggedright 8.3 y 9.2.2\tabularnewline\hline
 \end{longtable}
 
 \input{chapters/seccion8/seccion8.2/seccion8.2.1}
