@@ -21,4 +21,66 @@ A10 & Corregir problemas & Asignar los problemas identificados, implementar los 
 A11 & Preparar la entrega & Reunir código, dependencias, datos e instrucciones, y preparar el manual, la guía técnica y una demostración reproducible. & Semi-transición & Prepara manual, guía técnica, informe y demostración de E7, junto con el código y ejecutable de E5 y los elementos necesarios de E3 y E4.\\\hline
 A12 & Consolidar evidencias & Relacionar los requisitos con la implementación y sus comprobaciones, consolidando la matriz de trazabilidad y el informe de calidad. & Semi-transición & Actualiza y consolida la trazabilidad de E1, reúne los resultados de E6 y los incorpora al informe final de E7. E1 ya tiene una versión inicial desde Inicio.\\\hline
 \end{longtable}
+
+
+La figura~\ref{fig:wbs} presenta la estructura de descomposición del trabajo (WBS) del proyecto. El primer nivel corresponde a las fases del ciclo de vida de la sección~8.1. Inicio, desarrollada durante 2026-3, se descompone directamente en las actividades A1 a A4 de la tabla~\ref{tab:actividades-principales} y en el caso de práctica de FDS. Construcción y Semi-transición se descomponen en sus iteraciones, presentadas en la tabla~\ref{tab:iteraciones}, y Semi-transición incluye además el paquete de entrega final de la semana~17. Dado que todas las iteraciones siguen la misma organización, la WBS descompone una iteración genérica, identificada como Ix, que se aplica de I1 a I8; el contenido concreto que adopta en cada iteración se presenta en la tabla~\ref{tab:wbs-variaciones}.
+\clearpage
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{wbs_iteracion.pdf}
+    \caption{Estructura de descomposición del trabajo del proyecto y de la iteración genérica. Fuente: elaboración propia.}
+    \label{fig:wbs}
+\end{figure}
+\paragraph{Iteración genérica.}
+La iteración genérica no presupone el tipo de trabajo que se realiza: sus productos pueden ser código de la aplicación, datos preparados, simulaciones, documentos o resultados de evaluación, según el objetivo de cada iteración. Ix se compone de cinco paquetes de trabajo. Ix.1 agrupa la planificación: definir el objetivo verificable de la iteración, seleccionar y priorizar las tareas que contribuyen a él, y estimarlas, asignarlas y registrarlas en el tablero del proyecto. Ix.2 agrupa la ejecución de esas tareas: preparar los insumos que requieren, elaborar los productos de la iteración y actualizar la documentación y la trazabilidad afectadas. Ix.3 agrupa la verificación: aplicar a cada producto el proceso de calidad que le corresponde según la sección~12.5, someterlo a la revisión de un integrante distinto de su autor y corregir las desviaciones encontradas. Ix.4 reúne el trabajo de la reunión presencial de sincronización: integrar los productos aprobados, comprobar el conjunto integrado, establecer la versión de referencia y registrar las mediciones de la sección~12.4. Finalmente, Ix.5 agrupa la presentación de los resultados al director, la gestión de los cambios que se deriven de ella mediante el proceso de la sección~10.1 y la retrospectiva, en la que también se revisan los riesgos de la sección~12.2. Cada paquete se considera terminado cuando se completan todas sus tareas, y la iteración termina al completarse Ix.5.
+
+\paragraph{Aplicación de la iteración genérica.}
+Ix.1 se ejecuta de la misma forma en todas las iteraciones, por lo que la tabla~\ref{tab:wbs-variaciones} indica para cada una el objetivo que se fija en Ix.1.1 y el contenido concreto que adoptan Ix.2, Ix.3, Ix.4 e Ix.5. En la columna de Ix.2, los insumos corresponden a Ix.2.1, los productos a Ix.2.2 y la documentación a Ix.2.3; las actividades de la tabla~\ref{tab:actividades-principales} que se desarrollan en cada iteración aparecen entre paréntesis. La semana de receso de Semana Santa no constituye una iteración, y las tareas de baja carga previstas para ella en la sección~8.1 se registran en el tablero junto con las de I5.
+
+\begin{longtable}{|p{0.15\textwidth}|p{0.32\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\caption{Contenido de la iteración genérica Ix en cada iteración. Fuente: elaboración propia.}\label{tab:wbs-variaciones}\\
+\hline
+\raggedright \textbf{Iteración y objetivo (Ix.1.1)} & \textbf{Ix.2 Ejecutar las tareas} & \raggedright \textbf{Ix.3 Verificar y corregir} & \raggedright \textbf{Ix.4 Integrar e Ix.5 Revisar y cerrar}\tabularnewline\hline
+\endfirsthead
+\hline
+\raggedright \textbf{Iteración y objetivo (Ix.1.1)} & \textbf{Ix.2 Ejecutar las tareas} & \raggedright \textbf{Ix.3 Verificar y corregir} & \raggedright \textbf{Ix.4 Integrar e Ix.5 Revisar y cerrar}\tabularnewline\hline
+\endhead
+\raggedright \textbf{I1}\newline 25/01/2027 a 07/02/2027\newline Disponer de la infraestructura de simulación y de la estructura inicial de la aplicación. & \textit{Insumos (Ix.2.1):} acceso individual a HPC-ZINE y paquete de FDS~6.11.1. \textit{Productos (Ix.2.2):} FDS instalado en HPC-ZINE y comprobado con el caso de práctica de Inicio; estructura inicial de la aplicación (A2, A3, A7). \textit{Documentación (Ix.2.3):} arquitectura refinada en E2. & \raggedright PC01 sobre E2; PC03 sobre la estructura inicial; comparación de los resultados del caso de práctica con los obtenidos en Inicio. & \raggedright Primera versión de referencia de la aplicación. Sin hito asociado.\tabularnewline\hline
+\raggedright \textbf{I2}\newline 08/02/2027 a 21/02/2027\newline Ejecutar y validar el piloto de Aguas Claras y ofrecer una consulta básica de escenarios. & \textit{Insumos:} datos de terreno, vegetación y meteorología del sector y entradas de FDS del piloto (A2). \textit{Productos:} piloto ejecutado en HPC-ZINE (A5) y consulta básica de escenarios (A7). \textit{Documentación:} configuración e informe del piloto en E3. & \raggedright PC02 sobre el piloto; PC03 sobre la consulta. & \raggedright Versión de referencia con la consulta básica. Su cierre confirma el hito de arquitectura probada de DAD (sección~8.1).\tabularnewline\hline
+\raggedright \textbf{I3}\newline 22/02/2027 a 07/03/2027\newline Iniciar la biblioteca de escenarios y su búsqueda. & \textit{Insumos:} configuración validada en el piloto y primer lote de escenarios seleccionados. \textit{Productos:} escenarios del primer lote (A6) y búsqueda de escenarios (A7). \textit{Documentación:} catálogo inicial de E4. & \raggedright PC02 sobre cada escenario; PC03 sobre la búsqueda. & \raggedright Biblioteca parcial conectada a la versión de referencia.\tabularnewline\hline
+\raggedright \textbf{I4}\newline 08/03/2027 a 21/03/2027\newline Ampliar la biblioteca e incorporar las condiciones meteorológicas y la agregación. & \textit{Insumos:} segundo lote de escenarios y datos meteorológicos de Open-Meteo. \textit{Productos:} escenarios del segundo lote (A6), integración de condiciones meteorológicas y agregación (A7). \textit{Documentación:} E1 y E2 actualizados con la agregación. & \raggedright PC02 sobre cada escenario; PC03; PC05 sobre la agregación, que se aplica desde esta iteración. & \raggedright Versión de referencia con consulta por condiciones meteorológicas.\tabularnewline\hline
+\raggedright \textbf{I5}\newline 29/03/2027 a 11/04/2027\newline Completar la biblioteca de Aguas Claras y la visualización de resultados. & \textit{Insumos:} escenarios pendientes y, si se abre la ventana opcional de la sección~8.1, datos de un sector adicional. \textit{Productos:} biblioteca de Aguas Claras completa (A6), visualización de resultados (A7) y, si aplica, simulaciones del sector adicional. \textit{Documentación:} catálogo completo de E4. & \raggedright PC02, PC03 y PC05. & \raggedright Versión de referencia con la biblioteca completa. Su cierre corresponde a H3.\tabularnewline\hline
+\raggedright \textbf{I6}\newline 12/04/2027 a 25/04/2027\newline Integrar la aplicación completa y cerrar Construcción. & \textit{Insumos:} biblioteca completa y registro de defectos pendientes. \textit{Productos:} integración de los componentes y correcciones (A7, A8), sin funcionalidades nuevas de alcance mayor; incorporación de los escenarios de sectores adicionales que hayan superado PC02. \textit{Documentación:} E1 y E2 actualizados y registros de E6. & \raggedright PC03 sobre las correcciones; PC06, auditoría interna de cierre de fase. & \raggedright Ix.4.2 aplica PC04 al sistema completo y la biblioteca se congela. Su cierre corresponde a H4.\tabularnewline\hline
+\raggedright \textbf{I7}\newline 26/04/2027 a 09/05/2027\newline Evaluar la versión final con usuarios. & \textit{Insumos:} versión de referencia de I6, guion y materiales de evaluación y sesiones acordadas con los usuarios. \textit{Productos:} sesiones de evaluación realizadas y observaciones registradas (A9). \textit{Documentación:} resultados de la evaluación en E6. & \raggedright PC07 sobre la evaluación; clasificación y priorización de los problemas identificados. & \raggedright Ix.4.1 consolida las observaciones en el registro de problemas, sin modificar la versión de referencia. Su cierre corresponde a H5.\tabularnewline\hline
+\raggedright \textbf{I8}\newline 10/05/2027 a 23/05/2027\newline Corregir la aplicación y preparar la entrega. & \textit{Insumos:} problemas priorizados en I7. \textit{Productos:} correcciones de la aplicación (A10), manual, guía técnica y demostración reproducible (A11). \textit{Documentación:} E1 y E6 actualizados. & \raggedright PC03 sobre las correcciones; PC01 sobre el manual y la guía técnica. & \raggedright Ix.4.2 repite PC04 sobre la versión corregida, que se establece como versión candidata a la entrega final.\tabularnewline\hline
+\end{longtable}
+
+\paragraph{Dependencias.}
+Dentro de cada iteración, Ix.1 precede a los demás paquetes. Ix.2 e Ix.3 avanzan en paralelo, porque cada producto se verifica antes de integrarse; Ix.4 se realiza únicamente con los productos que superaron Ix.3, e Ix.5 requiere la versión de referencia y la presentación preparadas en Ix.4. La tabla~\ref{tab:wbs-dependencias} resume las dependencias de tipo fin-inicio que deben respetarse dentro de una iteración y entre iteraciones, y que sirven de base para la carta Gantt de la sección~9.3.2.
+
+\begin{longtable}{|p{0.27\textwidth}|p{0.27\textwidth}|p{0.33\textwidth}|}
+\caption{Dependencias principales del trabajo. Fuente: elaboración propia.}\label{tab:wbs-dependencias}\\
+\hline
+\textbf{Predecesora} & \textbf{Sucesora} & \textbf{Motivo}\\\hline
+\endfirsthead
+\hline
+\textbf{Predecesora} & \textbf{Sucesora} & \textbf{Motivo}\\\hline
+\endhead
+\multicolumn{3}{|l|}{\textit{Dentro de una iteración}}\\\hline
+Ix.1.3 Estimar, asignar y registrar las tareas & Ix.2 Ejecutar las tareas & Las tareas deben estar priorizadas y asignadas antes de ejecutarse.\\\hline
+Ix.2.1 Preparar los insumos de las tareas & Ix.2.2 Elaborar los productos de la iteración & Cada producto requiere sus insumos.\\\hline
+Ix.2.2 Elaborar los productos de la iteración & Ix.3.1 Aplicar el proceso de calidad de cada producto & Solo se verifican productos elaborados.\\\hline
+Ix.3.2 Revisión por un integrante distinto del autor & Ix.4.1 Integrar los productos aprobados & Ningún producto se integra sin revisión.\\\hline
+Ix.4.1 Integrar los productos aprobados & Ix.4.2 Comprobar el conjunto integrado & La comprobación se realiza sobre el conjunto integrado.\\\hline
+Ix.4.2 Comprobar el conjunto integrado & Ix.4.3 Establecer la versión de referencia & La versión de referencia debe haber superado la comprobación.\\\hline
+Ix.4.4 Registrar mediciones y preparar la presentación & Ix.5.1 Presentar los resultados al director & La revisión se apoya en la presentación.\\\hline
+Ix.5.3 Retrospectiva y revisión de riesgos & I(x+1).1 Planificar la siguiente iteración & Las conclusiones de la retrospectiva orientan la planificación.\\\hline
+\multicolumn{3}{|l|}{\textit{Entre fases e iteraciones}}\\\hline
+1. Inicio & I1 & Construcción parte de los requisitos, la arquitectura y el aprendizaje de FDS de Inicio.\\\hline
+I1, FDS instalado en HPC-ZINE & I2, ejecución del piloto & El piloto se ejecuta en HPC-ZINE.\\\hline
+I2, piloto validado & I3, primer lote de escenarios & La biblioteca se genera con la configuración validada en el piloto.\\\hline
+I6, biblioteca congelada & I7, evaluación con usuarios & La evaluación utiliza una versión estable.\\\hline
+I7, problemas priorizados & I8, correcciones & Las correcciones parten de las observaciones de la evaluación.\\\hline
+I8, versión candidata & 3.3 Entrega final & La entrega consolida la versión corregida y sus evidencias.\\\hline
+\end{longtable}  
 \endgroup

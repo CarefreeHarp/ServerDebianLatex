@@ -6,6 +6,7 @@
 \newfontfamily\fuentePortada{Caladea}
 \usepackage[spanish,es-tabla]{babel}
 \usepackage{graphicx}
+\usepackage{pdflscape}
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{multirow}
@@ -36,22 +37,22 @@ flujo/.style={-{Stealth[length=5pt]}}]
 \draw (0,0)--(390,0);\draw (190,23)--(190,-400);
 \node[text width=172pt,align=center]at(95,12){#1};
 \node[text width=182pt,align=center]at(290,12){#2};
-\node[evento](ini)at(95,-30){};
-\node[tarea](a)at(95,-88){#3};
-\node[tarea](b)at(290,-160){#4};
-\node[compuerta](g)at(290,-237){#5};
-\node[tarea](c)at(95,-315){#6};
-\node[evento,line width=1.5pt](fin)at(95,-378){};
-\draw[flujo](ini)--(a);
-\draw[flujo](a.east)-|(b.north);
-\draw[flujo](b)--(g);
-\draw[flujo](g.west)--node[above]{Sí}(95,-237)--(c.north);
-\draw[flujo](g.east)--(380,-237)--(380,-50)--node[above,fill=white,inner sep=1pt]{No, ajustar}(95,-50)--(a.north);
-\draw[flujo](c)--(fin);
-\node[text width=137pt,minimum height=44pt,align=center,inner sep=5pt](dato)at(290,-316){#7};
+\node[evento]\(ini)at(95,-30){};
+\node[tarea]\(a)at(95,-88){#3};
+\node[tarea]\(b)at(290,-160){#4};
+\node[compuerta]\(g)at(290,-237){#5};
+\node[tarea]\(c)at(95,-315){#6};
+\node[evento,line width=1.5pt]\(fin)at(95,-378){};
+\draw[flujo]\(ini)--(a);
+\draw[flujo]\(a.east)-|(b.north);
+\draw[flujo]\(b)--(g);
+\draw[flujo]\(g.west)--node[above]{Sí}(95,-237)--(c.north);
+\draw[flujo]\(g.east)--(380,-237)--(380,-50)--node[above,fill=white,inner sep=1pt]{No, ajustar}(95,-50)--(a.north);
+\draw[flujo]\(c)--(fin);
+\node[text width=137pt,minimum height=44pt,align=center,inner sep=5pt]\(dato)at(290,-316){#7};
 \draw (212,-294)--(358,-294)--(368,-304)--(368,-338)--(212,-338)--cycle;
 \draw (358,-294)--(358,-304)--(368,-304);
-\draw[densely dotted,flujo](c.east)--(dato.west);
+\draw[densely dotted,flujo]\(c.east)--(dato.west);
 \draw (214,-353)--(206,-353)--(206,-395)--(214,-395);
 \node[text width=160pt,align=center,anchor=center]at(293,-376){Herramientas:\\#8};
 \end{tikzpicture}
@@ -105,6 +106,3 @@ flujo/.style={-{Stealth[length=5pt]}}]
 \input{chapters/seccion13}
 \input{chapters/seccion14}
 \end{document}
-
-
-

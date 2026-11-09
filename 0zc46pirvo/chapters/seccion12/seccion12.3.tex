@@ -1,19 +1,12 @@
-
 \subsection{Administración de Configuración y Documentación - Conservar versiones coherentes de nuestros artefactos [Pendientes: 1. Definir cambios, ramas, versiones, integración, nomenclatura y almacenamiento pesado. 2. Asignar administración, revisión, aprobación y restauración. 3. Comprobar servicio y recuperación y definir respaldo del repositorio de la aplicación.]}\label{sec:spmp-12-3}
 
-La administración de configuración y documentación tiene como propósito conservar versiones identificables y coherentes de los productos desarrollados, facilitando su revisión, recuperación y relación con los requisitos y actividades del proyecto. Los elementos de configuración comprenden código, documentos, modelos, datos preparados y catálogo~\cite{adaptacion2026,std12207}.
+La administración de configuración identificará, versionará y permitirá recuperar código, documentos, modelos, datos preparados y catálogo de E1--E7~\cite{adaptacion2026,std12207}. Cada cambio deberá indicar motivo, versión y artefactos relacionados.
 
-Este proceso será aplicable a los entregables E1 a E7 descritos en la sección \ref{sec:spmp-6-4}. Su alcance incluye tanto los archivos utilizados para desarrollar la aplicación como aquellos necesarios para preparar, ejecutar y comprender las simulaciones FDS.
+Aldine utiliza repositorios Git por proyecto y sincronización unidireccional hacia GitHub; conserva fuentes y PDF compilado, no archivos auxiliares ni repositorios internos. La sincronización puede activarse manualmente o mediante un temporizador aproximado de cuatro horas. Sus commits automáticos se atribuyen a Aldine y no identifican al autor de cada contenido. Este mecanismo no reemplaza las copias de seguridad ni las pruebas de recuperación.
 
-Para los documentos de Aldine, la documentación del servidor describe repositorios Git por proyecto y sincronización unidireccional hacia un repositorio consolidado en GitHub. El esquema conserva las fuentes y el PDF principal compilado y excluye repositorios internos y auxiliares de compilación; dispone de activación manual y de un temporizador aproximadamente cada cuatro horas. La identidad de los commits automáticos es Aldine y se distingue de la autoría individual de los contenidos.
+\textbf{Evolución de los elementos de configuración.}
 
-\textbf{Identificación y evolución de los elementos de configuración.}
-
-Cada artefacto deberá poder relacionarse con el entregable al que pertenece y con las actividades que originaron su creación o modificación. Para ello, se conservará información sobre su versión, procedencia, finalidad y relaciones con otros productos.
-
-La siguiente tabla presenta los principales artefactos que estarán sujetos al proceso de administración de configuración, así como los momentos en los cuales deberán crearse o actualizarse.
-
-\begin{longtable}{|p{0.23\dimexpr\linewidth-34pt\relax}|p{0.43\dimexpr\linewidth-34pt\relax}|p{0.34\dimexpr\linewidth-34pt\relax}|}
+\begin{longtable}{|p{0.24\linewidth}|p{0.35\linewidth}|p{0.29\linewidth}|}
 \caption{Evolución de los artefactos de documentación y código. Fuente: adaptación de estándares del proyecto~\cite{adaptacion2026}.}\\
 \hline
 \textbf{Artefacto} & \textbf{Creación o refinamiento} & \textbf{Información para mantener el artefacto actualizado y coherente}\\\hline
@@ -21,67 +14,19 @@ La siguiente tabla presenta los principales artefactos que estarán sujetos al p
 \hline
 \textbf{Artefacto} & \textbf{Creación o refinamiento} & \textbf{Información para mantener el artefacto actualizado y coherente}\\\hline
 \endhead
-Requisitos (ISO/IEC/IEEE 29148) & Al precisar requisitos y al aprobar cambios durante el desarrollo. & Origen, versión y relaciones con diseño y prueba.\\\hline
-Procesos del software (ISO/IEC/IEEE 12207) & Al planificar actividades y al registrar su ejecución. & Responsable, producto y evidencia.\\\hline
-Modelado UML & En decisiones de arquitectura y cambios de interfaces o implementación. & Revisión de coherencia entre vistas.\\\hline
-Pruebas (ISO/IEC/IEEE 29119) & Al planificar pruebas y después de cada ejecución o corrección. & Caso, entradas, versión y resultado.\\\hline
-Calidad del software (IEEE 730) & Al preparar revisiones y tratar hallazgos de cada versión. & Criterio, problema, acción y reevaluación.\\\hline
-Código de E5 & En cada incremento que modifique el producto. & Git y comprobaciones asociadas.\\\hline
-Datos, entradas y resultados de E3-E4 & Al preparar, ejecutar, revisar o incorporar un escenario. & Procedencia, unidades, configuración e inventario.\\\hline
+Requisitos (ISO/IEC/IEEE 29148) & Al precisar requisitos y aprobar cambios. & Origen, versión y relación con diseño y pruebas.\\\hline
+Procesos (ISO/IEC/IEEE 12207) & Al planificar y registrar actividades. & Responsable, producto y evidencia.\\\hline
+Modelos UML & Al decidir o modificar la arquitectura. & Coherencia entre vistas.\\\hline
+Pruebas (ISO/IEC/IEEE 29119) & Al planear, ejecutar o corregir pruebas. & Caso, entradas, versión y resultado.\\\hline
+Calidad (IEEE 730) & Al revisar productos y hallazgos. & Criterios, problemas, acciones y reevaluación.\\\hline
+Código E5 & En cada incremento. & Historial Git y comprobaciones.\\\hline
+Datos y resultados E3--E4 & Al preparar o ejecutar escenarios. & Procedencia, unidades, configuración e inventario.\\\hline
 \end{longtable}
 
-\textbf{Procedimiento de administración de configuración.}
+\textbf{Versiones e integración.} Se propone mantener una rama principal para versiones revisadas y utilizar ramas de trabajo para nuevas funciones, correcciones y documentos (por ejemplo, \texttt{feature/}, \texttt{fix/} y \texttt{docs/}). Antes de integrar se revisarán cambios, trazabilidad y pruebas pertinentes. Las versiones de referencia se identificarán mediante etiquetas. Las convenciones y aprobadores definitivos siguen pendientes de acuerdo; los cambios de alcance o requisitos seguirán las secciones \ref{sec:spmp-6-6} y \ref{sec:spmp-10-1}.
 
-Se propone utilizar el siguiente procedimiento para mantener la consistencia entre los artefactos:
+\textbf{Datos y resultados FDS.} Cada escenario conservará su identificador, ubicación, fuentes y unidades, sistema de referencia, condiciones ambientales, configuración y versión FDS, resultados y limitaciones. El catálogo E4 permitirá localizar los archivos. Los resultados binarios voluminosos se almacenarán separadamente del código, con inventario, referencias estables y comprobaciones de integridad; el medio se definirá según la infraestructura disponible.
 
-\begin{enumerate}
-    \item \textbf{Identificar los elementos.} Registrar los archivos y productos que forman parte de cada entregable, distinguiendo los documentos, el código fuente, los modelos, los datos de entrada y los resultados de simulación.
+\textbf{Respaldo y recuperación.} Se identificarán los elementos afectados, se revisará e integrará cada cambio y se respaldarán fuentes e inventarios. Ante pérdidas se restaurará una versión identificada y se comprobará su integridad. También deberán probarse la recuperación de proyectos Aldine, del repositorio de la aplicación y de los escenarios E3--E4. Frecuencias, destinos y mecanismos definitivos de respaldo siguen por acordar.
 
-    \item \textbf{Controlar las modificaciones.} Documentar los cambios realizados y conservar su relación con los requisitos, las decisiones de diseño y las pruebas. Los cambios que afecten compromisos del proyecto deberán seguir los mecanismos de aprobación descritos en las secciones 6.6 y 10.1.
-
-    \item \textbf{Revisar e integrar.} Comprobar que las modificaciones no generen inconsistencias con los demás componentes. La integración del código y de los documentos deberá considerar las comprobaciones correspondientes antes de establecer una nueva versión de referencia.
-
-    \item \textbf{Identificar versiones.} Asignar versiones reconocibles a los productos y conservar la información que permita determinar qué archivos, requisitos y comprobaciones pertenecen a cada versión.
-
-    \item \textbf{Conservar y respaldar.} Mantener los artefactos en los repositorios y espacios de almacenamiento acordados, procurando que exista una copia recuperable de la información necesaria para continuar el proyecto.
-
-    \item \textbf{Recuperar y comprobar.} Cuando se identifique una pérdida, corrupción o modificación incorrecta, localizar una versión anterior, restaurar los archivos afectados y comprobar su integridad antes de continuar el trabajo.
-\end{enumerate}
-
-\textbf{Control de versiones e integración.}
-
-Git será la herramienta utilizada para conservar la evolución del código fuente y de los artefactos que puedan administrarse mediante repositorios. Para el código de la aplicación se propone mantener una rama principal que represente una versión integrada y utilizar ramas de trabajo para desarrollar funcionalidades, resolver errores o modificar documentación.
-
-Como convención inicial, podrían emplearse nombres descriptivos para las ramas, tales como \texttt{feature/}, \texttt{fix/} y \texttt{docs/}, acompañados de una identificación breve del cambio. Esta nomenclatura constituye una propuesta pendiente de aprobación por el equipo y no modifica el mecanismo de sincronización ya documentado para Aldine.
-
-Antes de integrar cambios en la rama principal, se deberá revisar su correspondencia con los requisitos y comprobar que no introduzcan errores identificables. Los cambios deberán contar con una descripción que permita reconocer su finalidad, los archivos afectados y las verificaciones realizadas.
-
-Se propone distinguir las versiones de trabajo de las versiones establecidas como referencia para revisiones, demostraciones y entregas. Las versiones finales de los entregables deberán identificarse de manera coherente, evitando que se utilicen simultáneamente archivos con modificaciones incompatibles.
-
-\textbf{Administración de los datos y resultados de simulación.}
-
-Los archivos de entrada y los resultados de FDS requieren especial atención debido a su tamaño y a la necesidad de reproducir las condiciones de ejecución.
-
-Para cada escenario incorporado a la biblioteca se deberá conservar, como mínimo, la identificación del escenario, su ubicación de referencia, las condiciones ambientales utilizadas, la configuración de FDS, la versión del simulador y la ubicación de los resultados correspondientes. Cuando resulte pertinente, también se registrarán las transformaciones de coordenadas y las fuentes de datos empleadas.
-
-Se propone almacenar los resultados de simulación de gran tamaño en un espacio separado del repositorio principal de código, conservando en este último o en el catálogo las referencias necesarias para localizarlos. El medio definitivo de almacenamiento deberá establecerse de acuerdo con el tamaño de la biblioteca, los recursos disponibles y las condiciones de acceso.
-
-También se propone conservar un inventario de archivos y mecanismos de verificación de integridad, como sumas de comprobación, para detectar pérdidas o modificaciones accidentales. La organización del almacenamiento deberá permitir distinguir los archivos originales, los datos procesados, las entradas FDS y los resultados obtenidos.
-
-\textbf{Respaldo y recuperación.}
-
-La sincronización del servidor Aldine hacia GitHub contribuye a conservar versiones documentales, pero no reemplaza por sí sola la necesidad de comprobar la recuperación del servicio ni garantiza el respaldo de todos los archivos de la aplicación y de las simulaciones.
-
-Por esta razón, se propone establecer copias de respaldo independientes de los repositorios y de los archivos necesarios para reconstruir el entorno de trabajo. El procedimiento deberá contemplar la identificación de la última versión disponible, la restauración de los archivos y la comprobación de su integridad.
-
-Para el servidor documental se deberá verificar la posibilidad de recuperar los proyectos, las fuentes LaTeX y los archivos asociados. Para la aplicación, se comprobará la recuperación del código fuente y de las dependencias documentadas. En el caso de la biblioteca, se deberá verificar que los archivos restaurados correspondan con el inventario y el catálogo de escenarios.
-
-Las frecuencias de respaldo, los destinos de almacenamiento y las pruebas periódicas de restauración deberán acordarse de acuerdo con la infraestructura disponible.
-
-\textbf{Responsabilidades de administración y revisión.}
-
-Daniel Ramírez es responsable de la administración y el mantenimiento del servidor documental Aldine, según la organización descrita en la sección 8.4.2.
-
-La administración del repositorio de la aplicación, la revisión de modificaciones, la aprobación de integraciones y la ejecución de procedimientos de recuperación requerirán una asignación específica entre los integrantes del equipo. Estas responsabilidades deberán definirse considerando la organización del proyecto y los acuerdos de control de cambios de la sección \ref{sec:spmp-6-6}.
-
-Hasta que se acuerden las convenciones definitivas de ramas, versiones, almacenamiento y respaldo, los procedimientos descritos constituyen una propuesta para su aplicación durante la Construcción y Semi-transición.
+Daniel Ramírez administra el servidor documental Aldine, según la sección \ref{sec:spmp-8-4-2}. La administración del repositorio de aplicación, integración, custodia de datos pesados y verificación de restauraciones requieren asignaciones específicas del equipo.
