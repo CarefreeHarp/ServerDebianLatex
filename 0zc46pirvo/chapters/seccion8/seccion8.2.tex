@@ -1,16 +1,48 @@
 \subsection{Lenguajes y Herramientas - Las herramientas que conectan simulación y software [Pendientes: 1. Elegir tecnologías de aplicación y pruebas y proveedor de API. 2. Fijar versiones. 3. Configurar repositorio y reglas de Git. 4. Confirmar acceso documental definitivo y recursos HPC. 5. Buscar y recopilar referencias bibliográficas oficiales, manuales de usuario y documentación técnica de todas las herramientas y lenguajes utilizados, incluidos FDS, Smokeview, UML, Git, GitHub, Aldine, LaTeX, Docker Compose, Nginx, Tailscale, Linux y Slurm.]}\label{sec:spmp-8-2}
-\begin{enumerate}
-\item \textbf{Simulación.} FDS es el software utilizado para preparar los escenarios de incendio mediante simulaciones, según la convención FDS/WFDS de la sección \ref{sec:spmp-6-1}. La documentación oficial \textit{Installing and Running FDS on a Linux Cluster} describe su instalación y ejecución en clústeres Linux, incluye ejemplos con el gestor de trabajos Slurm y permite acceder al repositorio oficial del software~\cite{fdslinuxcluster}. Esta base tecnológica es acorde con el entorno Linux, Slurm y la arquitectura x86 de la infraestructura HPC-Zine prevista para el proyecto; la correspondencia general entre estas tecnologías se distingue de la comprobación de su instalación, configuración y ejecución efectiva en ese recurso.
 
-\item \textbf{Visualización.} Smokeview es el visualizador previsto para presentar los resultados de FDS mediante las animaciones georreferenciadas de los escenarios.
 
-\item \textbf{Modelado.} UML 2.5.1 proporciona el lenguaje para representar y comunicar el diseño del software~\cite{uml}.
+La tabla~\ref{tab:herramientas} presenta los lenguajes y herramientas del proyecto, agrupados en siete categorías, con la versión adoptada, su uso y las secciones del plan en las que intervienen. Las versiones son las vigentes en noviembre de 2026; se congelan al iniciar la fase de Construcción y se registran en el repositorio, de modo que cualquier cambio posterior se trata como un cambio de configuración (sección~12.3). La aplicación se desarrolla para Windows 10 y 11, sistema que se supone en los equipos de la UAECOB y que se confirmará con sus representantes (sección~8.4.1). La sección~8.2.1 justifica las elecciones principales.
 
-\item \textbf{Control de versiones y conservación.} Git conserva las versiones del código de la aplicación y los repositorios documentales por proyecto.
-
-\item \textbf{Documentación.} Aldine centraliza la elaboración colaborativa de los documentos y la bibliografía del proyecto; LaTeX es el lenguaje empleado para estructurar esos documentos.
-
-\item \textbf{Infraestructura y administración.} Docker Compose organiza los contenedores de aplicación y compilador del servidor documental; Nginx actúa como gateway y Tailscale permite el acceso al servidor documental entre los miembros del equipo y el director del proyecto. Este computador está ubicado en casa de Daniel y dispone de almacenamiento persistente. Para la ejecución científica, HPC-Zine es la infraestructura prevista, Linux es el entorno de ejecución y Slurm gestiona los trabajos de simulación. Los ámbitos de infraestructura se describen en la sección \ref{sec:spmp-9-2-2}~\cite{fdslinuxcluster}.
-\end{enumerate}
+\begin{longtable}{|p{0.21\textwidth}|p{0.55\textwidth}|p{0.13\textwidth}|}
+\caption{Lenguajes y herramientas del proyecto. Fuente: elaboración propia.}\label{tab:herramientas}\\
+\hline
+\textbf{Herramienta y versión} & \textbf{Uso en el proyecto} & \textbf{Secciones}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{Herramienta y versión} & \textbf{Uso en el proyecto} & \textbf{Secciones}\tabularnewline\hline
+\endhead
+\multicolumn{3}{|l|}{\textbf{Simulación y visualización}}\tabularnewline\hline
+\raggedright FDS 6.11.1~\cite{fdsuserguide,fdslinuxcluster} & \raggedright Simular los escenarios de la biblioteca con su modelo de vegetación (convención FDS/WFDS); los archivos de entrada se escriben en su lenguaje de \textit{namelists} y se ejecutan en paralelo en HPC-ZINE. & \raggedright 6.1, 9.1 y 12.5\tabularnewline\hline
+\raggedright Smokeview 6.11.2~\cite{forney2013smv} & \raggedright Visualizar la animación georreferenciada del resultado; la aplicación lo lanza como proceso externo (CU06). & \raggedright 6.2 y 9.1\tabularnewline\hline
+\raggedright fdsreader 1.14~\cite{fdsreader} & \raggedright Leer desde Python las salidas de FDS para seleccionar y agregar escenarios (CU04 y CU05) y verificar las simulaciones. & \raggedright 9.1 y 12.5\tabularnewline\hline
+\multicolumn{3}{|l|}{\textbf{Datos geoespaciales y meteorológicos}}\tabularnewline\hline
+\raggedright QGIS 4.2~\cite{qgis} & \raggedright Preparar las capas de terreno y vegetación de Aguas Claras, delimitar los dominios y revisar los resultados sobre el mapa. & \raggedright 6.3 y 9.1\tabularnewline\hline
+\raggedright qgis2fds 2.0.1~\cite{qgis2fds} & \raggedright Generar el terreno y las superficies de combustible de los archivos de entrada de FDS a partir de las capas de QGIS. & \raggedright 6.3 y 12.5\tabularnewline\hline
+\raggedright GDAL 3.13~\cite{gdal} & \raggedright Recortar, reproyectar y convertir los datos de GEDTM30, Copernicus DEM GLO-30 y la cobertura del Jardín Botánico. & \raggedright 6.3\tabularnewline\hline
+\raggedright API de Open-Meteo~\cite{openmeteo} & \raggedright Obtener la meteorología durante la consulta (CU02) y las series de ERA5 y ERA5-Land con las que se definen las combinaciones meteorológicas de la biblioteca. & \raggedright 6.2, 6.3 y 9.1\tabularnewline\hline
+\multicolumn{3}{|l|}{\textbf{Desarrollo y pruebas de la aplicación}}\tabularnewline\hline
+\raggedright Python 3.13~\cite{python313} & \raggedright Lenguaje de la aplicación y de los programas de preparación de datos y verificación de simulaciones. & \raggedright 8.2.1 y 9.2.1\tabularnewline\hline
+\raggedright PySide6 6.12~\cite{pyside6} & \raggedright Interfaz gráfica de escritorio y visualización del mapa de la aplicación. & \raggedright 9.1\tabularnewline\hline
+\raggedright Shapely 2.2 y pyproj 3.8~\cite{shapely,pyproj} & \raggedright Operaciones geométricas sobre el perímetro, el borde activo y el territorio quemado, y transformación de coordenadas. & \raggedright 9.1\tabularnewline\hline
+\raggedright pytest 9.2~\cite{pytest} & \raggedright Pruebas unitarias y de integración automatizadas, ejecutadas antes de cada integración. & \raggedright 8.1 y 12.5\tabularnewline\hline
+\raggedright PyInstaller 6.22~\cite{pyinstaller} & \raggedright Empaquetar la aplicación como ejecutable para Windows. & \raggedright 11\tabularnewline\hline
+\multicolumn{3}{|l|}{\textbf{Modelado}}\tabularnewline\hline
+\raggedright UML 2.5.1~\cite{uml} & \raggedright Casos de uso, clases, secuencia, componentes y despliegue de la especificación y el diseño (E1 y E2). & \raggedright 8.1 y 10.1\tabularnewline\hline
+\raggedright BPMN 2.0.2~\cite{omg2013bpmn} & \raggedright Proceso del ciclo de vida y procesos de calidad PC01 a PC07. & \raggedright 8.1 y 12.5\tabularnewline\hline
+\raggedright PlantUML 1.2026~\cite{plantuml} & \raggedright Elaborar los diagramas UML a partir de texto, que se versiona en el repositorio, y exportarlos como imagen para el PMP. & \raggedright 8.1 y 10.1\tabularnewline\hline
+\raggedright Camunda Modeler 5.53~\cite{camundamodeler} & \raggedright Elaborar los diagramas BPMN y exportarlos como imagen para el PMP. & \raggedright 8.1 y 12.5\tabularnewline\hline
+\multicolumn{3}{|l|}{\textbf{Gestión y comunicación}}\tabularnewline\hline
+\raggedright GitHub Projects~\cite{githubdocs} & \raggedright Tablero de tareas y gráfica \textit{burndown} de cada iteración. & \raggedright 8.1, 10.2 y 12.4\tabularnewline\hline
+\raggedright GanttProject 3.3~\cite{ganttproject} & \raggedright Cronograma del proyecto y sus dependencias. & \raggedright 9.3.2\tabularnewline\hline
+\raggedright Google Sheets y Google Forms~\cite{googleworkspace} & \raggedright Hojas de estimación, capacidad, presupuesto e indicadores; cuestionarios de la evaluación con usuarios. & \raggedright 9.1, 9.3.4, 10.2 y 12.5\tabularnewline\hline
+\raggedright WhatsApp y Google Meet~\cite{whatsapp,googleworkspace} & \raggedright Reportes de avance e impedimentos, y reunión virtual de planificación. & \raggedright 8.1 y 8.4.2\tabularnewline\hline
+\multicolumn{3}{|l|}{\textbf{Control de versiones y documentación}}\tabularnewline\hline
+\raggedright Git 2 y GitHub~\cite{chacon2014progit,githubdocs} & \raggedright Versiones del código, de las configuraciones de FDS y de los documentos; ramas y solicitudes de integración. & \raggedright 8.1 y 12.3\tabularnewline\hline
+\raggedright \LaTeX~\cite{lamport1994latex} & \raggedright Lenguaje de los documentos del proyecto y de su bibliografía. & \raggedright 11 y 12.3\tabularnewline\hline
+\raggedright Aldine & \raggedright Editor colaborativo autoalojado que compila los documentos y los sincroniza con GitHub. & \raggedright 8.4.2 y 12.3\tabularnewline\hline
+\multicolumn{3}{|l|}{\textbf{Infraestructura}}\tabularnewline\hline
+\raggedright Linux y Slurm en HPC-ZINE~\cite{yoo2003slurm,fdslinuxcluster} & \raggedright Ejecutar las simulaciones como trabajos por lotes y medir su consumo con \texttt{sacct}. & \raggedright 9.1 y 9.2.2\tabularnewline\hline
+\raggedright Docker Compose, Nginx y Tailscale~\cite{dockercompose,nginx,tailscale} & \raggedright Contenedores del servidor documental, ubicado en casa de Daniel Ramírez, su puerta de enlace y la red privada que da acceso al equipo y al director. & \raggedright 9.2.2 y 12.3\tabularnewline\hline
+\end{longtable}
 
 \input{chapters/seccion8/seccion8.2/seccion8.2.1}

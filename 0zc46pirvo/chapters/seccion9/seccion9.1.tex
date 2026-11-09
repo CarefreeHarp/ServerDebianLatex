@@ -1,1 +1,75 @@
 \subsection{Métodos y Herramientas de Estimación - Estimar antes de comprometer tiempo y recursos [Pendientes: 1. Identificar las estimaciones requeridas en las diferentes secciones del PMP. 2. Definir los métodos y herramientas que se utilizarán para realizar cada estimación. 3. Documentar los datos, supuestos y procedimientos que fundamentarán los cálculos realizados.]}\label{sec:spmp-9-1}
+
+
+
+% =====================================================================
+% SECCIÓN 9.1 — MÉTODOS Y HERRAMIENTAS DE ESTIMACIÓN
+% Dónde: reemplaza todo el cuerpo actual de la 9.1 (quitar la lista de
+% pendientes del título).
+% Claves bibliográficas usadas: mcconnell2006estimation, pmi2017pmbok,
+%   decreto1330, ole2022, ley2101 (todas en referencias_9_1.bib).
+% Ya no se usan: karner1993ucp, azzeh2017productivity y la tabla del anexo
+%   tab:ucp-factores.
+% =====================================================================
+
+Cada tipo de trabajo se estima con un método acorde con la información disponible. Las estimaciones iniciales tienen una incertidumbre alta que se reduce a medida que avanza el proyecto~\cite{mcconnell2006estimation}; por ello se revisan con datos reales después del piloto (A5) y en la planificación de cada iteración, y sus cambios siguen el procedimiento de la sección~6.6. La tabla~\ref{tab:estimaciones} resume qué se estima, con qué método y herramienta, y dónde se presenta el resultado. Las horas-persona miden trabajo humano y las núcleo-horas, cómputo en HPC-ZINE; ambas magnitudes no se suman.
+
+\begin{longtable}{|p{0.22\textwidth}|p{0.50\textwidth}|p{0.14\textwidth}|}
+\caption{Estimaciones del proyecto. Fuente: elaboración propia.}\label{tab:estimaciones}\\
+\hline
+\textbf{Estimación} & \textbf{Método y herramienta} & \textbf{Sección}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{Estimación} & \textbf{Método y herramienta} & \textbf{Sección}\tabularnewline\hline
+\endhead
+\raggedright Tamaño del software & \raggedright Conteo funcional de casos de uso comprometidos y deseables. & \raggedright 9.1\tabularnewline\hline
+\raggedright Esfuerzo del software y de las tareas (horas-persona) & \raggedright Descomposición en tareas y estimación de tres puntos con ponderación PERT; hoja de cálculo y tablero del proyecto. & \raggedright 9.1, 9.3.2 y 9.3.3\tabularnewline\hline
+\raggedright Capacidad del equipo (horas-persona) & \raggedright Créditos académicos por 48 horas; hoja de cálculo. & \raggedright 9.3.3 y 9.3.4\tabularnewline\hline
+\raggedright Duración & \raggedright Iteraciones de duración fija sobre el calendario 2027-1; GanttProject. & \raggedright 6.5, 8.1 y 9.3.2\tabularnewline\hline
+\raggedright Biblioteca, cómputo (núcleo-horas) y almacenamiento & \raggedright Estimación paramétrica a partir del piloto; QGIS, archivo de salida de FDS, \texttt{sacct} de Slurm y \texttt{du}. & \raggedright 6.2, 9.2.2 y 9.3.4\tabularnewline\hline
+\raggedright Presupuesto & \raggedright Estimación ascendente por actividad de la WBS con tarifas de referencia; hoja de cálculo. & \raggedright 6.5 y 9.3.4\tabularnewline\hline
+\raggedright Riesgos & \raggedright Escalas cualitativas de probabilidad e impacto. & \raggedright 12.2\tabularnewline\hline
+\end{longtable}
+
+\paragraph{Tamaño del software.} El alcance de la aplicación comprende seis casos de uso comprometidos (CU01 a CU06) y dos deseables (CU07 y CU08), derivados del alcance de la sección~6.1, que el \textit{Product Owner} validará al aprobar E1. Este conteo funcional básico describe qué debe hacer la aplicación, pero no mide su esfuerzo, pues cada caso de uso puede requerir un trabajo muy diferente; el esfuerzo se estima por tareas.
+
+\paragraph{Esfuerzo del software y de las tareas.} Cada funcionalidad se descompone en tareas concretas y verificables, coherentes con la WBS de la sección~9.3.1, que cubren requisitos, diseño, implementación, integración, pruebas y documentación técnica. Para cada tarea $i$ se estiman en horas-persona un esfuerzo optimista $O_i$, uno más probable $M_i$ y uno pesimista $P_i$, y se combinan con la ponderación PERT~\cite{pmi2017pmbok}:
+\[ E_i = \frac{O_i + 4M_i + P_i}{6}, \qquad E_{\mathrm{software}} = \sum_{i=1}^{n} E_i \]
+Las horas-persona representan trabajo acumulado del equipo y no duración calendario: 40 horas-persona pueden completarse en una semana entre varios integrantes o en varias semanas por uno solo. La tabla~\ref{tab:esfuerzo-software} presenta la estimación del software para 2027-1, separando el alcance comprometido del deseable.
+
+\begin{longtable}{|p{0.06\textwidth}|p{0.47\textwidth}|c|c|c|c|c|}
+\caption{Estimación preliminar del esfuerzo del software en 2027-1, en horas-persona. Fuente: valoración propia del equipo.}\label{tab:esfuerzo-software}\\
+\hline
+\textbf{ID} & \textbf{Tarea o paquete de trabajo} & \textbf{Act.} & \textbf{O} & \textbf{M} & \textbf{P} & \textbf{E}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{ID} & \textbf{Tarea o paquete de trabajo} & \textbf{Act.} & \textbf{O} & \textbf{M} & \textbf{P} & \textbf{E}\tabularnewline\hline
+\endhead
+S1 & Refinar los requisitos y criterios de aceptación de los casos de uso (E1) & A1 & 8 & 16 & 28 & 16,7\tabularnewline\hline
+S2 & Diseño detallado y actualización de los modelos UML (E2) & A2 & 16 & 24 & 40 & 25,3\tabularnewline\hline
+S3 & Estructura de la aplicación, mapa base y acceso al catálogo de la biblioteca & A7 & 24 & 40 & 72 & 42,7\tabularnewline\hline
+CU01 & Indicar o actualizar la ubicación, el perímetro observado y el territorio quemado & A7 & 20 & 32 & 56 & 34,0\tabularnewline\hline
+CU02 & Obtener las condiciones meteorológicas de Open-Meteo & A7 & 8 & 12 & 20 & 12,7\tabularnewline\hline
+CU03 & Ingresar manualmente las condiciones meteorológicas & A7 & 4 & 8 & 12 & 8,0\tabularnewline\hline
+CU04 & Seleccionar los escenarios compatibles & A7 & 24 & 40 & 72 & 42,7\tabularnewline\hline
+CU05 & Agregar los resultados desde el borde activo & A7 & 40 & 64 & 120 & 69,3\tabularnewline\hline
+CU06 & Visualizar la animación georreferenciada en Smokeview & A7 & 16 & 28 & 56 & 30,7\tabularnewline\hline
+S4 & Pruebas de integración y de sistema, y corrección de sus defectos & A8 & 24 & 40 & 64 & 41,3\tabularnewline\hline
+S5 & Documentación técnica y manual de instalación y uso (E7) & A11 & 16 & 24 & 40 & 25,3\tabularnewline\hline
+S6 & Corrección de los problemas de la evaluación con usuarios & A10 & 16 & 32 & 56 & 33,3\tabularnewline\hline
+\multicolumn{6}{|r|}{\textbf{Alcance comprometido}} & \textbf{382,0}\tabularnewline\hline
+CU07 & Explorar la biblioteca y los límites de cada escenario & A7 & 16 & 24 & 40 & 25,3\tabularnewline\hline
+CU08 & Sincronizar la biblioteca local con el servidor & A7 & 12 & 20 & 40 & 22,0\tabularnewline\hline
+\multicolumn{6}{|r|}{\textbf{Funcionalidades deseables}} & \textbf{47,3}\tabularnewline\hline
+\end{longtable}
+
+Los valores son preliminares: constituyen una valoración propia del equipo, no provienen de mediciones y no han sido aprobados. Sus supuestos son los siguientes: cada caso de uso incluye su implementación y sus pruebas unitarias, mientras que las pruebas de integración y de sistema solo se estiman en S4; la aplicación se desarrollará con una tecnología conocida por el equipo que disponga de bibliotecas geoespaciales (sección~8.2); Smokeview se ejecuta como un proceso externo; CU05 tiene el mayor rango porque la agregación es una hipótesis que se evaluará en el piloto, y las versiones iniciales de E1 y E2, elaboradas en Inicio, no se incluyen. Las estimaciones se revisan en la planificación de cada iteración con las horas reales registradas en el tablero y el trabajo pendiente; allí se estiman también, con el mismo procedimiento, las tareas que no son de software. La suma de los $E_i$ seleccionados no debe superar la capacidad de la iteración, y lo que no cabe vuelve a la lista priorizada.
+
+\paragraph{Capacidad y duración.} La capacidad formal es $H = n \times c \times 48$ horas-persona, con $n$ integrantes y $c$ créditos, pues un crédito equivale a 48 horas de trabajo del estudiante~\cite{decreto1330}. Con cuatro integrantes y los tres créditos de Trabajo de Grado, 2027-1 dispone de 576 horas-persona, unas 68 por iteración de dos semanas. El alcance comprometido del software requiere unas 382 horas-persona en el mismo periodo, cerca del 66~\% de esa capacidad. La capacidad también debe cubrir el piloto y la generación de escenarios (A5 y A6), la evaluación con usuarios (A9) y la preparación de la entrega (A11 y A12), que aún no tienen una estimación en horas; por ello, todavía no puede concluirse si el trabajo total de 2027-1 cabe en la capacidad formal. Esa comparación se realizará en la sección~9.3.3 cuando se estimen dichas tareas. La duración no se estima: las fechas de las iteraciones son fijas (sección~8.1) y se ajusta el alcance de cada una según su prioridad (sección~10.1).
+
+\paragraph{Biblioteca y cómputo.} El costo de cada escenario de la biblioteca se estima de forma paramétrica a partir del costo $c_1$, en núcleo-horas, medido en el piloto sobre la caja de pruebas de Aguas Claras ($A_1 = 25$~ha), con la misma altura de dominio~\cite{pmi2017pmbok}:
+\[ c = c_1\,\frac{A}{A_1}\,\frac{t}{t_1}\left(\frac{\Delta x_1}{\Delta x}\right)^{4} \]
+\[ N = \min\left(M\sum_k n_k,\ \left\lfloor\frac{C}{1{,}3\,c}\right\rfloor\right),\qquad S = 1{,}2\,N\,s \]
+$A$ es el área del dominio de la biblioteca (provisionalmente 225~ha, con 100~ha como alternativa), $t$ el tiempo simulado, que depende del horizonte $\Delta t$ de consulta, y $\Delta x$ el tamaño de celda; el exponente 4 refleja que reducir la celda multiplica las celdas en tres direcciones y acorta el paso de tiempo. El número de escenarios $N$ combina los puntos de ignición $n_k$ de cada clase de amenaza con $M$ combinaciones meteorológicas, limitado por las núcleo-horas disponibles $C$; el factor 1,3 reserva capacidad para repetir ejecuciones. El almacenamiento $S$ usa el tamaño de salida por escenario $s$, escalado de la misma forma, y un 20~\% para archivos intermedios y respaldos. Los tiempos y la memoria se toman del archivo de salida de FDS y de \texttt{sacct}, y los tamaños, de \texttt{du}. El trabajo humano de preparar, lanzar y revisar las simulaciones se estima en horas-persona como parte de las tareas de A5 y A6.
+
+\paragraph{Presupuesto.} El presupuesto se estima de forma ascendente, sumando el costo de cada actividad de la WBS~\cite{pmi2017pmbok}: horas-persona por tarifa horaria, núcleo-horas por la tarifa cotizada de HPC-ZINE, transporte y aportes en especie. La tarifa horaria se obtiene por analogía con el ingreso de un ingeniero de sistemas recién graduado, cuyo valor medio de cotización está entre 3 y 3,5 SMMLV~\cite{ole2022}, dividido entre las horas mensuales de la jornada máxima legal~\cite{ley2101}. El cálculo y el flujo de caja mensual se presentan en la sección~9.3.4.

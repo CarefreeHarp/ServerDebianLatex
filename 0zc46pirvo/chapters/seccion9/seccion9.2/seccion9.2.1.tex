@@ -1,11 +1,23 @@
 \subsubsection{Entrenamiento del Personal - Aprender FDS y prepararnos para usar HPC [Pendientes: 1. Confirmar fechas y condiciones de capacitación HPC. 2. Acordar agenda, tareas, criterios de aprendizaje, evidencia y revisión.]}\label{sec:spmp-9-2-1}
 El equipo ha completado la capacitación de HPC-Zine y aprenderá FDS de manera autodidacta. La capacitación se relaciona con el acceso y uso de la infraestructura universitaria descrita en la sección \ref{sec:spmp-9-2-2}~\cite{adaptacion2026}.
 
-El aprendizaje autodidacta de FDS toma como referencia la guía oficial de usuario del simulador~\cite{fdsuserguide} y se organiza en cuatro etapas consecutivas:
-\begin{enumerate}
-\renewcommand{\labelenumi}{Etapa \arabic{enumi}.}
-\item \textbf{Uso básico del simulador.} Comprender la estructura de los archivos de entrada, ejecutar simulaciones y visualizar resultados mediante Smokeview.
-\item \textbf{Propagación del incendio.} Estudiar la representación de combustibles, transferencia de calor y procesos de ignición.
-\item \textbf{Incorporación de variables complejas.} Aprender a introducir condiciones ambientales y físicas, principalmente viento y vegetación.
-\item \textbf{Automatización de escenarios.} Generar simulaciones automáticamente mediante la variación de coordenadas de ignición, condiciones ambientales y otros parámetros relevantes.
-\end{enumerate}
+La tabla~\ref{tab:entrenamiento} presenta, para cada conocimiento que el equipo no domina por completo, quiénes lo aprenden, quién lo enseña, cómo se comprueba el aprendizaje y cuándo ocurre. El entrenamiento se concentra en la fase de Inicio (2026-3) y en la primera iteración de Construcción; sus tareas se registran en el tablero del proyecto con sus horas, que forman parte de la capacidad estimada en la sección~9.3.3. El equipo ya completó la capacitación de HPC-ZINE.
+ 
+\begin{longtable}{|p{0.17\textwidth}|p{0.20\textwidth}|p{0.42\textwidth}|p{0.10\textwidth}|}
+\caption{Plan de entrenamiento del equipo. Fuente: elaboración propia.}\label{tab:entrenamiento}\\
+\hline
+\textbf{Conocimiento} & \textbf{Aprenden / enseña} & \textbf{Método y evidencia} & \textbf{Cuándo}\tabularnewline\hline
+\endfirsthead
+\hline
+\textbf{Conocimiento} & \textbf{Aprenden / enseña} & \textbf{Método y evidencia} & \textbf{Cuándo}\tabularnewline\hline
+\endhead
+\raggedright FDS y Smokeview & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Guía de usuario~\cite{fdsuserguide} en cuatro etapas: uso básico, propagación, viento y vegetación, y automatización de escenarios; dudas en la sincronización presencial. Evidencia: cada uno ejecuta un caso con vegetación y lo ve en Smokeview; al final, un \textit{script} genera variantes de un escenario. & \raggedright Inicio (etapas 1 y 2); I1 (3 y 4)\tabularnewline\hline
+\raggedright QGIS, GDAL y qgis2fds & \raggedright Los cuatro integrantes / asesor Calderón & \raggedright Sesión práctica con los datos de Aguas Claras, sujeta a la disponibilidad del asesor; si no es posible, la documentación oficial. Evidencia: archivo de entrada de FDS generado desde las capas de terreno y vegetación de la caja de pruebas. & \raggedright Inicio\tabularnewline\hline
+\raggedright Python, sus bibliotecas y flujo del repositorio & \raggedright Guillermo, Andrés y Miguel / Daniel Ramírez (AO) & \raggedright Sesión práctica sobre la estructura base de la aplicación y las ramas de la sección~12.3. Evidencia: cada integrante integra una función con su prueba unitaria mediante una solicitud de integración revisada. & \raggedright Inicio e I1\tabularnewline\hline
+\raggedright DAD y tablero del proyecto & \raggedright Daniel, Andrés y Miguel / Guillermo Aponte (TL) & \raggedright Presentación de la agenda de iteración (sección~8.1) y del uso del tablero. Evidencia: tablero configurado y planificación de I1 realizada. & \raggedright Inicio\tabularnewline\hline
+\raggedright Envío de trabajos con Slurm & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Documentación oficial de Slurm y material de la capacitación de HPC-ZINE, al recibir el acceso individual. Evidencia: cada integrante envía un trabajo y consulta su consumo con \texttt{sacct}. & \raggedright I1\tabularnewline\hline
+\raggedright PlantUML y Camunda Modeler & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Documentación oficial. Evidencia: primer diagrama de cada uno, revisado mediante el proceso PC01. & \raggedright Inicio\tabularnewline\hline
+\raggedright Operación de un incendio forestal & \raggedright Los cuatro integrantes / representantes de la UAECOB & \raggedright Sesión coordinada por el \textit{Product Owner}, sujeta a la confirmación de la UAECOB; si no es posible, las tesis de Verano y Méndez. Evidencia: escenario de uso del comandante incorporado a E1. & \raggedright Inicio\tabularnewline\hline
+\end{longtable}
+ 
+Durante la Construcción, el conocimiento se transfiere mediante la revisión de cada producto por un integrante distinto de su autor (sección~8.1) y la explicación de los componentes nuevos en la sincronización presencial. Si un integrante no alcanza la evidencia esperada, trabaja en pareja con quien enseña durante la iteración siguiente, y las nuevas necesidades de conocimiento se identifican en la retrospectiva.
