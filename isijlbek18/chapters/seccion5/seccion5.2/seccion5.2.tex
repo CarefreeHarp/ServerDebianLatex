@@ -82,7 +82,7 @@ Su principal beneficio es facilitar simulaciones de áreas amplias, comparacione
 
 No obstante, estos modelos utilizan representaciones físicas distintas de FDS y pueden simplificar procesos asociados al flujo de aire, combustión e interacción con el entorno.
 
-Nuestra propuesta mantiene FDS para estudiar la recuperación y agregación de escenarios basados en ese motor físico. Esta elección responde al objetivo académico y no demuestra superioridad general frente a modelos rápidos, que pueden resultar más convenientes en otras condiciones.
+Nuestra propuesta mantiene FDS para estudiar la recuperación y agregación de escenarios basados en ese motor físico. Esta elección responde al objetivo académico y no demuestra superioridad general frente a modelos rápidos, que pueden resultar más convenientes en otras condiciones siendo más apropiados en areas más extensas.
 
 \textbf{Alternativa 3. Adaptación de una plataforma existente.}
 
@@ -244,7 +244,7 @@ La viabilidad técnica se fundamenta en separar el cálculo físico de la consul
 
 Esto permite concentrar el desarrollo en componentes verificables de almacenamiento, búsqueda, compatibilidad, agregación y visualización. También facilita medir por separado el costo de generar la biblioteca, el tiempo de consulta y la calidad de las aproximaciones empleadas.
 
-Frente a FDS bajo demanda, disminuye la dependencia del procesamiento intensivo durante la consulta. Frente a modelos rápidos, conserva el motor físico seleccionado; y frente a plataformas existentes, permite controlar el diseño y la evaluación del procedimiento. Estas ventajas responden al alcance académico y no implican mayor precisión o madurez operativa.
+Frente a FDS bajo demanda, disminuye la dependencia del procesamiento intensivo durante la consulta. Frente a modelos rápidos, conserva el motor físico seleccionado; y frente a plataformas existentes, permite controlar el diseño y la evaluación del procedimiento. Estas ventajas responden al alcance académico y a la aplicacion de conocimientos adquiridos durante el plan de estudios.
 
 \textbf{Limitaciones y validación de la agregación.}
 
@@ -252,28 +252,12 @@ La biblioteca no podrá cubrir todas las combinaciones de ignición, combustible
 
 Además, la agregación espacial de simulaciones independientes constituye una hipótesis aún no validada. Los estudios sobre interacción y fusión de frentes muestran que el comportamiento del fuego puede modificarse cuando los frentes interactúan, por lo que una superposición geométrica no garantiza equivalencia física \cite{vfpRibeiro2022,vfpWadhwani2023}.
 
-Para evaluar esta hipótesis se compararán tres configuraciones FDS:
-
-\begin{enumerate}
-    \item Una simulación iniciada desde una curva de ignición extendida.
-    \item Una simulación con múltiples igniciones puntuales simultáneas.
-    \item La agregación posterior de simulaciones independientes iniciadas desde esos puntos.
-\end{enumerate}
-
 Las configuraciones compartirán, dentro de lo técnicamente posible, condiciones de combustible, topografía, meteorología, resolución y tiempo de evolución.
 
 La comparación permitirá distinguir los efectos de representar una curva continua mediante puntos discretos y los derivados de omitir interacciones físicas entre simulaciones independientes.
 
-Se evaluarán coincidencia de áreas afectadas, distancia entre perímetros, dirección de propagación y, cuando las salidas lo permitan, tiempos de llegada del fuego. Los criterios de aceptación, umbrales de error y reglas de agregación deberán definirse antes de realizar las pruebas.
+Se evaluarán coincidencia de áreas afectadas, distancia entre perímetros, dirección de propagación y, cuando las salidas lo permitan, tiempos de llegada del fuego. 
 
-Los resultados permitirán identificar condiciones en las que la aproximación sea suficientemente consistente con los casos de referencia. Si presenta diferencias inaceptables, deberá restringirse su utilización, mostrar escenarios individuales o informar explícitamente sus limitaciones.
+Los resultados permitirán identificar condiciones en las que la aproximación sea suficientemente consistente con los casos de referencia. 
 
 Una correspondencia favorable con FDS no equivaldrá a validar el método frente a incendios reales, para lo cual serían necesarias observaciones independientes.
-
-\textbf{Pertinencia y alcance del proyecto.}
-
-El alcance territorial delimitado permite concentrar la preparación y evaluación en escenarios identificables, sin extender conclusiones a condiciones no estudiadas. Así, las limitaciones de cobertura y agregación se convierten en aspectos verificables del proyecto.
-
-La aplicación se evaluará tanto por su funcionamiento como por la interpretación de los resultados por parte de los usuarios. Una consulta técnicamente correcta o una visualización comprensible no demuestran por sí solas precisión predictiva ni habilitan su uso operativo.
-
-En consecuencia, la alternativa seleccionada es pertinente porque permite estudiar una integración concreta entre simulación física precalculada y apoyo informativo para la gestión de incendios. Su finalidad principal será facilitar la consulta de escenarios por comandantes o coordinadores, con usos complementarios de demostración y capacitación, sin sustituir el criterio profesional ni presentar resultados no validados como predicciones confiables.

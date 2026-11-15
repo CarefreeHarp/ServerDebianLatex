@@ -16,13 +16,13 @@ Los incendios pueden estudiarse mediante modelos empíricos, semiempíricos o f�
 
 Rothermel (1972) desarrolló un modelo para estimar la velocidad de propagación superficial a partir de características del combustible y condiciones ambientales \cite{vfpRothermel1972}. Mell y colaboradores (2007), por su parte, desarrollaron un modelo físico tridimensional para incendios de pastizal, contrastado con experimentos de campo \cite{mell2007}.
 
-Los modelos físicos ofrecen mayor detalle de determinados procesos, pero requieren más información y recursos computacionales. Esto fundamenta la elección de FDS, sin asumir que una mayor complejidad garantiza resultados más precisos para el territorio estudiado.
+Los modelos físicos ofrecen mayor detalle de simulaciones lo que fundamenta la eleccion de FDS aunque siempre limitados por la calidad de los datos introducidos.
 
 \textbf{FDS, capacidades forestales de WFDS y visualización con Smokeview.}
 
 Fire Dynamics Simulator (FDS) es un simulador basado en dinámica de fluidos computacional (CFD), que utiliza ecuaciones de conservación para representar flujos térmicos, combustión y transporte de calor y humo. Smokeview permite visualizar sus resultados \cite{fdsnist}.
 
-Wildland-Urban Interface Fire Dynamics Simulator (WFDS) surgió como una extensión orientada a incendios de vegetación e interfaz urbano-forestal (WUI), cuyas capacidades fueron parcialmente incorporadas a FDS \cite{wfdsusfs}.
+Wildland-Urban Interface Fire Dynamics Simulator (WFDS) surgió como una extensión orientada a incendios de vegetación e interfaz urbano-forestal (WUI), cuyas capacidades fueron incorporadas a FDS \cite{wfdsusfs}.
 
 El proyecto utilizará FDS como único motor de simulación, aprovechando las capacidades forestales compatibles con la versión instalada. Su disponibilidad deberá comprobarse mediante pruebas. Las salidas requerirán procesamiento y georreferenciación para convertirse en información interpretable por el usuario.
 
@@ -40,7 +40,7 @@ donde $L_x$, $L_y$ y $L_z$ representan las dimensiones del dominio, y $\Delta x$
 
 Por ejemplo, un dominio de $240\,\mathrm{m}\times240\,\mathrm{m}\times20\,\mathrm{m}$, con celdas de $0{,}5\,\mathrm{m}$, contiene $9\,216\,000$ celdas. Reducir a la mitad el tamaño de celda en las tres dimensiones incrementa esta cantidad a $73\,728\,000$.
 
-Este crecimiento ilustra el costo asociado a la resolución, aunque el consumo real depende también de la duración simulada, configuración física y recursos utilizados. Valero, Jofre y Torres (2021) estudian las relaciones entre fidelidad, costo e incertidumbre en simulaciones de incendios \cite{valero2021}. Por ello, la resolución deberá justificarse mediante ensayos.
+Este crecimiento ilustra el costo asociado a la resolución, aunque el consumo real depende también de la duración simulada, configuración física y recursos utilizados. Valero, Jofre y Torres (2021) estudian las relaciones entre fidelidad, costo e incertidumbre en simulaciones de incendios \cite{valero2021}. 
 
 \textbf{Representación territorial y propiedades de los combustibles.}
 
@@ -52,7 +52,6 @@ Para preparar los datos se utilizarán herramientas de información geográfica 
 
 Entre las fuentes identificadas se encuentran GEDTM30 y Copernicus DEM para elevación \cite{vfpGEDTM30,vfpCopernicusDEM}; ERA5 y ERA5-Land para información meteorológica \cite{vfpERA5Datos,vfpERA5LandDatos}; y datos complementarios del IDEAM, IDECA y entidades ambientales distritales \cite{vfpIDEAMDHIME,vfpIDECABogota,vfpSDAVisor,vfpJBBCoberturas}.
 
-Estas fuentes aún deben evaluarse según cobertura, resolución, vigencia y disponibilidad de variables. También será necesario definir cómo transformar la información de vegetación en parámetros de combustible compatibles con FDS.
 
 \textbf{Amenaza de ignición y distribución de los puntos de referencia.}
 
@@ -64,19 +63,14 @@ Estos puntos representan ubicaciones de escenarios independientes y no deben con
 
 \textbf{Cómputo de alto desempeño y paralelización de simulaciones.}
 
-La generación de escenarios con distintas igniciones y condiciones ambientales requiere recursos computacionales considerables. Para ello se contempla utilizar cómputo de alto desempeño (HPC), diferenciando dos modalidades: \emph{paralelismo entre escenarios}, que ejecuta casos independientes simultáneamente, y \emph{paralelismo dentro de un escenario}, que distribuye un mismo cálculo entre procesos con comunicación y sincronización.
+La generación de escenarios con distintas igniciones y condiciones ambientales requiere recursos computacionales considerables. Para ello se contempla utilizar cómputo de alto desempeño (HPC), diferenciando dos modalidades: paralelismo entre escenarios, que ejecuta casos independientes simultáneamente, y paralelismo dentro de un escenario, que distribuye un mismo cálculo entre procesos con comunicación y sincronización, con procesos MPI como lo hace FDS.
 
-Fujimoto (1990) estudia fundamentos de simulación paralela, aunque su investigación sobre eventos discretos no demuestra directamente la escalabilidad de FDS \cite{vfpFujimoto1990}.
-
-Como infraestructura potencial se identifica HPC-ZINE de la Pontificia Universidad Javeriana, que proporciona recursos de procesamiento, almacenamiento y acompañamiento técnico \cite{vfpHPCZINE}.
-
+Fujimoto (1990) estudia fundamentos de simulación paralela, por lo que su investigación es útil para nuestro proceso \cite{vfpFujimoto1990}. Como infraestructura potencial se identifica HPC-ZINE de la Pontificia Universidad Javeriana, que proporciona recursos de procesamiento, almacenamiento y acompañamiento técnico \cite{vfpHPCZINE}.
 Un inventario institucional describe un clúster de 22 nodos, 880 núcleos Intel Xeon, aproximadamente 8,25 TB de RAM agregada, 238 TB de almacenamiento compartido y conectividad InfiniBand EDR de 100 Gb/s \cite{vfpHPCInventario}.
-
-Por otra parte, antecedentes técnicos del equipo registran una configuración de 384 núcleos físicos, 792 GB de RAM y 110 TB de almacenamiento, además de una posible alternativa de 190--192 núcleos. Estas cifras corresponden a inventarios diferentes y no constituyen recursos confirmados para el proyecto.
 
 Aunque las especificaciones sugieren capacidad para ejecutar cargas intensivas, será necesario verificar el acceso, los recursos asignados, la versión de FDS, su compatibilidad con el entorno, las bibliotecas de paralelización y el gestor de trabajos.
 
-Los pilotos permitirán medir tiempos de ejecución, memoria, almacenamiento, concurrencia y escalabilidad. Por tanto, la viabilidad computacional deberá comprobarse mediante ejecuciones reales, no únicamente a partir de las capacidades publicadas.
+Los pilotos permitirán medir tiempos de ejecución, memoria, almacenamiento, concurrencia y escalabilidad. Por tanto, la viabilidad computacional deberá comprobarse mediante ejecuciones reales, no únicamente a partir de las capacidades indicadas.
 
 \textbf{Diseño de experimentos y construcción de la biblioteca.}
 
@@ -86,50 +80,38 @@ La propuesta deberá definir parámetros variables, intervalos sustentados en da
 
 Cada escenario conservará metadatos de ubicación, condiciones de entrada, configuración, versión de FDS, tiempos simulados y archivos de salida. Esto permitirá reproducir resultados, comparar configuraciones compatibles e identificar limitaciones de cobertura.
 
-Aunque Sacks aborda modelos estadísticos sustitutos (\emph{surrogates}), su implementación no forma parte del alcance actual.
-
 \textbf{Consulta y recuperación de escenarios semejantes.}
 
 La aplicación permitirá consultar escenarios precalculados mediante una ubicación o perímetro observado y condiciones ambientales disponibles.
 
-La clasificación mediante vecinos cercanos estudiada por Cover y Hart (1967) constituye un antecedente conceptual para recuperar registros por proximidad \cite{cover1967}, pero no establece equivalencia física entre simulaciones de incendios.
+La clasificación mediante vecinos cercanos estudiada por Cover y Hart (1967) constituye un antecedente conceptual para recuperar registros por proximidad \cite{cover1967}.
 
 El mecanismo deberá considerar ubicación, viento y demás variables pertinentes, con criterios de normalización y compatibilidad. En particular, la dirección del viento debe tratarse como variable circular, evitando considerar $0^\circ$ y $360^\circ$ como orientaciones opuestas.
 
-La semejanza permitirá seleccionar escenarios compatibles, sin garantizar precisión física. También deberán identificarse las consultas para las cuales no existan resultados suficientemente representativos.
+La semejanza permitirá seleccionar escenarios compatibles.
 
-\textbf{Trazabilidad, interoperabilidad de datos y reproducibilidad.}
+\textbf{Trazabilidad e interoperabilidad de datos.}
 
 La trazabilidad relaciona cada escenario con sus condiciones de entrada, configuraciones, transformaciones y resultados. La interoperabilidad geoespacial permite integrar datos de distintas herramientas manteniendo consistencia de coordenadas, unidades, geometrías y orientación.
 
 Esto resulta fundamental al combinar información procesada mediante QGIS, entradas generadas con qgis2fds y salidas FDS \cite{vfpQGIS,vfpQGIS2FDS}. Los modelos digitales de elevación describen el relieve, mientras que las representaciones ráster y vectoriales permiten organizar variables territoriales en celdas o geometrías.
 
-La reproducibilidad exige conservar versiones, parámetros, archivos y condiciones de ejecución. Estas prácticas permitirán verificar resultados, identificar errores y evitar comparaciones entre escenarios incompatibles.
-
 \textbf{Agregación espacial y tratamiento de un perímetro observado.}
 
 Cuando exista un perímetro observado, la aplicación buscará identificar su borde activo, recuperar simulaciones cercanas y explorar la agregación de sus resultados, excluyendo las áreas ya identificadas como quemadas.
 
-La interacción y fusión de frentes ha sido investigada experimental y computacionalmente. Ribeiro y colaboradores (2022) observaron que las interacciones entre frentes paralelos y el viento modifican sus características de propagación \cite{vfpRibeiro2022}.
-
-Wadhwani y colaboradores (2023) utilizaron FDS para modelar la fusión de dos frentes y contrastaron los resultados con experimentos, reportando errores relativos de velocidad de propagación entre el 5\% y el 35\% en la mayoría de los casos \cite{vfpWadhwani2023}.
-
-Asimismo, FARSITE documenta algoritmos para identificar intersecciones y fusionar perímetros durante una simulación \cite{vfpFARSITEMergers}.
-
-Estos antecedentes demuestran que la interacción y unión de frentes puede estudiarse mediante modelos computacionales, pero no validan directamente la combinación posterior de simulaciones FDS independientes.
-
-Por ello, la agregación propuesta constituye una \emph{hipótesis que requiere validación experimental}, dado que la superposición geométrica podría omitir interacciones térmicas, vientos inducidos y modificaciones en la velocidad de propagación.
+La agregación propuesta constituye una hipótesis que requiere validación experimental, dado que la superposición geométrica podría omitir interacciones térmicas, vientos inducidos y modificaciones en la velocidad de propagación.
 
 \textbf{Comparación con una ignición lineal de referencia.}
 
 Para evaluar esta hipótesis se propone comparar tres configuraciones FDS bajo condiciones equivalentes de combustible, topografía, meteorología, resolución y tiempo simulado:
 
 \begin{enumerate}
-    \item \textbf{Ignición lineal:} una simulación de referencia cuyo incendio comienza a lo largo de una curva continua, representativa de un frente activo.
+    \item \textbf{Ignición lineal:} Una simulación de referencia cuyo incendio comienza a lo largo de una curva continua, representativa de un frente activo.
 
-    \item \textbf{Igniciones puntuales simultáneas:} una simulación FDS con varios puntos de ignición ubicados sobre la curva o próximos a ella, considerando conjuntamente sus interacciones físicas.
+    \item \textbf{Igniciones puntuales simultáneas:} Una simulación FDS con varios puntos de ignición ubicados sobre la curva o próximos a ella, considerando conjuntamente sus interacciones físicas.
 
-    \item \textbf{Agregación independiente:} simulaciones FDS ejecutadas por separado desde esos puntos, cuyos resultados se combinan posteriormente mediante el procedimiento propuesto.
+    \item \textbf{Agregación independiente:} Simulaciones FDS ejecutadas por separado desde esos puntos, cuyos resultados se combinan posteriormente.
 \end{enumerate}
 
 Comparar los dos primeros casos permitirá estudiar el efecto de representar una curva continua mediante puntos discretos. Comparar los dos últimos permitirá evaluar las diferencias asociadas a omitir las interacciones físicas entre simulaciones independientes.
@@ -138,29 +120,7 @@ Los resultados se contrastarán sobre una referencia geográfica común, en tiem
 
 También se considerarán medidas de coincidencia espacial y distancia entre perímetros. Las tolerancias y umbrales de aceptación deberán definirse antes de la evaluación, incluyendo pruebas con distintas separaciones entre igniciones, condiciones meteorológicas y características del combustible.
 
-Los resultados permitirán identificar condiciones de correspondencia aceptable y situaciones en las que la agregación presenta diferencias relevantes. Sin embargo, una buena correspondencia con FDS demostraría consistencia respecto del modelo de referencia, no validación frente a incendios reales.
-
-La aplicación deberá comunicar estas limitaciones y no presentar resultados no comprobados como predicciones físicamente validadas. Tampoco deberá interpretar la agregación como una probabilidad de afectación sin un procedimiento estadístico específico.
-
-\textbf{Incertidumbre, Monte Carlo y multifidelidad.}
-
-Las simulaciones presentan incertidumbres asociadas a meteorología, combustible, resolución, simplificaciones físicas y cobertura de escenarios.
-
-Monte Carlo permite estudiar variabilidad mediante entradas muestreadas, mientras que los enfoques multifidelidad y multinivel combinan configuraciones de diferente costo para estimar cantidades estadísticas.
-
-Valero, Jofre y Torres (2021) estudiaron sensibilidad e incertidumbre mediante simulaciones WFDS \cite{valero2021}. Estos métodos fundamentan el análisis de incertidumbre, pero no validan la agregación propuesta ni implican que el proyecto implemente Monte Carlo multinivel.
-
-La aplicación deberá distinguir incertidumbres de entrada, diferencias numéricas y limitaciones de recuperación, evitando presentar probabilidades que no hayan sido estimadas y validadas.
-
-\textbf{Representación geoespacial e interpretación por parte del usuario.}
-
-Los resultados deberán representarse sobre el territorio mediante coordenadas, unidades, orientación y tiempos consistentes, diferenciando el perímetro observado del avance simulado.
-
-Smokeview permite visualizar resultados científicos \cite{fdsnist}, mientras que QGIS y qgis2fds pueden apoyar su procesamiento geográfico \cite{vfpQGIS,vfpQGIS2FDS}.
-
-Dado que el usuario previsto es un comandante o coordinador, la aplicación deberá facilitar la comprensión de los escenarios, sus restricciones y su cobertura.
-
-La evaluación distinguirá la ejecución correcta de la simulación, la fidelidad de recuperación y visualización de los datos, y la comprensión del usuario. Ninguna de estas condiciones garantiza por sí sola la validez predictiva ni autoriza el uso operativo del sistema.
+Los resultados permitirán identificar condiciones de correspondencia aceptable y situaciones en las que la agregación presenta diferencias relevantes. Sin embargo, una buena correspondencia con FDS demostraría consistencia respecto del modelo de referencia.
 
 \textbf{Metodología de desarrollo: Disciplined Agile Delivery (DAD).}
 
@@ -176,6 +136,5 @@ El Project Management Institute (PMI) describe su ciclo de entrega mediante tres
     \item \textbf{Transición (Transition):} preparar la entrega, evaluar la solución y verificar su utilización por los destinatarios.
 \end{itemize}
 
-El proyecto adaptará estas fases al contexto académico. Inicio abarcará requisitos, arquitectura, fuentes de datos y viabilidad técnica; Construcción comprenderá simulaciones FDS, biblioteca, consulta, agregación y visualización; y Transición incluirá pruebas con usuarios, documentación y entrega académica.
+El proyecto adaptará estas fases al contexto académico. Inicio abarcará requisitos, arquitectura, fuentes de datos y viabilidad técnica; Construcción comprenderá simulaciones FDS, biblioteca, consulta, agregación y visualización; y Transición será adaptada a Semi-Transición e incluirá pruebas con usuarios, documentación y entrega académica.
 
-Esta adaptación proporciona una estructura de desarrollo y aseguramiento de calidad, pero no constituye una validación científica de las simulaciones ni de la agregación espacial, que requieren las comprobaciones experimentales anteriormente descritas.
