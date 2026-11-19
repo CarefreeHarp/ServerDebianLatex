@@ -2,6 +2,7 @@
 \begingroup
 \fuenteTabla\fontsize{9.3bp}{11bp}\selectfont
 \setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
 \renewcommand{\arraystretch}{1.2}
 \begin{longtable}{|>{\centering\arraybackslash}p{0.16\linewidth}|>{\centering\arraybackslash}p{0.13\linewidth}|>{\centering\arraybackslash}p{0.18\linewidth}|p{0.23\linewidth}|>{\centering\arraybackslash}p{\dimexpr0.30\linewidth-10\tabcolsep-6\arrayrulewidth\relax}|}
 \hline
@@ -9,8 +10,9 @@
 \endfirsthead
 \hline
 \textbf{Versión} & \textbf{Fecha} & \textbf{Sección del documento modificada} & \centering\arraybackslash\textbf{Descripción de cambios (corta)} & \textbf{Responsable (S)}\\\hline
-\endhead
- & 04/11/2026 & Estructura general y formato & Creación de la estructura por capítulos y secciones; adaptación del formato y ajuste de márgenes simétricos. & \\\hline
+\endhead\textcolor{red}{Se considerará como versión 1.0 la entregada al final del ciclo 2026-30 al director del proyecto de grado} & 04/11/2026 & Estructura general y formato & Creación de la estructura por capítulos y secciones; adaptación del formato y ajuste de márgenes simétricos. & \textcolor{red}{Daniel Felipe Ramírez Vargas} \\\hline
+ & \textcolor{red}{19/11/2026} & {\raggedright\textcolor{red}{• Portada\newline • 2.1 Perspectiva del producto}\par} & \textcolor{red}{• Redacción de la perspectiva del producto.\newline • Datos, autores y logo de portada.} & \textcolor{red}{Daniel Felipe Ramírez Vargas} \\\hline
+
 \caption{Historial de cambios}\label{tab:historial}
 \end{longtable}
 \endgroup
