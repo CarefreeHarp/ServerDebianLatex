@@ -9,7 +9,7 @@
 \IfFontExistsTF{Calibri}{\newfontfamily\fuenteTabla{Calibri}}{\newfontfamily\fuenteTabla{Liberation Sans}}
 \usepackage[spanish,es-tabla]{babel}
 \usepackage{geometry}
-\geometry{letterpaper,left=72bp,right=72bp,top=72bp,bottom=72bp,headheight=23bp,headsep=12bp,footskip=25bp}
+\geometry{letterpaper,left=72bp,right=72bp,top=72bp,bottom=72bp,headheight=32bp,headsep=12bp,footskip=25bp}
 \usepackage{graphicx,xcolor,array,longtable,fancyhdr,titlesec}
 \usepackage[hidelinks,linktoc=all]{hyperref}
 \definecolor{grisTitulo}{RGB}{76,76,76}
@@ -20,18 +20,13 @@
 \makeatletter
 \renewcommand\normalsize{\@setfontsize\normalsize{10bp}{12bp}}
 \makeatother
-\normalsize
-\newcommand{\nombreProyecto}{[Nombre del proyecto]}
+\normalsize\newcommand{\nombreProyecto}{Aplicación de apoyo a la decisión para incendios en las zonas urbanas y forestales de los Cerros Orientales de Bogotá}
 \newcommand{\nombreEmpresa}{[Nombre de la empresa]}
 \newcommand{\fechaDocumento}{[Fecha]}
 \newcommand{\versionDocumento}{[Versión del documento]}
 \newcommand{\autoresDocumento}{[Autores]}
-\fancyhf{}
-\fancyhead[L]{\IfFileExists{srs-logo-000.png}{\includegraphics[height=23bp]{srs-logo-000.png}}{\makebox[23bp]{}}\hspace{7bp}\fontsize{9.3bp}{11bp}\selectfont SRS: \nombreProyecto}
-\fancyhead[R]{\fontsize{9.3bp}{11bp}\selectfont [Logo de la empresa]}
-\fancyfoot[L]{\raisebox{-2bp}{\IfFileExists{srs-ironworks.png}{\includegraphics[width=79bp]{srs-ironworks.png}}{\makebox[79bp]{}}}\hspace{5bp}{\fontsize{7.2bp}{9bp}\selectfont\itshape Creado por IronWorks -- Ingeniería de Sistemas PUJ}}
-\fancyfoot[R]{\fontsize{7.2bp}{9bp}\selectfont\thepage}
-\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}\fancyhead[L]{\parbox[c]{0.78\textwidth}{\raggedright\fontsize{8bp}{9bp}\selectfont SRS: \textcolor{black}{\nombreProyecto}}}\fancyhead[R]{\includegraphics[height=23bp,keepaspectratio]{logo-javeriana.png}}\fancyfoot[L]{{\fontsize{7.2bp}{9bp}\selectfont\itshape\textcolor{black}{Ingeniería de Sistemas PUJ}}}
+\fancyfoot[R]{\fontsize{7.2bp}{9bp}\selectfont\thepage}\renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \pagestyle{fancy}
 \newcommand{\franjaTitulo}[1]{\begingroup\setlength{\fboxsep}{2.5bp}\setlength{\fboxrule}{0.5bp}\fcolorbox{black}{grisTitulo}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\color{white}#1}}\endgroup}

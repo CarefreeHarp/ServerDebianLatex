@@ -1,0 +1,598 @@
+% =====================================================================
+%  Anexo: Entrevistas a posibles usuarios del sistema
+%  Proyecto: Aplicación de apoyo a la decisión para incendios en las
+%  zonas urbanas y forestales de los Cerros Orientales de Bogotá
+%
+%  Compilar con LuaLaTeX (o XeLaTeX) + BibTeX:
+%     lualatex anexo_entrevistas
+%     bibtex   anexo_entrevistas
+%     lualatex anexo_entrevistas
+%     lualatex anexo_entrevistas
+%  (latexmk -lualatex anexo_entrevistas hace todo lo anterior)
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Bibliografía embebida (se escribe en entrevistas.bib al compilar)
+% ---------------------------------------------------------------------
+\begin{filecontents*}[overwrite]{entrevistas.bib}
+@misc{propuesta2026,
+  author       = {Pinz{\'o}n, A. and Ram{\'i}rez, D. and Aponte, G. and Sarmiento, M.},
+  title        = {Aplicación de apoyo a la decisión para incendios en las zonas urbanas y forestales de los {C}erros {O}rientales de {B}ogotá},
+  howpublished = {Propuesta para proyecto de grado, Ingeniería de Sistemas, Pontificia Universidad Javeriana},
+  year         = {2026},
+  note         = {Director: Jaime Andrés Pavlich Mariscal}
+}
+@misc{entrevistaMejia2026,
+  author       = {{Equipo del proyecto}},
+  title        = {Entrevista a {A}na {M}ilena {M}ejía {Z}apata, exdirectora general de la {D}efensa {C}ivil {C}olombiana},
+  howpublished = {Entrevista realizada durante el levantamiento de información del proyecto de grado, Pontificia Universidad Javeriana},
+  month        = {14 sep.},
+  year         = {2026}
+}
+@misc{entrevistaMarin2026,
+  author       = {{Equipo del proyecto}},
+  title        = {Entrevista a {L}ina {M}aría {M}arín {R}odríguez, exdirectora de la {D}irección {N}acional de {B}omberos de {C}olombia},
+  howpublished = {Entrevista realizada durante el levantamiento de información del proyecto de grado, Pontificia Universidad Javeriana},
+  month        = {15 sep.},
+  year         = {2026}
+}
+@misc{entrevistaPreciado2026,
+  author       = {{Equipo del proyecto}},
+  title        = {Entrevista a {C}arlos {P}reciado, bombero aeronáutico y coordinador regional},
+  howpublished = {Entrevista realizada durante el levantamiento de información del proyecto de grado, Pontificia Universidad Javeriana},
+  month        = {22 sep.},
+  year         = {2026}
+}
+\end{filecontents*}
+
+\documentclass[11pt,letterpaper]{article}
+
+% ---------------------------------------------------------------------
+% Idioma, fuentes y página
+% ---------------------------------------------------------------------
+% Se usa babel-spanish (como en el documento principal); si la
+% instalación no lo trae, se carga el español desde los archivos .ini.
+\IfFileExists{spanish.ldf}
+  {\usepackage[spanish,es-tabla]{babel}}
+  {\usepackage{babel}
+   \babelprovide[import,main]{spanish}
+   \AtBeginDocument{\renewcommand{\tablename}{Tabla}}}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\newfontfamily\fuentetitulos{Liberation Sans}
+
+\usepackage[letterpaper,
+            top=3.175cm, right=3.175cm,
+            bottom=3.81cm, left=3.81cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{etoolbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+% Párrafos sin sangría y con separación de 6 pt
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+
+% ---------------------------------------------------------------------
+% Datos del documento (editar aquí)
+% ---------------------------------------------------------------------
+\newcommand{\universidad}{Pontificia Universidad Javeriana}
+\newcommand{\nombredocumento}{Anexo: Entrevistas a posibles usuarios}
+\newcommand{\tituloproyecto}{Aplicación de apoyo a la decisión para incendios en las zonas urbanas y forestales de los Cerros Orientales de Bogotá}
+\newcommand{\fechadocumento}{19 de noviembre de 2026}
+\newcommand{\archivologo}{logo_javeriana.png}
+
+\hypersetup{
+  pdftitle   = {Anexo: entrevistas a posibles usuarios del sistema},
+  pdfauthor  = {Andrés Pinzón, Daniel Ramírez, Guillermo Aponte, Miguel Sarmiento},
+  pdfsubject = {\tituloproyecto}
+}
+
+% ---------------------------------------------------------------------
+% Títulos: secciones en barra gris oscura con texto blanco (14 pt),
+% subsecciones en negrita de 14 pt y subsubsecciones de 12 pt
+% ---------------------------------------------------------------------
+\definecolor{grisseccion}{gray}{0.30}
+
+\newcommand{\barraseccion}[2]{%
+  \setlength{\fboxsep}{2pt}%
+  \noindent\fcolorbox{black}{grisseccion}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+      \centering\color{white}\strut#1#2\strut}}}
+
+\titleformat{name=\section}[block]
+  {\fuentetitulos\bfseries\fontsize{14}{17}\selectfont}
+  {}{0pt}{\barraseccion{\thesection\hspace{0.75em}}}
+\titleformat{name=\section,numberless}[block]
+  {\fuentetitulos\bfseries\fontsize{14}{17}\selectfont}
+  {}{0pt}{\barraseccion{}}
+\titleformat{\subsection}
+  {\fuentetitulos\bfseries\fontsize{14}{17}\selectfont}
+  {\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}
+  {\fuentetitulos\bfseries\fontsize{12}{14.5}\selectfont}
+  {\thesubsubsection}{0.6em}{}
+
+\titlespacing*{\section}{0pt}{0pt}{14pt}
+\titlespacing*{\subsection}{0pt}{14pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{4pt}
+
+% Cada sección comienza en página nueva
+\newcommand{\sectionbreak}{\clearpage}
+
+% Numeración e índice hasta tres niveles (1.1.1)
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Referencias como sección numerada, igual que en el documento principal
+\patchcmd{\thebibliography}{\section*{\refname}}{\section{\refname}}{}{}
+
+% ---------------------------------------------------------------------
+% Encabezado y pie de página
+% ---------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\bfseries\universidad}
+\fancyhead[R]{\small\nombredocumento}
+\fancyfoot[R]{\small Página \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+% ---------------------------------------------------------------------
+% Listas y tablas
+% ---------------------------------------------------------------------
+\setlist[itemize,1]{label={\raisebox{0.2ex}{\tiny$\blacksquare$}}, topsep=2pt, itemsep=3pt}
+\setlist[itemize,2]{label={\scriptsize$\square$}}
+\setlist[enumerate]{topsep=2pt, itemsep=3pt}
+
+\captionsetup[table]{position=top, skip=8pt}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}m{1.7cm}}
+
+% Etiqueta en mayúsculas negritas para la portada
+\newcommand{\etiqueta}[1]{\textbf{\MakeUppercase{#1}}\par}
+\newcommand{\persona}[1]{\textbf{#1}\ \hrulefill\par}
+
+% =====================================================================
+\begin{document}
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Portada (sin datos de contacto ni historial de cambios)
+% ---------------------------------------------------------------------
+\begin{titlepage}
+\newgeometry{left=2cm, right=1.6cm, top=2.3cm, bottom=2.3cm}
+\thispagestyle{empty}
+
+\noindent
+\begin{minipage}[b]{0.5\textwidth}
+  \IfFileExists{\archivologo}{\includegraphics[width=1.75cm]{\archivologo}}{\rule{0pt}{2.1cm}}
+\end{minipage}%
+\begin{minipage}[b]{0.5\textwidth}
+  \raggedleft{\fontsize{14}{17}\selectfont Ingeniería de Sistemas}
+\end{minipage}
+
+\vspace{1.6cm}
+\begin{center}
+  {\fontsize{17}{21}\selectfont\bfseries ENTREVISTAS A POSIBLES USUARIOS DEL SISTEMA}
+\end{center}
+\vspace{-4pt}
+
+\noindent
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|}
+\hline
+\etiqueta{Proyecto}
+\tituloproyecto\vspace{3pt}\\
+\hline
+\etiqueta{Documento al que pertenece}
+Propuesta para proyecto de grado\vspace{3pt}\\
+\hline
+\etiqueta{Propósito del anexo}
+Reunir y sintetizar el contenido de las entrevistas realizadas a posibles usuarios del sistema y a profesionales de la gestión del riesgo y la atención de emergencias, organizado por persona entrevistada y por punto clave tratado.\vspace{3pt}\\
+\hline
+\etiqueta{Personas entrevistadas}
+\vspace{2pt}
+\persona{Ana Milena Mejía Zapata}
+{\small Exdirectora general de la Defensa Civil Colombiana. Entrevista del 14 de septiembre de 2026.}\par\vspace{4pt}
+\persona{Lina María Marín Rodríguez}
+{\small Capitán en jefe, exdirectora de la Dirección Nacional de Bomberos de Colombia. Entrevista del 15 de septiembre de 2026.}\par\vspace{4pt}
+\persona{Carlos Preciado}
+{\small Bombero aeronáutico y coordinador regional de servicios de salvamento y extinción de incendios en aeropuertos. Entrevista del 22 de septiembre de 2026.}\vspace{4pt}\\
+\hline
+\etiqueta{Equipo del proyecto}
+Andrés Felipe Pinzón Márquez, Daniel Felipe Ramírez Vargas, Guillermo Andrés Aponte Cárdenas y Miguel Ángel Sarmiento Cuervo. Director: Jaime Andrés Pavlich Mariscal.\vspace{3pt}\\
+\hline
+\end{tabularx}
+
+\vfill
+\begin{flushright}
+\fechadocumento
+\end{flushright}
+\restoregeometry
+\end{titlepage}
+
+\setcounter{page}{2}
+
+% ---------------------------------------------------------------------
+\tableofcontents
+% ---------------------------------------------------------------------
+
+% =====================================================================
+\section{Introducción}
+% =====================================================================
+
+Este documento reúne y sintetiza el contenido de las entrevistas realizadas por el equipo del proyecto a posibles usuarios del sistema y a profesionales relacionados con la atención de emergencias en Colombia. El producto de las entrevistas es una aplicación de escritorio para estimar y visualizar el comportamiento probable de incendios forestales en un sector de los Cerros Orientales de Bogotá a partir de escenarios FDS precalculados, con el fin de apoyar al comandante o coordinador de la operación.
+
+El propósito de las entrevistas fue conocer, desde la experiencia de quienes coordinan o atienden emergencias, qué información necesitan durante un incendio forestal, cómo fluye esa información entre las entidades, qué limitaciones enfrentan en campo y qué condiciones debería cumplir una herramienta de apoyo a la decisión para ser útil y confiable. Se entrevistó a tres personas con trayectorias complementarias, cuyo perfil se resume en la tabla~\ref{tab:entrevistados}.
+
+\begin{table}[htbp]
+\centering
+\caption{Personas entrevistadas y perspectiva que aporta cada una.}
+\label{tab:entrevistados}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|L{3.0cm}|Y|L{1.75cm}|Y|}
+\hline
+\textbf{Persona} & \textbf{Perfil} & \textbf{Fecha} & \textbf{Perspectiva principal} \\
+\hline
+Ana Milena Mejía Zapata & Teniente coronel retirada de la Fuerza Aérea Colombiana y exdirectora general de la Defensa Civil Colombiana. & 14 sep. 2026 & Gobernanza del riesgo, coordinación interinstitucional, alerta temprana y reporte comunitario. \\
+\hline
+Lina María Marín Rodríguez & Capitán en jefe del sector bomberil y exdirectora de la Dirección Nacional de Bomberos de Colombia. & 15 sep. 2026 & Gerencia pública, capacidades territoriales y necesidades de información para la operación forestal. \\
+\hline
+Carlos Preciado & Bombero aeronáutico con 30 años de servicio y coordinador regional de once cuerpos de bomberos aeronáuticos. & 22 sep. 2026 & Operación en campo, decisiones tácticas, seguridad del personal y capacitación. \\
+\hline
+\end{tabularx}
+\end{table}
+
+Cada entrevista se presenta en una sección propia. Dentro de cada sección, las subsecciones corresponden a los puntos clave tratados durante la conversación, a partir de las notas temáticas que el equipo consolidó después de cada entrevista. La sección~\ref{sec:conclusiones} reúne las coincidencias entre las tres perspectivas, los criterios que se desprenden para el diseño de la aplicación, su relación con el alcance de la propuesta y los aspectos que aún requieren verificación.
+
+Se deben tener en cuenta dos criterios. En primer lugar, el contenido recoge testimonios y apreciaciones de las personas entrevistadas: las cifras, referencias normativas, nombres de plataformas y descripciones institucionales que se mencionan corresponden a su relato y deben contrastarse con fuentes oficiales antes de incorporarse como hechos en los documentos formales del proyecto. En segundo lugar, las implicaciones de diseño que se derivan de cada entrevista son interpretaciones del equipo y no constituyen requisitos aprobados ni capacidades comprometidas del producto.
+
+% =====================================================================
+\section{Entrevista a Ana Milena Mejía Zapata}\label{sec:mejia}
+% =====================================================================
+
+La entrevista se realizó el 14 de septiembre de 2026~\cite{entrevistaMejia2026}. Su testimonio aporta principalmente la perspectiva de la coordinación institucional y del servicio público en emergencias. La propia entrevistada recomendó contrastarlo con perfiles de bomberos para profundizar en la operación contra incendios, recomendación que se atendió en las entrevistas presentadas en las secciones~\ref{sec:marin} y~\ref{sec:preciado}.
+
+\subsection{Perfil y alcance de la experiencia}
+
+Ana Milena Mejía Zapata relata 25 años de trayectoria en la Fuerza Aérea Colombiana. Formó parte del tercer curso regular de mujeres, se formó inicialmente como piloto, voló aeronaves de reconocimiento y transporte y acumuló cerca de 1.100 horas de vuelo. Posteriormente se dedicó al área logística, se retiró con el grado de teniente coronel e ingresó a la Defensa Civil Colombiana, entidad de la que fue directora.
+
+Su experiencia más reciente combina dirección pública, coordinación de organismos de socorro y atención de emergencias de alcance nacional. Mencionó su participación directa en las inundaciones prolongadas de Córdoba, asociadas al frente frío de febrero de 2026; en el terremoto del 10 de agosto de 2026, y en las inundaciones de Casanare de julio de 2026, aproximadamente. Distingue estas emergencias nacionales de los incidentes cotidianos y focalizados que gestionan directamente las direcciones seccionales.
+
+Describe a la Defensa Civil Colombiana con una cobertura aproximada del 93~\% del territorio nacional, 25 seccionales en 24 departamentos ---dos en Cundinamarca: Cundinamarca y Bogotá--- y cuatro grupos internos para San Andrés, Amazonas, Putumayo y Arauca.
+
+\subsection{Gobernanza y escalamiento de emergencias}
+
+Para los incendios, la entrevistada remite a la Ley 1575, según la cual Bomberos tiene la responsabilidad y el control de la atención, mientras que la Defensa Civil cumple una función de apoyo. Para las emergencias en general, enmarca la actuación en la Ley 1523 y en el Sistema Nacional de Gestión del Riesgo de Desastres (SNGRD), del que hacen parte entidades públicas, privadas y la ciudadanía, con funciones diferenciadas.
+
+Según su explicación, el escalamiento de una emergencia no es automático y sigue tres niveles:
+
+\begin{itemize}
+  \item \textbf{Municipal:} la alcaldía y su instancia de gestión del riesgo constituyen el primer nivel. El alcalde declara la calamidad pública o la emergencia cuando las capacidades humanas y económicas del municipio se ven superadas.
+  \item \textbf{Departamental:} solo entonces interviene la gobernación, con su dirección de gestión del riesgo.
+  \item \textbf{Nacional:} si el nivel departamental también se supera, entra la Unidad Nacional para la Gestión del Riesgo de Desastres (UNGRD) con sus entidades operativas.
+\end{itemize}
+
+La declaración formal ---decreto, resolución o acto administrativo--- habilita el uso de los fondos del nivel respectivo. En incidentes pequeños, el secretario o gestor municipal direcciona el caso hacia el organismo más pertinente según las conexiones y capacidades de su territorio. De ello se desprende que una herramienta de incendios no puede presuponer que el usuario operativo reemplaza a la autoridad competente, ni que un reporte comunitario activa por sí solo recursos nacionales.
+
+\subsection{Capacidades para incendios forestales}
+
+La entrevistada considera que Bomberos tiene fortalecida la atención de incendios estructurales, pero que el país todavía tiene menor fortaleza en incendios forestales. Señala que estos pueden requerir apoyo aéreo aun cuando se aumente el personal en tierra, como ocurrió en los incendios de Tolima a los que hizo referencia.
+
+Mencionó la llegada prevista de dos helicópteros Firehawk adquiridos por la UNGRD para la Fuerza Aérea Colombiana. Según su explicación, este helicóptero lleva el agua dentro de la estructura de la aeronave y permite descargas focalizadas, a diferencia del Bambi Bucket suspendido, cuya operación nocturna presenta restricciones por riesgo operacional. También aludió a las capacidades de la Fuerza Aérea con aviones Hércules, aunque advirtió que su carga logística y de operación es muy alta.
+
+Relató además que la Defensa Civil recibió capacitación francesa en extinción de incendios, tanto aérea como en territorio, e identificó a Francia como referente en manejo y control de incendios, con actividades de formación junto al IDIGER, Bogotá y la Defensa Civil. Para la entrevistada, estas capacidades no sustituyen la detección: el mejor momento para reducir el desgaste de equipos y recursos es antes de que el foco se salga de control.
+
+\subsection{Prevención, alerta temprana y participación comunitaria}
+
+La prevención y la detección temprana fueron el eje de la entrevista. Un reporte temprano aumenta la probabilidad de liquidar un incendio y evita desgastar a los equipos operativos. La Defensa Civil cuenta con observadores comunitarios del riesgo, personas de la región cuya tarea, ante una amenaza inminente, es observar y reportar. La entrevistada recordó que se contrataron observadores durante los incendios de 2022, pero considera que este recurso se aprovecha poco.
+
+La comunidad es la primera informante y también la primera respondiente. En áreas rurales, las juntas de acción comunal y la cartografía social pueden ayudar a identificar comunidades vulnerables, infraestructura y zonas potencialmente afectadas. Por ello propone una red permanente de observadores comunitarios vinculada con los coordinadores municipales de gestión del riesgo y con los presidentes de las juntas de las veredas.
+
+A su juicio, una aplicación de este tipo tiene mayor valor en lo rural: en lo urbano, un incendio estructural suele ser visible, los bomberos están más cerca y la llamada llega rápidamente, mientras que un incendio forestal puede crecer fuera de control antes de ser reportado. El propósito no es definir desde cero cómo deben actuar las instituciones, pues los protocolos ya existen, sino permitir que actúen más rápido. La validación resulta esencial, porque una observación puede corresponder a una quema controlada y no a un incendio.
+
+\subsection{Sistemas de información, geolocalización e integración de datos}
+
+La entrevistada identifica ArcGIS como la herramienta usada para recibir coordenadas, graficar puntos de incendio y construir mapas de calor. Durante el fenómeno de El Niño, los departamentos reportan a la central para localizar focos y orientar recursos escasos; por ejemplo, para decidir dónde ubicar brigadas forestales a partir de la recurrencia histórica.
+
+También mencionó una Plataforma Nacional para la Gestión del Riesgo, lanzada según su recuerdo el 26 de abril, cuyo propósito es que entidades y territorios compartan alertas e información de entidades técnicas como el IDEAM y Parques Nacionales, construyendo un lenguaje común. Señaló que su adopción todavía es incipiente y no confirmó su arquitectura ni su integración con ArcGIS, por lo que estos puntos deben verificarse con la entidad responsable.
+
+En la Defensa Civil, el SIM registra emergencias y datos sobre capacidades y formación de los voluntarios, pero la graficación era manual y se hacía por separado en ArcGIS. El intento de reemplazo, denominado Estrategos y desarrollado con Codaltec, buscaba integrar geolocalización, información de voluntarios y capacidades. Según la entrevistada, no reemplazó ni a ArcGIS ni al SIM, requirió costos de nube y quedó vinculado a investigaciones de la Procuraduría y la Contraloría. La lección que extrae es que no conviene adoptar otro sistema aislado: la plataforma debe mostrar tanto el incidente como la ubicación, disponibilidad y especialidad de las personas y recursos que podrían atenderlo.
+
+\subsection{Reporte inicial y validación de incidentes}
+
+La información inicial procede normalmente de la comunidad y llega de forma localizada: se reporta una novedad en un municipio, una vereda o una zona. La cobertura territorial de los voluntarios de la Defensa Civil es una ventaja para confirmar esos reportes, pero la entrevistada recalca que el informe ciudadano necesita verificación antes de movilizar recursos.
+
+Estrategos contemplaba una aplicación mediante la cual cualquier persona pudiera enviar en tiempo real un reporte con su ubicación, para que el director más cercano clasificara el evento y activara voluntarios con la especialidad requerida. Esa apertura generó preocupaciones operativas y jurídicas: los reportes falsos o malintencionados pueden desgastar a los voluntarios y, a la vez, una alerta no confirmada que resulte real y no reciba atención puede derivar en un riesgo institucional.
+
+Como alternativa, la entrevistada propone un flujo con usuarios autorizados o con mediación local:
+
+\begin{enumerate}
+  \item La comunidad informa a un voluntario reconocido en la zona.
+  \item El voluntario reporta y ayuda a constatar la emergencia.
+  \item Un centro de emergencias recibe, valida y distribuye el incidente.
+\end{enumerate}
+
+En una aplicación, esto se traduce en separar el aviso comunitario de la activación operativa y en registrar las coordenadas, el estado de verificación, la evidencia disponible y el responsable de confirmar el caso.
+
+\subsection{Coordinación del PMU y asignación de recursos}
+
+Cuando existen emergencias simultáneas, la prioridad operativa es salvar vidas humanas ---y, según la entrevistada, cualquier forma de vida---, por lo que se atiende primero el evento con mayor compromiso de vidas o con mayor posibilidad de rescatarlas. Esa priorización depende de un manejo centralizado de la información y de los recursos.
+
+El Puesto de Mando Unificado (PMU) debe ser liderado por la instancia de gestión del riesgo o por la alcaldía. La entrevistada advierte que, en la práctica, existen celos entre organismos de socorro y disputas derivadas de recursos limitados o de convenios. Si la información se concentra en una sola entidad, las tareas pueden dejar de asignarse de forma equitativa y las capacidades especializadas pueden desperdiciarse en labores distintas a aquellas para las que se movilizó el personal.
+
+Como referencia positiva describió la respuesta en Montería, donde los requerimientos llegaban al PMU y una persona los recibía y distribuía para el día siguiente entre los distintos cuerpos de socorro; por contraste, mencionó casos en los que la falta de liderazgo generó roces. Para un sistema, esto implica ofrecer una vista común de incidentes, requerimientos, recursos, capacidades, entidad responsable y decisión de asignación, y no una colección de paneles aislados por organismo.
+
+La postemergencia presenta otro cuello de botella: el Registro Único de Damnificados y la evaluación de daños y análisis de necesidades (EDAN) sustentan administrativamente la asistencia humanitaria. La entrevistada mencionó un plazo de 15 días para el registro de damnificados, formularios manuales y rigurosos, doble digitación y dificultades cuando se usa un autorreporte abierto sin control. En el análisis de la entrevista, el equipo registró que un formulario de autorreporte sin controles puede desbordarse y perder relación con la ubicación real de las personas afectadas. Aunque este tema no es el núcleo de la aplicación de incendios, confirma que los datos deben ser verificables, trazables y útiles tanto para la operación como para los trámites posteriores.
+
+\subsection{Conectividad y continuidad operativa}
+
+La entrevistada advierte que no se debe confiar exclusivamente en las redes celulares, cableadas o de internet. Durante el terremoto mencionado, las comunicaciones con Chocó colapsaron; incluso las autoridades nacionales no lograban comunicarse con la dirección local ni con la gobernación, lo que aumentó la incertidumbre sobre el daño real en el epicentro.
+
+Como respaldo identifica la Red Integrada de Comunicaciones y la red del Comando General, basadas en radios \emph{trunking}. Esta infraestructura funciona para el Ministerio de Defensa y la Defensa Civil, pero no está disponible de manera homogénea en todos los departamentos; Chocó, por ejemplo, no tenía entonces esa conexión. La respuesta incluyó antenas Starlink para ciertos puntos y el traslado de repetidores y antenas satelitales a cinco puntos del departamento, con participación de la Agencia Nacional del Espectro y en coordinación con el Comando General.
+
+De este relato se deriva que una aplicación de campo debe asumir conectividad intermitente: capturar un reporte y sus coordenadas sin conexión, mantener una cola de envío, sincronizar al recuperar la señal y ofrecer un canal de confirmación compatible con el centro de emergencias, sin depender de que el teléfono de un ciudadano tenga conexión continua en la zona del foco.
+
+\subsection{Implicaciones para la aplicación}
+
+Las recomendaciones de la entrevista se concentran en cinco frentes: la detección temprana apoyada en la cartografía social y en la identificación de vulnerabilidad rural; la interoperabilidad con los sistemas existentes, que aún debe verificarse; la geolocalización, el filtro y la verificación de los avisos; la coordinación del liderazgo institucional y de los recursos, y el trabajo con conectividad intermitente.
+
+Respecto a los límites y riesgos de diseño, el equipo identificó como inferencia la conveniencia de contar con autenticación o roles, niveles de confianza y una bitácora de decisiones que separe reporte, validación, alerta y activación. Esta inferencia no es una capacidad acordada del producto.
+
+Quedan pendientes varias decisiones de investigación: qué datos oficiales están disponibles para la interoperabilidad, qué organismo administra cada dato, quién puede validar un reporte en cada municipio, qué modelos son adecuados para estimar la propagación y qué información de vulnerabilidad puede usarse. También conviene diseñar el flujo con Bomberos, dado su rol legal en el control de incendios, y no limitarse a la perspectiva de la Defensa Civil.
+
+\subsection{Perfiles recomendados para ampliar el estudio}
+
+La entrevistada recomendó ampliar el estudio con perfiles que cubran la operación bomberil, la gestión distrital y un territorio de referencia, y ofreció intentar facilitar los contactos. Estas referencias no equivalen a entrevistas realizadas, salvo la de Lina María Marín, que se presenta en la sección~\ref{sec:marin}.
+
+\begin{itemize}
+  \item \textbf{Dirección del IDIGER (Bogotá).} La entrevistada atribuye a su director más de 26 años de experiencia, participación en los incendios de los Cerros de Bogotá y conocimiento de iniciativas de observadores del riesgo durante las temporadas de incendios. Sería pertinente consultarle sobre la operación en los Cerros Orientales, las fuentes de datos, los mapas de exposición, las alertas y los protocolos distritales.
+  \item \textbf{Exdirectora Nacional de Bomberos.} La considera particularmente relevante por su carrera bomberil desde temprana edad, su dirección de los Bomberos de Dosquebradas y su experiencia nacional; la señala como la fuente indicada para validar la utilidad operativa del modelo de propagación, los umbrales de alerta y el flujo con Bomberos bajo la Ley 1575.
+  \item \textbf{Dirección de Bomberos Bogotá.} Útil para discutir el despliegue urbano-rural, la validación y la recepción de alertas en el distrito.
+  \item \textbf{Dirección departamental de gestión del riesgo de Nariño.} Se propone como caso de referencia por su sala de crisis con representación de las entidades, turnos de recepción de información, asignación coordinada de recursos, cobertura de comunicaciones, brigadas forestales y preparación frente a incendios y a la amenaza del volcán Galeras. Recomienda, si es viable, una visita de campo para observar esa articulación.
+\end{itemize}
+
+Además, se debe confirmar con la UNGRD el estado de la Plataforma Nacional para la Gestión del Riesgo y, con las entidades responsables, la disponibilidad real de datos, los canales de integración y las restricciones de acceso.
+
+% =====================================================================
+\section{Entrevista a Lina María Marín Rodríguez}\label{sec:marin}
+% =====================================================================
+
+La entrevista se realizó el 15 de septiembre de 2026 a la capitán en jefe Lina María Marín Rodríguez, exdirectora de la Dirección Nacional de Bomberos de Colombia~\cite{entrevistaMarin2026}. La conversación trató la gerencia pública del sector bomberil, las capacidades territoriales, la atención de incendios forestales y las oportunidades de una herramienta de apoyo a la decisión.
+
+\subsection{Perfil y contexto institucional}
+
+Lina María Marín se presenta como administradora pública, especialista en estudios de riesgos y salud ocupacional, con 34 años de servicio público. Describe como retos de su gestión el fortalecimiento de la gerencia pública y la visibilización de los cuerpos de bomberos aeronáuticos, voluntarios y oficiales, que tienen capacidades y regulaciones diferentes.
+
+Su relato muestra que la operación nacional depende de responsabilidades y recursos territoriales. Mencionó dificultades de financiación, personal y equipamiento, aunque las cifras, normas y mecanismos concretos deben contrastarse antes de incorporarse en documentos formales.
+
+Esta heterogeneidad tiene consecuencias de diseño. Una aplicación destinada a bomberos no puede presuponer la misma disponibilidad de conectividad, vehículos, maquinaria, formación o personal en todos los municipios. Debe ofrecer información útil tanto a una estructura fortalecida como a un equipo local con medios limitados, sin asignar automáticamente recursos que dependen de autoridades y capacidades reales.
+
+\subsection{Brecha de información y herramientas existentes}
+
+La entrevistada afirma que Colombia no cuenta con un programa que integre la estimación de la propagación y el apoyo a la decisión a escala nacional. Se trata de su apreciación y no de un inventario exhaustivo de plataformas.
+
+Identifica las herramientas abiertas de meteorología y las referencias a puntos de calor como apoyos parciales, pero recalca que no constituyen una solución nacional de predicción y decisión adaptada al territorio colombiano. Su observación no es una evaluación técnica de esas plataformas, sino la constatación de que no entregan por sí solas el contexto operativo que requiere un cuerpo de bomberos.
+
+El problema es tanto de acceso como de traducción: la información de viento, clima o puntos de calor debe volverse comprensible, ubicarse sobre el territorio y relacionarse con el despliegue. La aplicación podría integrar o presentar fuentes disponibles solo después de verificar su acceso, licencia, actualidad, precisión, cobertura y responsabilidad institucional, sin asumir datos en tiempo real ni integraciones confirmadas.
+
+\subsection{Flujo de información y comando de incidentes}
+
+La entrevistada describe una coordinación que puede depender de comunicaciones directas, formularios, solicitudes de apoyo y evaluaciones por parte de las entidades pertinentes. Señala que la información no siempre está actualizada, estandarizada o traducida a un lenguaje fácil de usar para los bomberos, y que la situación se complica cuando ocurren varios eventos simultáneos.
+
+Para ella, cada sector necesita un comandante de incidente que reporte la situación, los daños y la estrategia. Una vista común permite priorizar sectores y redistribuir personal o apoyo, pero no reemplaza la responsabilidad del comandante. En consecuencia, el sistema debe facilitar el contexto y la trazabilidad de la información recibida, sin asumir que puede resolver por sí solo la interoperabilidad institucional.
+
+\subsection{Territorio, combustibles y exposición}
+
+Según la entrevistada, el panorama previo a la llegada al incendio debe reunir:
+
+\begin{itemize}
+  \item \textbf{Condiciones físicas:} topografía, viento, temperatura, humedad y vegetación.
+  \item \textbf{Elementos expuestos:} comunidad, infraestructura, usos productivos, fauna y ecosistemas.
+  \item \textbf{Recursos del entorno:} fuentes hídricas disponibles.
+\end{itemize}
+
+En su ejemplo de Tolima, la variación de los vientos, el terreno montañoso y la diversidad de cultivos hacen insuficiente una apreciación genérica del incendio. Mencionó los pinos y las palmas como coberturas de alta preocupación y describió incendios de copa y subterráneos. Estas observaciones son valiosas como conocimiento operativo y como preguntas para la caracterización de combustibles, pero deben contrastarse con la literatura y con datos locales antes de convertirse en parámetros del modelo. La plataforma necesita representar qué está expuesto, y no solo la huella potencial del fuego.
+
+\subsection{Anticipación, barreras y evacuación}
+
+Para la entrevistada, conocer la trayectoria probable del incendio en las horas siguientes permite preparar barreras manuales, evaluar el uso de maquinaria donde el relieve lo admite, planear contrafuegos y proteger sectores definidos. La estimación no solo describe el fuego: condiciona la posibilidad de intervenir antes de que alcance un límite operativo o una población. Aun así, la decisión sobre barreras y contrafuegos depende también del área afectada, los cultivos y la accesibilidad, por lo que una proyección sin el análisis de una persona competente no basta para decidir.
+
+La proyección debe relacionarse con las viviendas, comunidades, infraestructura, ecosistemas y fauna expuestos. Si hay población en la trayectoria, la información permite evaluar una evacuación; si hay un sector accesible, ayuda a decidir dónde concentrar recursos. El tiempo de entrega del resultado debe ser compatible con una decisión real, y el resultado debe actualizarse ante variaciones del viento, la humedad, la temperatura y el comportamiento observado del fuego.
+
+\subsection{Recursos tácticos y fuentes hídricas}
+
+La entrevistada relaciona el pronóstico con decisiones tácticas concretas. En una topografía plana puede ser viable cierta maquinaria o determinadas técnicas de control; en montaña, la operación puede depender de herramientas manuales y bombas de espalda. En cuanto al apoyo aéreo, señala que debe haber personal de combate en tierra y que la descarga de agua busca reducir la intensidad de la temperatura y de las llamas para hacer posible la intervención posterior.
+
+También considera valioso identificar las fuentes hídricas próximas para el reabastecimiento. Esta información no define por sí sola la táctica ni garantiza la disponibilidad del agua o del acceso, pero puede cambiar la planeación logística. El sistema debería presentar estas capas como apoyo a la evaluación del comandante, junto con la accesibilidad, el relieve, el viento y la exposición.
+
+\subsection{Requisitos operativos, adopción y usos}
+
+La entrevistada espera una salida que muestre la trayectoria, la cabeza y los flancos del incendio y que reúna las variables territoriales, de exposición y de recursos descritas en las subsecciones anteriores. El valor está en presentar esos elementos como una escena operativa inteligible, y no en desplegar datos técnicos aislados que el usuario tenga que reconstruir.
+
+La adopción depende de la simplicidad, la formación y la claridad sobre los límites de la herramienta. Advierte que el dominio tecnológico no es homogéneo entre los bomberos y que una plataforma inadecuada puede terminar sin usarse. Reconoce usos en emergencias, capacitación, prevención e investigación, siempre que el sistema apoye el análisis y no reemplace la experiencia ni la coordinación del incidente.
+
+\subsection{Formación forestal y contextos comunitarios}
+
+La entrevistada relató esfuerzos de formación y acreditación de grupos tácticos forestales, con referencia a la cooperación internacional y a estándares de preparación. Explicó también que la respuesta no puede ignorar a las comunidades rurales, los pueblos étnicos, las prácticas de quema y los territorios alejados: antes de intervenir se debe comprender el contexto cultural, el uso del territorio y las limitaciones que impone la distancia desde la cabecera municipal.
+
+Mencionó la posibilidad de fortalecer las capacidades de las comunidades y del personal cercano a las áreas protegidas para responder con mayor rapidez, complementando los saberes locales con formación. Estas referencias describen una orientación de trabajo y no prueban la disponibilidad vigente de programas, recursos o personal. Para el proyecto, implican que los usuarios, sus capacidades y el contexto local deben investigarse antes de definir los flujos de uso.
+
+\subsection{Memoria histórica y evidencia pendiente}
+
+La entrevistada prioriza una memoria histórica estructurada de los incendios que registre sectores, material vegetal, fauna, hectáreas afectadas, posibles causas y consecuencias. Ese registro puede aportar contexto para la prevención, el análisis posterior y la mejora de las decisiones, pero antes se debe definir quién lo alimenta, con qué criterio, cómo se valida y qué nivel de acceso tiene cada institución.
+
+Durante la conversación se mencionaron normas, fondos, programas, acuerdos de cooperación, instituciones y posibles aliados, aunque algunos fragmentos de la transcripción resultan imprecisos. Por ello deben confirmarse directamente las referencias legales, las cifras de cobertura, la disponibilidad de datos, los acuerdos de cooperación y las posibles integraciones. La disposición de la entrevistada a facilitar contactos abre la posibilidad de nuevas entrevistas o verificaciones, pero no representa un aval institucional, un acceso garantizado a la información ni un compromiso de integración.
+
+\subsection{Alcance del prototipo y validación}
+
+La entrevistada plantea que el prototipo académico debe demostrar que proyecta el comportamiento del incendio de una forma útil para decidir; su valor no exige resolver toda la respuesta nacional. Los criterios de comprensión y los usos esperados se recogen en la subsección de requisitos operativos, y las verificaciones normativas, técnicas, de usuarios y de datos, en la subsección de memoria histórica y evidencia pendiente.
+
+% =====================================================================
+\section{Entrevista a Carlos Preciado}\label{sec:preciado}
+% =====================================================================
+
+La entrevista se realizó el 22 de septiembre de 2026 a Carlos Preciado, bombero aeronáutico y coordinador regional de servicios de salvamento y extinción de incendios en aeropuertos~\cite{entrevistaPreciado2026}. Su testimonio aporta la perspectiva más cercana a la operación en campo: cómo se toman las decisiones durante el combate, qué información falta en el terreno y qué condiciones debe cumplir una herramienta para ser segura.
+
+\subsection{Perfil y contextos de operación}
+
+Carlos Preciado tiene 30 años de experiencia como bombero aeronáutico. Es tecnólogo en sistemas y profesional en seguridad y salud en el trabajo, y su formación incluye los niveles de bombero básico, oficial de servicio y jefe de estación, además de la coordinación de misiones de búsqueda y rescate. Como coordinador regional supervisa el recurso humano, las máquinas, los equipos, los turnos y la operación de once cuerpos de bomberos aeronáuticos.
+
+Señaló que los incendios cercanos a los aeropuertos requieren atención temprana, y que entre los elementos expuestos que interesan a su labor se encuentran también las pistas.
+
+\subsection{Información crítica y limitaciones en campo}
+
+El entrevistado describe que, en la práctica, «esos incendios se manejan a ojo». Las decisiones de respuesta requieren combinar varias dimensiones: la apreciación de un territorio desconocido antes de desplegarse; la dificultad que imponen el viento y el relieve, y la estimación de la extensión, la dirección, la velocidad, el tiempo de llegada, el personal, el relevo y el posicionamiento.
+
+En campo no dispone de cartografía, análisis meteorológico, geoposicionamiento ni de una vista que le permita entender lo que hay más allá de lo observable, y esa carencia se presenta tanto durante el desplazamiento como una vez en el sitio. El propósito de una herramienta sería ayudar a proteger los elementos expuestos, sin prometer que elimina la incertidumbre del clima, el viento y el terreno.
+
+\subsection{Información territorial antes del despliegue}
+
+Para el entrevistado, conocer un incendio desde lejos no equivale a dimensionarlo. Puede ver que Monserrate arde, pero no saber qué hay detrás de la montaña: una laguna, un río, viviendas, otra pendiente, un abismo o una carretera donde sería razonable esperar el frente. Tampoco puede decidir con la misma seguridad si existen caminos de acceso, roca, vegetación u obstáculos que condicionen el movimiento del personal.
+
+Una representación territorial útil debe unir el relieve, la ubicación del foco, la infraestructura, las fuentes de agua, las rutas y las áreas de posible contención. El objetivo práctico es evitar movilizar recursos a ciegas: que el equipo llegue con una hipótesis sobre el terreno, la exposición y las opciones de aproximación, la confirme en campo y la ajuste si la realidad difiere de los datos disponibles. Su prioridad tecnológica es, precisamente, un sistema de relieve y posicionamiento para territorios desconocidos, pues no basta con mostrar una vista plana.
+
+\subsection{Variables dinámicas y vigilancia operativa}
+
+El entrevistado distingue entre el relieve, que puede conocerse aunque no se vea completo, y el viento, cuya dirección puede cambiar y redirigir un incendio. La temperatura, la lluvia, la humedad y el viento modifican las condiciones de propagación; por ello, una lectura aislada del clima no basta para orientar una respuesta que dura horas.
+
+También le preocupa la aparición de focos adicionales fuera del campo visual. Un sistema útil debería ayudar a ubicar el foco inicial, actualizar las condiciones disponibles y señalar los sectores que requieran observación, sin afirmar una detección garantizada. Mencionó los anemómetros portátiles como apoyo puntual y observó que los estudios prolongados de viento con los que cuentan los aeropuertos no existen necesariamente para las zonas forestales donde se interviene.
+
+\subsection{Movilización, fatiga y protección de infraestructura}
+
+Una estimación del área, la distancia, la velocidad de avance y la duración esperada del incendio permitiría organizar el personal, los turnos, la logística y el relevo. El entrevistado recalca que después de tres o cuatro horas puede presentarse agotamiento físico y que, en montaña, la operación nocturna puede detenerse por el riesgo de caída, mientras el frente sigue propagándose.
+
+Su criterio táctico consiste en identificar dónde conviene encontrarse con el incendio, en lugar de simplemente correr tras él: una vía, una fuente de agua, una barrera o un sector accesible pueden ser más útiles que atacar desde un barranco. La exposición, a su juicio, debe incluir viviendas rurales, aeropuertos, la visibilidad aérea, las radioayudas, las zonas verdes y los equipos de infraestructura que puedan dañarse por el humo o el fuego.
+
+\subsection{Escenarios territoriales y tácticas de control}
+
+El entrevistado diferencia los incendios que ha atendido en tres regiones:
+
+\begin{itemize}
+  \item \textbf{Riohacha:} vegetación baja con ráfagas intensas que cambian el sentido del fuego.
+  \item \textbf{Casanare:} pastizales más extensos y un avance que, según su experiencia, puede ser más lento cuando hay menos viento.
+  \item \textbf{Amazonas:} incendios superficiales, de copa y subterráneos, con raíces que pueden mantener el avance bajo tierra, baja visibilidad, dificultades de orientación y riesgos para la fauna y la flora.
+\end{itemize}
+
+Por ello, la formación debe enseñar a diagnosticar el tipo de incendio antes de decidir. Una técnica ofensiva busca extinguir directamente el fuego; una defensiva reconoce que la condición es demasiado compleja y busca una guardaraya, una barrera construida o un límite natural como un río. La aplicación no determina la táctica, pero puede aportar la información que permite al comandante escoger entre atacar, contener o esperar en un punto seguro.
+
+\subsection{Seguridad, fiabilidad y alertas preventivas}
+
+El entrevistado plantea una asimetría de riesgo clara: es peor no advertir una zona que terminará afectada que advertir una zona que finalmente no lo esté. En su analogía con una alerta aeronáutica, una movilización preventiva que concluye sin evento es preferible a una respuesta ausente o tardía ante una emergencia real.
+
+Esta asimetría no autoriza resultados imprecisos o sin control. Considera fatal una herramienta poco fiable, ya que un dato equivocado sobre el viento puede dirigir mal a un equipo o volver peligroso el apoyo de los helicópteros. La aplicación debe indicar la vigencia y las condiciones de sus datos, comunicar la incertidumbre y mantener separadas la estimación, la alerta preventiva y la decisión final del comandante.
+
+\subsection{Horizontes de pronóstico y acción preventiva}
+
+El entrevistado considera útil una estimación para 30 minutos, varias horas o incluso 24 horas, siempre que se conozca su vigencia y se actualice. Su utilidad no depende de acertar un destino inmutable: permite dimensionar el personal y los recursos, preparar barreras, advertir a una familia para que evacúe o proteja su vivienda y anticipar que el incendio podría cruzar hacia un sector peligroso.
+
+Ilustró que un cambio en el clima, como la lluvia, puede alterar el resultado sin que ello invalide una alerta preventiva. El sistema debe expresar que muestra una evolución probable bajo las condiciones disponibles, no una certeza. El propósito es ganar tiempo para prevenir la pérdida de vidas y no esperar a que el incendio alcance una vivienda o a que la emergencia sea irreversible.
+
+\subsection{Observación térmica y medios tecnológicos}
+
+El entrevistado usa las cámaras térmicas aeronáuticas como ejemplo de tecnología interpretable: permiten identificar un punto anormal de calor en un fuselaje, localizar a una persona entre el humo o reconocer dónde concentrar el agua sin rociar de forma indiscriminada. En su criterio, una cámara o un dron tendría valor en incendios forestales si muestra información útil sobre intensidad térmica, vegetación, focos y riesgo, y no solo una imagen remota.
+
+Aclaró que su unidad no dispone de drones para este propósito, aunque sí los tiene el personal de búsqueda y rescate. La oportunidad no consiste en asumir que existe un sensor disponible, sino en definir cómo integrar la observación, el contexto geográfico y la lectura humana. Su ejemplo distingue una lectura térmica o visual de una decisión: sin contexto, la imagen no basta para asignar un batefuego, agua o personal. Una herramienta puede preparar y comunicar una apreciación, pero no debe prometer mediciones térmicas que sus fuentes reales no proporcionan.
+
+\subsection{Simulación y capacitación}
+
+Dado que no es viable generar incendios reales para entrenar, el entrevistado valora el aprendizaje mediante escenarios repetibles que no expongan al personal. El simulador tiene un valor formativo particular: permite representar montaña, viento, día, noche y las consecuencias de una decisión, de forma análoga a los simuladores aeronáuticos. Los ejercicios pueden poner a prueba la ubicación de recursos y las tácticas, mostrar que una decisión es inefectiva y permitir corregirla sin poner a nadie en riesgo. En ese sentido, la biblioteca de escenarios del proyecto podría servir como insumo recurrente para la capacitación.
+
+\subsection{Medio de uso y usos esperados}
+
+El entrevistado prefiere una tableta como medio de uso y espera que la herramienta apoye la atención de emergencias, la planeación y la capacitación. Se trata de una preferencia expresada en la entrevista y no de la plataforma comprometida por el proyecto, que en la propuesta se define como una aplicación de escritorio~\cite{propuesta2026}.
+
+% =====================================================================
+\section{Conclusiones}\label{sec:conclusiones}
+% =====================================================================
+
+Las tres entrevistas ofrecen perspectivas complementarias sobre el mismo problema. Ana Milena Mejía Zapata aporta la mirada de la coordinación institucional, la detección temprana y el reporte comunitario; Lina María Marín Rodríguez, la de la gerencia pública del sector bomberil y la escena operativa que requiere un comandante, y Carlos Preciado, la de la operación en campo, las decisiones tácticas y la seguridad del personal. La tabla~\ref{tab:temas} resume los temas abordados por cada persona entrevistada.
+
+\begin{table}[htbp]
+\centering
+\caption{Temas abordados en cada entrevista.}
+\label{tab:temas}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|Y|C|C|C|}
+\hline
+\textbf{Tema} & \textbf{Mejía} & \textbf{Marín} & \textbf{Preciado} \\
+\hline
+Detección temprana y reporte inicial del incendio & $\checkmark$ & & $\checkmark$ \\
+\hline
+Dirección, velocidad y trayectoria probable de la propagación & & $\checkmark$ & $\checkmark$ \\
+\hline
+Exposición de personas, viviendas, infraestructura y ecosistemas & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\hline
+Relieve, accesos, fuentes hídricas y barreras & & $\checkmark$ & $\checkmark$ \\
+\hline
+Condiciones meteorológicas y actualización de la estimación & & $\checkmark$ & $\checkmark$ \\
+\hline
+Coordinación interinstitucional y vista común de la operación & $\checkmark$ & $\checkmark$ & \\
+\hline
+Validación, trazabilidad y vigencia de la información & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\hline
+Conectividad intermitente en campo & $\checkmark$ & & \\
+\hline
+Simplicidad, formación y adopción de la herramienta & $\checkmark$ & $\checkmark$ & \\
+\hline
+Capacitación mediante simulación de escenarios & & $\checkmark$ & $\checkmark$ \\
+\hline
+Apoyo al juicio del responsable sin reemplazar su decisión & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Necesidades coincidentes}
+
+Las entrevistas coinciden en que la principal carencia no es conocer la posición del incendio, sino anticipar cómo podría evolucionar. Tanto Lina María Marín como Carlos Preciado señalan la necesidad de conocer la dirección, la velocidad y la trayectoria probable del fuego ---incluidas su cabeza y sus flancos--- en horizontes que van desde 30 minutos hasta varias horas, y coinciden en que esa estimación solo es útil si se relaciona con lo que está expuesto: viviendas, comunidades, infraestructura, ecosistemas y fauna.
+
+Las tres perspectivas resaltan también la necesidad de una representación territorial integrada que reúna el relieve, los accesos, las fuentes hídricas, las barreras y las condiciones meteorológicas, traducida a un lenguaje operativo comprensible. Actualmente, buena parte de estas apreciaciones dependen de la observación directa y de la experiencia del personal, y en campo no se dispone de cartografía, análisis meteorológico ni geoposicionamiento que permitan entender lo que hay más allá de lo observable.
+
+\subsection{Criterios para el diseño de la aplicación}
+
+De las entrevistas se desprenden los siguientes criterios, que deberán traducirse en requisitos verificables durante la especificación:
+
+\begin{itemize}
+  \item \textbf{Apoyo, no sustitución.} La herramienta debe apoyar el juicio del comandante o coordinador sin reemplazar su decisión, la autoridad competente ni los protocolos institucionales existentes.
+  \item \textbf{Comunicación de la incertidumbre.} Los resultados deben presentarse como una evolución probable bajo condiciones conocidas, con indicación de su vigencia y de las condiciones de los datos, y separando la estimación, la alerta preventiva y la decisión final.
+  \item \textbf{Fiabilidad ante todo.} Aunque es preferible advertir de más que omitir una zona que será afectada, una herramienta poco fiable puede poner en riesgo al personal; la asimetría de riesgo no justifica resultados sin control.
+  \item \textbf{Actualización.} La estimación debe poder actualizarse ante cambios del viento, la humedad, la temperatura y el comportamiento observado del fuego.
+  \item \textbf{Simplicidad.} La salida debe ser una escena operativa inteligible y no un conjunto de datos técnicos aislados, considerando que el dominio tecnológico no es homogéneo entre los usuarios.
+  \item \textbf{Heterogeneidad de capacidades.} No se debe presuponer la misma disponibilidad de conectividad, maquinaria, personal o formación en todos los territorios.
+  \item \textbf{Prudencia con los datos.} No se deben asumir datos en tiempo real ni integraciones con otras plataformas sin verificar antes su acceso, licencia, actualidad, precisión y responsable institucional.
+\end{itemize}
+
+\subsection{Usos identificados}
+
+Además de la atención de emergencias, las personas entrevistadas reconocen usos en la planeación, la prevención, la investigación y, de forma destacada, la capacitación. Carlos Preciado compara el valor formativo de un simulador de incendios con el de los simuladores aeronáuticos, al permitir probar decisiones y corregirlas sin exponer al personal, y considera que la biblioteca de escenarios podría servir como insumo recurrente para este propósito. Lina María Marín plantea, por su parte, el valor de una memoria histórica estructurada de incendios para la prevención y el análisis posterior.
+
+\subsection{Relación con el alcance del proyecto}
+
+Las necesidades centrales expresadas en las entrevistas ---anticipar la propagación, relacionarla con la exposición y presentarla de forma comprensible al responsable de la operación--- corresponden al problema que aborda la propuesta, centrada en una aplicación de escritorio que estima y visualiza la propagación probable a partir de escenarios FDS precalculados para un sector de los Cerros Orientales de Bogotá~\cite{propuesta2026}.
+
+Otras recomendaciones exceden el alcance actual de la propuesta y se registran como contexto o como posibles trabajos futuros, sin constituir compromisos del producto: el reporte comunitario y su flujo de validación, la captura de reportes sin conexión en dispositivos móviles, la asignación de recursos entre organismos, el registro de damnificados, la integración con sensores térmicos o drones y la construcción de una memoria histórica de incendios. De igual forma, la preferencia por una tableta como medio de uso es una opinión expresada en la entrevista y no una decisión del proyecto.
+
+\subsection{Aspectos pendientes de verificación}
+
+Antes de incorporar el contenido de las entrevistas como evidencia en los documentos formales del proyecto, se deben verificar con fuentes oficiales las referencias normativas, las cifras de cobertura y capacidad, el estado de las plataformas mencionadas ---en particular, la Plataforma Nacional para la Gestión del Riesgo---, la disponibilidad real de datos y los canales de integración. También conviene complementar estas perspectivas con entrevistas a los perfiles recomendados, en especial del IDIGER y de Bomberos Bogotá, por su cercanía con la operación en los Cerros Orientales, y diseñar el flujo de uso con Bomberos, dado su rol legal en el control de los incendios.
+
+% =====================================================================
+\bibliographystyle{ieeetr}
+\bibliography{entrevistas}
+% =====================================================================
+
+\end{document}

@@ -1,2 +1,20 @@
 \subsubsection{Interfaces con el Software}
-% Contenido pendiente de redacción.
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{7bp}{8.5bp}\selectfont
+\setlength{\tabcolsep}{2bp}\hyphenpenalty=10000\exhyphenpenalty=10000\sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|p{0.14\linewidth}|p{0.195\linewidth}|p{0.195\linewidth}|p{0.195\linewidth}|p{0.195\linewidth}|}
+\caption{Interfaces con el software}\label{tab:interfaces-software}\\\hline
+\textbf{Aspecto} & \textbf{SQL} & \textbf{SQLite} & \textbf{Windows} & \textbf{Open-Meteo}\\\hline
+\endfirsthead
+\hline\textbf{Aspecto} & \textbf{SQL} & \textbf{SQLite} & \textbf{Windows} & \textbf{Open-Meteo}\\\hline
+\endhead
+Descripción & Lenguaje para consultar y manipular bases de datos relacionales. & Motor de base de datos integrado que ejecuta consultas SQL. & Sistema operativo de Microsoft para computadores. & Servicio externo de información meteorológica mediante una API web.\\\hline
+Propósito de uso & Formular consultas para encontrar la simulación pertinente. & Administrar la base de datos consultada por la aplicación. & Proporcionar el entorno de ejecución de la aplicación de escritorio. & Consultar condiciones meteorológicas para apoyar la búsqueda de la simulación pertinente.\\\hline
+Versión & SQL:2023 & 3.54.1 & Windows 11 & Dirección de consulta \url{https://api.open-meteo.com/v1/forecast}.\\\hline
+Fuente & Documentación de SQL de SQLite \cite{sqlite_sql}. & Documentación oficial de SQLite \cite{sqlite_docs}. & Documentación oficial de Microsoft \cite{windows11}. & Documentación oficial de Open-Meteo \cite{openmeteo_docs}.\\\hline
+Comentarios adicionales & Se utilizará la sintaxis admitida por SQLite, sin asumir compatibilidad completa con SQL:2023. & La base de datos se transportará junto con la carpeta de resultados de FDS y archivos \texttt{.smv}. & La aplicación accederá a los recursos del computador a través del sistema operativo. & La aplicación consulta el servicio alojado por Open-Meteo mediante solicitudes HTTP GET y recibe datos en JSON; el proveedor administra sus actualizaciones.\\\hline
+\end{longtable}
+\endgroup
+}
