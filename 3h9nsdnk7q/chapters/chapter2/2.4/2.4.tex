@@ -1,12 +1,11 @@
-\subsection{Restricciones}
-{\color{red}
-\textbf{Restricciones generales.} En principio, el producto se desarrollará como una aplicación de escritorio para Windows 11 y estará disponible en español e inglés.
+\subsection{Restricciones}{\color{black}
+\textbf{Restricciones generales.} El producto se desarrollará como una aplicación de escritorio para Windows 11 y estará disponible en español e inglés.
 
 \textbf{Restricciones de software.} La consulta automática de condiciones meteorológicas depende de la disponibilidad y las capacidades de la API de Open-Meteo, aunque este servicio podrá sustituirse por otro equivalente. Por su parte, el desarrollo y las interfaces estarán limitados por las capacidades de Python y de PySide6, respectivamente. Las demás tecnologías de software empleadas se describen en la tabla~\ref{tab:interfaces-software} de la sección 2.1.3.
 
 \textbf{Restricciones de hardware.} El computador deberá cumplir los requisitos de memoria y almacenamiento indicados en la sección 2.1.5, así como disponer de los dispositivos y la conexión de red descritos en la sección 2.1.2, incluida una pantalla con resolución de 1920 $\times$ 1080 píxeles. Como referencia inicial para el procesador se considera un Intel Core i3-12100, de cuatro núcleos y ocho hilos~\cite{intel_i3_12100}; su suficiencia para la aplicación está pendiente de validación.
 
-\textbf{Fidelidad y confiabilidad.} Las simulaciones se elaborarán con los datos disponibles para el proyecto, cuya calidad condiciona la fidelidad y confiabilidad de sus resultados. Además, la representación del incendio depende de la discretización espacial empleada, incluida la resolución de la malla, por lo que los resultados deben interpretarse dentro de las limitaciones de los datos y del modelo.
+\textbf{Fidelidad y confiabilidad.} Las simulaciones se elaborarán con los datos disponibles de los cerros orientales de bogotá, cuya calidad condiciona la fidelidad y confiabilidad de sus resultados. Además, la representación del incendio depende de la discretización espacial empleada, incluida la resolución de la malla CFD, por lo que los resultados deben interpretarse dentro de las limitaciones de los datos y de la agregación.
 
 \textbf{Velocidad y rendimiento.} Los tiempos de respuesta de la aplicación estarán condicionados por los recursos del computador y las capacidades de las tecnologías empleadas, incluidas las descritas en la tabla~\ref{tab:interfaces-software}. La consulta meteorológica también dependerá de la conexión y del servicio externo; no se establece aún un tiempo de respuesta garantizado.
 }

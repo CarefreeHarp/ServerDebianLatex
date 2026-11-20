@@ -1,2 +1,121 @@
-\subsection{Modelo del Dominio}
-% Contenido pendiente de redacción.
+\clearpage\subsection{Modelo del Dominio}
+\begingroup\captionsetup{labelsep=period,font=rojodominio}
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{10bp}{12bp}\selectfont
+\setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|}
+\caption{Elemento del dominio -- Archivo}\label{tab:dominio-archivo}\\\hline
+\textbf{ID} & MD-01 & \textbf{Elemento del dominio} & Archivo\\\hline
+\textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Archivo que forma parte de la biblioteca de simulaciones y se almacena en la carpeta que acompaña a la base de datos SQLite, como un resultado de FDS o un archivo de Smokeview.}\\\hline
+\multicolumn{4}{|c|}{\textbf{Atributos}}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{\textbf{Nombre}} & \textbf{Descripción} & \textbf{Tipo de dato}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Nombre} & Identifica el archivo por su nombre. & Cadena de texto (\texttt{str}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Ruta} & Indica la ubicación del archivo en la carpeta de la biblioteca. & Cadena de texto (\texttt{str}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Formato} & Indica el tipo o extensión del archivo, por ejemplo \texttt{.smv}. & Cadena de texto (\texttt{str}).\\\hline
+\textbf{Objetivo} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Permitir identificar y localizar los archivos de la biblioteca necesarios para recuperar y visualizar los resultados de las simulaciones.}\\\hline
+\end{longtable}
+\endgroup
+}
+
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{10bp}{12bp}\selectfont
+\setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|}
+\caption{Elemento del dominio -- Escenario de simulación}\label{tab:dominio-escenario}\\\hline
+\textbf{ID} & MD-02 & \textbf{Elemento del dominio} & Escenario de simulación\\\hline
+\textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Simulación precalculada asociada a un punto de ignición, unas condiciones meteorológicas y archivos de resultados.}\\\hline
+\multicolumn{4}{|c|}{\textbf{Atributos}}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{\textbf{Nombre}} & \textbf{Descripción} & \textbf{Tipo de dato}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Identificador} & Distingue el escenario en la biblioteca. & Cadena de texto (\texttt{str}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Punto de ignición} & Ubicación de referencia donde se inició la simulación. & Punto de ignición -- Tabla~\ref{tab:dominio-ignicion}.\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Condiciones meteorológicas} & Condiciones utilizadas para generar el escenario. & Condiciones meteorológicas -- Tabla~\ref{tab:dominio-meteorologia}.\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Archivos asociados} & Archivos de resultados y de visualización del escenario. & Lista de archivos -- Tabla~\ref{tab:dominio-archivo}.\\\hline
+\textbf{Objetivo} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Identificar y recuperar escenarios compatibles con las condiciones de una consulta.}\\\hline
+\end{longtable}
+\endgroup
+}
+
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{10bp}{12bp}\selectfont
+\setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|}
+\caption{Elemento del dominio -- Punto de ignición}\label{tab:dominio-ignicion}\\\hline
+\textbf{ID} & MD-03 & \textbf{Elemento del dominio} & Punto de ignición\\\hline
+\textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Ubicación de referencia donde se inicia el fuego en las simulaciones precalculadas.}\\\hline
+\multicolumn{4}{|c|}{\textbf{Atributos}}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{\textbf{Nombre}} & \textbf{Descripción} & \textbf{Tipo de dato}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Identificador} & Distingue el punto de ignición. & Cadena de texto (\texttt{str}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Latitud} & Indica la posición norte o sur del punto. & Número decimal (\texttt{float}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Longitud} & Indica la posición este u oeste del punto. & Número decimal (\texttt{float}).\\\hline
+\textbf{Objetivo} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Ubicar los escenarios en el territorio y facilitar la búsqueda de puntos cercanos al incendio observado.}\\\hline
+\end{longtable}
+\endgroup
+}
+
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{10bp}{12bp}\selectfont
+\setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|}
+\caption{Elemento del dominio -- Condiciones meteorológicas}\label{tab:dominio-meteorologia}\\\hline
+\textbf{ID} & MD-04 & \textbf{Elemento del dominio} & Condiciones meteorológicas\\\hline
+\textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Conjunto de condiciones del clima asociadas a un escenario o utilizadas en una consulta.}\\\hline
+\multicolumn{4}{|c|}{\textbf{Atributos}}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{\textbf{Nombre}} & \textbf{Descripción} & \textbf{Tipo de dato}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Velocidad del viento} & Indica la velocidad del viento considerada. & Número decimal (\texttt{float}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Dirección del viento} & Indica la dirección del viento considerada. & Número decimal (\texttt{float}).\\\hline\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Presencia de lluvia} & Indica si hay lluvia en las condiciones consideradas. & Booleano (\texttt{bool}).\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Cantidad de lluvia} & Indica la cantidad de lluvia correspondiente a las condiciones consideradas. & Número decimal (\texttt{float}).\\\hline
+
+\textbf{Objetivo} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Facilitar la comparación entre los escenarios precalculados y las condiciones disponibles durante la consulta.}\\\hline
+\end{longtable}
+\endgroup
+}
+
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{10bp}{12bp}\selectfont
+\setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|}
+\caption{Elemento del dominio -- Consulta de incendio}\label{tab:dominio-consulta}\\\hline
+\textbf{ID} & MD-05 & \textbf{Elemento del dominio} & Consulta de incendio\\\hline
+\textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Información proporcionada para solicitar una estimación de la propagación de un incendio.}\\\hline
+\multicolumn{4}{|c|}{\textbf{Atributos}}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{\textbf{Nombre}} & \textbf{Descripción} & \textbf{Tipo de dato}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Ubicación o perímetro observado} & Punto de ignición o borde activo señalado por el usuario. & Dato geográfico.\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Condiciones meteorológicas} & Datos consultados mediante Open-Meteo o ingresados manualmente. & Condiciones meteorológicas -- Tabla~\ref{tab:dominio-meteorologia}.\\\hline
+\textbf{Objetivo} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Reunir los datos necesarios para buscar escenarios relacionados con la situación indicada por el usuario.}\\\hline
+\end{longtable}
+\endgroup
+}
+
+{\color{red}
+\begingroup
+\fuenteTabla\fontsize{10bp}{12bp}\selectfont
+\setlength{\tabcolsep}{4bp}
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|>{\raggedright\arraybackslash}p{0.27\linewidth}|}
+\caption{Elemento del dominio -- Estimación de propagación}\label{tab:dominio-estimacion}\\\hline
+\textbf{ID} & MD-06 & \textbf{Elemento del dominio} & Estimación de propagación\\\hline
+\textbf{Descripción} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Resultado preparado a partir de los escenarios seleccionados y, cuando corresponda, de su agregación.}\\\hline
+\multicolumn{4}{|c|}{\textbf{Atributos}}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{\textbf{Nombre}} & \textbf{Descripción} & \textbf{Tipo de dato}\\\hline
+\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Escenarios seleccionados} & Escenarios utilizados para preparar la estimación. & Lista de escenarios -- Tabla~\ref{tab:dominio-escenario}.\\\hline\multicolumn{2}{|>{\raggedright\arraybackslash}p{0.34\linewidth}|}{Información de la estimación} & Datos del resultado, como la velocidad del frente y la dirección estimada de propagación expresada mediante el punto cardinal y los grados. & Objeto JSON.\\\hline
+\textbf{Objetivo} & \multicolumn{3}{>{\raggedright\arraybackslash}p{0.75\linewidth}|}{Presentar una representación georreferenciada de la posible propagación del incendio.}\\\hline
+\end{longtable}
+\endgroup
+}
+\endgroup
