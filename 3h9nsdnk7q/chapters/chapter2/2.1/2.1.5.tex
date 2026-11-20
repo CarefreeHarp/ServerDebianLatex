@@ -1,5 +1,5 @@
-\subsubsection{Interfaces de Comunicación}{\color{red}
-La única interfaz de comunicación externa de la aplicación será la API de Open-Meteo, a través de la cual se consultarán condiciones meteorológicas para identificar escenarios de la biblioteca compatibles con la emergencia. La comunicación se realizará mediante el protocolo HTTP sobre una conexión segura HTTPS, utilizando solicitudes GET dirigidas al servicio de pronóstico \cite{openmeteo_docs}.
+\subsubsection{Interfaces de Comunicación}{\color{black}
+La única interfaz de comunicación externa de la aplicación será la API de Open-Meteo, a través de la cual se consultarán condiciones meteorológicas para identificar escenarios de la biblioteca compatibles con la emergencia. La comunicación se realizará mediante el protocolo HTTP, utilizando solicitudes GET dirigidas al servicio de pronóstico \cite{openmeteo_docs}.
 
 Para efectuar la consulta, la aplicación enviará las coordenadas geográficas del lugar y los parámetros correspondientes a las variables meteorológicas requeridas. De acuerdo con la documentación del servicio, la respuesta se entrega en formato JSON e incluye los valores solicitados y la información temporal asociada, lo que permitirá a la aplicación procesar los datos para la búsqueda de simulaciones \cite{openmeteo_docs}.
 
