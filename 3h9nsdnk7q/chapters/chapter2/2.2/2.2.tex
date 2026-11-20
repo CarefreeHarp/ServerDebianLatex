@@ -1,30 +1,28 @@
-\subsection{Funciones del Producto}{\color{red}
-La función principal del producto es apoyar la estimación del comportamiento de un incendio a partir de la información proporcionada por el coordinador de emergencias y de escenarios precalculados. Para iniciar la consulta, el usuario señalará el punto de ignición o el borde activo observado, mientras que la aplicación obtendrá las condiciones meteorológicas de Open-Meteo o permitirá su ingreso manual si el servicio no está disponible.
+\subsection{Funciones del Producto}{\color{black}
+La función principal del producto es apoyar la estimación del comportamiento de un incendio a partir de la información proporcionada por el coordinador de emergencias o por la API de Open-Meteo. 
+  
+Para iniciar la consulta, el usuario señalará en la pantalla el punto de ignición o el borde activo observado, mientras que la aplicación obtendrá las condiciones meteorológicas de la API o permitirá su ingreso manual si el servicio no está disponible. Con la ubicación y las condiciones disponibles, la aplicación consultará la base de datos para identificar y recuperar los escenarios cuyas condiciones climáticas sean semejantes a las de la emergencia, de acuerdo con la propuesta descrita en el VFP~\cite{vfp2026}. Cuando corresponda, realizará la \textit{agregación} de los resultados recuperados para presentar una estimación conjunta del posible comportamiento del incendio.
 
-Con la ubicación y las condiciones disponibles, la aplicación consultará la base de datos para identificar y recuperar los escenarios cuyas condiciones climáticas sean semejantes a las de la emergencia, de acuerdo con la propuesta descrita en el VFP~\cite{vfp2026}. Cuando corresponda, realizará la \textit{agregación} de los resultados recuperados para presentar una estimación conjunta del posible comportamiento del incendio.
+El coordinador podrá explorar los resultados georreferenciados y relacionarlos con su ubicación en el terreno, así como consultar la información meteorológica utilizada. La visualización mostrará la expansión del fuego y las direcciones señaladas por los escenarios como las de mayor posible propagación, además de permitir examinar características como la temperatura, el humo generado y la velocidad de expansión, según la información disponible en los archivos resultantes de las simulaciones FDS.
 
-El coordinador podrá explorar los resultados georreferenciados y relacionarlos con su ubicación en el terreno, así como consultar la información meteorológica utilizada. La visualización mostrará la expansión del fuego y las direcciones señaladas por los escenarios como de mayor posible propagación, además de permitir examinar características como la temperatura, el humo generado y la velocidad de expansión, según la información disponible en los resultados de las simulaciones.
-
-La ilustración siguiente presenta el caso de uso principal y resume la secuencia prevista de interacción.\begin{figure}[htbp]\color{red}
+La ilustración siguiente presenta el único  y principal caso de uso.\begin{figure}[htbp]\color{black}
 \centering
-\setlength{\unitlength}{1bp}
-\begin{picture}(440,165)
-\put(90,8){\framebox(255,150){}}
-\put(100,140){\makebox(235,15){Aplicación de escritorio}}\qbezier(113,82)(113,132)(218,132)
-\qbezier(218,132)(323,132)(323,82)
-\qbezier(323,82)(323,32)(218,32)
-\qbezier(218,32)(113,32)(113,82)\put(126,73){\parbox{184bp}{\centering\small\textbf{Estimar el comportamiento del incendio}\\[3bp] 1. Recibir datos del incendio\\ 2. Consultar condiciones meteorológicas\\ 3. Buscar y recuperar escenarios\\ 4. Agregar resultados cuando corresponda\\ 5. Visualizar y explorar la estimación}}
-\put(34,110){\circle{14}}
-\put(34,103){\line(0,-1){30}}
-\put(15,91){\line(1,0){38}}
-\put(34,73){\line(-1,-1){15}}
-\put(34,73){\line(1,-1){15}}
-\put(0,30){\parbox{70bp}{\centering\small Coordinador de emergencias}}
-\put(53,91){\line(1,0){60}}
-\put(323,91){\line(1,0){37}}
-\put(360,76){\framebox(75,30){\small Open-Meteo}}
+\setlength{\unitlength}{1bp}\begin{picture}(440,420)
+\put(125,5){\framebox(300,410){}}
+\put(140,392){\makebox(270,15){\normalsize Aplicación de escritorio}}
+\qbezier(140,355)(140,385)(275,385)\qbezier(275,385)(410,385)(410,355)\qbezier(410,355)(410,325)(275,325)\qbezier(275,325)(140,325)(140,355)
+\put(165,351){\parbox{220bp}{\centering\small Estimar comportamiento\\del incendio}}
+\qbezier(140,281)(140,311)(275,311)\qbezier(275,311)(410,311)(410,281)\qbezier(410,281)(410,251)(275,251)\qbezier(275,251)(140,251)(140,281)
+\put(165,277){\parbox{220bp}{\centering\small Consultar condiciones\\meteorológicas}}
+\qbezier(140,207)(140,237)(275,237)\qbezier(275,237)(410,237)(410,207)\qbezier(410,207)(410,177)(275,177)\qbezier(275,177)(140,177)(140,207)
+\put(165,203){\parbox{220bp}{\centering\small Recuperar escenarios\\precalculados}}
+\qbezier(140,133)(140,163)(275,163)\qbezier(275,163)(410,163)(410,133)\qbezier(410,133)(410,103)(275,103)\qbezier(275,103)(140,103)(140,133)
+\put(165,129){\parbox{220bp}{\centering\small Agregar resultados\\de escenarios}}
+\qbezier(140,59)(140,89)(275,89)\qbezier(275,89)(410,89)(410,59)\qbezier(410,59)(410,29)(275,29)\qbezier(275,29)(140,29)(140,59)
+\put(165,55){\parbox{220bp}{\centering\small Visualizar estimación}}\put(275,325){\vector(0,-1){14}}\put(275,251){\vector(0,-1){14}}\put(275,177){\vector(0,-1){14}}\put(275,103){\vector(0,-1){14}}% Conexiones entre etapas
+\put(42,365){\circle{20}}\put(42,355){\line(0,-1){42}}\put(18,342){\line(1,0){48}}\put(42,313){\line(-1,-1){20}}\put(42,313){\line(1,-1){20}}
+\put(0,273){\parbox{90bp}{\centering\small Coordinador de emergencias}}{\color{black}\put(61,348){\line(1,0){90}}}\put(67,331){\line(1,-4){68}}{\color{black}\put(5,180){\framebox(95,36){\small Open-Meteo}}}{\color{black}\put(100,198){\line(1,2){40}}}
 \end{picture}
 \caption{Caso de uso para estimar el comportamiento de un incendio}
-\label{fig:caso-uso-incendio}
-\end{figure}
+\label{fig:caso-uso-incendio}\end{figure}\clearpage
 }

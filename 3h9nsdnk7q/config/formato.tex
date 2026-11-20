@@ -5,8 +5,7 @@
 % Formato de la plantilla SRSINGESOFT V2.0 (línea base).
 \usepackage{fontspec}
 \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}\typeout{SRS-FONT: Times New Roman no disponible; se usa TeX Gyre Termes.}}
-\IfFontExistsTF{Cambria}{\newfontfamily\fuentePortada{Cambria}}{\newfontfamily\fuentePortada{TeX Gyre Termes}}
-\IfFontExistsTF{Calibri}{\newfontfamily\fuenteTabla{Calibri}}{\newfontfamily\fuenteTabla{Liberation Sans}}
+\IfFontExistsTF{Cambria}{\newfontfamily\fuentePortada{Cambria}}{\newfontfamily\fuentePortada{TeX Gyre Termes}}\newcommand{\fuenteTabla}{\rmfamily}
 \usepackage[spanish,es-tabla]{babel}
 \usepackage{geometry}
 \geometry{letterpaper,left=72bp,right=72bp,top=72bp,bottom=72bp,headheight=32bp,headsep=12bp,footskip=25bp}\usepackage{graphicx,xcolor,array,longtable,fancyhdr,titlesec}
