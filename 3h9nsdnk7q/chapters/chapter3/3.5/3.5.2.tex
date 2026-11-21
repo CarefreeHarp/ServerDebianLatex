@@ -8,8 +8,8 @@ La biblioteca de escenarios se guarda en el propio computador, de modo que la ap
   \textbf{\# Requerimiento} & RNF-06 & \raggedright\textbf{Tipo de requerimiento} & No funcional: disponibilidad\tabularnewline\hline
   \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá estar disponible siempre que el computador esté encendido, sin periodos de mantenimiento ni un administrador que la atienda, y deberá completar al menos 50~consultas seguidas sin necesidad de reiniciarse.}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Una emergencia puede extenderse durante horas y requerir varias consultas sucesivas. Además, la aplicación se ejecuta localmente y no depende de un servicio en línea permanente (sección~2.1.6).}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá estar disponible siempre que el computador esté encendido, sin periodos de mantenimiento ni un administrador que la atienda.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Una emergencia puede extenderse durante horas y requerir varias consultas sucesivas. Además, la aplicación se ejecuta localmente y no depende de un servicio en línea permanente.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se ejecutan 50~consultas de prueba consecutivas sin cerrar la aplicación, y todas se completan sin errores.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
@@ -25,7 +25,7 @@ La biblioteca de escenarios se guarda en el propio computador, de modo que la ap
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Todas las funciones de la aplicación deberán estar disponibles sin conexión a internet, excepto la consulta automática a Open-Meteo, que se reemplaza por el ingreso manual de las condiciones meteorológicas (RF-02).}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{El servicio gratuito de Open-Meteo no garantiza su disponibilidad~\cite{openmeteoterms} y durante una emergencia puede no haber conexión; por eso la biblioteca de escenarios se guarda en el propio computador.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
-  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: con la conexión desactivada, el usuario completa una consulta con condiciones ingresadas manualmente, ve el resultado en el mapa y abre los escenarios en Smokeview.}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: con la conexión desactivada, el usuario completa una consulta con condiciones ingresadas manualmente y ve el resultado.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
 \end{longtable}

@@ -4,7 +4,7 @@
 \providecommand{\bdB}{\dimexpr 0.58\linewidth-2\tabcolsep-1.33\arrayrulewidth\relax}
 \providecommand{\bdC}{\dimexpr 0.20\linewidth-2\tabcolsep-1.33\arrayrulewidth\relax}
 
-La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicación solo lee (sección~3.1.3). Sus tablas, resumidas en la tabla~\ref{tab:bd}, corresponden a los elementos MD-01 a MD-04 de la sección~2.5, más una tabla con los datos generales de la biblioteca. Los elementos MD-05 y MD-06 no se almacenan, porque la aplicación no crea datos (sección~2.1.6).
+La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicación solo lee. Sus tablas, resumidas en la tabla~\ref{tab:bd}, corresponden a los elementos MD-01 a MD-04 de la sección~2.5, más una tabla con los datos generales de la biblioteca. Los elementos MD-05 y MD-06 no se almacenan, porque la aplicación no crea datos.
 
 \begin{longtable}{|p{\bdA}|p{\bdB}|p{\bdC}|}
   \caption{Tablas de la base de datos}\label{tab:bd}\tabularnewline
@@ -14,21 +14,42 @@ La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicac
   \hline
   \textbf{Tabla} & \textbf{Columnas, tipos y unidades} & \raggedright\textbf{Elemento del dominio}\tabularnewline\hline
   \endhead
-  \texttt{archivo} & \raggedright\texttt{id} (INTEGER, llave primaria); \texttt{escenario\_id} (INTEGER, llave foránea); \texttt{nombre} y \texttt{formato} (TEXT); \texttt{ruta} (TEXT), relativa a la carpeta de la biblioteca (RNF-14); \texttt{sha256} (TEXT), suma de verificación (RNF-04). & MD-01 Archivo\tabularnewline\hline
-  \texttt{escenario} & \raggedright\texttt{id} (INTEGER, llave primaria); \texttt{identificador} (TEXT, único); \texttt{punto\_ignicion\_id} y \texttt{condiciones\_id} (INTEGER, llaves foráneas); \texttt{version\_fds} (TEXT); \texttt{tiempo\_simulado} (REAL, s); \texttt{origen\_x} y \texttt{origen\_y} (REAL, m), origen del dominio de FDS en el sistema de coordenadas de la biblioteca. & \raggedright MD-02 Escenario de simulación\tabularnewline\hline
-  \texttt{punto\_ignicion} & \raggedright\texttt{id} (INTEGER, llave primaria); \texttt{identificador} (TEXT, único); \texttt{latitud} y \texttt{longitud} (REAL, grados decimales en WGS~84). & \raggedright MD-03 Punto de ignición\tabularnewline\hline
-  \texttt{condiciones} & \raggedright\texttt{id} (INTEGER, llave primaria); \texttt{velocidad\_viento} (REAL, km/h); \texttt{direccion\_viento} (REAL, dirección de origen en grados desde el norte); \texttt{presencia\_lluvia} (INTEGER, 0 o 1); \texttt{cantidad\_lluvia} (REAL, mm). & \raggedright MD-04 Condiciones meteorológicas\tabularnewline\hline
-  \texttt{biblioteca} & \raggedright\texttt{version} (TEXT); \texttt{epsg} (INTEGER), código del sistema de coordenadas proyectado de las simulaciones; \texttt{fecha} (TEXT, ISO 8601), fecha de la última actualización. & \raggedright Datos generales, en una sola fila\tabularnewline*\cline{1-3}
+  \textcolor{black}{\texttt{archivo}} & \textcolor{black}{\texttt{id} (INTEGER, llave primaria)} & \textcolor{black}{MD-01 Archivo}\tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{escenario\_id} (INTEGER, llave foránea)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{nombre} (TEXT)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{formato} (TEXT)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{ruta} (TEXT), relativa a la carpeta de la biblioteca (RNF-14)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{sha256} (TEXT), suma de verificación (RNF-04)} & \tabularnewline\hline
+  \textcolor{black}{\texttt{escenario}} & \textcolor{black}{\texttt{id} (INTEGER, llave primaria)} & \textcolor{black}{MD-02 Escenario de simulación}\tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{identificador} (TEXT, único)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{punto\_ignicion\_id} (INTEGER, llave foránea)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{condiciones\_id} (INTEGER, llave foránea)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{version\_fds} (TEXT)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{tiempo\_simulado} (REAL, s)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{origen\_x} (REAL, m; origen del dominio de FDS en el sistema de coordenadas de la biblioteca)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{origen\_y} (REAL, m; origen del dominio de FDS en el sistema de coordenadas de la biblioteca)} & \tabularnewline\hline
+  \textcolor{black}{\texttt{punto\_ignicion}} & \textcolor{black}{\texttt{id} (INTEGER, llave primaria)} & \textcolor{black}{MD-03 Punto de ignición}\tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{identificador} (TEXT, único)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{latitud} (REAL, grados decimales en WGS~84)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{longitud} (REAL, grados decimales en WGS~84)} & \tabularnewline\hline
+  \textcolor{black}{\texttt{condiciones}} & \textcolor{black}{\texttt{id} (INTEGER, llave primaria)} & \textcolor{black}{MD-04 Condiciones meteorológicas}\tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{velocidad\_viento} (REAL, km/h)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{direccion\_viento} (REAL, dirección de origen en grados desde el norte)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{presencia\_lluvia} (INTEGER, 0 o 1)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{cantidad\_lluvia} (REAL, mm)} & \tabularnewline\hline
+  \textcolor{black}{\texttt{biblioteca}} & \textcolor{black}{\texttt{version} (TEXT)} & \textcolor{black}{Datos generales, en una sola fila}\tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{epsg} (INTEGER; código del sistema de coordenadas proyectado de las simulaciones)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{fecha} (TEXT, ISO 8601; fecha de la última actualización)} & \tabularnewline\hline
 \end{longtable}
 
 La base de datos y la búsqueda de escenarios deberán cumplir los siguientes requerimientos:
 
 \begin{itemize}
-  \item \textbf{Tipos de datos.} Los datos se guardarán con los tipos INTEGER, REAL y TEXT de SQLite: los valores booleanos como INTEGER (0 o 1) y las fechas como TEXT en formato ISO 8601. Las tablas se declararán como STRICT, para que SQLite rechace los valores de un tipo distinto al declarado. Además de los atributos de la sección~2.5, se guardarán la versión de FDS y el tiempo simulado de cada escenario~\cite{vfp}, el origen de su dominio, necesario para ubicar sus resultados en el mapa (RF-12), y la suma SHA-256 de cada archivo (RNF-04). La configuración de cada escenario se conserva en su archivo de entrada \texttt{.fds}.
+  \item \textbf{Tipos de datos.} Los datos se guardarán con los tipos INTEGER, REAL y TEXT de SQLite: los valores booleanos como INTEGER (0 o 1) y las fechas como TEXT en formato ISO 8601. Las tablas se declararán como STRICT, para que SQLite rechace los valores de un tipo distinto al declarado. Además de los atributos de la sección~2.5, se guardarán la versión de FDS y el tiempo simulado de cada escenario~\cite{vfp2026}, el origen de su dominio, necesario para ubicar sus resultados en el mapa (RF-12), y la suma SHA-256 de cada archivo (RNF-04). La configuración de cada escenario se conserva en su archivo de entrada \texttt{.fds}.
   \item \textbf{Llaves e índices.} Las llaves primarias serán columnas INTEGER, que en SQLite identifican la fila sin necesitar un índice adicional, y los identificadores del modelo del dominio se declararán únicos. Además, cada llave foránea tendrá un índice, porque por ellas se unen las tablas al leer el catálogo y se buscan los archivos de cada escenario.
-  \item \textbf{Tipo de consultas.} La aplicación solo ejecutará consultas de lectura (SELECT), desde el módulo de consulta de escenarios, que hará las veces de objeto de acceso a datos (DAO). Abrirá la base de datos en modo de solo lectura y usará consultas parametrizadas del módulo \texttt{sqlite3} de Python, equivalentes a los Prepared Statement, en lugar de construir las sentencias concatenando texto.
-  \item \textbf{Frecuencia de acceso.} La aplicación abrirá una sola conexión al iniciar y la mantendrá hasta cerrarse. Al iniciar leerá el catálogo de puntos de ignición, condiciones y escenarios, que conservará en memoria, y durante cada consulta solo leerá los archivos de los escenarios recuperados. Como atiende una consulta a la vez (sección~3.3), no habrá accesos simultáneos.
-  \item \textbf{Búsqueda de escenarios semejantes.} Como el número de escenarios está limitado por las horas de cómputo disponibles~\cite{pmp2026}, la búsqueda recorrerá todo el catálogo en memoria, sin estructuras de búsqueda especiales como los árboles k-d o R, y deberá tardar menos de 1~segundo con la biblioteca completa. Seguirá el criterio de vecinos más cercanos de la propuesta del proyecto~\cite{vfp2026}, en dos pasos:
+  \item \textbf{Tipo de consultas.} La aplicación solo ejecutará consultas de lectura (SELECT), desde el módulo de consulta de escenarios. Abrirá la base de datos en modo de solo lectura y usará consultas parametrizadas del módulo \texttt{sqlite3} de Python, equivalentes a los Prepared Statement, en lugar de construir las sentencias concatenando texto.
+  \item \textbf{Frecuencia de acceso.} La aplicación abrirá una sola conexión al iniciar y la mantendrá hasta cerrarse. Al iniciar leerá el catálogo de puntos de ignición, condiciones y escenarios, que conservará en memoria, y durante cada consulta solo leerá los archivos de los escenarios recuperados. Como atiende una consulta a la vez, no habrá accesos simultáneos.
+  \item \textbf{Búsqueda de escenarios semejantes.} Como el número de escenarios está limitado por las horas de cómputo disponibles~\cite{pmp2026}, la búsqueda utilizará sql y deberá tardar menos de 10~segundos con la biblioteca completa. Seguirá el criterio de vecinos más cercanos de la propuesta del proyecto~\cite{vfp2026}, en dos pasos:
   \begin{enumerate}
     \item Para la ubicación indicada, o para posiciones del borde activo separadas por la distancia que se fije en el piloto, se selecciona el punto de ignición más cercano, midiendo la distancia en metros en el sistema de coordenadas de la biblioteca (RF-05).
     \item Para cada punto seleccionado se recupera el escenario cuyas condiciones meteorológicas sean más semejantes a las de la consulta (RF-06). Para compararlas, las diferencias en la velocidad del viento, en su dirección y en la cantidad de lluvia se dividen entre la tolerancia de cada variable, definida en el siguiente requerimiento, para que las tres se comparen en la misma escala. La dirección se trata como una variable circular, cuya diferencia es el menor ángulo entre las dos direcciones; así, $355^{\circ}$ y $5^{\circ}$ difieren en $10^{\circ}$ y no en $350^{\circ}$.

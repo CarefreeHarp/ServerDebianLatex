@@ -1,6 +1,6 @@
 \subsubsection{Confiabilidad}
 % Contenido pendiente de redacción.
-La aplicación no maneja transacciones concurrentes, porque atiende a un solo usuario y accede a la biblioteca solo en modo de lectura (secciones~3.1.3 y~3.3). Su confiabilidad depende de los siguientes requerimientos.
+La aplicación no maneja transacciones concurrentes, porque atiende a un solo usuario y accede a la biblioteca solo en modo de lectura. Su confiabilidad depende de los siguientes requerimientos.
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
   \caption{RNF-01 -- Validar la hipótesis de agregación}\label{tab:rnf-01}\tabularnewline
@@ -39,7 +39,7 @@ La aplicación no maneja transacciones concurrentes, porque atiende a un solo us
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La misma consulta, con la misma ubicación o el mismo perímetro y las mismas condiciones meteorológicas, deberá producir siempre el mismo resultado.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Si una consulta repetida diera resultados distintos, el usuario no podría confiar en la estimación ni comparar consultas sucesivas.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
-  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se repiten diez consultas de prueba y se comparan sus escenarios seleccionados y sus áreas estimadas, que deben coincidir.}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se repiten treinta consultas de prueba y se comparan sus escenarios seleccionados y sus áreas estimadas, que deben coincidir.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
 \end{longtable}

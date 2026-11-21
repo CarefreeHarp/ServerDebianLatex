@@ -23,7 +23,7 @@ La biblioteca de escenarios podría ampliarse con nuevas simulaciones, y la apli
   \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{El código deberá organizarse en los cuatro módulos de la sección~2.7 (Interfaz y visualización, Meteorología, Consulta de escenarios y Agregación), que se comunicarán solo mediante sus funciones públicas, de modo que modificar una función afecte únicamente al módulo que la contiene.}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Dividir el producto en módulos permite modificar una función sin volver a implementar el sistema ni afectar los demás módulos. Por ejemplo, Open-Meteo podrá sustituirse por otro servicio equivalente (sección~2.4), y ese cambio solo debería afectar al módulo de meteorología.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Dividir el producto en módulos permite modificar una función sin volver a implementar el sistema ni afectar los demás módulos. Por ejemplo, Open-Meteo podrá sustituirse por otro servicio equivalente, y ese cambio solo debería afectar al módulo de meteorología.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Inspección: cada componente del diagrama de componentes corresponde a un módulo del código~\cite{pmp2026}, ningún módulo usa funciones internas de otro y solo el módulo de meteorología hace referencia a Open-Meteo.}\tabularnewline\hline
   \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
@@ -37,7 +37,7 @@ La biblioteca de escenarios podría ampliarse con nuevas simulaciones, y la apli
   \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Los módulos y sus funciones públicas deberán documentarse en el propio código, con su propósito, sus entradas y sus salidas. Además, una guía técnica deberá describir la estructura de la aplicación y los pasos para generar el ejecutable~\cite{pmp2026}.}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las actualizaciones posteriores a la entrega están fuera del alcance del proyecto (sección~2.1.6), por lo que quien modifique la aplicación podría no ser uno de sus desarrolladores originales y necesitará entender su estructura interna.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las actualizaciones posteriores a la entrega están fuera del alcance del proyecto, por lo que quien modifique la aplicación podría no ser uno de sus desarrolladores originales y necesitará entender su estructura interna.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Inspección y prueba: la revisión del código no encuentra módulos ni funciones públicas sin documentar, y otro integrante del equipo reproduce la construcción del ejecutable con la guía técnica~\cite{pmp2026}.}\tabularnewline\hline
   \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline

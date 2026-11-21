@@ -1,32 +1,6 @@
 \subsection{Referencias}
-
-En la Tabla~\ref{tab:referencias_srs} se relacionan los documentos internos del proyecto, estándares internacionales de ingeniería de software y documentación técnica oficial que sirven de base para esta especificación. El listado bibliográfico completo se encuentra en la sección de Referencias al final del documento.
-
-\begin{table}[H]
-\centering
-\caption{Documentos y estándares de referencia}
-\label{tab:referencias_srs}
-\begin{tabular}{|p{4.2cm}|p{2.2cm}|p{7.8cm}|}
-\hline
-\textbf{Documento / Estándar} & \textbf{Ref.} & \textbf{Descripción y relevancia} \\
-\hline
-Propuesta de Proyecto de Grado (VFP) & \cite{vfp2026} & Documento base que define el problema en los Cerros Orientales, la arquitectura híbrida y el enfoque de biblioteca precalculada. \\
-\hline
-Plan de Administración del Proyecto (PMP) & \cite{pmp2026} & Establece la planificación, casos de uso (CU1--CU8), métricas de usabilidad y entregables del proyecto. \\
-\hline
-Fire Dynamics Simulator User's Guide & \cite{fdsguide} & Guía oficial del NIST para la versión FDS 6.11.1 empleada en la generación de los escenarios de simulación. \\
-\hline
-Smokeview User's Guide & \cite{smvguide} & Manual técnico del NIST para Smokeview 6.11.2, utilizado en la visualización externa de resultados. \\
-\hline
-Open-Meteo API Docs y Términos & \cite{openmeteo_docs,openmeteoterms} & Documentación técnica de la API de pronóstico meteorológico y condiciones de licencia CC BY 4.0. \\
-\hline
-Documentación oficial de SQLite & \cite{sqlite_docs,sqlite_sql} & Especificación del motor de base de datos embebido (v3.54.1) y sintaxis SQL soportada. \\
-\hline
-Documentación Windows 11 e Intel & \cite{windows11,intel_i3_12100} & Especificaciones del sistema operativo objetivo y del procesador de referencia (Intel Core i3-12100). \\
-\hline
-ISO/IEC/IEEE 29148:2018 & \cite{iso29148_2018} & Norma internacional aplicada para la ingeniería de requerimientos y estructura de este documento. \\
-\hline
-ISO/IEC/IEEE 12207 y 29119 & \cite{iso12207_2026,iso29119_2021} & Estándares de procesos de ciclo de vida y pruebas de software aplicados en el proceso de verificación. \\
-\hline
-\end{tabular}
-\end{table}
+\begingroup\color{black}
+\renewcommand{\refname}{}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\endgroup

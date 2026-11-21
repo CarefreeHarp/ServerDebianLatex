@@ -1,25 +1,14 @@
 \subsection{Distribución de Requerimientos \texorpdfstring{\textcolor{black}{- Tabla de Referencia cruzada}}{- Tabla de Referencia cruzada}}{\color{black}
-La tabla~\ref{tab:distribucion-requerimientos} relaciona las funcionalidades del producto y los módulos propuestos con los identificadores de los casos de uso y los requerimientos funcionales. Los casos de uso se especifican en el plan de administración del proyecto (PMP)~\cite{pmp2026}, donde CU7 y CU8 se consideran deseables, mientras que los identificadores de los requerimientos funcionales se definen en la sección 3 de este documento.\clearpage\begingroup\color{red}\captionsetup{font=rojodominio}
+La tabla~\ref{tab:distribucion-requerimientos} relaciona las funcionalidades del producto y los módulos propuestos con los identificadores de los casos de uso y los requerimientos funcionales. Los casos de uso se especifican en el plan de administración del proyecto (PMP)~\cite{pmp2026} y los requerimientos funcionales se definen en la sección 3 de este documento. \clearpage\begingroup\color{red}\captionsetup{font=rojodominio}
 \fuenteTabla\fontsize{10bp}{12bp}\selectfont
 \setlength{\tabcolsep}{3bp}
 \hyphenpenalty=10000 \exhyphenpenalty=10000 \sloppy
 \renewcommand{\arraystretch}{1.3}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|}
-\caption{Distribución de requerimientos}\label{tab:distribucion-requerimientos}\\\hline
-\textbf{Funcionalidad} & \multicolumn{4}{c|}{\textbf{Módulos propuestos}} & \textbf{Requerimiento funcional} & \textbf{Caso de uso}\\\cline{2-7}
- & \textbf{Interfaz y visualización} & \textbf{Meteorología} & \textbf{Consulta de escenarios} & \textbf{Agregación} & \textbf{ID} & \textbf{ID}\\\hline
-\multirow{6}{=}{Consulta de simulaciones} & \multirow{6}{*}{\textcolor{green!50!black}{\ensuremath{\checkmark}}} & \multirow{6}{*}{\textcolor{green!50!black}{\ensuremath{\checkmark}}} & \multirow{6}{*}{\textcolor{green!50!black}{\ensuremath{\checkmark}}} & \multirow{6}{*}{\textcolor{red}{\ensuremath{\times}}} & \multirow{2}{=}{\rule{0pt}{15bp}} & CU1\\\cline{7-7}
- & & & & &  & CU2\\\cline{6-7}
- & & & & & \multirow{2}{=}{\rule{0pt}{15bp}} & CU3\\\cline{7-7}
- & & & & &  & CU4\\\cline{6-7}
- & & & & & \multirow{2}{=}{\rule{0pt}{15bp}} & CU7\\\cline{7-7}
- & & & & &  & CU8\\\hline
-\multirow{3}{=}{Estimación de la propagación} & \multirow{3}{*}{\textcolor{red}{\ensuremath{\times}}} & \multirow{3}{*}{\textcolor{red}{\ensuremath{\times}}} & \multirow{3}{*}{\textcolor{green!50!black}{\ensuremath{\checkmark}}} & \multirow{3}{*}{\textcolor{green!50!black}{\ensuremath{\checkmark}}} & \rule{0pt}{15bp} & \multirow{3}{=}{CU5}\\\cline{6-6}
- & & & & & \rule{0pt}{15bp} & \\\cline{6-6}
- & & & & & \rule{0pt}{15bp} & \\\hline
-\multirow{3}{=}{Visualización de la estimación} & \multirow{3}{*}{\textcolor{green!50!black}{\ensuremath{\checkmark}}} & \multirow{3}{*}{\textcolor{red}{\ensuremath{\times}}} & \multirow{3}{*}{\textcolor{red}{\ensuremath{\times}}} & \multirow{3}{*}{\textcolor{red}{\ensuremath{\times}}} & \rule{0pt}{15bp} & \multirow{3}{=}{CU6}\\\cline{6-6}
- & & & & & \rule{0pt}{15bp} & \\\cline{6-6}
- & & & & & \rule{0pt}{15bp} & \\\hline
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.10\linewidth}|>{\raggedright\arraybackslash}p{0.16\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.12\linewidth}|>{\raggedright\arraybackslash}p{0.14\linewidth}|}
+\caption{Distribución de requerimientos}\label{tab:distribucion-requerimientos}\\\hline\textbf{Caso de uso} & \textbf{Funcionalidad} & \multicolumn{4}{c|}{\textbf{Módulos propuestos}} & \textbf{Requerimiento funcional}\\\cline{3-7}\textbf{ID} & & \textbf{Interfaz y visualización} & \textbf{Meteorología} & \textbf{Consulta de escenarios} & \textbf{Agregación} & \textbf{ID}\\\hline\multirow{4}{*}[-38pt]{CU01} & Indicar la ubicación del perímetro observado del incendio y del territorio quemado & \textcolor{green!50!black}{\ensuremath{\checkmark}} & \textcolor{red}{\ensuremath{\times}} & \textcolor{red}{\ensuremath{\times}} & \textcolor{red}{\ensuremath{\times}} & \hspace*{-3bp}\begin{tabular}[t]{@{}p{\dimexpr\linewidth+6bp\relax}@{}}\rule[-19bp]{0pt}{50bp}\hspace{3bp}RF-04\\\hline\rule[-11bp]{0pt}{34bp}\hspace{3bp}RF-08\end{tabular}\\\cline{2-7}
+ & Obtener las condiciones meteorológicas & \textcolor{green!50!black}{\ensuremath{\checkmark}} & \textcolor{green!50!black}{\ensuremath{\checkmark}} & \textcolor{red}{\ensuremath{\times}} & \textcolor{red}{\ensuremath{\times}} & \hspace*{-3bp}\begin{tabular}[t]{@{}p{\dimexpr\linewidth+6bp\relax}@{}}\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-01\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-02\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-03\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-08\end{tabular}\\\cline{2-7}
+ & Agregar simulaciones & \textcolor{red}{\ensuremath{\times}} & \textcolor{red}{\ensuremath{\times}} & \textcolor{green!50!black}{\ensuremath{\checkmark}} & \textcolor{green!50!black}{\ensuremath{\checkmark}} & \hspace*{-3bp}\begin{tabular}[t]{@{}p{\dimexpr\linewidth+6bp\relax}@{}}\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-08\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-09\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-10\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-11\end{tabular}\\\cline{2-7} & Visualizar la agregación de simulaciones de forma georreferenciada & \textcolor{green!50!black}{\ensuremath{\checkmark}} & \textcolor{red}{\ensuremath{\times}} & \textcolor{red}{\ensuremath{\times}} & \textcolor{red}{\ensuremath{\times}} & \hspace*{-3bp}\begin{tabular}[t]{@{}p{\dimexpr\linewidth+6bp\relax}@{}}\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-08\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-12\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-13\\\hline\rule[-6bp]{0pt}{18bp}\hspace{3bp}RF-14\end{tabular}\\\hline
+
 \end{longtable}
 \endgroup
 }

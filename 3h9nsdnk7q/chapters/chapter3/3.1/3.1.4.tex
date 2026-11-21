@@ -1,10 +1,10 @@
-\subsubsection{Interfaces de Comunicaciones}
+\subsubsection{Interfaces de Comunicaciones}\label{sec:interfaces-comunicacion}
 % Contenido pendiente de redacción.
-Las condiciones meteorológicas, en especial el viento, determinan qué escenarios de la biblioteca son compatibles con la emergencia. Por ello, la aplicación deberá obtener de Open-Meteo las condiciones del momento de la consulta para la ubicación indicada por el usuario (sección~2.1.4), de acuerdo con los siguientes requerimientos:
+Las condiciones meteorológicas, en especial el viento, determinan qué escenarios de la biblioteca son compatibles con la emergencia. Por ello, la aplicación deberá obtener de Open-Meteo las condiciones del momento de la consulta para la ubicación indicada por el usuario, de acuerdo con los siguientes requerimientos:
 
 \begin{itemize}
-  \item \textbf{Red y protocolo.} La consulta se realizará por internet, mediante una conexión Ethernet o inalámbrica (sección~2.1.2), con solicitudes HTTPS de tipo GET al servicio de pronóstico de Open-Meteo. La conexión a internet solo se requerirá para esta consulta.
-  \item \textbf{Solicitud y respuesta.} La solicitud deberá incluir la latitud y la longitud de la ubicación y las variables del modelo del dominio (sección~2.5): velocidad y dirección del viento y precipitación, en las unidades del ingreso manual (sección~3.1.1), sin enviar datos del usuario. La aplicación deberá convertir la respuesta en formato JSON en las condiciones meteorológicas de la consulta e identificar la hora a la que corresponden.
+  \item \textbf{Red y protocolo.} La consulta se realizará por internet, mediante una conexión Ethernet o inalámbrica, con solicitudes HTTPS de tipo GET al servicio de pronóstico de Open-Meteo. La conexión a internet solo se requerirá para esta consulta.
+  \item \textbf{Solicitud y respuesta.} La solicitud deberá incluir la latitud y la longitud de la ubicación y las variables del modelo del dominio: velocidad y dirección del viento y precipitación, en las unidades del ingreso manual, sin enviar datos del usuario. La aplicación deberá convertir la respuesta en formato JSON en las condiciones meteorológicas de la consulta e identificar la hora a la que corresponden.
   \item \textbf{Fallas del servicio.} El servicio gratuito de Open-Meteo no garantiza su disponibilidad~\cite{openmeteoterms}. Si la solicitud falla, no hay conexión o la respuesta no llega en el tiempo definido en la sección~3.3, la aplicación deberá informarlo al usuario y habilitar el ingreso manual descrito en la sección~3.1.1.
   \item \textbf{Condiciones de uso.} La aplicación deberá usar el servicio solo con fines no comerciales y mostrar, junto a las condiciones obtenidas, la atribución a Open-Meteo que exige la licencia CC BY 4.0 de sus datos~\cite{openmeteoterms}.
 \end{itemize}

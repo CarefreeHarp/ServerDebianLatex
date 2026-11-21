@@ -22,7 +22,7 @@ Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera d
   \textbf{\# Requerimiento} & RF-01 & \raggedright\textbf{Tipo de requerimiento} & Funcional\tabularnewline\hline
   \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Consultar condiciones meteorológicas}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Cuando el usuario indique la ubicación del incendio y haya conexión a internet, la aplicación deberá obtener de Open-Meteo la velocidad y la dirección del viento y la precipitación del momento de la consulta para esa ubicación, como se especifica en la sección~3.1.4.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Cuando el usuario indique la ubicación del incendio y haya conexión a internet, la aplicación deberá obtener de Open-Meteo la velocidad y la dirección del viento y la precipitación del momento de la consulta para esa ubicación, como se especifica en la sección~\textcolor{red}{\ref{sec:interfaces-comunicacion}}.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las condiciones meteorológicas, en especial el viento, determinan qué escenarios de la biblioteca son compatibles con la emergencia (sección~2.2). Obtenerlas de forma automática evita que el usuario deba consultarlas por otro medio.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: para una ubicación de Aguas Claras, los valores que presenta la aplicación coinciden con los de una solicitud hecha directamente a la API de Open-Meteo para las mismas coordenadas y la misma hora.}\tabularnewline\hline
@@ -195,12 +195,12 @@ Presenta el resultado de la consulta y los escenarios en que se basa. El resulta
 \end{longtable}
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
-  \caption{RF-13 -- Abrir los escenarios en Smokeview}\label{tab:rf-13}\tabularnewline
+  \caption{RF-13 -- Animación de los escenarios}\label{tab:rf-13}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RF-13 & \raggedright\textbf{Tipo de requerimiento} & Funcional\tabularnewline\hline
   \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Visualizar estimación}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá permitir abrir en Smokeview la animación georreferenciada de cada escenario utilizado en la estimación, para examinar la expansión del fuego, la temperatura, el humo y la velocidad de expansión que registran sus archivos de FDS.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá permitir abrir la animación georreferenciada de cada escenario utilizado en la estimación, para examinar la expansión del fuego, la temperatura, el humo y la velocidad de expansión que registran sus archivos de FDS.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Smokeview permite examinar en detalle los resultados de FDS (sección~2.2) sin que el usuario deba manejar esos archivos directamente.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Demostración: tras una consulta de prueba, cada escenario utilizado se abre en Smokeview, donde se reproducen su animación y sus resultados de temperatura y humo.}\tabularnewline\hline
