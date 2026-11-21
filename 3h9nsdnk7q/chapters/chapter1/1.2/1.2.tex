@@ -1,2 +1,11 @@
 \subsection{Alcance}
-% Contenido pendiente de redacción.
+
+El producto de software a desarrollar es una aplicación de escritorio independiente para Windows 11 orientada a apoyar la toma de decisiones de los comandantes o coordinadores de emergencias durante eventos de incendio en el sector de Aguas Claras, ubicado en los Cerros Orientales de Bogotá.
+
+El sistema integrará una biblioteca estática de escenarios precalculados mediante simulación computacional de dinámica de fluidos (FDS) con una interfaz gráfica georreferenciada. A partir de la ubicación del punto de ignición o borde activo señalado por el usuario y de las condiciones meteorológicas actuales (obtenidas automáticamente vía API externa o ingresadas manualmente), la aplicación consultará y agregará los escenarios compatibles para presentar una estimación visual de la posible propagación del fuego, temperatura, humo y velocidad de expansión, además de permitir la inspección tridimensional mediante Smokeview.
+
+\textbf{Delimitación del alcance:}
+\begin{itemize}
+    \item \textbf{Qué hace el producto:} consulta escenarios precalculados almacenados localmente en SQLite, obtiene datos meteorológicos en tiempo real mediante solicitudes HTTP GET a Open-Meteo, agrega resultados compatibles y los despliega sobre un mapa georreferenciado del sector de Aguas Claras.
+    \item \textbf{Qué no hace el producto:} no ejecuta simulaciones FDS en tiempo real durante la emergencia, no requiere conexión permanente a internet ni servidores externos propios, no gestiona cuentas de usuario ni roles administrativos, y sus estimaciones constituyen una herramienta de apoyo visual que no sustituye el criterio operativo ni el juicio profesional de los cuerpos de socorro.
+\end{itemize}

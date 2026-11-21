@@ -1,2 +1,10 @@
 \subsubsection{Interfaces con el Software}
 % Contenido pendiente de redacción.
+La aplicación deberá cumplir los siguientes requerimientos de interfaz con otros productos de software, que complementan los descritos en la sección~2.1.3:
+
+\begin{itemize}
+  \item \textbf{Sistema operativo.} La aplicación deberá ejecutarse en Windows~11 sin requerir un servidor de bases de datos ni otros servicios instalados aparte, pues el motor de SQLite se incluirá en la propia aplicación.
+  \item \textbf{Persistencia de los escenarios.} Como FDS no se ejecuta durante el uso de la aplicación (sección~2.1.1), los resultados de las simulaciones deberán conservarse en una biblioteca local de escenarios, de la que la aplicación los recuperará durante la consulta. La biblioteca estará formada por una base de datos SQLite, que registrará para cada escenario los datos del modelo del dominio (sección~2.5), su configuración y la versión de FDS, y por la carpeta con los archivos de resultados de FDS y de Smokeview que esa base de datos referencia. Todos los escenarios deberán tener esos datos completos y el catálogo deberá cargarse sin errores en la aplicación~\cite{pmp2026}, que accederá a él solo en modo de lectura, ya que no crea ni modifica datos (sección~2.1.6).
+  \item \textbf{Resultados de FDS.} La aplicación deberá leer los archivos de salida generados por FDS~6.11.1~\cite{fdsguide} para seleccionar y agregar los escenarios, sin necesidad de que FDS esté instalado en el computador del usuario.
+  \item \textbf{Smokeview.} Para presentar la animación georreferenciada, la aplicación deberá abrir Smokeview 6.11.2~\cite{smvguide} como un proceso externo y cargar en él los archivos del resultado. Smokeview deberá distribuirse junto con la aplicación, de modo que el usuario no tenga que instalarlo.
+\end{itemize}

@@ -1,2 +1,23 @@
 \subsection{Requerimientos de Desempeño}
 % Contenido pendiente de redacción.
+Los siguientes requerimientos de desempeño deberán cumplirse en un computador con las características mínimas de las secciones~2.1.5 y~2.4, cuyo procesador de referencia es un Intel Core i3-12100.
+
+\textbf{Requerimientos estáticos.}
+
+\begin{itemize}
+  \item \textbf{Usuarios y equipos.} La aplicación deberá atender a un solo usuario en un solo computador y procesar una consulta a la vez, ya que se ejecuta localmente y no tiene cuentas de usuario (sección~2.1.6).
+  \item \textbf{Memoria.} Durante una consulta, la aplicación deberá usar como máximo 8~GB de memoria RAM. Se verificará registrando el uso máximo de memoria en el Administrador de tareas de Windows durante diez consultas de prueba.
+  \item \textbf{Almacenamiento.} La instalación, incluida la biblioteca de escenarios, deberá ocupar como máximo 15~GB de disco (sección~2.1.5). Se verificará midiendo el tamaño de la carpeta instalada.
+  \item \textbf{Unidad gráfica.} El mapa y el trazado del perímetro deberán funcionar con una unidad gráfica integrada de 64~MB de memoria (sección~2.1.2). Se verificará completando una consulta en un equipo con esa unidad gráfica.
+  \item \textbf{Conexión de red.} La consulta a Open-Meteo deberá completarse con una conexión de 64~kbps (sección~2.1.2). Se verificará limitando la velocidad de la conexión durante una prueba.
+\end{itemize}
+
+\textbf{Requerimientos dinámicos.}
+
+\begin{itemize}
+  \item \textbf{Inicio de la aplicación.} Desde que el usuario abre la aplicación hasta que el mapa y el catálogo de escenarios están listos para una consulta, no deberán pasar más de 30~segundos. Se verificará cronometrando diez inicios.
+  \item \textbf{Tiempo de la consulta completa.} Desde que el usuario termina de ingresar la ubicación o el perímetro y las condiciones meteorológicas hasta que el resultado se presenta en el mapa y su animación puede abrirse en Smokeview, ninguna de diez consultas de prueba deberá superar 5~minutos~\cite{pmp2026}. El mismo límite aplicará cuando la consulta se actualice con nuevos datos (RF-08). Se verificará cronometrando las diez consultas.
+  \item \textbf{Respuesta de la interfaz.} Mientras procesa una consulta, la aplicación no deberá congelarse: deberá mostrar el avance de la consulta, actualizado al menos cada 5~segundos. Se verificará observando el indicador de avance durante las consultas de prueba.
+  \item \textbf{Espera de Open-Meteo.} Si Open-Meteo no responde en 10~segundos, la aplicación deberá cancelar la solicitud y habilitar el ingreso manual descrito en la sección~3.1.1. Se verificará con pruebas que simulan un servicio que no responde.
+  \item \textbf{Solicitudes a Open-Meteo.} Cada consulta deberá generar como máximo una solicitud a Open-Meteo, de modo que el uso de la aplicación se mantenga muy por debajo del límite gratuito de 10.000 solicitudes diarias~\cite{openmeteoterms}. Se verificará contando las solicitudes que registra la aplicación durante las pruebas.
+\end{itemize}

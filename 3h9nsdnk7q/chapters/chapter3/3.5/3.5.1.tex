@@ -1,2 +1,73 @@
 \subsubsection{Confiabilidad}
 % Contenido pendiente de redacción.
+La aplicación no maneja transacciones concurrentes, porque atiende a un solo usuario y accede a la biblioteca solo en modo de lectura (secciones~3.1.3 y~3.3). Su confiabilidad depende de los siguientes requerimientos.
+
+\begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
+  \caption{RNF-01 -- Validar la hipótesis de agregación}\label{tab:rnf-01}\tabularnewline
+  \hline
+  \textbf{\# Requerimiento} & RNF-01 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
+  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Agregar resultados de escenarios}\tabularnewline\hline
+  \endfirsthead
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Durante el piloto, la agregación deberá compararse con una simulación de referencia de ignición lineal y con otra de igniciones puntuales simultáneas, bajo condiciones equivalentes. Si en alguna condición las diferencias superan las tolerancias definidas, la aplicación deberá advertirlo al presentar resultados en esa condición.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La agregación es una hipótesis de aproximación: la superposición de escenarios independientes puede omitir interacciones térmicas, vientos inducidos y cambios en la velocidad de propagación, por lo que la confiabilidad de las estimaciones depende de su validación~\cite{vfp2026}.}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Análisis: el informe del piloto compara la posición y la geometría del perímetro, el área afectada y la dirección de propagación de las tres configuraciones, con tolerancias definidas antes de la evaluación, e identifica las condiciones en que la agregación no las cumple.}\tabularnewline\hline
+  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Agregación\tabularnewline\hline
+  \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
+\end{longtable}
+
+\begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
+  \caption{RNF-02 -- Comprobar la reproducibilidad de los escenarios}\label{tab:rnf-02}\tabularnewline
+  \hline
+  \textbf{\# Requerimiento} & RNF-02 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
+  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Recuperar escenarios precalculados}\tabularnewline\hline
+  \endfirsthead
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Un escenario solo deberá incorporarse a la biblioteca después de comprobar que, al repetirlo con la misma configuración, versión de FDS y número de procesos, se obtienen la misma área quemada y la misma posición del frente.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La consulta debe basarse en simulaciones verificadas, cuyos resultados puedan reproducirse~\cite{pmp2026}.}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se repite el caso piloto con la misma configuración y se comparan el área quemada y la posición del frente de ambas ejecuciones, que deben ser iguales~\cite{pmp2026}.}\tabularnewline\hline
+  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
+  \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
+\end{longtable}
+
+\begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
+  \caption{RNF-03 -- Producir resultados consistentes}\label{tab:rnf-03}\tabularnewline
+  \hline
+  \textbf{\# Requerimiento} & RNF-03 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
+  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \endfirsthead
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La misma consulta, con la misma ubicación o el mismo perímetro y las mismas condiciones meteorológicas, deberá producir siempre el mismo resultado.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Si una consulta repetida diera resultados distintos, el usuario no podría confiar en la estimación ni comparar consultas sucesivas.}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se repiten diez consultas de prueba y se comparan sus escenarios seleccionados y sus áreas estimadas, que deben coincidir.}\tabularnewline\hline
+  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
+\end{longtable}
+
+\begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
+  \caption{RNF-04 -- Comprobar la integridad de la biblioteca}\label{tab:rnf-04}\tabularnewline
+  \hline
+  \textbf{\# Requerimiento} & RNF-04 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
+  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Recuperar escenarios precalculados}\tabularnewline\hline
+  \endfirsthead
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Los archivos de la biblioteca deberán acompañarse de sumas de verificación SHA-256, con las que deberá comprobarse su integridad después de instalarlos o copiarlos a otro equipo.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La biblioteca se compone de archivos voluminosos que se copian entre discos y equipos, y un archivo dañado alteraría los resultados sin que el usuario lo note~\cite{pmp2026}.}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se altera un archivo de una biblioteca de prueba y la comprobación detecta la diferencia.}\tabularnewline\hline
+  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
+  \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
+\end{longtable}
+
+\begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
+  \caption{RNF-05 -- Tolerar archivos faltantes o dañados}\label{tab:rnf-05}\tabularnewline
+  \hline
+  \textbf{\# Requerimiento} & RNF-05 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
+  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Recuperar escenarios precalculados}\tabularnewline\hline
+  \endfirsthead
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Si falta un archivo de un escenario o no puede leerse, la aplicación deberá excluir ese escenario de la consulta, informarlo al usuario y continuar con los demás, sin cerrarse.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Un archivo faltante no debe impedir que el usuario obtenga una estimación con los demás escenarios durante una emergencia.}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se borra un archivo de un escenario de prueba antes de una consulta; la aplicación informa la exclusión y completa la consulta con los escenarios restantes.}\tabularnewline\hline
+  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
+  \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
+\end{longtable}
