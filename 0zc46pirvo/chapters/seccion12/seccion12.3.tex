@@ -2,7 +2,7 @@
 
 La administración de configuración identificará, versionará y permitirá recuperar código, documentos, modelos, datos preparados y catálogo de E1--E7~\cite{adaptacion2026,std12207}. Cada cambio deberá indicar motivo, versión y artefactos relacionados.
 
-Aldine utiliza repositorios Git por proyecto y sincronización unidireccional hacia GitHub; conserva fuentes y PDF compilado, no archivos auxiliares ni repositorios internos. La sincronización puede activarse manualmente o mediante un temporizador aproximado de cuatro horas. Sus commits automáticos se atribuyen a Aldine y no identifican al autor de cada contenido. Este mecanismo no reemplaza las copias de seguridad ni las pruebas de recuperación.
+Aldine utiliza repositorios Git por proyecto y sincronización unidireccional hacia GitHub; conserva fuentes y PDF compilado, no archivos auxiliares ni repositorios internos. La sincronización se activa manualmente o mediante un temporizador aproximado de cuatro horas. Sus commits automáticos se atribuyen a Aldine y no identifican al autor de cada contenido. Este mecanismo no reemplaza las copias de seguridad ni las pruebas de recuperación.
 
 \textbf{Evolución de los elementos de configuración.}
 
@@ -28,5 +28,3 @@ Datos y resultados E3--E4 & Al preparar o ejecutar escenarios. & Procedencia, un
 \textbf{Datos y resultados FDS.} Cada escenario conservará su identificador, ubicación, fuentes y unidades, sistema de referencia, condiciones ambientales, configuración y versión FDS, resultados y limitaciones. El catálogo E4 permitirá localizar los archivos. Los resultados binarios voluminosos se almacenarán separadamente del código, con inventario, referencias estables y comprobaciones de integridad; el medio se definirá según la infraestructura disponible. La integridad de los archivos podrá comprobarse mediante sumas de verificación, conservando copias de respaldo independientes del almacenamiento principal.
 
 \textbf{Respaldo y recuperación.} Se identificarán los elementos afectados, se revisará e integrará cada cambio y se respaldarán fuentes e inventarios. Ante pérdidas se restaurará una versión identificada y se comprobará su integridad. También deberán probarse la recuperación de proyectos Aldine, del repositorio de la aplicación y de los escenarios E3--E4. Frecuencias, destinos y mecanismos definitivos de respaldo siguen por acordar.
-
-Daniel Ramírez administra el servidor documental Aldine, según la sección \ref{sec:spmp-8-4-2}. La administración del repositorio de aplicación, integración, custodia de datos pesados y verificación de restauraciones requieren asignaciones específicas del equipo.

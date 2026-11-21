@@ -31,7 +31,7 @@ Cada tipo de trabajo se estima con un método acorde con la información disponi
 \raggedright Riesgos & \raggedright Escalas cualitativas de probabilidad e impacto. & \raggedright 12.2\tabularnewline\hline
 \end{longtable}
 
-\paragraph{Tamaño del software.} El alcance de la aplicación comprende seis casos de uso comprometidos (CU01 a CU06) y dos deseables (CU07 y CU08), derivados del alcance de la sección~6.1, que el \textit{Product Owner} validará al aprobar E1. Este conteo funcional básico describe qué debe hacer la aplicación, pero no mide su esfuerzo, pues cada caso de uso puede requerir un trabajo muy diferente; el esfuerzo se estima por tareas.
+\paragraph{Tamaño del software.} El alcance de la aplicación comprende seis casos de uso comprometidos (\textcolor{red}{CU1} a \textcolor{red}{CU6}) y dos deseables (\textcolor{red}{CU7} y \textcolor{red}{CU8}), derivados del alcance de la sección~6.1, que el \textit{Product Owner} validará al aprobar E1. Este conteo funcional básico describe qué debe hacer la aplicación, pero no mide su esfuerzo, pues cada caso de uso puede requerir un trabajo muy diferente; el esfuerzo se estima por tareas.
 
 \paragraph{Esfuerzo del software y de las tareas.} Cada funcionalidad se descompone en tareas concretas y verificables, coherentes con la WBS de la sección~9.3.1, que cubren requisitos, diseño, implementación, integración, pruebas y documentación técnica. Para cada tarea $i$ se estiman en horas-persona un esfuerzo optimista $O_i$, uno más probable $M_i$ y uno pesimista $P_i$, y se combinan con la ponderación PERT~\cite{pmi2017pmbok}:
 \[ E_i = \frac{O_i + 4M_i + P_i}{6}, \qquad E_{\mathrm{software}} = \sum_{i=1}^{n} E_i \]
@@ -48,22 +48,22 @@ Las horas-persona representan trabajo acumulado del equipo y no duración calend
 S1 & Refinar los requisitos y criterios de aceptación de los casos de uso (E1) & A1 & 8 & 16 & 28 & 16,7\tabularnewline\hline
 S2 & Diseño detallado y actualización de los modelos UML (E2) & A2 & 16 & 24 & 40 & 25,3\tabularnewline\hline
 S3 & Estructura de la aplicación, mapa base y acceso al catálogo de la biblioteca & A7 & 24 & 40 & 72 & 42,7\tabularnewline\hline
-CU1.1 & Indicar o actualizar la ubicación, el perímetro observado y el territorio quemado & A7 & 20 & 32 & 56 & 34,0\tabularnewline\hline
-CU1.2 & Obtener las condiciones meteorológicas de Open-Meteo & A7 & 8 & 12 & 20 & 12,7\tabularnewline\hline
-CU1.3 & Ingresar manualmente las condiciones meteorológicas & A7 & 4 & 8 & 12 & 8,0\tabularnewline\hline
-CU1.4 & Seleccionar los escenarios compatibles & A7 & 24 & 40 & 72 & 42,7\tabularnewline\hline
-CU1.5 & Agregar los resultados desde el borde activo & A7 & 40 & 64 & 120 & 69,3\tabularnewline\hline
-CU1.6 & Visualizar la animación georreferenciada en Smokeview & A7 & 16 & 28 & 56 & 30,7\tabularnewline\hline
+\textcolor{red}{CU1} & Indicar o actualizar la ubicación, el perímetro observado y el territorio quemado & A7 & 20 & 32 & 56 & 34,0\tabularnewline\hline
+\textcolor{red}{CU2} & Obtener las condiciones meteorológicas de Open-Meteo & A7 & 8 & 12 & 20 & 12,7\tabularnewline\hline
+\textcolor{red}{CU3} & Ingresar manualmente las condiciones meteorológicas & A7 & 4 & 8 & 12 & 8,0\tabularnewline\hline
+\textcolor{red}{CU4} & Seleccionar los escenarios compatibles & A7 & 24 & 40 & 72 & 42,7\tabularnewline\hline
+\textcolor{red}{CU5} & Agregar los resultados desde el borde activo & A7 & 40 & 64 & 120 & 69,3\tabularnewline\hline
+\textcolor{red}{CU6} & Visualizar la animación georreferenciada en Smokeview & A7 & 16 & 28 & 56 & 30,7\tabularnewline\hline
 S4 & Pruebas de integración y de sistema, y corrección de sus defectos & A8 & 24 & 40 & 64 & 41,3\tabularnewline\hline
 S5 & Documentación técnica y manual de instalación y uso (E7) & A11 & 16 & 24 & 40 & 25,3\tabularnewline\hline
 S6 & Corrección de los problemas de la evaluación con usuarios & A10 & 16 & 32 & 56 & 33,3\tabularnewline\hline
 \multicolumn{6}{|r|}{\textbf{Alcance comprometido}} & \textbf{382,0}\tabularnewline\hline
-CU1.7 & Explorar la biblioteca y los límites de cada escenario & A7 & 16 & 24 & 40 & 25,3\tabularnewline\hline
-CU1.8 & Sincronizar la biblioteca local con el servidor & A7 & 12 & 20 & 40 & 22,0\tabularnewline\hline
+\textcolor{red}{CU7} & Explorar la biblioteca y los límites de cada escenario & A7 & 16 & 24 & 40 & 25,3\tabularnewline\hline
+\textcolor{red}{CU8} & Sincronizar la biblioteca local con el servidor & A7 & 12 & 20 & 40 & 22,0\tabularnewline\hline
 \multicolumn{6}{|r|}{\textbf{Funcionalidades deseables}} & \textbf{47,3}\tabularnewline\hline
 \end{longtable}
 
-Los valores son preliminares: constituyen una valoración propia del equipo, no provienen de mediciones y no han sido aprobados. Sus supuestos son los siguientes: cada caso de uso incluye su implementación y sus pruebas unitarias, mientras que las pruebas de integración y de sistema solo se estiman en S4; la aplicación se desarrollará con una tecnología conocida por el equipo que disponga de bibliotecas geoespaciales (sección~8.2); Smokeview se ejecuta como un proceso externo; CU05 tiene el mayor rango porque la agregación es una hipótesis que se evaluará en el piloto, y las versiones iniciales de E1 y E2, elaboradas en Inicio, no se incluyen. Las estimaciones se revisan en la planificación de cada iteración con las horas reales registradas en el tablero y el trabajo pendiente; allí se estiman también, con el mismo procedimiento, las tareas que no son de software. La suma de los $E_i$ seleccionados no debe superar la capacidad de la iteración, y lo que no cabe vuelve a la lista priorizada.
+Los valores son preliminares: constituyen una valoración propia del equipo, no provienen de mediciones y no han sido aprobados. Sus supuestos son los siguientes: cada caso de uso incluye su implementación y sus pruebas unitarias, mientras que las pruebas de integración y de sistema solo se estiman en S4; la aplicación se desarrollará con una tecnología conocida por el equipo que disponga de bibliotecas geoespaciales (sección~8.2); Smokeview se ejecuta como un proceso externo; \textcolor{red}{CU5} tiene el mayor rango porque la agregación es una hipótesis que se evaluará en el piloto, y las versiones iniciales de E1 y E2, elaboradas en Inicio, no se incluyen. Las estimaciones se revisan en la planificación de cada iteración con las horas reales registradas en el tablero y el trabajo pendiente; allí se estiman también, con el mismo procedimiento, las tareas que no son de software. La suma de los $E_i$ seleccionados no debe superar la capacidad de la iteración, y lo que no cabe vuelve a la lista priorizada.
 
 \paragraph{Capacidad y duración.} La capacidad formal es $H = n \times c \times 48$ horas-persona, con $n$ integrantes y $c$ créditos, pues un crédito equivale a 48 horas de trabajo del estudiante~\cite{decreto1330}. Con cuatro integrantes y los tres créditos de Trabajo de Grado, 2027-1 dispone de 576 horas-persona, unas 68 por iteración de dos semanas. El alcance comprometido del software requiere unas 382 horas-persona en el mismo periodo, cerca del 66~\% de esa capacidad. La capacidad también debe cubrir el piloto y la generación de escenarios (A5 y A6), la evaluación con usuarios (A9) y la preparación de la entrega (A11 y A12), que aún no tienen una estimación en horas. Esa comparación se realizará en la sección~9.3.3 cuando se estimen dichas tareas. La duración no se estima: las fechas de las iteraciones son fijas (sección~8.1) y se ajusta el alcance de cada una según su prioridad (sección~10.1).
 

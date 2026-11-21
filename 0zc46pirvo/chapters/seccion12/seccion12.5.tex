@@ -1,7 +1,7 @@
 
 \subsection{Control de Calidad - Revisar y comprobar lo que vamos construyendo}\label{sec:spmp-12-5}
 
-El control de calidad combinará revisiones documentales, pruebas de software, comprobación de entradas y resultados FDS y evaluación con usuarios. Se aplicarán los criterios de requisitos, trazabilidad, pruebas y calidad de la adaptación de ISO/IEC/IEEE 29148, 29119, UML e IEEE 730~\cite{ieee730,std29148,uml,std29119p2,std29119p3,std29119p4,adaptacion2026}. Estas actividades generan evidencias, no una certificación de conformidad. La reproducibilidad de FDS y el funcionamiento de la aplicación no constituyen, por sí solos, validación científica de la agregación o del comportamiento territorial.
+El control de calidad combinará revisiones documentales, pruebas de software, comprobación de entradas y resultados FDS y evaluación con usuarios. Se aplicarán los criterios de requisitos, trazabilidad, pruebas y calidad de la adaptación de ISO/IEC/IEEE 29148, 29119, UML e IEEE 730~\cite{ieee730,std29148,uml,std29119p2,std29119p3,std29119p4,adaptacion2026}.
 
 \textbf{Procesos de control y aseguramiento de calidad.}
 
@@ -21,24 +21,6 @@ PC05 & Comprobación de agregación y coherencia espacial. & Evaluar el procedim
 PC06 & Auditoría interna de artefactos y evidencias. & Revisar la existencia, integridad, versiones y trazabilidad de los entregables. & Revisiones de fase y preparación del cierre.\\\hline
 PC07 & Evaluación externa con usuarios. & Observar el uso, la comprensión y la utilidad percibida de la aplicación mediante actividades con usuarios previstos. & Semi-transición.\\\hline
 \end{longtable}
-
-\textbf{Procedimientos de calidad.}
-
-\begin{enumerate}
-    \item \textbf{PC01. Revisión de requisitos, arquitectura y documentación.} Revisar identificación, claridad, coherencia, versiones y trazabilidad entre requisitos, modelos UML y pruebas. Registrar observaciones, corregir y verificar nuevamente los documentos afectados.
-
-    \item \textbf{PC02. Datos y reproducibilidad FDS.} Comprobar procedencia, unidades, sistema de referencia y correspondencia territorial de los datos de Aguas Claras. Conservar entradas, parámetros y versión de FDS; repetir casos documentados y registrar diferencias y limitaciones. Reproducibilidad no equivale a validación científica.
-
-    \item \textbf{PC03. Pruebas unitarias.} Ejecutar casos con entradas válidas, inválidas y límite, con resultados esperados. Utilizar, cuando corresponda, particiones de equivalencia, valores límite y tablas de decisión~\cite{std29119p4,adaptacion2026}. Registrar componente, versión, resultado y nuevas ejecuciones tras cada corrección.
-
-    \item \textbf{PC04. Integración y sistema.} Probar los flujos entre entrada del incendio, consulta meteorológica, selección y catálogo de escenarios y visualización en Smokeview. Incluir condiciones excepcionales: API no disponible, entrada manual, datos incompletos o ausencia de escenarios. Registrar fallas y repetir los casos corregidos.
-
-    \item \textbf{PC05. Agregación y coherencia espacial.} Contrastar, mediante casos controlados, el perímetro introducido, los escenarios seleccionados y los resultados; revisar la exclusión de zonas quemadas, el borde activo y las coordenadas. Documentar supuestos y límites, sin atribuir validación científica a resultados no comprobados.
-
-    \item \textbf{PC06. Auditoría interna.} Verificar integridad, versiones, trazabilidad y evidencias de E1--E7, incluyendo decisiones, pruebas y correcciones. Registrar hallazgos y comprobar su tratamiento antes de establecer una versión de referencia.
-
-    \item \textbf{PC07. Evaluación externa.} Observar tareas representativas con usuarios previstos y registrar facilidad de uso, claridad e interpretación de resultados. Los participantes e instrumentos se coordinarán con la sección \ref{sec:spmp-8-3}; los problemas se corregirán y comprobarán. La evaluación de uso no valida automáticamente los resultados FDS.
-\end{enumerate}
 
 % PC01
 \clearpage
@@ -141,27 +123,3 @@ PC07 & Evaluación externa con usuarios. & Observar el uso, la comprensión y la
 % Evita que la sección de responsabilidades aparezca entre figuras
 % pendientes de colocación.
 \clearpage
-
-
-\textbf{Interpretación de los BPMN.} Las figuras \ref{fig:spmp-calidad-pc01} a \ref{fig:spmp-calidad-pc07} describen los siete procesos, sus rutas de corrección y el registro de evidencias. Los carriles identifican funciones, no responsables individuales aprobados.
-
-\textbf{Responsabilidades funcionales.} Se propone separar ejecución y comprobación cuando sea posible. La siguiente distribución está pendiente de asignación individual conforme a la sección \ref{sec:spmp-8-4-2}. Cuando no sea posible contar con un revisor distinto del autor, esta condición deberá quedar identificada en el registro de la revisión.
-
-\begin{longtable}{|p{0.10\linewidth}|p{0.27\linewidth}|p{0.27\linewidth}|p{0.23\linewidth}|}
-\caption{Responsabilidades funcionales propuestas para los procesos de calidad. Fuente: elaboración propia.}\\
-\hline
-\textbf{ID} & \textbf{Ejecución} & \textbf{Comprobación} & \textbf{Supervisión}\\\hline
-\endfirsthead
-\hline
-\textbf{ID} & \textbf{Ejecución} & \textbf{Comprobación} & \textbf{Supervisión}\\\hline
-\endhead
-PC01 & Integrante que elabora los documentos o modelos. & Otro integrante mediante revisión de coherencia y trazabilidad. & Coordinación del proyecto.\\\hline
-PC02 & Integrante que prepara los datos y simulaciones. & Integrante que revisa entradas, configuraciones y resultados. & Equipo de trabajo.\\\hline
-PC03 & Integrante que desarrolla el componente. & Integrante que revisa los resultados de las pruebas. & Coordinación del proyecto.\\\hline
-PC04 & Integrantes que desarrollan e integran la aplicación. & Integrante que revisa los casos de sistema ejecutados. & Equipo de trabajo.\\\hline
-PC05 & Integrantes que desarrollan la selección y agregación. & Revisión técnica de casos controlados y evidencias. & Equipo y acompañamiento académico cuando corresponda.\\\hline
-PC06 & Integrante encargado de preparar los artefactos. & Integrante diferente que verifica versiones y evidencias. & Coordinación del proyecto.\\\hline
-PC07 & Equipo responsable de organizar la evaluación. & Usuarios participantes y revisión de los registros obtenidos. & Equipo y director, según los acuerdos de participación.\\\hline
-\end{longtable}
-
-Los resultados de calidad formarán parte de E6. Cada registro identificará proceso, fecha, producto y versión, criterios, resultados, hallazgos, correcciones y evidencia de nueva comprobación. Su seguimiento se vinculará con las secciones \ref{sec:spmp-12-4} y \ref{sec:spmp-10-2}. Antes de la entrega se verificará que los procesos previstos hayan sido ejecutados y que las limitaciones aún abiertas queden documentadas, conforme a la sección \ref{sec:spmp-11}.
