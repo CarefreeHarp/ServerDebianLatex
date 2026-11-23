@@ -1,11 +1,10 @@
 \subsection{Funciones del Producto}
 {\color{black}
 El caso de uso principal del producto es apoyar la estimación del comportamiento de un incendio a partir de la información proporcionada por el coordinador de emergencias o por la API de Open-Meteo. Para ello se contemplan las siguientes funcionalidades:
-\begin{enumerate}\item {\color{red}\textbf{Ubicación del incendio.} El coordinador podrá indicar o actualizar en la pantalla el punto de ignición, el perímetro activo observado y el territorio quemado.}
-\item {\color{red}\textbf{Obtención de condiciones meteorológicas.} La aplicación consultará las condiciones de la API de Open-Meteo o permitirá su ingreso manual cuando el servicio no esté disponible.}\item {\color{red}\textbf{Agregación de simulaciones.} Con la ubicación y las condiciones disponibles, la aplicación consultará la base de datos para identificar y recuperar los escenarios cuyas condiciones climáticas sean semejantes a las de la emergencia y, cuando corresponda, realizará la \textit{agregación} de sus resultados para presentar una estimación conjunta del posible comportamiento del incendio, de acuerdo con el VFP~\cite{vfp2026}.}
+\begin{enumerate}\item {\color{black}\textbf{Ubicación del incendio.} El coordinador podrá indicar o actualizar en la pantalla el punto de ignición, el perímetro activo observado y el territorio quemado.}
+\item {\color{black}\textbf{Obtención de condiciones meteorológicas.} La aplicación consultará las condiciones climáticas de la API de Open-Meteo o permitirá su ingreso manual cuando el servicio no esté disponible.}\item {\color{black}\textbf{Agregación de simulaciones.} Con la ubicación y las condiciones disponibles, la aplicación consultará la base de datos para identificar y recuperar los escenarios cuyas condiciones climáticas sean semejantes a las de la emergencia y, cuando corresponda, realizará la \textit{agregación} de sus resultados para presentar una estimación conjunta del posible comportamiento del incendio~\cite{vfp2026}.}
 \item \textbf{Visualización de la estimación.} El coordinador de la emergencia podrá explorar los resultados georreferenciados y relacionarlos con su ubicación en el terreno, así como consultar la información meteorológica utilizada. La visualización mostrará la expansión del fuego y las direcciones señaladas por los escenarios como las de mayor posible propagación, además de permitir examinar características como la temperatura, el humo generado y la velocidad de expansión, según la información disponible en los archivos resultantes de las simulaciones FDS.
-\end{enumerate}}
-{\color{red}\begin{figure}[htbp]
+\end{enumerate}}{\color{black}\begin{figure}[htbp]
 \centering
 \setlength{\unitlength}{1bp}
 \begin{picture}(440,370)
@@ -26,8 +25,7 @@ El caso de uso principal del producto es apoyar la estimación del comportamient
 \put(106,104){\vector(1,0){296}}\put(185,108){\makebox(145,8){\tiny Solicitar agregación}}
 \put(402,76){\vector(-1,0){296}}\put(185,80){\makebox(145,8){\tiny Resultado agregado}}
 \put(106,45){\vector(-1,0){75}}\put(32,49){\makebox(73,8){\tiny Visualizar estimación}}
-\end{picture}
-\captionsetup{font=rojodominio}
+\end{picture}\captionsetup{font=normal}
 \caption{Secuencia de estimación y visualización de la propagación del incendio}
 \label{fig:caso-uso-incendio}\end{figure}\clearpage
 }
