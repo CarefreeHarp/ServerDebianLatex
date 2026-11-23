@@ -6,11 +6,11 @@ La biblioteca de escenarios podría ampliarse con nuevas simulaciones, y la apli
   \caption{RNF-08 -- Agregar escenarios sin modificar el código}\label{tab:rnf-08}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-08 & \raggedright\textbf{Tipo de requerimiento} & No funcional: mantenibilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Recuperar escenarios precalculados}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Una vez simulados y comprobados (RNF-02), los nuevos escenarios deberán poder agregarse a la biblioteca, incluidos los que amplíen el área cubierta, registrándolos en la base de datos y copiando sus archivos a la carpeta de resultados, sin modificar el código ni volver a generar el ejecutable. Para ello, el área cubierta por la biblioteca deberá obtenerse de su catálogo y no estar fija en el código.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La primera versión cubre solo el sector de Aguas Claras (sección~3.4), pero podría extenderse a otros sectores de los Cerros Orientales si se dispone de datos adecuados, aunque el proyecto no se compromete a cubrir zonas adicionales~\cite{vfp2026}.}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se agrega a la biblioteca un escenario de prueba ubicado fuera del área cubierta actualmente, sin modificar el código ni volver a generar el ejecutable; al registrar un incendio en esa zona, la aplicación ya no muestra la advertencia de cobertura de la sección~3.1.1 y utiliza el escenario agregado en la consulta.}\tabularnewline\hline
   \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
@@ -20,13 +20,13 @@ La biblioteca de escenarios podría ampliarse con nuevas simulaciones, y la apli
   \caption{RNF-09 -- Separar las funciones en módulos}\label{tab:rnf-09}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-09 & \raggedright\textbf{Tipo de requerimiento} & No funcional: mantenibilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Todas las funcionalidades}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{El código deberá organizarse en los cuatro módulos de la sección~2.7 (Interfaz y visualización, Meteorología, Consulta de escenarios y Agregación), que se comunicarán solo mediante sus funciones públicas, de modo que modificar una función afecte únicamente al módulo que la contiene.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Dividir el producto en módulos permite modificar una función sin volver a implementar el sistema ni afectar los demás módulos. Por ejemplo, Open-Meteo podrá sustituirse por otro servicio equivalente, y ese cambio solo debería afectar al módulo de meteorología.}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Inspección: cada componente del diagrama de componentes corresponde a un módulo del código~\cite{pmp2026}, ningún módulo usa funciones internas de otro y solo el módulo de meteorología hace referencia a Open-Meteo.}\tabularnewline\hline
-  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos los módulos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}
 
@@ -34,13 +34,13 @@ La biblioteca de escenarios podría ampliarse con nuevas simulaciones, y la apli
   \caption{RNF-10 -- Documentar el código y su construcción}\label{tab:rnf-10}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-10 & \raggedright\textbf{Tipo de requerimiento} & No funcional: mantenibilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Todas las funcionalidades}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Los módulos y sus funciones públicas deberán documentarse en el propio código, con su propósito, sus entradas y sus salidas. Además, una guía técnica deberá describir la estructura de la aplicación y los pasos para generar el ejecutable~\cite{pmp2026}.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las actualizaciones posteriores a la entrega están fuera del alcance del proyecto, por lo que quien modifique la aplicación podría no ser uno de sus desarrolladores originales y necesitará entender su estructura interna.}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Inspección y prueba: la revisión del código no encuentra módulos ni funciones públicas sin documentar, y otro integrante del equipo reproduce la construcción del ejecutable con la guía técnica~\cite{pmp2026}.}\tabularnewline\hline
-  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos los módulos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}
 
@@ -48,12 +48,12 @@ La biblioteca de escenarios podría ampliarse con nuevas simulaciones, y la apli
   \caption{RNF-11 -- Probar automáticamente cada módulo}\label{tab:rnf-11}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-11 & \raggedright\textbf{Tipo de requerimiento} & No funcional: mantenibilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Todas las funcionalidades}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Cada módulo deberá contar con pruebas unitarias automatizadas con pytest 9.2, que se ejecutarán antes de integrar cada cambio al código.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las pruebas permiten comprobar que una modificación no daña las funciones existentes, y su aprobación forma parte de la definición de terminado de cada incremento~\cite{pmp2026}.}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: antes de integrar cada cambio, el reporte de pytest muestra que se aprueba el 100~\% de las pruebas unitarias.}\tabularnewline\hline
-  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos los módulos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}

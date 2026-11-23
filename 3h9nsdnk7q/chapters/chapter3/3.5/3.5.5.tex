@@ -6,13 +6,13 @@ La aplicación se distribuirá como un ejecutable para Windows~11 que incluye to
   \caption{RNF-12 -- Permitir migrar a otro sistema operativo}\label{tab:rnf-12}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-12 & \raggedright\textbf{Tipo de requerimiento} & No funcional: portabilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Todas las funcionalidades}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Aunque la aplicación se construirá solo para Windows~11, su código deberá evitar dependencias exclusivas de ese sistema, de modo que migrarla a otro sistema operativo solo requiera generar de nuevo el ejecutable en él.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Python, PySide6 y las demás bibliotecas de la sección~3.4 también funcionan en Linux y macOS, al igual que Smokeview, así que evitar dependencias de Windows deja abierta la posibilidad de migrar la aplicación sin rehacerla.}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Inspección: la revisión del código no encuentra rutas escritas con el formato de Windows ni funciones exclusivas de ese sistema.}\tabularnewline\hline
-  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos los módulos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}
 
@@ -20,13 +20,13 @@ La aplicación se distribuirá como un ejecutable para Windows~11 que incluye to
   \caption{RNF-13 -- Funcionar en distintos computadores}\label{tab:rnf-13}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-13 & \raggedright\textbf{Tipo de requerimiento} & No funcional: portabilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Todas las funcionalidades}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{El ejecutable generado con PyInstaller~6.22 deberá incluir el intérprete de Python~3.13 y las bibliotecas de la sección~3.4, de modo que la aplicación funcione igual en cualquier computador con Windows~11 que cumpla las características mínimas de las secciones~2.1.5 y~2.4, sin importar los programas que tenga instalados.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La aplicación se instalará en computadores con configuraciones distintas, y el comandante no debería tener que instalar ni configurar Python para usarla (sección~3.1.1).}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: la aplicación se instala y completa una consulta de prueba en al menos dos computadores con Windows~11, con hardware distinto y sin Python instalado, que cumplen las características mínimas.}\tabularnewline\hline
-  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Todos los módulos\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}
 
@@ -34,12 +34,12 @@ La aplicación se distribuirá como un ejecutable para Windows~11 que incluye to
   \caption{RNF-14 -- Funcionar desde cualquier ubicación}\label{tab:rnf-14}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-14 & \raggedright\textbf{Tipo de requerimiento} & No funcional: portabilidad\tabularnewline\hline
-  \raggedright\textbf{Casos de uso asociados} & \multicolumn{3}{p{\rqBCD}|}{Todos}\tabularnewline\hline
+  \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá funcionar desde cualquier carpeta o disco en que se instale, y su carpeta de instalación, incluida la biblioteca, deberá poder copiarse a otro computador con Windows~11 sin modificar la base de datos. Para ello, la ruta de cada archivo se guardará en relación con la carpeta de la biblioteca, como indica el elemento MD-01 de la sección~2.5.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La aplicación y la biblioteca pueden ocupar hasta 15~GB (sección~3.3), por lo que el usuario podría instalarlas en un disco distinto del principal o copiarlas a otro computador en lugar de instalarlas de nuevo.}\tabularnewline\hline
-  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{Guillermo Aponte}\tabularnewline\hline
+  \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: la carpeta de instalación se copia a otro disco y a otro computador con Windows~11, y en ambos casos la aplicación completa una consulta de prueba sin modificar la base de datos.}\tabularnewline\hline
-  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Todos\tabularnewline\hline
+  \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}
