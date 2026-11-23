@@ -3,137 +3,84 @@
 
 \textbf{Factores que influyen en la propagación de incendios forestales.}
 
-El comportamiento de un incendio forestal depende principalmente del combustible, la meteorología y la topografía, conocidos como el triángulo del comportamiento del fuego. Su interacción determina la velocidad, dirección e intensidad de propagación \cite{vfpNPSFireBehavior}.
-
-El combustible comprende la vegetación y otros materiales inflamables, cuyas características, continuidad, distribución y humedad condicionan la ignición y el avance. La meteorología incluye viento, temperatura, humedad relativa y precipitaciones, mientras que la topografía influye mediante la pendiente, orientación y configuración del terreno. Las pendientes ascendentes pueden acelerar el fuego y el relieve puede modificar la circulación local del viento \cite{vfpNPSFireBehavior}.
-
-En los Cerros Orientales de Bogotá, estos factores deben considerarse conjuntamente, dependiendo de la disponibilidad y calidad de los datos territoriales y meteorológicos del sector seleccionado.
+El comportamiento de un incendio forestal depende principalmente del combustible, la meteorología y la topografía, conocidos como el triángulo del comportamiento del fuego. Su interacción determina la velocidad, dirección e intensidad de propagación \cite{vfpNPSFireBehavior}. El combustible comprende la vegetación y otros materiales inflamables, cuyas características, continuidad, distribución y humedad condicionan la ignición y el avance. La meteorología incluye viento, temperatura, humedad relativa y precipitaciones, mientras que la topografía influye mediante la pendiente, orientación y configuración del terreno. Las pendientes ascendentes pueden acelerar el fuego y el relieve puede modificar la circulación local del viento \cite{vfpNPSFireBehavior}. En los Cerros Orientales de Bogotá, estos factores deben considerarse conjuntamente, dependiendo de la disponibilidad y calidad de los datos territoriales y meteorológicos del sector seleccionado.
 
 \textbf{Modelos de comportamiento y propagación del fuego.}
 
-Los incendios pueden estudiarse mediante modelos empíricos, semiempíricos o físicos. Los primeros relacionan variables ambientales y del combustible con el avance del frente, mientras que los físicos representan procesos como combustión, movimiento del aire y transferencia de calor.
-
-Rothermel (1972) desarrolló un modelo para estimar la velocidad de propagación superficial a partir de características del combustible y condiciones ambientales \cite{vfpRothermel1972}. Mell y colaboradores (2007), por su parte, desarrollaron un modelo físico tridimensional para incendios de pastizal, contrastado con experimentos de campo \cite{mell2007}.
-
-Los modelos físicos ofrecen mayor detalle de simulaciones lo que fundamenta la eleccion de FDS aunque siempre limitados por la calidad de los datos introducidos.
+Los incendios pueden estudiarse mediante modelos empíricos, semiempíricos o físicos. Los primeros relacionan variables ambientales y del combustible con el avance del frente, mientras que los físicos representan procesos como combustión, movimiento del aire y transferencia de calor. Rothermel (1972) desarrolló un modelo para estimar la velocidad de propagación superficial a partir de características del combustible y condiciones ambientales \cite{vfpRothermel1972}. Mell y colaboradores (2007), por su parte, desarrollaron un modelo físico tridimensional para incendios de pastizal, contrastado con experimentos de campo \cite{mell2007}. El detalle de los procesos representados por los modelos físicos fundamenta la elección de FDS, aunque sus resultados dependen de la calidad de los datos introducidos.
 
 \textbf{FDS, capacidades forestales de WFDS y visualización con Smokeview.}
 
-Fire Dynamics Simulator (FDS) es un simulador basado en dinámica de fluidos computacional (CFD), que utiliza ecuaciones de conservación para representar flujos térmicos, combustión y transporte de calor y humo. Smokeview permite visualizar sus resultados \cite{fdsnist}.
-
-Wildland-Urban Interface Fire Dynamics Simulator (WFDS) surgió como una extensión orientada a incendios de vegetación e interfaz urbano-forestal (WUI), cuyas capacidades fueron incorporadas a FDS \cite{wfdsusfs}.
-
-El proyecto utilizará FDS como único motor de simulación, aprovechando las capacidades forestales compatibles con la versión instalada. Su disponibilidad deberá comprobarse mediante pruebas. Las salidas requerirán procesamiento y georreferenciación para convertirse en información interpretable por el usuario.
+Fire Dynamics Simulator (FDS) es un simulador basado en dinámica de fluidos computacional (CFD), que utiliza ecuaciones de conservación para representar flujos térmicos, combustión y transporte de calor y humo. Smokeview permite visualizar sus resultados \cite{fdsnist}. Wildland-Urban Interface Fire Dynamics Simulator (WFDS) surgió como una extensión orientada a incendios de vegetación e interfaz urbano-forestal (WUI), cuyas capacidades fueron incorporadas a FDS \cite{wfdsusfs}. El proyecto utilizará FDS como único motor de simulación, aprovechando las capacidades forestales compatibles con la versión instalada. Su disponibilidad deberá comprobarse mediante pruebas. Las salidas requerirán procesamiento y georreferenciación para convertirse en información interpretable por el usuario.
 
 \textbf{Discretización CFD y costo computacional.}
 
-FDS divide el dominio de simulación en celdas tridimensionales, sobre las cuales calcula la evolución temporal de las variables físicas. Para una malla rectangular uniforme, el número de celdas se expresa como:
-
+FDS divide el dominio de simulación en celdas tridimensionales, sobre las cuales calcula la evolución temporal de las variables físicas \cite{fdsnist}. Para una malla rectangular uniforme, el número de celdas se expresa como:
 \[
 N=\frac{L_x}{\Delta x}
   \frac{L_y}{\Delta y}
   \frac{L_z}{\Delta z},
 \]
-
-donde $L_x$, $L_y$ y $L_z$ representan las dimensiones del dominio, y $\Delta x$, $\Delta y$ y $\Delta z$ los tamaños de celda.
-
-Por ejemplo, un dominio de $240\,\mathrm{m}\times240\,\mathrm{m}\times20\,\mathrm{m}$, con celdas de $0{,}5\,\mathrm{m}$, contiene $9\,216\,000$ celdas. Reducir a la mitad el tamaño de celda en las tres dimensiones incrementa esta cantidad a $73\,728\,000$.
-
-Este crecimiento ilustra el costo asociado a la resolución, aunque el consumo real depende también de la duración simulada, configuración física y recursos utilizados. Valero, Jofre y Torres (2021) estudian las relaciones entre fidelidad, costo e incertidumbre en simulaciones de incendios \cite{valero2021}. 
+donde $L_x$, $L_y$ y $L_z$ representan las dimensiones del dominio, y $\Delta x$, $\Delta y$ y $\Delta z$ los tamaños de celda. Por ejemplo, un dominio de $240\,\mathrm{m}\times240\,\mathrm{m}\times20\,\mathrm{m}$, con celdas de $0{,}5\,\mathrm{m}$, contiene $9\,216\,000$ celdas. Reducir a la mitad el tamaño de celda en las tres dimensiones incrementa esta cantidad a $73\,728\,000$. Este crecimiento ilustra el costo asociado a la resolución, aunque el consumo real depende también de la duración simulada, configuración física y recursos utilizados. Valero, Jofre y Torres (2021) estudian las relaciones entre fidelidad, costo e incertidumbre en simulaciones de incendios \cite{valero2021}.
 
 \textbf{Representación territorial y propiedades de los combustibles.}
 
-La simulación requiere información sobre relieve, vegetación, meteorología e ignición. Sin embargo, las coberturas del suelo no proporcionan directamente todas las propiedades necesarias para representar combustibles en FDS, como geometría tridimensional, carga, humedad y características térmicas.
+La simulación requiere información sobre relieve, vegetación, meteorología e ignición. Sin embargo, las coberturas del suelo no proporcionan directamente todas las propiedades necesarias para representar combustibles en FDS, como geometría tridimensional, carga, humedad y características térmicas. Verano Velásquez (2013) estudió modelos de combustible para simulaciones FARSITE en Monserrate \cite{verano2013}, mientras que Méndez Álvarez (2018) examinó la calibración de parámetros para vegetación altoandina \cite{mendez2018}. Sus resultados constituyen antecedentes territoriales, pero sus configuraciones no pueden transferirse automáticamente a FDS.
 
-Verano Velásquez (2013) estudió modelos de combustible para simulaciones FARSITE en Monserrate \cite{verano2013}, mientras que Méndez Álvarez (2018) examinó la calibración de parámetros para vegetación altoandina \cite{mendez2018}. Sus resultados constituyen antecedentes territoriales, pero sus configuraciones no pueden transferirse automáticamente a FDS.
-
-Para preparar los datos se utilizarán herramientas de información geográfica como QGIS \cite{vfpQGIS} y qgis2fds \cite{vfpQGIS2FDS}, que permiten procesar información territorial y preparar determinadas entradas y salidas georreferenciadas de FDS.
-
-Entre las fuentes identificadas se encuentran GEDTM30 y Copernicus DEM para elevación \cite{vfpGEDTM30,vfpCopernicusDEM}; ERA5 y ERA5-Land para información meteorológica \cite{vfpERA5Datos,vfpERA5LandDatos}; y datos complementarios del IDEAM, IDECA y entidades ambientales distritales \cite{vfpIDEAMDHIME,vfpIDECABogota,vfpSDAVisor,vfpJBBCoberturas}.
-
+Para preparar los datos se utilizarán herramientas de información geográfica como QGIS \cite{vfpQGIS} y qgis2fds \cite{vfpQGIS2FDS}, que permiten procesar información territorial y preparar determinadas entradas y salidas georreferenciadas de FDS. Entre las fuentes identificadas se encuentran GEDTM30 y Copernicus DEM para elevación \cite{vfpGEDTM30,vfpCopernicusDEM}; ERA5 y ERA5-Land para información meteorológica \cite{vfpERA5Datos,vfpERA5LandDatos}; y datos complementarios del IDEAM, IDECA y entidades ambientales distritales \cite{vfpIDEAMDHIME,vfpIDECABogota,vfpSDAVisor,vfpJBBCoberturas}.
 
 \textbf{Amenaza de ignición y distribución de los puntos de referencia.}
 
-Morales Salguero (2017) estudió el riesgo de ignición y propagación en los Cerros Orientales mediante álgebra de mapas y simulación \cite{morales2017}. Su clasificación territorial constituye un antecedente para orientar la ubicación de escenarios, sin interpretar las categorías de amenaza como probabilidades calibradas.
-
-El proyecto propone distribuir las igniciones con \emph{densidad territorial variable}, concentrándolas en zonas de mayor amenaza relativa sin excluir las restantes. Las distancias, criterios y cobertura deberán definirse experimentalmente.
-
-Estos puntos representan ubicaciones de escenarios independientes y no deben confundirse con las celdas de la malla CFD: los primeros determinan dónde se simula y las segundas cómo se discretiza cada simulación.
+Para orientar la distribución de las igniciones de referencia se utilizará la capa «Amenaza por incendios forestales en suelo rural», publicada por la Secretaría Distrital de Planeación de Bogotá en SINUPOT \cite{sdppotamenaza40}. Su clasificación territorial se empleará como criterio para proponer una distribución de \emph{densidad territorial variable}, concentrando las igniciones en zonas de mayor amenaza relativa sin excluir las restantes. Estas categorías no se interpretarán como probabilidades calibradas de ignición. Las distancias entre puntos, los criterios de selección y la cobertura deberán definirse experimentalmente. Estos puntos representan ubicaciones de inicio de escenarios independientes y no deben confundirse con las celdas de la malla CFD: los primeros determinan dónde se inicia cada escenario y las segundas cómo se discretiza cada simulación.
 
 \textbf{Cómputo de alto desempeño y paralelización de simulaciones.}
 
-La generación de escenarios con distintas igniciones y condiciones ambientales requiere recursos computacionales considerables. Para ello se contempla utilizar cómputo de alto desempeño (HPC), diferenciando dos modalidades: paralelismo entre escenarios, que ejecuta casos independientes simultáneamente, y paralelismo dentro de un escenario, que distribuye un mismo cálculo entre procesos con comunicación y sincronización, con procesos MPI como lo hace FDS.
+La generación de escenarios con distintas igniciones y condiciones ambientales requiere recursos computacionales considerables. Para ello se contempla utilizar cómputo de alto desempeño (HPC), diferenciando dos modalidades: paralelismo entre escenarios, que ejecuta casos independientes simultáneamente, y paralelismo dentro de un escenario, que distribuye un mismo cálculo entre procesos con comunicación y sincronización. MPI (\emph{Message Passing Interface}) es un estándar que define mecanismos de comunicación entre procesos mediante paso de mensajes para programación paralela \cite{vfpMPI2025}. FDS utiliza MPI para la ejecución distribuida de simulaciones con múltiples mallas \cite{fdsnist}. Fujimoto (1990) estudia fundamentos de simulación paralela, por lo que su investigación constituye un antecedente para este proceso \cite{vfpFujimoto1990}.
 
-Fujimoto (1990) estudia fundamentos de simulación paralela, por lo que su investigación es útil para nuestro proceso \cite{vfpFujimoto1990}. Como infraestructura potencial se identifica HPC-ZINE de la Pontificia Universidad Javeriana, que proporciona recursos de procesamiento, almacenamiento y acompañamiento técnico \cite{vfpHPCZINE}.
-Un inventario institucional describe un clúster de 22 nodos, 880 núcleos Intel Xeon, aproximadamente 8,25 TB de RAM agregada, 238 TB de almacenamiento compartido y conectividad InfiniBand EDR de 100 Gb/s \cite{vfpHPCInventario}.
-
-Aunque las especificaciones sugieren capacidad para ejecutar cargas intensivas, será necesario verificar el acceso, los recursos asignados, la versión de FDS, su compatibilidad con el entorno, las bibliotecas de paralelización y el gestor de trabajos.
-
-Los pilotos permitirán medir tiempos de ejecución, memoria, almacenamiento, concurrencia y escalabilidad. Por tanto, la viabilidad computacional deberá comprobarse mediante ejecuciones reales, no únicamente a partir de las capacidades indicadas.
+Como infraestructura potencial se identifica HPC-ZINE de la Pontificia Universidad Javeriana, que proporciona recursos de procesamiento, almacenamiento y acompañamiento técnico \cite{vfpHPCZINE}. Un inventario institucional describe un clúster de 22 nodos, 880 núcleos Intel Xeon, aproximadamente 8,25 TB de RAM agregada, 238 TB de almacenamiento compartido y conectividad InfiniBand EDR de 100 Gb/s \cite{vfpHPCInventario}. Aunque las especificaciones sugieren capacidad para ejecutar cargas intensivas, será necesario verificar el acceso, los recursos asignados, la versión de FDS, su compatibilidad con el entorno, las bibliotecas de paralelización y el gestor de trabajos. Los pilotos permitirán medir tiempos de ejecución, memoria, almacenamiento, concurrencia y escalabilidad. Por tanto, la viabilidad computacional deberá comprobarse mediante ejecuciones reales, no únicamente a partir de las capacidades indicadas.
 
 \textbf{Diseño de experimentos y construcción de la biblioteca.}
 
-Una biblioteca precalculada no puede cubrir todas las combinaciones posibles de ignición, combustible y meteorología. Sacks y colaboradores (1989) proporcionan fundamentos para planificar experimentos computacionales costosos y analizar sus resultados \cite{vfpSacks1989}.
-
-La propuesta deberá definir parámetros variables, intervalos sustentados en datos y combinaciones representativas, considerando el presupuesto computacional disponible.
-
-Cada escenario conservará metadatos de ubicación, condiciones de entrada, configuración, versión de FDS, tiempos simulados y archivos de salida. Esto permitirá reproducir resultados, comparar configuraciones compatibles e identificar limitaciones de cobertura.
+Una biblioteca precalculada no puede cubrir todas las combinaciones posibles de ignición, combustible y meteorología. Sacks y colaboradores (1989) proporcionan fundamentos para planificar experimentos computacionales costosos y analizar sus resultados \cite{vfpSacks1989}. La propuesta deberá definir parámetros variables, intervalos sustentados en datos y combinaciones representativas, considerando el presupuesto computacional disponible. Cada escenario conservará metadatos de ubicación, condiciones de entrada, configuración, versión de FDS, tiempos simulados y archivos de salida. Esto permitirá reproducir resultados, comparar configuraciones compatibles e identificar limitaciones de cobertura.
 
 \textbf{Consulta y recuperación de escenarios semejantes.}
 
-La aplicación permitirá consultar escenarios precalculados mediante una ubicación o perímetro observado y condiciones ambientales disponibles.
-
-La clasificación mediante vecinos cercanos estudiada por Cover y Hart (1967) constituye un antecedente conceptual para recuperar registros por proximidad \cite{cover1967}.
-
-El mecanismo deberá considerar ubicación, viento y demás variables pertinentes, con criterios de normalización y compatibilidad. En particular, la dirección del viento debe tratarse como variable circular, evitando considerar $0^\circ$ y $360^\circ$ como orientaciones opuestas.
-
-La semejanza permitirá seleccionar escenarios compatibles.
+La aplicación permitirá consultar escenarios precalculados mediante una ubicación o perímetro observado y condiciones ambientales disponibles. La clasificación mediante vecinos cercanos estudiada por Cover y Hart (1967) constituye un antecedente conceptual para recuperar registros por proximidad \cite{cover1967}. El mecanismo deberá considerar ubicación, viento y demás variables pertinentes, con criterios de normalización y compatibilidad. En particular, la dirección del viento debe tratarse como variable circular, evitando considerar $0^\circ$ y $360^\circ$ como orientaciones opuestas. La semejanza permitirá seleccionar escenarios compatibles.
 
 \textbf{Trazabilidad e interoperabilidad de datos.}
 
-La trazabilidad relaciona cada escenario con sus condiciones de entrada, configuraciones, transformaciones y resultados. La interoperabilidad geoespacial permite integrar datos de distintas herramientas manteniendo consistencia de coordenadas, unidades, geometrías y orientación.
-
-Esto resulta fundamental al combinar información procesada mediante QGIS, entradas generadas con qgis2fds y salidas FDS \cite{vfpQGIS,vfpQGIS2FDS}. Los modelos digitales de elevación describen el relieve, mientras que las representaciones ráster y vectoriales permiten organizar variables territoriales en celdas o geometrías.
+La trazabilidad relaciona cada escenario con sus condiciones de entrada, configuraciones, transformaciones y resultados. La interoperabilidad geoespacial permite integrar datos de distintas herramientas manteniendo consistencia de coordenadas, unidades, geometrías y orientación. Esto resulta fundamental al combinar información procesada mediante QGIS, entradas generadas con qgis2fds y salidas FDS \cite{vfpQGIS,vfpQGIS2FDS}. Los modelos digitales de elevación describen el relieve, mientras que las representaciones ráster y vectoriales permiten organizar variables territoriales en celdas o geometrías.
 
 \textbf{Agregación espacial y tratamiento de un perímetro observado.}
 
-Cuando exista un perímetro observado, la aplicación buscará identificar su borde activo, recuperar simulaciones cercanas y explorar la agregación de sus resultados, excluyendo las áreas ya identificadas como quemadas.
-
-La agregación propuesta constituye una hipótesis que requiere validación experimental, dado que la superposición geométrica podría omitir interacciones térmicas, vientos inducidos y modificaciones en la velocidad de propagación.
+Cuando exista un perímetro observado, la aplicación buscará identificar su borde activo, recuperar simulaciones cercanas y explorar la agregación de sus resultados, excluyendo las áreas ya identificadas como quemadas. La agregación propuesta constituye una hipótesis que requiere validación experimental, dado que la superposición geométrica podría omitir interacciones térmicas, vientos inducidos y modificaciones en la velocidad de propagación.
 
 \textbf{Comparación con una ignición lineal de referencia.}
 
-Para evaluar esta hipótesis se propone comparar tres configuraciones FDS bajo condiciones equivalentes de combustible, topografía, meteorología, resolución y tiempo simulado:
+Para evaluar esta hipótesis se propone comparar tres configuraciones bajo condiciones equivalentes de combustible, topografía, meteorología, resolución y tiempo simulado, utilizando FDS como motor de simulación \cite{fdsnist}:
 
 \begin{enumerate}
-    \item \textbf{Ignición lineal:} Una simulación de referencia cuyo incendio comienza a lo largo de una curva continua, representativa de un frente activo.
+    \item \textbf{Ignición lineal:} una simulación de referencia cuyo incendio comienza a lo largo de una curva continua, representativa de un frente activo.
 
-    \item \textbf{Igniciones puntuales simultáneas:} Una simulación FDS con varios puntos de ignición ubicados sobre la curva o próximos a ella, considerando conjuntamente sus interacciones físicas.
+    \item \textbf{Igniciones puntuales simultáneas:} una simulación FDS con varios puntos de ignición ubicados sobre la curva o próximos a ella, considerando conjuntamente sus interacciones físicas.
 
-    \item \textbf{Agregación independiente:} Simulaciones FDS ejecutadas por separado desde esos puntos, cuyos resultados se combinan posteriormente.
+    \item \textbf{Agregación independiente:} simulaciones FDS ejecutadas por separado desde esos puntos, cuyos resultados se combinan posteriormente.
 \end{enumerate}
 
-Comparar los dos primeros casos permitirá estudiar el efecto de representar una curva continua mediante puntos discretos. Comparar los dos últimos permitirá evaluar las diferencias asociadas a omitir las interacciones físicas entre simulaciones independientes.
+Comparar los dos primeros casos permitirá estudiar el efecto de representar una curva continua mediante puntos discretos. Comparar los dos últimos permitirá evaluar las diferencias asociadas a omitir las interacciones físicas entre simulaciones independientes. Los resultados se contrastarán sobre una referencia geográfica común, en tiempos equivalentes y mediante definiciones consistentes del frente. Se estudiarán posición y geometría del perímetro, área afectada, dirección de propagación y, cuando sea posible, tiempos de llegada del fuego.
 
-Los resultados se contrastarán sobre una referencia geográfica común, en tiempos equivalentes y mediante definiciones consistentes del frente. Se estudiarán posición y geometría del perímetro, área afectada, dirección de propagación y, cuando sea posible, tiempos de llegada del fuego.
-
-También se considerarán medidas de coincidencia espacial y distancia entre perímetros. Las tolerancias y umbrales de aceptación deberán definirse antes de la evaluación, incluyendo pruebas con distintas separaciones entre igniciones, condiciones meteorológicas y características del combustible.
-
-Los resultados permitirán identificar condiciones de correspondencia aceptable y situaciones en las que la agregación presenta diferencias relevantes. Sin embargo, una buena correspondencia con FDS demostraría consistencia respecto del modelo de referencia.
+También se considerarán medidas de coincidencia espacial y distancia entre perímetros. Las tolerancias y umbrales de aceptación deberán definirse antes de la evaluación, incluyendo pruebas con distintas separaciones entre igniciones, condiciones meteorológicas y características del combustible. Los resultados permitirán identificar condiciones de correspondencia aceptable y situaciones en las que la agregación presenta diferencias relevantes. Sin embargo, una buena correspondencia con FDS demostraría consistencia respecto del modelo de referencia.
 
 \textbf{Metodología de desarrollo: Disciplined Agile Delivery (DAD).}
 
-Disciplined Agile Delivery (DAD) es un marco de desarrollo de software que integra prácticas ágiles, Lean e ingeniería de software, adaptando el proceso a las necesidades del proyecto. Ambler y Lines (2012) destacan su enfoque en arquitectura, calidad, riesgos y entrega de soluciones \cite{amblerLines2012}.
-
-El Project Management Institute (PMI) describe su ciclo de entrega mediante tres fases \cite{pmiDADLifecycle}:
+Disciplined Agile Delivery (DAD) es un marco de desarrollo de software que integra prácticas ágiles, Lean e ingeniería de software, adaptando el proceso a las necesidades del proyecto. Ambler y Lines (2012) destacan su enfoque en arquitectura, calidad, riesgos y entrega de soluciones \cite{amblerLines2012}. El Project Management Institute (PMI) describe su ciclo de entrega mediante tres fases \cite{pmiDADLifecycle}:
 
 \begin{itemize}
     \item \textbf{Inicio (Inception):} establecer visión compartida, requisitos, alcance, arquitectura inicial y estrategia técnica.
-    
+
     \item \textbf{Construcción (Construction):} desarrollar incrementos funcionales, integrar componentes y realizar comprobaciones continuas.
-    
+
     \item \textbf{Transición (Transition):} preparar la entrega, evaluar la solución y verificar su utilización por los destinatarios.
 \end{itemize}
 
-El proyecto adaptará estas fases al contexto académico. Inicio abarcará requisitos, arquitectura, fuentes de datos y viabilidad técnica; Construcción comprenderá simulaciones FDS, biblioteca, consulta, agregación y visualización; y Transición será adaptada a Semi-Transición e incluirá pruebas con usuarios, documentación y entrega académica.
-
+El proyecto adaptará estas fases al contexto académico. Inicio abarcará requisitos, arquitectura, fuentes de datos y viabilidad técnica; Construcción comprenderá simulaciones FDS, biblioteca, consulta, agregación y visualización; y Transición será adaptada como Semi-transición e incluirá pruebas con usuarios, documentación y entrega académica.
