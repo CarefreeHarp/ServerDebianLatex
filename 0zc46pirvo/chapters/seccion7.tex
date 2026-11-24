@@ -8,26 +8,70 @@
 \hline
 \textbf{Término} & \textbf{Significado en el proyecto}\\\hline
 \endhead
-DAD & Disciplined Agile Delivery, enfoque elegido para organizar Inicio, Construcción y Semi-transición de forma iterativa e incremental.\\\hline
-FDS & Fire Dynamics Simulator. Software de simulación empleado para preparar los escenarios de incendio.\\\hline
-WFDS & Wildland-Urban Interface Fire Dynamics Simulator. Extensión histórica de FDS para incendios forestales y de interfaz urbano-forestal, cuyas capacidades se integraron en FDS.\\\hline
-Smokeview & Herramienta seleccionada para presentar las animaciones georreferenciadas de los resultados FDS.\\\hline
-HPC-Zine & Cómputo de alto desempeño e infraestructura universitaria prevista para la ejecución científica.\\\hline
+Aldine & Editor colaborativo autoalojado en el servidor documental del equipo que compila los documentos y los sincroniza con GitHub.\\\hline
+AO & Architecture Owner. Rol que orienta las decisiones técnicas, mantiene la arquitectura (E2), administra el repositorio, las versiones y Aldine, y coordina con HPC-ZINE.\\\hline
+API & Interfaz prevista para obtener información meteorológica desde un servicio externo.\\\hline
+Aporte en especie & Valoración no monetaria o sin desembolso efectivo, como el trabajo del equipo o la infraestructura aportada, frente a las salidas de dinero.\\\hline
 Biblioteca de escenarios & Conjunto catalogado de resultados precalculados con sus condiciones y límites.\\\hline
-Igniciones de referencia & Puntos de inicio de escenarios con densidad variable guiada por amenaza. No son las celdas de la malla CFD.\\\hline
-Malla CFD & Discretización del dominio físico dentro de cada simulación.\\\hline
-GEDTM30 & Conjunto de datos que muestra la altura del terreno en diferentes lugares del mundo.\\\hline
-Copernicus DEM GLO-30 & Conjunto de datos de Copernicus que muestra la altura del terreno en diferentes lugares del mundo.\\\hline
+Borde activo & Zona del perímetro del incendio en propagación desde la cual se agregan resultados de escenarios compatibles.\\\hline
+BPMN & Business Process Model and Notation. Notación para describir procesos.\\\hline
+Camunda Modeler & Herramienta empleada para elaborar los diagramas BPMN y exportarlos como imagen o XML.\\\hline
+CFD & Computational Fluid Dynamics. Dinámica de fluidos computacional, base física de la simulación en FDS y distinta de la malla de igniciones.\\\hline
+Cliente o usuario & Persona con quien se acuerdan las necesidades y la aceptación del producto. Su identificación no presupone una institución contratante.\\\hline
 Cobertura de la Tierra 2018 del Jardín Botánico de Bogotá & Mapa publicado por el Jardín Botánico que muestra los tipos de cobertura, como bosques y otras zonas con vegetación, registrados en 2018.\\\hline
+Copernicus DEM GLO-30 & Conjunto de datos de Copernicus que muestra la altura del terreno en diferentes lugares del mundo.\\\hline
+CRS & Coordinate Reference System. Sistema de referencia de coordenadas espaciales verificado en datos geográficos, entradas y salidas.\\\hline
+DAD & Disciplined Agile Delivery. Enfoque elegido para organizar Inicio, Construcción y Semi-transición de forma iterativa e incremental.\\\hline
+Domain Expert & Rol de apoyo desempeñado por los usuarios de emergencias (bomberos), quienes aclaran necesidades, validan resultados y evalúan la aplicación.\\\hline
+E1--E7 & Identificadores de los siete entregables del proyecto: requisitos y trazabilidad (E1), modelos UML (E2), paquete e informe del piloto (E3), biblioteca y catálogo (E4), código y ejecutable de escritorio (E5), plan y registros de pruebas/calidad (E6), y manual, guía técnica e informe de demostración (E7).\\\hline
 ERA5 & Conjunto de datos que ayuda a conocer cómo fueron el viento, la temperatura y otras condiciones del clima en el pasado.\\\hline
 ERA5-Land & Conjunto de datos sobre condiciones pasadas de la superficie terrestre, como la temperatura y la humedad del suelo.\\\hline
+FDS & Fire Dynamics Simulator. Software de simulación empleado para preparar los escenarios de incendio.\\\hline
+fdsreader & Biblioteca de Python empleada para leer las salidas binarias de FDS en la agregación y verificación de escenarios.\\\hline
+GDAL & Geospatial Data Abstraction Library. Biblioteca empleada para recortar, reproyectar y convertir datos geoespaciales.\\\hline
+GEDTM30 & Conjunto de datos que muestra la altura del terreno en diferentes lugares del mundo.\\\hline
+HPC-ZINE & Cómputo de alto desempeño e infraestructura universitaria prevista para la ejecución científica de simulaciones.\\\hline
+IDECA & Infraestructura de Datos Espaciales para el Distrito Capital. Fuente de cartografía y datos geográficos abiertos.\\\hline
 IDEAM & Instituto colombiano que recoge información sobre el clima, el agua y el ambiente.\\\hline
-Modelos de combustible de Scott y Burgan & Formas de describir la vegetación que puede quemarse, usadas para simular cómo se propaga un incendio.\\\hline
-API & Interfaz prevista para obtener información meteorológica desde un servicio externo.\\\hline
+Igniciones de referencia & Puntos de inicio de escenarios con densidad variable guiada por amenaza. No son las celdas de la malla CFD.\\\hline
 Incremento & Resultado revisable del trabajo, que puede incorporar software o evidencia técnica.\\\hline
-WBS & Estructura de descomposición del trabajo que relaciona productos y actividades.\\\hline
+Kanban & Marco de gestión de trabajo basado en flujo continuo y visualización en tablero sin iteraciones de duración fija.\\\hline
 Línea base & Versión identificada que se acuerda como referencia para estudiar y controlar cambios.\\\hline
-BPMN & Notación para describir procesos.\\\hline
-UML & Lenguaje de modelado para representar y describir sistemas de software.\\\hline
-Cliente o usuario & Persona con quien se acuerdan las necesidades y la aceptación del producto. Su identificación no presupone una institución contratante.\\\hline
+Malla CFD & Discretización del dominio físico dentro de cada simulación.\\\hline
+Modelos de combustible de Scott y Burgan & Formas de describir la vegetación que puede quemarse, usadas para simular cómo se propaga un incendio.\\\hline
+Núcleo-hora & Unidad de medida de cómputo en HPC-ZINE; no se suma directamente con las horas-persona.\\\hline
+PC01--PC07 & Identificadores de los siete procesos de control y aseguramiento de calidad: revisión de requisitos y documentos (PC01), datos y reproducibilidad FDS (PC02), pruebas unitarias (PC03), integración y pruebas de sistema (PC04), agregación y coherencia espacial (PC05), auditoría interna (PC06) y evaluación externa con usuarios (PC07).\\\hline
+PERT & Program Evaluation and Review Technique. Técnica de estimación de tres puntos (optimista, más probable y pesimista) usada para calcular el esfuerzo en horas-persona.\\\hline
+PlantUML & Herramienta empleada para generar diagramas UML a partir de texto versionable.\\\hline
+PO & Product Owner. Rol que representa las necesidades de los interesados, prioriza requisitos y trazabilidad (E1), coordina usuarios y evaluación, y lidera demostraciones.\\\hline
+PUE & Power Usage Effectiveness. Relación entre la energía total consumida por una instalación de cómputo y la energía destinada a los equipos de TI.\\\hline
+PyInstaller & Herramienta empleada para empaquetar la aplicación de Python como ejecutable para Windows.\\\hline
+pyproj & Biblioteca de Python utilizada para realizar transformaciones de coordenadas geoespaciales.\\\hline
+PySide6 & Biblioteca de interfaz gráfica de escritorio en Python utilizada para la aplicación y la visualización del mapa.\\\hline
+pytest & Marco de pruebas automatizadas en Python empleado para pruebas unitarias y de integración.\\\hline
+QGIS & Sistema de información geográfica de código abierto usado para preparar capas, delimitar dominios y revisar resultados.\\\hline
+qgis2fds & Complemento de QGIS empleado para generar el terreno y las superficies de combustible de las entradas FDS.\\\hline
+RACI & Matriz de asignación de responsabilidades (\emph{Responsible, Accountable, Consulted, Informed}) aplicada a las actividades principales.\\\hline
+RUP & Rational Unified Process. Proceso de desarrollo iterativo e incremental, dirigido por casos de uso y centrado en la arquitectura.\\\hline
+sacct & Comando de Slurm utilizado para consultar el consumo de recursos y núcleo-horas de los trabajos ejecutados.\\\hline
+Scrum & Marco ágil ligero basado en ciclos de duración fija (\emph{sprints}), inspección frecuente y roles definidos.\\\hline
+Semi-transición & Adaptación de la fase de transición de DAD orientada a la evaluación con usuarios, correcciones y entrega académica de una primera versión funcional.\\\hline
+Shapely & Biblioteca de Python empleada para operaciones geométricas sobre perímetros, borde activo y territorio quemado.\\\hline
+Slurm & Gestor de recursos y colas utilizado en HPC-ZINE para ejecutar simulaciones como trabajos por lotes.\\\hline
+SMMLV & Salario Mínimo Mensual Legal Vigente. Referencia salarial usada para valorar la hora de trabajo del equipo.\\\hline
+Smokeview & Herramienta seleccionada para presentar las animaciones georreferenciadas de los resultados FDS.\\\hline
+SPMP & Software Project Management Plan. Estructura base adoptada para organizar el plan de administración del proyecto.\\\hline
+Stakeholder & Persona, grupo o institución interesada o afectada por el proyecto o sus resultados.\\\hline
+SUS & System Usability Scale. Escala estándar de cuestionario empleada para medir la usabilidad percibida en la evaluación externa.\\\hline
+Technical Expert & Rol de apoyo que aporta orientación especializada en simulación HPC, procesamiento geográfico o infraestructura del clúster.\\\hline
+TL & Team Lead. Rol de coordinación interna que facilita el trabajo, remueve impedimentos y consolida seguimiento, calidad, riesgos y entregas.\\\hline
+TM & Team Member. Rol desempeñado por cada integrante al analizar, diseñar, desarrollar, probar, documentar, estimar y reportar tareas.\\\hline
+UAECOB & Unidad Administrativa Especial Cuerpo Oficial de Bomberos de Bogotá. Institución a la que pertenecen los usuarios evaluadores.\\\hline
+UML & Unified Modeling Language. Lenguaje de modelado para representar y describir sistemas de software.\\\hline
+Versión de referencia & Versión integrada y comprobada al cierre de una iteración que sirve de base para la revisión con el director.\\\hline
+VFP & Versión Final de Propuesta. Documento de propuesta del trabajo de grado del cual se retoman alcance, entregables, objetivos y bases técnicas.\\\hline
+VirtualBox & Herramienta de virtualización empleada para probar la instalación del ejecutable en máquinas virtuales limpias con Windows 11.\\\hline
+WBS & Work Breakdown Structure. Estructura de descomposición del trabajo que relaciona productos y actividades.\\\hline
+WFDS & Wildland-Urban Interface Fire Dynamics Simulator. Extensión histórica de FDS para incendios forestales y de interfaz urbano-forestal, cuyas capacidades se integraron en FDS.\\\hline
+XP & Extreme Programming. Enfoque ágil centrado en prácticas técnicas de desarrollo como pruebas automatizadas, integración continua y diseño incremental.\\\hline
 \end{longtable}

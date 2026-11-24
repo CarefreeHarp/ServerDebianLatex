@@ -1,20 +1,48 @@
+
 \subsubsection{Entrenamiento del Personal - Aprender FDS y prepararnos para usar HPC}\label{sec:spmp-9-2-1}
+
 El equipo ha completado la capacitación de HPC-Zine y aprenderá FDS de manera autodidacta. La capacitación se relaciona con el acceso y uso de la infraestructura universitaria descrita en la sección \ref{sec:spmp-9-2-2}~\cite{adaptacion2026}.
 
-La tabla~\ref{tab:entrenamiento} presenta, para cada conocimiento que el equipo no domina por completo, quiénes lo aprenden, quién lo enseña, cómo se comprueba el aprendizaje y cuándo ocurre. El entrenamiento se concentra en la fase de Inicio (2026-3) y en la primera iteración de Construcción; sus tareas se registran en el tablero del proyecto con sus horas, que forman parte de la capacidad estimada en la sección~9.3.3.
- 
-\begin{longtable}{|p{0.17\textwidth}|p{0.20\textwidth}|p{0.42\textwidth}|p{0.10\textwidth}|}
+La tabla~\ref{tab:entrenamiento} presenta, para cada conocimiento que el equipo no domina por completo, quiénes lo aprenden, quién lo enseña, el método de entrenamiento y cuándo ocurre. El entrenamiento se concentra en la fase de Inicio (2026-3) y en la primera iteración de Construcción; sus tareas se registran en el tablero del proyecto con sus horas, que forman parte de la capacidad estimada en la sección~9.3.3.
+
+\begin{longtable}{|p{0.17\textwidth}|p{0.20\textwidth}|p{0.37\textwidth}|p{0.15\textwidth}|}
 \caption{Plan de entrenamiento del equipo. Fuente: elaboración propia.}\label{tab:entrenamiento}\\
 \hline
-\textbf{Conocimiento} & \textbf{Aprenden / enseña} & \textbf{Método y evidencia} & \textbf{Cuándo}\tabularnewline\hline
+\textbf{Conocimiento} & \textbf{Aprenden / enseña} & \textbf{Método} & \textbf{Cuándo}\tabularnewline\hline
 \endfirsthead
+
 \hline
-\textbf{Conocimiento} & \textbf{Aprenden / enseña} & \textbf{Método y evidencia} & \textbf{Cuándo}\tabularnewline\hline
+\textbf{Conocimiento} & \textbf{Aprenden / enseña} & \textbf{Método} & \textbf{Cuándo}\tabularnewline\hline
 \endhead
-\raggedright FDS y Smokeview & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Guía de usuario~\cite{fdsuserguide} en cuatro etapas: uso básico, propagación, viento y vegetación, y automatización de escenarios; dudas en la sincronización presencial. Evidencia: cada uno ejecuta un caso con vegetación y lo ve en Smokeview; al final, un \textit{script} genera variantes de un escenario. & \raggedright Inicio (etapas 1 y 2); I1 (3 y 4)\tabularnewline\hline
-\raggedright QGIS, GDAL y qgis2fds & \raggedright Los cuatro integrantes / asesor Calderón & \raggedright Sesión práctica con los datos de Aguas Claras, sujeta a la disponibilidad del asesor; si no es posible, la documentación oficial. Evidencia: archivo de entrada de FDS generado desde las capas de terreno y vegetación de la caja de pruebas. & \raggedright Inicio\tabularnewline\hline
-\raggedright Python, sus bibliotecas y flujo del repositorio & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Sesión práctica sobre la estructura base de la aplicación y las ramas de la sección~12.3. Evidencia: cada integrante integra una función con su prueba unitaria mediante una solicitud de integración revisada. & \raggedright Inicio e I1\tabularnewline\hline
-\raggedright DAD y tablero del proyecto & \raggedright Daniel, Andrés y Miguel / Guillermo Aponte (TL) & \raggedright Presentación de la agenda de iteración (sección~8.1) y del uso del tablero. Evidencia: tablero configurado y planificación de I1 realizada. & \raggedright Inicio\tabularnewline\hline
-\raggedright Envío de trabajos con Slurm & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Documentación oficial de Slurm y material de la capacitación de HPC-ZINE, al recibir el acceso individual. Evidencia: cada integrante envía un trabajo y consulta su consumo con \texttt{sacct}. & \raggedright I1\tabularnewline\hline
-\raggedright PlantUML y Camunda Modeler & \raggedright Los cuatro integrantes / autoaprendizaje & \raggedright Documentación oficial. Evidencia: primer diagrama de cada uno, revisado mediante el proceso PC01. & \raggedright Inicio\tabularnewline\hline
+
+\raggedright FDS y Smokeview &
+\raggedright Los cuatro integrantes / autoaprendizaje &
+\raggedright Guía de usuario~\cite{fdsuserguide} en cuatro etapas: uso básico, propagación, viento y vegetación, y automatización de escenarios; dudas en la sincronización presencial. &
+\raggedright Inicio (etapas 1 y 2); I1 (3 y 4)\tabularnewline\hline
+
+\raggedright QGIS, GDAL y qgis2fds &
+\raggedright Los cuatro integrantes / asesor Calderón &
+\raggedright Sesión práctica con los datos de Aguas Claras, sujeta a la disponibilidad del asesor; si no es posible, la documentación oficial. &
+\raggedright Inicio\tabularnewline\hline
+
+\raggedright Python, sus bibliotecas y flujo del repositorio &
+\raggedright Los cuatro integrantes / autoaprendizaje &
+\raggedright Sesión práctica sobre la estructura base de la aplicación y las ramas de la sección~12.3. &
+\raggedright Inicio e I1\tabularnewline\hline
+
+\raggedright DAD y tablero del proyecto &
+\raggedright Daniel, Andrés y Miguel / Guillermo Aponte (TL) &
+\raggedright Presentación de la agenda de iteración (sección~8.1) y del uso del tablero. &
+\raggedright Inicio\tabularnewline\hline
+
+\raggedright Envío de trabajos con Slurm &
+\raggedright Los cuatro integrantes / autoaprendizaje &
+\raggedright Documentación oficial de Slurm y material de la capacitación de HPC-ZINE, al recibir el acceso individual. &
+\raggedright I1\tabularnewline\hline
+
+\raggedright PlantUML y Camunda Modeler &
+\raggedright Los cuatro integrantes / autoaprendizaje &
+\raggedright Documentación oficial. &
+\raggedright Inicio\tabularnewline\hline
+
 \end{longtable}

@@ -18,17 +18,21 @@
 \glossarycell{API} & \glossarycell{Application Programming Interface. Interfaz de programación de aplicaciones.} \\[0.50cm]
 \glossarycell{CFD} & \glossarycell{Computational Fluid Dynamics. Dinámica de fluidos computacional.} \\[0.50cm]
 \glossarycell{DAD} & \glossarycell{Disciplined Agile Delivery.} \\[0.50cm]
-\glossarycell{FDS} & \glossarycell{Fire Dynamics Simulator. Software de simulación empleado en el proyecto.} \\
+\glossarycell{DEM} & \glossarycell{Digital Elevation Model. Modelo digital de elevación del terreno.} \\[0.50cm]
+\glossarycell{FDS} & \glossarycell{Fire Dynamics Simulator. Software de simulación empleado en el proyecto.} \\[0.50cm]
+\glossarycell{HPC} & \glossarycell{High-Performance Computing. Cómputo de alto desempeño.} \\
 \end{tabular}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
 \vspace{0pt}
 \raggedright
 \begin{tabular}{@{}p{0.28\linewidth}@{\hspace{0.03\linewidth}}p{0.69\linewidth}@{}}
-\glossarycell{HPC} & \glossarycell{High-Performance Computing. Cómputo de alto desempeño.} \\[0.50cm]
 \glossarycell{MPI} & \glossarycell{Message Passing Interface. Estándar de comunicación entre procesos mediante paso de mensajes para programación paralela \cite{vfpMPI2025}.} \\[0.50cm]
+\glossarycell{PAFP} & \glossarycell{Proceso académico o instancia de evaluación y retroalimentación de la propuesta del proyecto.} \\[0.50cm]
+\glossarycell{SIG} & \glossarycell{Sistema de información geográfica.} \\[0.50cm]
 \glossarycell{UML} & \glossarycell{Unified Modeling Language. Lenguaje unificado de modelado.} \\[0.50cm]
-\glossarycell{WFDS} & \glossarycell{Wildland-Urban Interface Fire Dynamics Simulator. Extensión histórica para incendios forestales y de interfaz urbano-forestal, integrada en FDS.} \\
+\glossarycell{WFDS} & \glossarycell{Wildland-Urban Interface Fire Dynamics Simulator. Extensión histórica para incendios forestales y de interfaz urbano-forestal, integrada en FDS.} \\[0.50cm]
+\glossarycell{WUI} & \glossarycell{Wildland-Urban Interface. Interfaz urbano-forestal.} \\
 \end{tabular}
 \end{minipage}
 \vspace{0.2cm}
@@ -56,19 +60,26 @@
 \glossarycell{Amenaza de ignición} & \glossarycell{Clasificación territorial de la propensión a una ignición. No equivale a una probabilidad calibrada.} \\[0.50cm]
 \glossarycell{Biblioteca de escenarios} & \glossarycell{Conjunto de resultados FDS precalculados, catalogados con su ubicación, condiciones, tiempos y procedencia.} \\[0.50cm]
 \glossarycell{Borde activo} & \glossarycell{Parte observada del perímetro desde la que todavía puede avanzar el incendio.} \\[0.50cm]
-\glossarycell{Densidad variable} & \glossarycell{Distribución con más igniciones de referencia en zonas de mayor amenaza y menos en zonas de menor amenaza.} \\
+\glossarycell{Combustible} & \glossarycell{Vegetación y material inflamable cuya carga, humedad, geometría y propiedades térmicas condicionan la ignición y propagación del fuego.} \\[0.50cm]
+\glossarycell{Compatibilidad / semejanza} & \glossarycell{Criterios de proximidad espacial y coincidencia de variables ambientales (incluido el tratamiento circular del viento) para seleccionar escenarios.} \\[0.50cm]
+\glossarycell{Consulta de escenarios} & \glossarycell{Operación en la que el usuario indica ubicación o perímetro y condiciones meteorológicas para recuperar y visualizar estimaciones.} \\
 \end{tabular}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
 \vspace{0pt}
 \raggedright
 \begin{tabular}{@{}p{0.36\linewidth}@{\hspace{0.04\linewidth}}p{0.60\linewidth}@{}}
+\glossarycell{Densidad variable} & \glossarycell{Distribución con más igniciones de referencia en zonas de mayor amenaza y menos en zonas de menor amenaza.} \\[0.50cm]
+\glossarycell{Frente del fuego} & \glossarycell{Límite o perímetro observado o estimado desde el cual avanza el incendio en un instante dado.} \\[0.50cm]
 \glossarycell{Horizonte de consulta} & \glossarycell{Intervalo $\Delta t$ de evolución estimada, condicionado por la variación del viento y todavía por definir.} \\[0.50cm]
 \glossarycell{Igniciones de referencia} & \glossarycell{Puntos de inicio de los escenarios de la biblioteca, distribuidos según amenaza de ignición.} \\[0.50cm]
 \glossarycell{Malla CFD} & \glossarycell{Discretización tridimensional del dominio físico en celdas para resolver cada simulación.} \\[0.50cm]
+\glossarycell{Piloto} & \glossarycell{Ejecución inicial controlada de preparación, simulación y prueba en el sector de estudio para validar configuraciones, tiempos y criterios.} \\[0.50cm]
+\glossarycell{Semi-transición} & \glossarycell{Adaptación académica de la fase Transition de DAD, enfocada en evaluación con usuarios, correcciones y entrega reproducible.} \\[0.50cm]
 \glossarycell{Simulación precalculada} & \glossarycell{Simulación ejecutada y almacenada antes de la consulta, con condiciones de entrada identificadas.} \\[0.50cm]
+\glossarycell{Smokeview} & \glossarycell{Programa desarrollado por el Instituto Nacional de Estándares y Tecnología (NIST) para visualizar en 3D los resultados de simulaciones de incendios y movimiento de humo.} \\[0.50cm]
+\glossarycell{Territorio quemado} & \glossarycell{Área ya afectada por el fuego que se excluye de la estimación de avance futuro.} \\[0.50cm]
 \glossarycell{Visualización georreferenciada} & \glossarycell{Representación espacial y temporal de resultados mediante una animación vinculada a coordenadas.} \\
-\glossarycell{Smokeview} & \glossarycell{Programa desarrollado por el Instituto Nacional de Estándares y Tecnología (NIST) para visualizar en 3D los resultados de simulaciones de incendios y movimiento de humo.} \\
 \end{tabular}
 \end{minipage}
 \vspace{0.2cm}
