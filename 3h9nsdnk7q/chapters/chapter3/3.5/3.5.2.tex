@@ -1,6 +1,5 @@
-\subsubsection{Disponibilidad}
-% Contenido pendiente de redacción.
-La biblioteca de escenarios se guarda en el propio computador, de modo que la aplicación depende de internet solo para la consulta automática a Open-Meteo. Su disponibilidad se especifica con los siguientes requerimientos.
+\subsubsection{Disponibilidad}% Contenido pendiente de redacción.
+\textcolor{red}{El dataset de escenarios} se guarda en el propio computador, de modo que la aplicación depende de internet solo para la consulta automática a Open-Meteo. Su disponibilidad se especifica con los siguientes requerimientos.
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
   \caption{RNF-06 -- Funcionar sin interrupciones}\label{tab:rnf-06}\tabularnewline
@@ -23,7 +22,7 @@ La biblioteca de escenarios se guarda en el propio computador, de modo que la ap
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Obtener las condiciones meteorológicas}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Todas las funciones de la aplicación deberán estar disponibles sin conexión a internet, excepto la consulta automática a Open-Meteo, que se reemplaza por el ingreso manual de las condiciones meteorológicas (RF-02).}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{El servicio gratuito de Open-Meteo no garantiza su disponibilidad~\cite{openmeteoterms} y durante una emergencia puede no haber conexión; por eso la biblioteca de escenarios se guarda en el propio computador.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{El servicio gratuito de Open-Meteo no garantiza su disponibilidad~\cite{openmeteoterms} y durante una emergencia puede no haber conexión; por eso \textcolor{red}{el dataset de escenarios} se guarda en el propio computador.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: con la conexión desactivada, el usuario completa una consulta con condiciones ingresadas manualmente y ve el resultado.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Interfaz y visualización y Meteorología\tabularnewline\hline

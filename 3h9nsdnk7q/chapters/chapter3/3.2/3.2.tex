@@ -14,7 +14,7 @@ Esta sección especifica los requerimientos funcionales de la aplicación, agrup
 % ---------------------------------------------------------------------
 \subsubsection{Funcionalidad 1: Consulta de simulaciones}
 
-Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera de la biblioteca los escenarios próximos y compatibles con ellas y permite actualizar la consulta cuando cambia la situación.
+Obtiene las condiciones meteorológicas y la ubicación del incendio, \textcolor{red}{recupera del dataset} los escenarios próximos y compatibles con ellas y permite actualizar la consulta cuando cambia la situación.
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
   \caption{RF-01 -- Obtener las condiciones de Open-Meteo}\label{tab:rf-01}\tabularnewline
@@ -23,7 +23,7 @@ Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera d
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Obtener las condiciones meteorológicas}\tabularnewline\hline
   \endfirsthead
   \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Cuando el usuario indique la ubicación del incendio y haya conexión a internet, la aplicación deberá obtener de Open-Meteo la velocidad y la dirección del viento y la precipitación del momento de la consulta para esa ubicación, como se especifica en la sección~\textcolor{black}{\ref{sec:interfaces-comunicacion}}.}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las condiciones meteorológicas, en especial el viento, determinan qué escenarios de la biblioteca son compatibles con la emergencia (sección~2.2). Obtenerlas de forma automática evita que el usuario deba consultarlas por otro medio.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Las condiciones meteorológicas, en especial el viento, determinan qué \textcolor{red}{escenarios del dataset} son compatibles con la emergencia (sección~2.2). Obtenerlas de forma automática evita que el usuario deba consultarlas por otro medio.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: para una ubicación de Aguas Claras, los valores que presenta la aplicación coinciden con los de una solicitud hecha directamente a la API de Open-Meteo para las mismas coordenadas y la misma hora.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Interfaz y visualización y Meteorología\tabularnewline\hline
@@ -64,7 +64,7 @@ Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera d
   \textbf{\# Requerimiento} & RF-04 & \raggedright\textbf{Tipo de requerimiento} & Funcional\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Indicar la ubicación del perímetro observado del incendio y del territorio quemado}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá registrar la ubicación indicada por el usuario como un punto de ignición o como un perímetro observado, con su borde activo y su territorio quemado, en el mismo sistema de coordenadas de la biblioteca de escenarios.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá registrar la ubicación indicada por el usuario como un punto de ignición o como un perímetro observado, con su borde activo y su territorio quemado, en el mismo sistema de coordenadas \textcolor{red}{del dataset de escenarios}.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La ubicación es el punto de partida de la consulta (sección~2.2) y debe poder compararse con la de los escenarios; un error en ella haría que el resultado se presente en un lugar equivocado.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: para puntos y perímetros de prueba con coordenadas conocidas, la diferencia entre las coordenadas registradas y las de referencia es menor que el tamaño de una celda de la malla de las simulaciones.}\tabularnewline\hline
@@ -78,10 +78,10 @@ Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera d
   \textbf{\# Requerimiento} & RF-05 & \raggedright\textbf{Tipo de requerimiento} & Funcional\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá seleccionar los puntos de ignición de la biblioteca más cercanos a la ubicación indicada o a distintas posiciones del borde activo, incluso si quedan dentro del territorio quemado.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{La aplicación deberá seleccionar los puntos de \textcolor{red}{ignición del dataset} más cercanos a la ubicación indicada o a distintas posiciones del borde activo, incluso si quedan dentro del territorio quemado.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La propuesta del proyecto aproxima el avance del incendio con los escenarios cuyas igniciones están más cerca de distintas posiciones del frente observado, aunque estén dentro del territorio ya quemado~\cite{vfp2026}.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
-  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba con una biblioteca de prueba: para un borde activo trazado cerca de puntos de ignición de posición conocida, la aplicación selecciona los puntos más cercanos a cada posición evaluada del borde.}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba con \textcolor{red}{un dataset de prueba}: para un borde activo trazado cerca de puntos de ignición de posición conocida, la aplicación selecciona los puntos más cercanos a cada posición evaluada del borde.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Consulta de escenarios y Agregación\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
 \end{longtable}
@@ -92,7 +92,7 @@ Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera d
   \textbf{\# Requerimiento} & RF-06 & \raggedright\textbf{Tipo de requerimiento} & Funcional\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Obtener las condiciones meteorológicas}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Para cada punto de ignición seleccionado, la aplicación deberá recuperar de la biblioteca los escenarios cuyas condiciones meteorológicas sean más semejantes a las de la consulta, con el criterio de búsqueda de la sección~3.6.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Para cada punto de ignición seleccionado, la aplicación deberá \textcolor{red}{recuperar del dataset} los escenarios cuyas condiciones meteorológicas sean más semejantes a las de la consulta, con el criterio de búsqueda de la sección~3.6.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{Un escenario solo representa la emergencia si sus condiciones, en especial el viento, se parecen a las de la consulta (sección~2.2).}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba con casos controlados: la aplicación recupera los escenarios de menor diferencia según el criterio de la sección~3.6 y trata la dirección del viento como variable circular; por ejemplo, para un viento de $355^{\circ}$ recupera antes un escenario de $5^{\circ}$ que uno de $300^{\circ}$.}\tabularnewline\hline
@@ -106,10 +106,10 @@ Obtiene las condiciones meteorológicas y la ubicación del incendio, recupera d
   \textbf{\# Requerimiento} & RF-07 & \raggedright\textbf{Tipo de requerimiento} & Funcional\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Cuando ningún escenario de la biblioteca sea suficientemente semejante a la consulta, según el umbral de la sección~3.6, la aplicación deberá advertirlo junto con el resultado e indicar qué condiciones no están cubiertas por la biblioteca.}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La biblioteca cubre un conjunto limitado de condiciones, y presentar sin advertencia escenarios poco semejantes podría llevar a interpretar mal la emergencia (sección~2.4).}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Cuando \textcolor{red}{ningún escenario del dataset} sea suficientemente semejante a la consulta, según el umbral de la sección~3.6, la aplicación deberá advertirlo junto con el resultado e indicar qué condiciones no están \textcolor{red}{cubiertas por el dataset}.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{\textcolor{red}{El dataset cubre} un conjunto limitado de condiciones, y presentar sin advertencia escenarios poco semejantes podría llevar a interpretar mal la emergencia (sección~2.4).}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
-  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: una consulta con un viento más fuerte que el máximo representado en la biblioteca produce la advertencia y señala la velocidad del viento como condición no cubierta.}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: una consulta con un viento más fuerte que el máximo representado \textcolor{red}{en el dataset} produce la advertencia y señala la velocidad del viento como condición no cubierta.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Consulta de escenarios y Agregación\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
 \end{longtable}

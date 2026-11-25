@@ -3,8 +3,7 @@
 \providecommand{\bdA}{\dimexpr 0.22\linewidth-2\tabcolsep-1.34\arrayrulewidth\relax}
 \providecommand{\bdB}{\dimexpr 0.58\linewidth-2\tabcolsep-1.33\arrayrulewidth\relax}
 \providecommand{\bdC}{\dimexpr 0.20\linewidth-2\tabcolsep-1.33\arrayrulewidth\relax}
-
-La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicación solo lee. Sus tablas, resumidas en la tabla~\ref{tab:bd}, corresponden a los elementos MD-01 a MD-04 de la sección~2.5, más una tabla con los datos generales de la biblioteca. Los elementos MD-05 y MD-06 no se almacenan, porque la aplicación no crea datos.
+\textcolor{red}{El dataset de escenarios} se guarda en una base de datos SQLite que la aplicación solo lee. Sus tablas, resumidas en la tabla~\ref{tab:bd}, corresponden a los elementos MD-01 a MD-04 de la sección~2.5, más una tabla con los datos \textcolor{red}{generales del dataset}. Los elementos MD-05 y MD-06 no se almacenan, porque la aplicación no crea datos.
 
 \begin{longtable}{|p{\bdA}|p{\bdB}|p{\bdC}|}
   \caption{Tablas de la base de datos}\label{tab:bd}\tabularnewline
@@ -18,7 +17,7 @@ La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicac
  & \textcolor{black}{\texttt{escenario\_id} (INTEGER, llave foránea)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{nombre} (TEXT)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{formato} (TEXT)} & \tabularnewline\cline{2-2}
- & \textcolor{black}{\texttt{ruta} (TEXT), relativa a la carpeta de la biblioteca (RNF-14)} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{ruta} (TEXT), relativa a la \textcolor{red}{carpeta del dataset} (RNF-14)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{sha256} (TEXT), suma de verificación (RNF-04)} & \tabularnewline\hline
   \textcolor{black}{\texttt{escenario}} & \textcolor{black}{\texttt{id} (INTEGER, llave primaria)} & \textcolor{black}{MD-02 Escenario de simulación}\tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{identificador} (TEXT, único)} & \tabularnewline\cline{2-2}
@@ -26,8 +25,8 @@ La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicac
  & \textcolor{black}{\texttt{condiciones\_id} (INTEGER, llave foránea)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{version\_fds} (TEXT)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{tiempo\_simulado} (REAL, s)} & \tabularnewline\cline{2-2}
- & \textcolor{black}{\texttt{origen\_x} (REAL, m; origen del dominio de FDS en el sistema de coordenadas de la biblioteca)} & \tabularnewline\cline{2-2}
- & \textcolor{black}{\texttt{origen\_y} (REAL, m; origen del dominio de FDS en el sistema de coordenadas de la biblioteca)} & \tabularnewline\hline
+ & \textcolor{black}{\texttt{origen\_x} (REAL, m; origen del dominio de FDS en el sistema de \textcolor{red}{coordenadas del dataset})} & \tabularnewline\cline{2-2}
+ & \textcolor{black}{\texttt{origen\_y} (REAL, m; origen del dominio de FDS en el sistema de coordenadas \textcolor{red}{del dataset})} & \tabularnewline\hline
   \textcolor{black}{\texttt{punto\_ignicion}} & \textcolor{black}{\texttt{id} (INTEGER, llave primaria)} & \textcolor{black}{MD-03 Punto de ignición}\tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{identificador} (TEXT, único)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{latitud} (REAL, grados decimales en WGS~84)} & \tabularnewline\cline{2-2} & \textcolor{black}{\texttt{longitud} (REAL, grados decimales en WGS~84)} & \tabularnewline\cline{2-2}
@@ -37,7 +36,7 @@ La biblioteca de escenarios se guarda en una base de datos SQLite que la aplicac
  & \textcolor{black}{\texttt{direccion\_viento} (REAL, dirección de origen en grados desde el norte)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{presencia\_lluvia} (INTEGER, 0 o 1)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{cantidad\_lluvia} (REAL, mm)} & \tabularnewline\hline
-  \textcolor{black}{\texttt{biblioteca}} & \textcolor{black}{\texttt{version} (TEXT)} & \textcolor{black}{Datos generales, en una sola fila}\tabularnewline\cline{2-2}
+  \textcolor{black}{\texttt{\textcolor{red}{dataset}}} & \textcolor{black}{\texttt{version} (TEXT)} & \textcolor{black}{Datos generales, en una sola fila}\tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{epsg} (INTEGER; código del sistema de coordenadas proyectado de las simulaciones)} & \tabularnewline\cline{2-2}
  & \textcolor{black}{\texttt{fecha} (TEXT, ISO 8601; fecha de la última actualización)} & \tabularnewline\hline
 \end{longtable}
@@ -49,10 +48,10 @@ La base de datos y la búsqueda de escenarios deberán cumplir los siguientes re
   \item \textbf{Llaves e índices.} Las llaves primarias serán columnas INTEGER, que en SQLite identifican la fila sin necesitar un índice adicional, y los identificadores del modelo del dominio se declararán únicos. Además, cada llave foránea tendrá un índice, porque por ellas se unen las tablas al leer el catálogo y se buscan los archivos de cada escenario.
   \item \textbf{Tipo de consultas.} La aplicación solo ejecutará consultas de lectura (SELECT), desde el módulo de consulta de escenarios. Abrirá la base de datos en modo de solo lectura y usará consultas parametrizadas del módulo \texttt{sqlite3} de Python, equivalentes a los Prepared Statement, en lugar de construir las sentencias concatenando texto.
   \item \textbf{Frecuencia de acceso.} La aplicación abrirá una sola conexión al iniciar y la mantendrá hasta cerrarse. Al iniciar leerá el catálogo de puntos de ignición, condiciones y escenarios, que conservará en memoria, y durante cada consulta solo leerá los archivos de los escenarios recuperados. Como atiende una consulta a la vez, no habrá accesos simultáneos.
-  \item \textbf{Búsqueda de escenarios semejantes.} Como el número de escenarios está limitado por las horas de cómputo disponibles~\cite{pmp2026}, la búsqueda utilizará sql y deberá tardar menos de 10~segundos con la biblioteca completa. Seguirá el criterio de vecinos más cercanos de la propuesta del proyecto~\cite{vfp2026}, en dos pasos:
+  \item \textbf{Búsqueda de escenarios semejantes.} Como el número de escenarios está limitado por las horas de cómputo disponibles~\cite{pmp2026}, la búsqueda utilizará sql y deberá tardar menos de 10~segundos con \textcolor{red}{el dataset completo}. Seguirá el criterio de vecinos más cercanos de la propuesta del proyecto~\cite{vfp2026}, en dos pasos:
   \begin{enumerate}
-    \item Para la ubicación indicada, o para posiciones del borde activo separadas por la distancia que se fije en el piloto, se selecciona el punto de ignición más cercano, midiendo la distancia en metros en el sistema de coordenadas de la biblioteca (RF-05).
+    \item Para la ubicación indicada, o para posiciones del borde activo separadas por la distancia que se fije en el piloto, se selecciona el punto de ignición más cercano, midiendo la distancia en metros en el sistema de \textcolor{red}{coordenadas del dataset} (RF-05).
     \item Para cada punto seleccionado se recupera el escenario cuyas condiciones meteorológicas sean más semejantes a las de la consulta (RF-06). Para compararlas, las diferencias en la velocidad del viento, en su dirección y en la cantidad de lluvia se dividen entre la tolerancia de cada variable, definida en el siguiente requerimiento, para que las tres se comparen en la misma escala. La dirección se trata como una variable circular, cuya diferencia es el menor ángulo entre las dos direcciones; así, $355^{\circ}$ y $5^{\circ}$ difieren en $10^{\circ}$ y no en $350^{\circ}$.
   \end{enumerate}
-  \item \textbf{Condiciones no representadas.} Una condición de la consulta no estará representada (RF-07) si la presencia de lluvia no coincide con la del escenario recuperado, si la velocidad del viento o la cantidad de lluvia quedan fuera del intervalo de valores de la biblioteca, o si su diferencia con el escenario supera la tolerancia de esa variable. Las tolerancias, en km/h para la velocidad del viento, en grados para su dirección y en mm para la lluvia, se fijarán durante el piloto, junto con el horizonte $\Delta t$ (RF-09).
+  \item \textbf{Condiciones no representadas.} Una condición de la consulta no estará representada (RF-07) si la presencia de lluvia no coincide con la del escenario recuperado, si la velocidad del viento o la cantidad de lluvia quedan fuera del intervalo de \textcolor{red}{valores del dataset}, o si su diferencia con el escenario supera la tolerancia de esa variable. Las tolerancias, en km/h para la velocidad del viento, en grados para su dirección y en mm para la lluvia, se fijarán durante el piloto, junto con el horizonte $\Delta t$ (RF-09).
 \end{itemize}

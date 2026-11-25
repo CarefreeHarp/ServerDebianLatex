@@ -1,8 +1,8 @@
-\subsubsection{Interfaces con el sistema}{\color{black}La aplicación de escritorio y la biblioteca de simulaciones conforman un mismo producto, en el que la aplicación consulta la biblioteca para acceder a los escenarios precalculados.
+\subsubsection{Interfaces con el sistema}{\color{black}La aplicación de escritorio y \textcolor{red}{el dataset de simulaciones conforman un mismo producto}, en el que \textcolor{red}{la aplicación consulta el dataset} para acceder a los escenarios precalculados.
 
-FDS se utiliza para generar las simulaciones que alimentarán la biblioteca durante la construcción del producto, pero no se ejecuta durante el uso de la aplicación final~\cite{vfp2026}.
+FDS se utiliza para generar las simulaciones que \textcolor{red}{alimentarán el dataset} durante la construcción del producto, pero no se ejecuta durante el uso de la aplicación final~\cite{vfp2026}.
 
-La única interfaz prevista con un sistema externo será con Open-Meteo, del que la aplicación consultará información meteorológica para identificar en la biblioteca los escenarios precalculados compatibles con las condiciones de la emergencia~\cite{vfp2026}.
+La única interfaz prevista con un sistema externo será con Open-Meteo, del que la aplicación consultará información meteorológica para \textcolor{red}{identificar en el dataset} los escenarios precalculados compatibles con las condiciones de la emergencia~\cite{vfp2026}.
 
 Los resultados de las simulaciones serán públicos y estarán disponibles para quienes deseen utilizarlos mediante un repositorio de GitHub, cuya publicación se realizará cuando se cuente con los resultados.
 }
