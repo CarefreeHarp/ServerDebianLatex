@@ -13,14 +13,14 @@ La tabla~\ref{tab:herramientas} presenta los lenguajes y herramientas del proyec
 \textbf{Herramienta y versión} & \textbf{Uso en el proyecto} & \textbf{Secciones}\tabularnewline\hline
 \endhead
 \multicolumn{3}{|l|}{\textbf{Simulación y visualización}}\tabularnewline\hline
-\raggedright FDS 6.11.1~\cite{fdsuserguide,fdslinuxcluster} & \raggedright Simular los escenarios de la biblioteca con su modelo de vegetación (convención FDS/WFDS); los archivos de entrada se escriben en su lenguaje de \textit{namelists} y se ejecutan en paralelo en HPC-ZINE. & \raggedright 6.1, 9.1 y 12.5\tabularnewline\hline
+\raggedright FDS 6.11.1~\cite{fdsuserguide,fdslinuxcluster} & \raggedright Simular los escenarios \textcolor{black}{del dataset} con su modelo de vegetación (convención FDS/WFDS); los archivos de entrada se escriben en su lenguaje de \textit{namelists} y se ejecutan en paralelo en HPC-ZINE. & \raggedright 6.1, 9.1 y 12.5\tabularnewline\hline
 \raggedright Smokeview 6.11.2~\cite{forney2013smv} & \raggedright \textcolor{black}{Abrir la animación georreferenciada de los escenarios utilizados en la estimación}; la aplicación lo lanza como proceso externo. & \raggedright 6.2 y 9.1\tabularnewline\hline
 \raggedright fdsreader 1.14~\cite{fdsreader} & \raggedright \textcolor{black}{Leer desde Python las salidas de FDS de los escenarios seleccionados para su agregación y verificación.} & \raggedright 9.1 y 12.5\tabularnewline\hline
 \multicolumn{3}{|l|}{\textbf{Datos geoespaciales y meteorológicos}}\tabularnewline\hline
 \raggedright QGIS 4.2~\cite{qgis} & \raggedright Preparar las capas de terreno y vegetación de Aguas Claras, delimitar los dominios y revisar los resultados sobre el mapa. & \raggedright 6.3 y 9.1\tabularnewline\hline
 \raggedright qgis2fds 2.0.1~\cite{qgis2fds} & \raggedright Generar el terreno y las superficies de combustible de los archivos de entrada de FDS a partir de las capas de QGIS. & \raggedright 6.3 y 12.5\tabularnewline\hline
 \raggedright GDAL 3.13~\cite{gdal} & \raggedright Recortar, reproyectar y convertir los datos de GEDTM30, Copernicus DEM GLO-30 y la cobertura del Jardín Botánico. & \raggedright 6.3\tabularnewline\hline
-\raggedright API de Open-Meteo~\cite{openmeteo} & \raggedright \textcolor{black}{Obtener las condiciones meteorológicas durante la consulta} y las series de ERA5 y ERA5-Land con las que se definen las combinaciones meteorológicas de la biblioteca. & \raggedright 6.2, 6.3 y 9.1\tabularnewline\hline
+\raggedright API de Open-Meteo~\cite{openmeteo} & \raggedright \textcolor{black}{Obtener las condiciones meteorológicas durante la consulta} y las series de ERA5 y ERA5-Land con las que se definen las combinaciones meteorológicas \textcolor{black}{del dataset}. & \raggedright 6.2, 6.3 y 9.1\tabularnewline\hline
 \multicolumn{3}{|l|}{\textbf{Desarrollo y pruebas de la aplicación}}\tabularnewline\hline
 \raggedright Python 3.13~\cite{python313} & \raggedright Lenguaje de la aplicación y de los programas de preparación de datos y verificación de simulaciones. & \raggedright 8.2.1 y 9.2.1\tabularnewline\hline
 \raggedright PySide6 6.12~\cite{pyside6} & \raggedright Interfaz gráfica de escritorio y visualización del mapa de la aplicación. & \raggedright 9.1\tabularnewline\hline

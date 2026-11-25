@@ -1,6 +1,6 @@
 \clearpage
 \subsection{Entregables, estándares utilizados y justificación}\label{sec:entregables}
-\textcolor{black}{El análisis que delimita el alcance se documenta en E1 y E7. \textcolor{red}{El diseño de la arquitectura se sustenta en E2.} \textcolor{red}{El desarrollo de la aplicación toma E2 como referencia y se concreta en E5. La construcción del dataset de escenarios se apoya en E3 y se concreta en el dataset y su catálogo E4.} La evaluación se documenta en E6 y E7 y se refleja en la versión aceptada de E5.}
+\textcolor{black}{El análisis que delimita el alcance se documenta en E1 y E7. \textcolor{black}{El diseño de la arquitectura se sustenta en E2.} \textcolor{black}{El desarrollo de la aplicación toma E2 como referencia y se concreta en E5. La construcción del dataset de escenarios se apoya en E3 y se concreta en el dataset y su catálogo E4.} La evaluación se documenta en E6 y E7 y se refleja en la versión aceptada de E5.}
 
 \iffalse
 
@@ -13,7 +13,7 @@
 E1 & Especificación de requisitos, alcance y trazabilidad. & Equipo y director. & Fase de Inicio y refinamiento durante Construcción.\\\hline
 E2 & Arquitectura y modelos UML: principalmente diagramas de casos de uso, componentes y despliegue, complementados con diagramas de secuencia y actividades. & Equipo y director. & Diseño inicial y actualizaciones con cada incremento pertinente.\\\hline
 E3 & Paquete reproducible de configuración FDS, entradas preparadas e informe del piloto. & Equipo y director. & Preparación del paquete y elaboración del informe tras el desarrollo del piloto.\\\hline
-E4 & Biblioteca y catálogo que relacionan escenarios con condiciones geográficas y meteorológicas. & Equipo y director. & Durante Construcción.\\\hline
+E4 & \textcolor{black}{Dataset y catálogo} que relacionan escenarios con condiciones geográficas y meteorológicas. & Equipo y director. & Durante Construcción.\\\hline
 E5 & Código fuente y versión ejecutable de la aplicación de escritorio. & Equipo, director y usuarios. & Incrementos durante Construcción y versión corregida en \textcolor{black}{Semi-transición}.\\\hline
 E6 & Plan y registros de pruebas, revisiones y evaluaciones. & Equipo y director. & Durante el desarrollo en Construcción, con consolidación en \textcolor{black}{Semi-transición}.\\\hline
 E7 & Manual de instalación y uso, guía técnica e informe final con demostración. & Director y usuarios previstos (bomberos). & Preparación de la entrega y cierre de \textcolor{black}{Semi-transición}.\\\hline
@@ -30,11 +30,11 @@ E7 & Manual de instalación y uso, guía técnica e informe final con demostraci
 \hline\textbf{Entregable} & \textbf{Objetivo(s)} & \textbf{Estándares asociados} & \textbf{Justificación}\\\hline\endhead
 E1. Especificación de requisitos, alcance y trazabilidad. & OE1 & ISO/IEC/IEEE 29148:2018~\cite{iso29148}. & Relacionar necesidades, alcance, requisitos verificables y evidencia, conservando la procedencia de las necesidades y las exclusiones acordadas.\\\hline
 E2. Arquitectura y modelos UML: diagramas de casos de uso, componentes y despliegue, complementados con secuencia y actividades. & OE2 & OMG UML 2.5.1~\cite{uml251} e ISO/IEC/IEEE 12207:2026~\cite{iso12207}. & Describir componentes, interfaces y flujo de información, vinculando el diseño con el desarrollo e integración de la solución.\\\hline
-E3. Paquete reproducible de configuración FDS, entradas preparadas e informe del piloto. & OE1, OE3 & ISO/IEC/IEEE 12207:2026 e IEEE 730:2026~\cite{ieee730}. & Identificar versiones, entradas, unidades, procedencia y evidencia de revisión de los productos técnicos.\\\hline
-E4. Biblioteca y catálogo que relacionan escenarios con condiciones geográficas y meteorológicas. & OE2, OE3 & ISO/IEC/IEEE 12207:2026 e IEEE 730:2026. & Conservar la relación entre cada resultado, sus condiciones y su configuración, para permitir consulta e identificar casos incompletos o incompatibles.\\\hline
-E5. Código fuente y versión ejecutable de la aplicación de escritorio. & OE3, OE4 & ISO/IEC/IEEE 12207:2026 y OMG UML 2.5.1. & Mantener correspondencia entre diseño, implementación e integración de los componentes de consulta y visualización.\\\hline
-E6. Plan y registros de pruebas, revisiones y evaluaciones. & OE2, OE4 & ISO/IEC/IEEE 29119-2, 29119-3 y 29119-4:2021~\cite{iso291192,iso291193,iso291194}, e IEEE 730:2026. & Organizar procesos, documentación y técnicas de prueba, registrando condiciones, resultados y reevaluaciones frente a criterios explícitos.\\\hline
-E7. Manual de instalación y uso, guía técnica e informe final con demostración. & OE1, OE4 & ISO/IEC/IEEE 12207:2026 e IEEE 730:2026. & Acompañar la entrega con instrucciones reproducibles, dependencias, límites conocidos y síntesis de la evidencia obtenida.\\\hline
+E3. Paquete reproducible de configuración FDS, entradas preparadas e informe del piloto. & \textcolor{black}{OE1, OE4} & ISO/IEC/IEEE 12207:2026 e IEEE 730:2026~\cite{ieee730}. & Identificar versiones, entradas, unidades, procedencia y evidencia de revisión de los productos técnicos.\\\hline
+E4. \textcolor{black}{Dataset y catálogo que relacionan escenarios con condiciones geográficas y meteorológicas.} & \textcolor{black}{OE4} & ISO/IEC/IEEE 12207:2026 e IEEE 730:2026. & Conservar la relación entre cada resultado, sus condiciones y su configuración, para permitir consulta e identificar casos incompletos o incompatibles.\\\hline
+E5. Código fuente y versión ejecutable de la aplicación de escritorio. & \textcolor{black}{OE3, OE5} & ISO/IEC/IEEE 12207:2026 y OMG UML 2.5.1. & Mantener correspondencia entre diseño, implementación e integración de los componentes de consulta y visualización.\\\hline
+E6. Plan y registros de pruebas, revisiones y evaluaciones. & \textcolor{black}{OE2, OE5} & ISO/IEC/IEEE 29119-2, 29119-3 y 29119-4:2021~\cite{iso291192,iso291193,iso291194}, e IEEE 730:2026. & Organizar procesos, documentación y técnicas de prueba, registrando condiciones, resultados y reevaluaciones frente a criterios explícitos.\\\hline
+E7. Manual de instalación y uso, guía técnica e informe final con demostración. & \textcolor{black}{OE1, OE5} & ISO/IEC/IEEE 12207:2026 e IEEE 730:2026. & Acompañar la entrega con instrucciones reproducibles, dependencias, límites conocidos y síntesis de la evidencia obtenida.\\\hline
 \end{longtable}}
 
 

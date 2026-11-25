@@ -1,6 +1,6 @@
 \subsubsection{Confiabilidad}
 % Contenido pendiente de redacción.
-La aplicación no maneja transacciones concurrentes, porque atiende a un solo usuario y \textcolor{red}{accede al dataset} solo en modo de lectura. Su confiabilidad depende de los siguientes requerimientos.
+La aplicación no maneja transacciones concurrentes, porque atiende a un solo usuario y \textcolor{black}{accede al dataset} solo en modo de lectura. Su confiabilidad depende de los siguientes requerimientos.
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
   \caption{RNF-01 -- Validar la hipótesis de agregación}\label{tab:rnf-01}\tabularnewline
@@ -22,7 +22,7 @@ La aplicación no maneja transacciones concurrentes, porque atiende a un solo us
   \textbf{\# Requerimiento} & RNF-02 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Un escenario solo deberá \textcolor{red}{incorporarse al dataset} después de comprobar que, al repetirlo con la misma configuración, versión de FDS y número de procesos, se obtienen la misma área quemada y la misma posición del frente.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Un escenario solo deberá \textcolor{black}{incorporarse al dataset} después de comprobar que, al repetirlo con la misma configuración, versión de FDS y número de procesos, se obtienen la misma área quemada y la misma posición del frente.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La consulta debe basarse en simulaciones verificadas, cuyos resultados puedan reproducirse~\cite{pmp2026}.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
   \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se repite el caso piloto con la misma configuración y se comparan el área quemada y la posición del frente de ambas ejecuciones, que deben ser iguales~\cite{pmp2026}.}\tabularnewline\hline
@@ -45,15 +45,15 @@ La aplicación no maneja transacciones concurrentes, porque atiende a un solo us
 \end{longtable}
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
-  \caption{RNF-04 -- Comprobar la \textcolor{red}{integridad del dataset}}\label{tab:rnf-04}\tabularnewline
+  \caption{RNF-04 -- Comprobar la \textcolor{black}{integridad del dataset}}\label{tab:rnf-04}\tabularnewline
   \hline
   \textbf{\# Requerimiento} & RNF-04 & \raggedright\textbf{Tipo de requerimiento} & No funcional: confiabilidad\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Los \textcolor{red}{archivos del dataset} deberán acompañarse de sumas de verificación SHA-256, con las que deberá comprobarse su integridad después de instalarlos o copiarlos a otro equipo.}\tabularnewline\hline
-  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{\textcolor{red}{El dataset se compone} de archivos voluminosos que se copian entre discos y equipos, y un archivo dañado alteraría los resultados sin que el usuario lo note~\cite{pmp2026}.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Los \textcolor{black}{archivos del dataset} deberán acompañarse de sumas de verificación SHA-256, con las que deberá comprobarse su integridad después de instalarlos o copiarlos a otro equipo.}\tabularnewline\hline
+  \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{\textcolor{black}{El dataset se compone} de archivos voluminosos que se copian entre discos y equipos, y un archivo dañado alteraría los resultados sin que el usuario lo note~\cite{pmp2026}.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
-  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se altera un archivo de \textcolor{red}{un dataset de prueba} y la comprobación detecta la diferencia.}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: se altera un archivo de \textcolor{black}{un dataset de prueba} y la comprobación detecta la diferencia.}\tabularnewline\hline
   \textbf{Prioridad} & Alta & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline\hline
 \end{longtable}

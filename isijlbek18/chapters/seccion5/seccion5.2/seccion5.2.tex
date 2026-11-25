@@ -11,7 +11,7 @@ Cell2Fire es un entorno de simulación desarrollado con participación de invest
 
 \textbf{Proyecto de gemelos digitales multimodales del ISCI en Chile.}
 
-En septiembre de 2026, el Instituto Sistemas Complejos de Ingeniería anunció un proyecto FONDEF para desarrollar una plataforma de gestión de incendios basada en gemelos digitales, modelos de propagación, procesamiento paralelo mediante GPU y observaciones de drones y cámaras \cite{vfpISCI2026}. Su beneficio esperado es actualizar escenarios conforme se reciben observaciones y apoyar la coordinación operativa. Nuestra propuesta, en cambio, utilizará una biblioteca finita de simulaciones FDS, sin sensores ni observación permanente. Esto reduce el alcance y las dependencias de infraestructura, aunque limita la actualización física de los escenarios. El proyecto chileno permanece en desarrollo y no debe considerarse una solución cuya validación operativa esté demostrada.
+En septiembre de 2026, el Instituto Sistemas Complejos de Ingeniería anunció un proyecto FONDEF para desarrollar una plataforma de gestión de incendios basada en gemelos digitales, modelos de propagación, procesamiento paralelo mediante GPU y observaciones de drones y cámaras \cite{vfpISCI2026}. Su beneficio esperado es actualizar escenarios conforme se reciben observaciones y apoyar la coordinación operativa. Nuestra propuesta, en cambio, utilizará \textcolor{black}{un dataset finito} de simulaciones FDS, sin sensores ni observación permanente. Esto reduce el alcance y las dependencias de infraestructura, aunque limita la actualización física de los escenarios. El proyecto chileno permanece en desarrollo y no debe considerarse una solución cuya validación operativa esté demostrada.
 
 \textbf{FIP Cerrado en Brasil.}
 
@@ -23,7 +23,7 @@ La Comisión Nacional Forestal desarrolla el Sistema de Predicción de Peligro d
 
 \textbf{Wildfire Analyst de Technosylva.}
 
-Technosylva ofrece herramientas de simulación, análisis y representación cartográfica para apoyar decisiones durante incendios. Su colaboración con CAL FIRE constituye un antecedente relevante de integración entre modelación e información operativa \cite{vfpTechnosylva}. Para los responsables de emergencias, permite estudiar escenarios e interpretar posibles afectaciones. Es uno de los referentes funcionales más cercanos al proyecto. Sin embargo, su adopción en Bogotá dependería del acceso, licenciamiento y adaptación territorial. La solución propia permitirá controlar la biblioteca FDS, los metadatos y los mecanismos de consulta, sin pretender igualar sus capacidades operativas.
+Technosylva ofrece herramientas de simulación, análisis y representación cartográfica para apoyar decisiones durante incendios. Su colaboración con CAL FIRE constituye un antecedente relevante de integración entre modelación e información operativa \cite{vfpTechnosylva}. Para los responsables de emergencias, permite estudiar escenarios e interpretar posibles afectaciones. Es uno de los referentes funcionales más cercanos al proyecto. Sin embargo, su adopción en Bogotá dependería del acceso, licenciamiento y adaptación territorial. La solución propia permitirá controlar \textcolor{black}{el dataset FDS}, los metadatos y los mecanismos de consulta, sin pretender igualar sus capacidades operativas.
 
 \textbf{Wildland Fire Decision Support System en Estados Unidos.}
 
@@ -43,13 +43,13 @@ Estos antecedentes muestran distintas formas de integrar simulación y apoyo a d
 
 \subsubsection{Alternativas técnicas consideradas}
 
-Se identifican tres alternativas tecnológicas frente a la biblioteca FDS precalculada, considerando sus beneficios para los usuarios, restricciones computacionales y adecuación al proyecto.
+Se identifican tres alternativas tecnológicas frente \textcolor{black}{al dataset de simulaciones FDS precalculadas}, considerando sus beneficios para los usuarios, restricciones computacionales y adecuación al proyecto.
 
 \textbf{Alternativa 1. Ejecución de simulaciones físicas bajo demanda.}
 
-Consiste en ejecutar una nueva simulación FDS cada vez que el usuario ingrese una ubicación, perímetro o condiciones meteorológicas. Su ventaja es permitir configurar escenarios específicos sin depender de una biblioteca limitada. Sin embargo, FDS utiliza mallas tridimensionales cuyo costo depende del dominio, resolución, duración y configuración física. Como se explicó en la sección~\ref{sec:fundamentos}, incluso dominios relativamente pequeños pueden contener millones de celdas.
+Consiste en ejecutar una nueva simulación FDS cada vez que el usuario ingrese una ubicación, perímetro o condiciones meteorológicas. Su ventaja es permitir configurar escenarios específicos sin depender de \textcolor{black}{un dataset limitado}. Sin embargo, FDS utiliza mallas tridimensionales cuyo costo depende del dominio, resolución, duración y configuración física. Como se explicó en la sección~\ref{sec:fundamentos}, incluso dominios relativamente pequeños pueden contener millones de celdas.
 
-Por ello, ejecutar simulaciones completas durante una emergencia podría exigir recursos y tiempos incompatibles con una consulta oportuna. Aunque su inviabilidad absoluta requeriría mediciones, representa un riesgo computacional elevado para el alcance previsto. La biblioteca precalculada evita repetir ese cálculo intensivo durante cada consulta, a cambio de limitar las respuestas a condiciones previamente representadas.
+Por ello, ejecutar simulaciones completas durante una emergencia podría exigir recursos y tiempos incompatibles con una consulta oportuna. Aunque su inviabilidad absoluta requeriría mediciones, representa un riesgo computacional elevado para el alcance previsto. \textcolor{black}{El dataset de simulaciones precalculadas} evita repetir ese cálculo intensivo durante cada consulta, a cambio de limitar las respuestas a condiciones previamente representadas.
 
 \textbf{Alternativa 2. Uso de modelos de propagación de menor costo computacional.}
 
@@ -100,8 +100,7 @@ Plataforma existente &
 Depende de su arquitectura e infraestructura. \\
 \cline{2-3}
 &
-Biblioteca FDS precalculada &
-Ejecuta previamente los escenarios y requiere almacenamiento. \\
+\textcolor{black}{Dataset FDS precalculado} &\textcolor{black}{Reúne escenarios ejecutados previamente y requiere almacenamiento.} \\
 \hline
 
 Tiempo de consulta &
@@ -117,7 +116,7 @@ Plataforma existente &
 Depende de sus servicios y capacidades disponibles. \\
 \cline{2-3}
 &
-Biblioteca FDS precalculada &
+\textcolor{black}{Dataset FDS precalculado} &
 Recupera resultados almacenados; su latencia debe medirse. \\
 \hline
 
@@ -134,7 +133,7 @@ Plataforma existente &
 Depende de los modelos incorporados. \\
 \cline{2-3}
 &
-Biblioteca FDS precalculada &
+\textcolor{black}{Dataset FDS precalculado} &
 Utiliza resultados FDS; la agregación requiere validación. \\
 \hline
 
@@ -151,7 +150,7 @@ Plataforma existente &
 Depende de licencias, servicios, acceso y compatibilidad. \\
 \cline{2-3}
 &
-Biblioteca FDS precalculada &
+\textcolor{black}{Dataset FDS precalculado} &
 Requiere HPC y almacenamiento principalmente durante la preparación. \\
 \hline
 
@@ -168,7 +167,7 @@ Plataforma existente &
 Puede presentar restricciones de personalización. \\
 \cline{2-3}
 &
-Biblioteca FDS precalculada &
+\textcolor{black}{Dataset FDS precalculado} &
 Se adapta al sector elegido, pero su cobertura es limitada. \\
 \hline
 
@@ -185,28 +184,26 @@ Plataforma existente &
 Ofrece funciones desarrolladas, pero reduce el control experimental propio. \\
 \cline{2-3}
 &
-Biblioteca FDS precalculada &
+\textcolor{black}{Dataset FDS precalculado} &
 Permite investigar recuperación, agregación y visualización de escenarios FDS. \\
 \hline
 
 \end{longtable}
 \endgroup
 
-La comparación muestra que ninguna alternativa es universalmente superior. Los modelos rápidos pueden resultar más adecuados para grandes extensiones o restricciones estrictas de tiempo, mientras que las plataformas existentes ofrecen funciones y experiencias institucionales consolidadas. La biblioteca FDS precalculada se ajusta al objetivo académico porque separa la generación física de escenarios de su posterior consulta y permite controlar los metadatos y el procedimiento experimental. Su principal limitación es la cobertura finita de escenarios y la incertidumbre asociada a la agregación de simulaciones independientes. Por tanto, su selección se fundamenta en la pertinencia para el proyecto, no en una superioridad operativa o científica demostrada.
+La comparación muestra que ninguna alternativa es universalmente superior. Los modelos rápidos pueden resultar más adecuados para grandes extensiones o restricciones estrictas de tiempo, mientras que las plataformas existentes ofrecen funciones y experiencias institucionales consolidadas. \textcolor{black}{El dataset FDS precalculado} se ajusta al objetivo académico porque separa la generación física de escenarios de su posterior consulta y permite controlar los metadatos y el procedimiento experimental. Su principal limitación es la cobertura finita de escenarios y la incertidumbre asociada a la agregación de simulaciones independientes. Por tanto, su selección se fundamenta en la pertinencia para el proyecto, no en una superioridad operativa o científica demostrada.
 
 \subsubsection{Justificación de la alternativa seleccionada}
 \label{sec:justificacion-alternativa}
 
-Se propone desarrollar una aplicación de escritorio basada en una biblioteca de escenarios FDS precalculados para un sector delimitado de los Cerros Orientales de Bogotá. El comandante o coordinador podrá ingresar una ubicación o perímetro observado y consultar simulaciones compatibles con las condiciones meteorológicas disponibles. Los resultados se procesarán y presentarán geográficamente para facilitar la interpretación de posibles evoluciones del incendio.
+Se propone desarrollar una aplicación de escritorio basada en \textcolor{black}{un dataset de escenarios FDS precalculados} para un sector delimitado de los Cerros Orientales de Bogotá. El comandante o coordinador podrá ingresar una ubicación o perímetro observado y consultar simulaciones compatibles con las condiciones meteorológicas disponibles. Los resultados se procesarán y presentarán geográficamente para facilitar la interpretación de posibles evoluciones del incendio.
 
 \textbf{Viabilidad y ventajas de la solución.}
 
-La viabilidad técnica se fundamenta en separar el cálculo físico de la consulta. Los escenarios se generarán previamente mediante recursos HPC y se conservarán con sus configuraciones y metadatos. Durante la utilización, la aplicación recuperará y procesará resultados almacenados sin ejecutar necesariamente una nueva simulación FDS. Esto permite concentrar el desarrollo en componentes verificables de almacenamiento, búsqueda, compatibilidad, agregación y visualización. También facilita medir por separado el costo de generar la biblioteca, el tiempo de consulta y la calidad de las aproximaciones empleadas.
+La viabilidad técnica se fundamenta en separar el cálculo físico de la consulta. Los escenarios se generarán previamente mediante recursos HPC y se conservarán con sus configuraciones y metadatos. Durante la utilización, la aplicación recuperará y procesará resultados almacenados sin ejecutar necesariamente una nueva simulación FDS. Esto permite concentrar el desarrollo en componentes verificables de almacenamiento, búsqueda, compatibilidad, agregación y visualización. También facilita medir por separado el costo de generar \textcolor{black}{el dataset}, el tiempo de consulta y la calidad de las aproximaciones empleadas.
 
 Frente a FDS bajo demanda, disminuye la dependencia del procesamiento intensivo durante la consulta. Frente a modelos rápidos, conserva el motor físico seleccionado; y frente a plataformas existentes, permite controlar el diseño y la evaluación del procedimiento. Estas ventajas responden al alcance académico y a la aplicación de conocimientos adquiridos durante el plan de estudios.
 
-\textbf{Limitaciones y validación de la agregación.}
-
-La biblioteca no podrá cubrir todas las combinaciones de ignición, combustible y meteorología. Su utilidad dependerá de la representatividad de los escenarios y de la disponibilidad de resultados compatibles. Además, la agregación espacial de simulaciones independientes constituye una hipótesis aún no validada. Los estudios sobre interacción y fusión de frentes muestran que el comportamiento del fuego puede modificarse cuando los frentes interactúan, por lo que una superposición geométrica no garantiza equivalencia física \cite{vfpRibeiro2022,vfpWadhwani2023}.
+\textbf{Limitaciones y validación de la agregación.}\textcolor{black}{El dataset no podrá} cubrir todas las combinaciones de ignición, combustible y meteorología. Su utilidad dependerá de la representatividad de los escenarios y de la disponibilidad de resultados compatibles. Además, la agregación espacial de simulaciones independientes constituye una hipótesis aún no validada. Los estudios sobre interacción y fusión de frentes muestran que el comportamiento del fuego puede modificarse cuando los frentes interactúan, por lo que una superposición geométrica no garantiza equivalencia física \cite{vfpRibeiro2022,vfpWadhwani2023}.
 
 Las configuraciones compartirán, dentro de lo técnicamente posible, condiciones de combustible, topografía, meteorología, resolución y tiempo de evolución. La comparación permitirá distinguir los efectos de representar una curva continua mediante puntos discretos y los derivados de omitir interacciones físicas entre simulaciones independientes. Se evaluarán coincidencia de áreas afectadas, distancia entre perímetros, dirección de propagación y, cuando las salidas lo permitan, tiempos de llegada del fuego. Los resultados permitirán identificar condiciones en las que la aproximación sea suficientemente consistente con los casos de referencia. Una correspondencia favorable con FDS no equivaldrá a validar el método frente a incendios reales, para lo cual serían necesarias observaciones independientes.

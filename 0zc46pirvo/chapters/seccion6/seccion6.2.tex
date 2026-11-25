@@ -1,9 +1,9 @@
 \subsection{Propósito, alcance y objetivos generales y específicos - ¿Qué vamos a construir y hasta dónde llegaremos?}\label{sec:spmp-6-2}
-El propósito del proyecto es desarrollar una aplicación de escritorio que permita consultar y visualizar posibles comportamientos de incendios mediante escenarios FDS precalculados, para apoyar al comandante o coordinador de la operación. El alcance técnico comprende la delimitación precisa de Aguas Claras, sector de los Cerros Orientales de Bogotá, la preparación de datos, la configuración y ejecución de simulaciones FDS, \textcolor{red}{la construcción y catalogación del dataset de escenarios}, y la integración de la consulta y visualización de resultados en la aplicación~\cite{vfp2026}.
+El propósito del proyecto es desarrollar una aplicación de escritorio que permita consultar y visualizar posibles comportamientos de incendios mediante escenarios FDS precalculados, para apoyar al comandante o coordinador de la operación. El alcance técnico comprende la delimitación precisa de Aguas Claras, sector de los Cerros Orientales de Bogotá, la preparación de datos, la configuración y ejecución de simulaciones FDS, \textcolor{black}{la construcción y catalogación del dataset de escenarios}, y la integración de la consulta y visualización de resultados en la aplicación~\cite{vfp2026}.
 
-La malla de puntos de ignición es el conjunto de ubicaciones de referencia del sector desde las cuales se simula el inicio de incendios para \textcolor{red}{preparar el dataset de escenarios}. Su densidad espacial se determinará a partir de la capa georreferenciada «Amenaza por incendios forestales en suelo rural» de la Secretaría Distrital de Planeación de Bogotá, que clasifica el territorio en amenaza alta, media y baja~\cite{sdppotamenaza40}. Las zonas de mayor amenaza tendrán una mayor densidad de puntos, mientras que en las de menor amenaza estarán más separados; para cada punto se ejecutarán varias simulaciones con distintas condiciones ambientales y parámetros. Esta malla de ubicaciones se distingue de la malla CFD, que discretiza el dominio físico dentro de cada simulación.
+La malla de puntos de ignición es el conjunto de ubicaciones de referencia del sector desde las cuales se simula el inicio de incendios para \textcolor{black}{preparar el dataset de escenarios}. Su densidad espacial se determinará a partir de la capa georreferenciada «Amenaza por incendios forestales en suelo rural» de la Secretaría Distrital de Planeación de Bogotá, que clasifica el territorio en amenaza alta, media y baja~\cite{sdppotamenaza40}. Las zonas de mayor amenaza tendrán una mayor densidad de puntos, mientras que en las de menor amenaza estarán más separados; para cada punto se ejecutarán varias simulaciones con distintas condiciones ambientales y parámetros. Esta malla de ubicaciones se distingue de la malla CFD, que discretiza el dominio físico dentro de cada simulación.
 
-Para la consulta, la aplicación obtendrá mediante la API de Open-Meteo datos meteorológicos de la situación actual, que servirán como insumo para buscar el escenario más pertinente entre los \textcolor{red}{disponibles en el dataset}.
+Para la consulta, la aplicación obtendrá mediante la API de Open-Meteo datos meteorológicos de la situación actual, que servirán como insumo para buscar el escenario más pertinente entre los \textcolor{black}{disponibles en el dataset}.
 
 
 \subsubsection{Objetivo general}
@@ -12,8 +12,8 @@ Desarrollar una primera versión funcional de una aplicación de escritorio que,
 \subsubsection{Objetivos específicos}
 \begin{enumerate}
 \item \textcolor{black}{Analizar el estado del arte de la simulación de incendios forestales para definir el alcance del producto.}
-\item \textcolor{black}{\textcolor{red}{Diseñar la arquitectura de software.}}
-\item \textcolor{black}{\textcolor{red}{Desarrollar la aplicación de escritorio.}}
-\item \textcolor{red}{Construir el dataset de simulaciones precalculados.}
+\item \textcolor{black}{\textcolor{black}{Diseñar la arquitectura de software.}}
+\item \textcolor{black}{\textcolor{black}{Desarrollar la aplicación de escritorio.}}
+\item \textcolor{black}{Construir el dataset de simulaciones precalculadas.}
 \item \textcolor{black}{Evaluar el producto mediante pruebas funcionales y retroalimentación de los usuarios.}
 \end{enumerate}

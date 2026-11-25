@@ -1,6 +1,6 @@
 \subsubsection{Mantenibilidad}
 % Contenido pendiente de redacción.
-\textcolor{red}{El dataset de escenarios podría ampliarse} con nuevas simulaciones, y la aplicación podría ser modificada por personas distintas de sus desarrolladores originales. Su mantenibilidad se especifica con los siguientes requerimientos.
+\textcolor{black}{El dataset de escenarios podría ampliarse} con nuevas simulaciones, y la aplicación podría ser modificada por personas distintas de sus desarrolladores originales. Su mantenibilidad se especifica con los siguientes requerimientos.
 
 \begin{longtable}{|p{\rqA}|p{\rqB}|p{\rqC}|p{\rqD}|}
   \caption{RNF-08 -- Agregar escenarios sin modificar el código}\label{tab:rnf-08}\tabularnewline
@@ -8,10 +8,10 @@
   \textbf{\# Requerimiento} & RNF-08 & \raggedright\textbf{Tipo de requerimiento} & No funcional: mantenibilidad\tabularnewline\hline
   \raggedright\textbf{Funcionalidad} & \multicolumn{3}{p{\rqBCD}|}{Agregar simulaciones}\tabularnewline\hline
   \endfirsthead
-  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Una vez simulados y comprobados (RNF-02), los nuevos escenarios deberán poder \textcolor{red}{agregarse al dataset}, incluidos los que amplíen el área cubierta, registrándolos en la base de datos y copiando sus archivos a la carpeta de resultados, sin modificar el código ni volver a generar el ejecutable. Para ello, el área \textcolor{red}{cubierta por el dataset} deberá obtenerse de su catálogo y no estar fija en el código.}\tabularnewline\hline
+  \textbf{Descripción} & \multicolumn{3}{p{\rqBCD}|}{Una vez simulados y comprobados (RNF-02), los nuevos escenarios deberán poder \textcolor{black}{agregarse al dataset}, incluidos los que amplíen el área cubierta, registrándolos en la base de datos y copiando sus archivos a la carpeta de resultados, sin modificar el código ni volver a generar el ejecutable. Para ello, el área \textcolor{black}{cubierta por el dataset} deberá obtenerse de su catálogo y no estar fija en el código.}\tabularnewline\hline
   \textbf{Razón} & \multicolumn{3}{p{\rqBCD}|}{La primera versión cubre solo el sector de Aguas Claras (sección~3.4), pero podría extenderse a otros sectores de los Cerros Orientales si se dispone de datos adecuados, aunque el proyecto no se compromete a cubrir zonas adicionales~\cite{vfp2026}.}\tabularnewline\hline
   \textbf{Autor} & \multicolumn{3}{p{\rqBCD}|}{el equipo de trabajo}\tabularnewline\hline
-  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: \textcolor{red}{se agrega al dataset} un escenario de prueba ubicado fuera del área cubierta actualmente, sin modificar el código ni volver a generar el ejecutable; al registrar un incendio en esa zona, la aplicación ya no muestra la advertencia de cobertura de la sección~3.1.1 y utiliza el escenario agregado en la consulta.}\tabularnewline\hline
+  \raggedright\textbf{Criterio de medición} & \multicolumn{3}{p{\rqBCD}|}{Prueba: \textcolor{black}{se agrega al dataset} un escenario de prueba ubicado fuera del área cubierta actualmente, sin modificar el código ni volver a generar el ejecutable; al registrar un incendio en esa zona, la aplicación ya no muestra la advertencia de cobertura de la sección~3.1.1 y utiliza el escenario agregado en la consulta.}\tabularnewline\hline
   \textbf{Prioridad} & Media & \raggedright\textbf{Módulo asociado} & Consulta de escenarios\tabularnewline\hline
   \textbf{Versión} & 1.0 & \textbf{Fecha} & 21/11/2026\tabularnewline*\cline{1-4}
 \end{longtable}
